@@ -1,0 +1,3438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Diamond Jewellery | THE JEWELICA</title>
+  <link rel="icon" type="image/png" href="images/LOGO png.png">
+  <meta name="description"
+    content="Discover the refined diamond jewellery collection at THE JEWELICA, featuring diamond rings, earrings and pendants with an elegant modern aesthetic.">
+  <meta name="keywords"
+    content="THE JEWELICA, diamond jewellery, diamond rings, diamond earrings, diamond pendants, luxury jewellery">
+  <meta name="author" content="THE JEWELICA">
+
+  <meta property="og:title" content="Diamond Jewellery | THE JEWELICA">
+  <meta property="og:description" content="Explore refined diamond jewellery from THE JEWELICA.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/diamond-og.jpg">
+
+  <style>
+    :root {
+      --ivory: #f8f4ec;
+      --cream: #eee7da;
+      --champagne: #d9c7a0;
+      --gold: #b99a5b;
+      --gold-light: #d8bd82;
+      --espresso: #241d18;
+      --charcoal: #171513;
+      --brown: #59483a;
+      --muted: #8c8176;
+      --white: #fffdf8;
+      --border: rgba(89, 72, 58, 0.16);
+      --shadow: 0 24px 70px rgba(36, 29, 24, 0.11);
+      --transition: 0.35s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--ivory);
+      color: var(--espresso);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .serif {
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .top-line {
+      height: 3px;
+      background: var(--gold);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248, 244, 236, 0.96);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      max-width: 1440px;
+      margin: auto;
+      min-height: 84px;
+      padding: 0 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      flex-shrink: 0;
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1;
+      letter-spacing: .16em;
+    }
+
+    .brand-main {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      letter-spacing: .13em;
+    }
+
+    .brand-sub {
+      margin-top: 7px;
+      font-size: 8px;
+      letter-spacing: .42em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .nav-links>a,
+    .drop-trigger {
+      border: 0;
+      background: transparent;
+      color: var(--espresso);
+      padding: 12px 13px;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-links>a:hover,
+    .drop-trigger:hover,
+    .nav-links>a.active {
+      color: var(--gold);
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .drop-trigger span {
+      margin-left: 4px;
+      font-size: 9px;
+    }
+
+    .mega-menu {
+      position: absolute;
+      left: 50%;
+      top: calc(100% + 16px);
+      transform: translateX(-50%) translateY(8px);
+      width: 590px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .dropdown:hover .mega-menu,
+    .dropdown.open .mega-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .mega-heading {
+      grid-column: 1 / -1;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+    }
+
+    .mega-column {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mega-column a {
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--brown);
+      transition: var(--transition);
+    }
+
+    .mega-column a:hover {
+      color: var(--gold);
+      padding-left: 5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-icon {
+      width: 39px;
+      height: 39px;
+      border: 1px solid var(--border);
+      background: transparent;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      color: var(--espresso);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-icon:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .counter {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      min-width: 17px;
+      height: 17px;
+      padding: 0 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: white;
+      font-size: 9px;
+      display: grid;
+      place-items: center;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    /* =========================
+       SEARCH OVERLAY
+    ========================== */
+
+    .search-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(23, 21, 19, .72);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s ease;
+    }
+
+    .search-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .search-panel {
+      width: min(850px, calc(100% - 30px));
+      margin: 12vh auto 0;
+      background: var(--white);
+      padding: 38px;
+      transform: translateY(-20px);
+      transition: .35s ease;
+    }
+
+    .search-overlay.active .search-panel {
+      transform: translateY(0);
+    }
+
+    .search-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .search-top h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      font-weight: normal;
+    }
+
+    .close-search {
+      border: 0;
+      background: transparent;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .search-input {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid var(--espresso);
+      background: transparent;
+      padding: 16px 2px;
+      font-size: 20px;
+      outline: none;
+    }
+
+    .search-results {
+      margin-top: 25px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .search-result {
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .page-hero {
+      min-height: 620px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: var(--charcoal);
+    }
+
+    .page-hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .68;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(23, 21, 19, .72), rgba(23, 21, 19, .25), rgba(23, 21, 19, .62));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(900px, calc(100% - 40px));
+      text-align: center;
+      color: var(--white);
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: .38em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 18px;
+    }
+
+    .hero-content h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      font-size: clamp(52px, 8vw, 104px);
+      line-height: .92;
+      letter-spacing: -.025em;
+      margin-bottom: 25px;
+    }
+
+    .hero-content p {
+      max-width: 630px;
+      margin: auto;
+      color: rgba(255, 253, 248, .82);
+      font-size: 14px;
+    }
+
+    .hero-actions {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 25px;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: white;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border-color: rgba(255, 255, 255, .55);
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--espresso);
+      border-color: white;
+    }
+
+    /* =========================
+       INTRO
+    ========================== */
+
+    .intro {
+      max-width: 1000px;
+      margin: auto;
+      padding: 110px 30px 85px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    .intro p {
+      max-width: 700px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       CATEGORY GRID
+    ========================== */
+
+    .section {
+      max-width: 1400px;
+      margin: auto;
+      padding: 85px 35px;
+    }
+
+    .section-heading {
+      margin-bottom: 45px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+    }
+
+    .section-heading .eyebrow {
+      color: var(--gold);
+      margin-bottom: 9px;
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1;
+      font-weight: normal;
+    }
+
+    .section-heading p {
+      max-width: 470px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .category-card {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    .category-card img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .category-card:hover img {
+      transform: scale(1.055);
+    }
+
+    .category-overlay {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 55px 28px 27px;
+      color: white;
+      background: linear-gradient(transparent, rgba(23, 21, 19, .82));
+    }
+
+    .category-overlay span {
+      font-size: 9px;
+      letter-spacing: .25em;
+      color: var(--champagne);
+    }
+
+    .category-overlay h3 {
+      margin: 6px 0 13px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      font-weight: normal;
+    }
+
+    .category-overlay a {
+      font-size: 9px;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255, 255, 255, .65);
+      padding-bottom: 4px;
+    }
+
+    /* =========================
+       FEATURED PRODUCTS
+    ========================== */
+
+    .products-section {
+      background: var(--white);
+    }
+
+    .product-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .result-count {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .08em;
+    }
+
+    .sort-select {
+      border: 1px solid var(--border);
+      background: transparent;
+      padding: 11px 14px;
+      color: var(--espresso);
+      outline: none;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      position: relative;
+      min-width: 0;
+    }
+
+    .product-image {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      background: #e8e0d4;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .65s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.045);
+    }
+
+    .product-tools {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .product-tool {
+      width: 36px;
+      height: 36px;
+      border: 0;
+      background: rgba(255, 253, 248, .94);
+      color: var(--espresso);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: var(--transition);
+    }
+
+    .product-tool:hover,
+    .product-tool.active {
+      background: var(--gold);
+      color: white;
+    }
+
+    .product-info {
+      padding: 17px 3px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .product-type {
+      font-size: 10px;
+      letter-spacing: .19em;
+      color: var(--espresso);
+      text-transform: uppercase;
+    }
+
+    .product-category {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .product-buttons {
+      display: flex;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .mini-btn {
+      flex: 1;
+      border: 1px solid var(--border);
+      background: transparent;
+      min-height: 38px;
+      cursor: pointer;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+
+    .mini-btn:hover {
+      background: var(--espresso);
+      color: white;
+      border-color: var(--espresso);
+    }
+
+    /* =========================
+       CRAFTSMANSHIP
+    ========================== */
+
+    .craftsmanship {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      min-height: 620px;
+      background: var(--charcoal);
+      color: white;
+    }
+
+    .craft-image {
+      min-height: 550px;
+      overflow: hidden;
+    }
+
+    .craft-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .craft-copy {
+      padding: 90px clamp(35px, 7vw, 110px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .craft-copy .eyebrow {
+      color: var(--champagne);
+    }
+
+    .craft-copy h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 5vw, 72px);
+      line-height: .98;
+      font-weight: normal;
+      margin-bottom: 25px;
+    }
+
+    .craft-copy p {
+      max-width: 500px;
+      color: rgba(255, 255, 255, .68);
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    /* =========================
+       DIAMOND NOTES
+    ========================== */
+
+    .diamond-notes {
+      background: var(--cream);
+    }
+
+    .note-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .note {
+      padding: 38px 27px;
+      border-right: 1px solid var(--border);
+    }
+
+    .note:last-child {
+      border-right: 0;
+    }
+
+    .note-number {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--gold);
+      font-size: 30px;
+      margin-bottom: 13px;
+    }
+
+    .note h3 {
+      font-size: 12px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .note p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta {
+      max-width: 1100px;
+      margin: auto;
+      padding: 115px 30px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: .98;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 30px;
+      font-size: 13px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: var(--charcoal);
+      color: white;
+    }
+
+    .footer-main {
+      max-width: 1440px;
+      margin: auto;
+      padding: 75px 42px 45px;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr 1.25fr;
+      gap: 45px;
+    }
+
+    .footer-brand .brand-main {
+      color: white;
+    }
+
+    .footer-brand p {
+      margin-top: 25px;
+      max-width: 300px;
+      color: rgba(255, 255, 255, .55);
+      font-size: 12px;
+    }
+
+    .footer-title {
+      margin-bottom: 20px;
+      color: var(--champagne);
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 9px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, .68);
+      font-size: 11px;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(4px);
+    }
+
+    .visit-info {
+      display: grid;
+      gap: 12px;
+      color: rgba(255, 255, 255, .68);
+      font-size: 11px;
+    }
+
+    .visit-info strong {
+      display: block;
+      color: white;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .map-wrap {
+      height: 240px;
+      overflow: hidden;
+      background: #27231f;
+      border: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(1) sepia(.15);
+      opacity: .82;
+    }
+
+    .footer-bottom {
+      max-width: 1440px;
+      margin: auto;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      padding: 22px 42px;
+      color: rgba(255, 255, 255, .4);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       CART DRAWER
+    ========================== */
+
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(23, 21, 19, .48);
+      z-index: 1800;
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s ease;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: min(430px, 92%);
+      background: var(--white);
+      z-index: 1900;
+      transform: translateX(100%);
+      transition: .4s cubic-bezier(.2, .7, .2, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 25px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-header h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      font-size: 26px;
+    }
+
+    .cart-close {
+      border: 0;
+      background: transparent;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow: auto;
+      padding: 20px 25px;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 60px 15px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 75px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-item img {
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    .cart-item-type {
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .cart-item-category {
+      color: var(--muted);
+      font-size: 9px;
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      margin-top: 8px;
+      gap: 9px;
+    }
+
+    .qty-controls button {
+      width: 23px;
+      height: 23px;
+      border: 1px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .remove-item {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 9px;
+      text-transform: uppercase;
+    }
+
+    .cart-footer {
+      padding: 22px 25px;
+      border-top: 1px solid var(--border);
+    }
+
+    .cart-note {
+      color: var(--muted);
+      font-size: 10px;
+      margin-bottom: 15px;
+    }
+
+    .cart-checkout {
+      width: 100%;
+    }
+
+    /* =========================
+       REVEAL
+    ========================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--gold);
+      background: var(--white);
+      color: var(--espresso);
+      z-index: 800;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: var(--transition);
+    }
+
+    .back-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 1150px) {
+      .nav-wrap {
+        padding: 0 25px;
+      }
+
+      .nav-links>a,
+      .drop-trigger {
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: 9px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-wrap {
+        min-height: 72px;
+      }
+
+      .menu-btn {
+        display: grid;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 20px 20px;
+        box-shadow: 0 20px 40px rgba(36, 29, 24, .08);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links>a,
+      .drop-trigger {
+        width: 100%;
+        text-align: left;
+        padding: 14px 4px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .mega-menu {
+        position: static;
+        width: 100%;
+        transform: none !important;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+        border: 0;
+        padding: 14px 10px;
+      }
+
+      .dropdown.open .mega-menu {
+        display: grid;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .craftsmanship {
+        grid-template-columns: 1fr;
+      }
+
+      .craft-image {
+        min-height: 450px;
+      }
+
+      .note-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .note:nth-child(2) {
+        border-right: 0;
+      }
+
+      .note:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav-wrap {
+        padding: 0 16px;
+      }
+
+      .brand-main {
+        font-size: 20px;
+      }
+
+      .brand-sub {
+        font-size: 6px;
+      }
+
+      .nav-actions {
+        margin-left: auto;
+      }
+
+      .nav-icon {
+        width: 35px;
+        height: 35px;
+      }
+
+      .page-hero {
+        min-height: 540px;
+      }
+
+      .hero-content h1 {
+        font-size: 58px;
+      }
+
+      .section {
+        padding: 65px 18px;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 15px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-card {
+        min-height: 380px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .product-info {
+        display: block;
+      }
+
+      .product-category {
+        margin-top: 4px;
+      }
+
+      .product-buttons {
+        flex-direction: column;
+      }
+
+      .note-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .note {
+        border-right: 0 !important;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .note:last-child {
+        border-bottom: 0;
+      }
+
+      .craft-copy {
+        padding: 65px 25px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        padding: 60px 22px 35px;
+      }
+
+      .footer-bottom {
+        padding: 20px 22px;
+        display: block;
+      }
+
+      .footer-bottom span+span {
+        display: block;
+        margin-top: 8px;
+      }
+
+      .map-wrap {
+        height: 220px;
+      }
+
+      .search-panel {
+        padding: 25px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        aspect-ratio: 1 / 1.12;
+      }
+
+      .hero-content h1 {
+        font-size: 49px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-line"></div>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header>
+    <div class="nav-wrap">
+
+      <a href="index.html" class="brand" aria-label="THE JEWELICA Home">
+        <span class="brand-main">THE JEWELICA</span>
+        <span class="brand-sub">Fine Jewellery House</span>
+      </a>
+
+      <nav class="nav-links" id="mainNav" aria-label="Main navigation">
+
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+
+        <div class="dropdown">
+          <button class="drop-trigger" type="button" aria-expanded="false">
+            Gold <span>⌄</span>
+          </button>
+
+          <div class="mega-menu">
+            <div class="mega-heading">Gold Jewellery</div>
+
+            <div class="mega-column">
+              <a href="gold.html">Gold Collection</a>
+              <a href="gold-rings.html">Gold Rings</a>
+              <a href="gold-bracelets.html">Gold Bracelets</a>
+              <a href="gold-bangles.html">Gold Bangles</a>
+              <a href="gold-earrings.html">Gold Earrings</a>
+              <a href="gold-necklace-sets.html">Gold Necklace Sets</a>
+            </div>
+
+            <div class="mega-column">
+              <a href="gold-tops.html">Gold Tops</a>
+              <a href="gold-pendants.html">Gold Pendants</a>
+              <a href="gold-chains.html">Gold Chains</a>
+              <a href="gold-mens-rings.html">Gold Men's Rings</a>
+              <a href="gold">Gold Jewellery Sets</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="drop-trigger" type="button" aria-expanded="false">
+            Diamonds <span>⌄</span>
+          </button>
+
+          <div class="mega-menu">
+            <div class="mega-heading">Diamond Jewellery</div>
+
+            <div class="mega-column">
+              <a href="diamond.html">Diamond Collection</a>
+              <a href="diamond-rings.html">Diamond Ladies Rings</a>
+            </div>
+
+            <div class="mega-column">
+
+              <!-- KEPT AS THE ORIGINAL FILE -->
+              <a href="diamond-ring-men.html">Diamond Men's Rings</a>
+
+              <!-- Earrings/Pendant-Nose-Pin category now connects to Men's Rings page -->
+              <a href="diamond-ring-men.html">Diamond Nose Pins</a>
+
+            </div>
+          </div>
+        </div>
+
+        <a href="collections.html">Collections</a>
+        <a href="stones.html">Choose Your Stone</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+
+      </nav>
+
+      <div class="nav-actions">
+
+        <button class="nav-icon" id="searchBtn" aria-label="Search">
+          ⌕
+        </button>
+
+        <button class="nav-icon" id="wishlistBtn" aria-label="Wishlist">
+          ♡
+          <span class="counter" id="wishlistCount">0</span>
+        </button>
+
+        <button class="nav-icon" id="cartBtn" aria-label="Shopping cart">
+          ◇
+          <span class="counter" id="cartCount">0</span>
+        </button>
+
+        <button class="nav-icon menu-btn" id="menuBtn" aria-label="Open menu">
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================
+       SEARCH
+  ========================== -->
+  <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+
+    <div class="search-panel">
+
+      <div class="search-top">
+        <h2>Search The Jewelica</h2>
+        <button class="close-search" id="closeSearch" aria-label="Close search">×</button>
+      </div>
+
+      <input type="search" class="search-input" id="searchInput" placeholder="Search diamond jewellery..."
+        autocomplete="off">
+
+      <div class="search-results" id="searchResults"></div>
+
+    </div>
+
+  </div>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+  <main>
+
+    <section class="page-hero">
+
+      <img class="page-hero-image" src="images/diamond page 1.png" alt="The Jewelica Diamond Jewellery">
+
+      <div class="hero-content reveal">
+
+        <div class="eyebrow">THE JEWELICA / DIAMOND COLLECTION</div>
+
+        <h1>Diamonds,<br>Refined.</h1>
+
+        <p>
+          Discover an elegant expression of light, precision and enduring beauty
+          through the diamond jewellery collection of THE JEWELICA.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#diamondCategories" class="btn">Explore Diamonds</a>
+          <a href="contact.html" class="btn btn-outline">Request Consultation</a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         INTRODUCTION
+    ========================== -->
+
+    <section class="intro reveal">
+
+      <div class="eyebrow" style="color:var(--gold);">THE DIAMOND EDIT</div>
+
+      <h2>Light, shaped<br>with intention.</h2>
+
+      <p>
+        THE JEWELICA diamond collection celebrates the quiet brilliance of
+        thoughtfully designed jewellery. From refined everyday pieces to
+        distinctive statement forms, each category is created to bring
+        clarity, balance and character to your personal style.
+      </p>
+
+    </section>
+
+    <!-- =========================
+         DIAMOND CATEGORIES
+    ========================== -->
+
+    <section class="section" id="diamondCategories">
+
+      <div class="section-heading reveal">
+
+        <div>
+          <div class="eyebrow">DISCOVER THE COLLECTION</div>
+          <h2>Diamond Jewellery</h2>
+        </div>
+
+        <p>
+          Explore three distinct diamond categories, each designed around a
+          different expression of timeless jewellery.
+        </p>
+
+      </div>
+
+      <div class="category-grid">
+
+        <!-- DIAMOND RINGS -->
+        <article class="category-card reveal">
+
+          <img src="assets/images/diamond-rings-category.jpg"
+            alt="The Jewelica Diamond Rings"
+            loading="lazy">
+
+          <div class="category-overlay">
+            <span>01 / DIAMOND</span>
+            <h3>Diamond Rings</h3>
+
+            <!-- ORIGINAL FILE UNCHANGED -->
+            <a href="diamond-rings.html">Explore Category</a>
+
+          </div>
+
+        </article>
+
+        <!-- DIAMOND EARRINGS -->
+        <article class="category-card reveal">
+
+          <img src="assets/images/diamond-earrings-category.jpg"
+            alt="The Jewelica Diamond Earrings"
+            loading="lazy">
+
+          <div class="category-overlay">
+            <span>02 / DIAMOND</span>
+            <h3>Diamond Earrings</h3>
+
+            <!-- CHANGED TO DIAMOND MEN'S RINGS FILE -->
+            <a href="diamond-ring-men.html">Explore Category</a>
+
+          </div>
+
+        </article>
+
+        <!-- DIAMOND PENDANTS / NOSE PINS -->
+        <article class="category-card reveal">
+
+          <img src="assets/images/diamond-pendants-category.jpg"
+            alt="The Jewelica Diamond Pendants and Nose Pins"
+            loading="lazy">
+
+          <div class="category-overlay">
+            <span>03 / DIAMOND</span>
+            <h3>Pendants / Nose Pins</h3>
+
+            <!-- CHANGED TO DIAMOND MEN'S RINGS FILE -->
+            <a href="diamond-ring-men.html">Explore Category</a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         FEATURED DIAMONDS
+    ========================== -->
+
+    <section class="section products-section">
+
+      <div class="section-heading reveal">
+
+        <div>
+          <div class="eyebrow">SELECTED FOR YOU</div>
+          <h2>Featured Diamonds</h2>
+        </div>
+
+        <p>
+          A considered edit of diamond jewellery designed to complement
+          contemporary wardrobes and meaningful occasions.
+        </p>
+
+      </div>
+
+      <div class="product-toolbar reveal">
+
+        <div class="result-count">
+          Showing <strong id="resultCount">8</strong> selected pieces
+        </div>
+
+        <select class="sort-select" id="sortProducts" aria-label="Sort jewellery">
+          <option value="featured">Featured</option>
+          <option value="az">Category A-Z</option>
+          <option value="za">Category Z-A</option>
+        </select>
+
+      </div>
+
+      <div class="product-grid" id="productGrid">
+
+        <!-- PRODUCT 1 -->
+        <article class="product-card reveal"
+          data-type="DIAMOND RING"
+          data-category="rings">
+
+          <div class="product-image">
+
+            <img src="assets/images/diamond-ring-01.jpg"
+              alt="The Jewelica Diamond Ring"
+              loading="lazy">
+
+            <div class="product-tools">
+              <button class="product-tool wishlist-product"
+                data-id="diamond-ring-01"
+                aria-label="Add Diamond Ring to wishlist">
+                ♡
+              </button>
+            </div>
+
+          </div>
+
+          <div class="product-info">
+            <div>
+              <div class="product-type">DIAMOND RING</div>
+              <div class="product-category">Diamond Jewellery</div>
+            </div>
+          </div>
+
+          <div class="product-buttons">
+
+            <button class="mini-btn add-cart"
+              data-id="diamond-ring-01"
+              data-type="DIAMOND RING"
+              data-category="Diamond Jewellery"
+              data-image="assets/images/diamond-ring-01.jpg">
+              Add To Cart
+            </button>
+
+            <a href="product.html?type=diamond-ring"
+              class="mini-btn"
+              style="display:grid;place-items:center;">
+              View Details
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- PRODUCT 2 -->
+        <article class="product-card reveal"
+          data-type="DIAMOND RING"
+          data-category="rings">
+
+          <div class="product-image">
+
+            <img src="assets/images/diamond-ring-02.jpg"
+              alt="The Jewelica Diamond Ring"
+              loading="lazy">
+
+            <div class="product-tools">
+              <button class="product-tool wishlist-product"
+                data-id="diamond-ring-02"
+                aria-label="Add Diamond Ring to wishlist">
+                ♡
+              </button>
+            </div>
+
+          </div>
+
+          <div class="product-info">
+            <div>
+              <div class="product-type">DIAMOND RING</div>
+              <div class="product-category">Diamond Jewellery</div>
+            </div>
+          </div>
+
+          <div class="product-buttons">
+
+            <button class="mini-btn add-cart"
+              data-id="diamond-ring-02"
+              data-type="DIAMOND RING"
+              data-category="Diamond Jewellery"
+              data-image="assets/images/diamond-ring-02.jpg">
+              Add To Cart
+            </button>
+
+            <a href="product.html?type=diamond-ring"
+              class="mini-btn"
+              style="display:grid;place-items:center;">
+              View Details
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- PRODUCT 3 - DIAMOND EARRINGS -->
+        <article class="product-card reveal"
+          data-type="DIAMOND EARRINGS"
+          data-category="earrings">
+
+          <div class="product-image">
+
+            <img src="assets/images/diamond-earrings-01.jpg"
+              alt="The Jewelica Diamond Earrings"
+              loading="lazy">
+
+            <div class="product-tools">
+              <button class="product-tool wishlist-product"
+                data-id="diamond-earrings-01"
+                aria-label="Add Diamond Earrings to wishlist">
+                ♡
+              </button>
+            </div>
+
+          </div>
+
+          <div class="product-info">
+            <div>
+              <div class="product-type">DIAMOND EARRINGS</div>
+              <div class="product-category">Diamond Jewellery</div>
+            </div>
+          </div>
+
+          <div class="product-buttons">
+
+            <button class="mini-btn add-cart"
+              data-id="diamond-earrings-01"
+              data-type="DIAMOND EARRINGS"
+              data-category="Diamond Jewellery"
+              data-image="assets/images/diamond-earrings-01.jpg">
+              Add To Cart
+            </button>
+
+            <!-- CHANGED -->
+            <a href="diamond-ring-men.html"
+              class="mini-btn"
+              style="display:grid;place-items:center;">
+              View Details
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- PRODUCT 4 - DIAMOND EARRINGS -->
+        <article class="product-card reveal"
+          data-type="DIAMOND EARRINGS"
+          data-category="earrings">
+
+          <div class="product-image">
+
+            <img src="assets/images/diamond-earrings-02.jpg"
+              alt="The Jewelica Diamond Earrings"
+              loading="lazy">
+
+            <div class="product-tools">
+              <button class="product-tool wishlist-product"
+                data-id="diamond-earrings-02"
+                aria-label="Add Diamond Earrings to wishlist">
+                ♡
+              </button>
+            </div>
+
+          </div>
+
+          <div class="product-info">
+            <div>
+              <div class="product-type">DIAMOND EARRINGS</div>
+              <div class="product-category">Diamond Jewellery</div>
+            </div>
+          </div>
+
+          <div class="product-buttons">
+
+            <button class="mini-btn add-cart"
+              data-id="diamond-earrings-02"
+              data-type="DIAMOND EARRINGS"
+              data-category="Diamond Jewellery"
+              data-image="assets/images/diamond-earrings-02.jpg">
+              Add To Cart
+            </button>
+
+            <!-- CHANGED -->
+            <a href="diamond-ring-men.html"
+              class="mini-btn"
+              style="display:grid;place-items:center;">
+              View Details
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- PRODUCT 5 - DIAMOND PENDANT -->
+        <article class="product-card reveal"
+          data-type="DIAMOND PENDANT"
+          data-category="pendants">
+
+          <div class="product-image">
+
+            <img src="assets/images/diamond-pendant-01.jpg"
+              alt="The Jewelica Diamond Pendant"
+              loading="lazy">
+
+            <div class="product-tools">
+              <button class="product-tool wishlist-product"
+                data-id="diamond-pendant-01"
+                aria-label="Add Diamond Pendant to wishlist">
+                ♡
+              </button>
+            </div>
+
+          </div>
+
+          <div class="product-info">
+            <div>
+              <div class="product-type">DIAMOND PENDANT</div>
+              <div class="product-category">Diamond Jewellery</div>
+            </div>
+          </div>
+
+          <div class="product-buttons">
+
+            <button class="mini-btn add-cart"
+              data-id="diamond-pendant-01"
+              data-type="DIAMOND PENDANT"
+              data-category="Diamond Jewellery"
+              data-image="assets/images/diamond-pendant-01.jpg">
+              Add To Cart
+            </button>
+
+            <!-- CHANGED -->
+            <a href="diamond-ring-men.html"
+              class="mini-btn"
+              style="display:grid;place-items:center;">
+              View Details
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- PRODUCT 6 - DIAMOND PENDANT -->
+        <article class="product-card reveal"
+          data-type="DIAMOND PENDANT"
+          data-category="pendants">
+
+          <div class="product-image">
+
+            <img src="assets/images/diamond-pendant-02.jpg"
+              alt="The Jewelica Diamond Pendant"
+              loading="lazy">
+
+            <div class="product-tools">
+              <button class="product-tool wishlist-product"
+                data-id="diamond-pendant-02"
+                aria-label="Add Diamond Pendant to wishlist">
+                ♡
+              </button>
+            </div>
+
+          </div>
+
+          <div class="product-info">
+            <div>
+              <div class="product-type">DIAMOND PENDANT</div>
+              <div class="product-category">Diamond Jewellery</div>
+            </div>
+          </div>
+
+          <div class="product-buttons">
+
+            <button class="mini-btn add-cart"
+              data-id="diamond-pendant-02"
+              data-type="DIAMOND PENDANT"
+              data-category="Diamond Jewellery"
+              data-image="assets/images/diamond-pendant-02.jpg">
+              Add To Cart
+            </button>
+
+            <!-- CHANGED -->
+            <a href="diamond-ring-men.html"
+              class="mini-btn"
+              style="display:grid;place-items:center;">
+              View Details
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- PRODUCT 7 - DIAMOND NOSE PIN -->
+        <article class="product-card reveal"
+          data-type="NOSE PIN"
+          data-category="nose-pins">
+
+          <div class="product-image">
+
+            <img src="assets/images/diamond-nose-pin-01.jpg"
+              alt="The Jewelica Diamond Nose Pin"
+              loading="lazy">
+
+            <div class="product-tools">
+              <button class="product-tool wishlist-product"
+                data-id="diamond-nose-pin-01"
+                aria-label="Add Diamond Nose Pin to wishlist">
+                ♡
+              </button>
+            </div>
+
+          </div>
+
+          <div class="product-info">
+            <div>
+              <div class="product-type">NOSE PIN</div>
+              <div class="product-category">Diamond Jewellery</div>
+            </div>
+          </div>
+
+          <div class="product-buttons">
+
+            <button class="mini-btn add-cart"
+              data-id="diamond-nose-pin-01"
+              data-type="NOSE PIN"
+              data-category="Diamond Jewellery"
+              data-image="assets/images/diamond-nose-pin-01.jpg">
+              Add To Cart
+            </button>
+
+            <!-- CHANGED -->
+            <a href="diamond-ring-men.html"
+              class="mini-btn"
+              style="display:grid;place-items:center;">
+              View Details
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- PRODUCT 8 - DIAMOND PENDANT -->
+        <article class="product-card reveal"
+          data-type="DIAMOND PENDANT"
+          data-category="pendants">
+
+          <div class="product-image">
+
+            <img src="assets/images/diamond-pendant-03.jpg"
+              alt="The Jewelica Diamond Pendant"
+              loading="lazy">
+
+            <div class="product-tools">
+              <button class="product-tool wishlist-product"
+                data-id="diamond-pendant-03"
+                aria-label="Add Diamond Pendant to wishlist">
+                ♡
+              </button>
+            </div>
+
+          </div>
+
+          <div class="product-info">
+            <div>
+              <div class="product-type">DIAMOND PENDANT</div>
+              <div class="product-category">Diamond Jewellery</div>
+            </div>
+          </div>
+
+          <div class="product-buttons">
+
+            <button class="mini-btn add-cart"
+              data-id="diamond-pendant-03"
+              data-type="DIAMOND PENDANT"
+              data-category="Diamond Jewellery"
+              data-image="assets/images/diamond-pendant-03.jpg">
+              Add To Cart
+            </button>
+
+            <!-- CHANGED -->
+            <a href="diamond-ring-men.html"
+              class="mini-btn"
+              style="display:grid;place-items:center;">
+              View Details
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         DIAMOND CRAFTSMANSHIP
+    ========================== -->
+
+    <section class="craftsmanship">
+
+      <div class="craft-image reveal">
+
+        <img src="images/diamond page 2.png"
+          alt="The Jewelica Diamond Craftsmanship"
+          loading="lazy">
+
+      </div>
+
+      <div class="craft-copy reveal">
+
+        <div class="eyebrow">THE JEWELICA / CRAFTSMANSHIP</div>
+
+        <h2>Precision<br>in every facet.</h2>
+
+        <p>
+          Diamond jewellery is defined by the relationship between stone,
+          setting and proportion. THE JEWELICA approaches each piece with
+          an appreciation for balance, refined detail and enduring form.
+        </p>
+
+        <p>
+          Explore jewellery designed to let the natural character of each
+          stone remain at the centre of the experience.
+        </p>
+
+        <div>
+          <a href="services.html" class="btn">Discover Our Services</a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         DIAMOND NOTES
+    ========================== -->
+
+    <section class="section diamond-notes">
+
+      <div class="section-heading reveal">
+
+        <div>
+          <div class="eyebrow">DIAMOND ESSENTIALS</div>
+          <h2>Details that matter.</h2>
+        </div>
+
+        <p>
+          Understanding the fundamentals can make choosing diamond jewellery
+          a more thoughtful and personal experience.
+        </p>
+
+      </div>
+
+      <div class="note-grid">
+
+        <article class="note reveal">
+          <div class="note-number">01</div>
+          <h3>Cut</h3>
+          <p>
+            The proportions and finish of a diamond influence how beautifully
+            it interacts with light.
+          </p>
+        </article>
+
+        <article class="note reveal">
+          <div class="note-number">02</div>
+          <h3>Clarity</h3>
+          <p>
+            Clarity describes the natural characteristics observed within
+            and sometimes upon a diamond.
+          </p>
+        </article>
+
+        <article class="note reveal">
+          <div class="note-number">03</div>
+          <h3>Colour</h3>
+          <p>
+            Diamond colour ranges across subtle tones, contributing to the
+            overall character of a stone.
+          </p>
+        </article>
+
+        <article class="note reveal">
+          <div class="note-number">04</div>
+          <h3>Carat</h3>
+          <p>
+            Carat refers to diamond weight and is considered alongside the
+            other characteristics when selecting a stone.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         CHOOSE YOUR STONE
+    ========================== -->
+
+    <section class="section">
+
+      <div class="section-heading reveal">
+
+        <div>
+          <div class="eyebrow">DISCOVER SOMETHING PERSONAL</div>
+          <h2>Choose Your Stone</h2>
+        </div>
+
+        <p>
+          Diamonds are only the beginning. Explore a curated world of
+          gemstones and discover the colour, character and symbolism that
+          feels right for you.
+        </p>
+
+      </div>
+
+      <div class="category-grid">
+
+        <article class="category-card reveal">
+
+          <img src="images/choose your stone 2.png"
+            alt="The Jewelica Emerald"
+            loading="lazy">
+
+          <div class="category-overlay">
+            <span>GEMSTONE / 01</span>
+            <h3>Emerald</h3>
+            <a href="stones.html">Explore Stones</a>
+          </div>
+
+        </article>
+
+        <article class="category-card reveal">
+
+          <img src="images/choose your stone 1.png"
+            alt="The Jewelica Ruby"
+            loading="lazy">
+
+          <div class="category-overlay">
+            <span>GEMSTONE / 02</span>
+            <h3>Ruby</h3>
+            <a href="stones.html">Explore Stones</a>
+          </div>
+
+        </article>
+
+        <article class="category-card reveal">
+
+          <img src="images/choose your stone 3.png"
+            alt="The Jewelica Sapphire"
+            loading="lazy">
+
+          <div class="category-overlay">
+            <span>GEMSTONE / 03</span>
+            <h3>Sapphire</h3>
+            <a href="stones.html">Explore Stones</a>
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta reveal">
+
+      <div class="eyebrow" style="color:var(--gold);">
+        A MORE PERSONAL EXPERIENCE
+      </div>
+
+      <h2>Find the piece<br>that feels like you.</h2>
+
+      <p>
+        Whether you are selecting a meaningful gift, building an everyday
+        collection or looking for something created around a special moment,
+        THE JEWELICA is here to help you explore with confidence.
+      </p>
+
+      <div class="hero-actions">
+
+        <a href="contact.html"
+          class="btn"
+          style="color:white;">
+          Request Consultation
+        </a>
+
+        <a href="shop.html"
+          class="btn"
+          style="background:transparent;color:var(--espresso);border-color:var(--espresso);">
+          Shop Jewellery
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =========================
+       CART DRAWER
+  ========================== -->
+
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <aside class="cart-drawer"
+    id="cartDrawer"
+    aria-label="Shopping cart">
+
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-close"
+        id="cartClose"
+        aria-label="Close cart">
+        ×
+      </button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+
+      <div class="empty-cart">
+        Your jewellery selection is currently empty.
+      </div>
+
+    </div>
+
+    <div class="cart-footer">
+
+      <p class="cart-note">
+        Product details and consultation can be confirmed with THE JEWELICA
+        before your order is finalized.
+      </p>
+
+      <a href="contact.html"
+        class="btn cart-checkout">
+        Request Consultation
+      </a>
+
+    </div>
+
+  </aside>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a href="index.html" class="brand">
+
+          <span class="brand-main">
+            THE JEWELICA
+          </span>
+
+          <span class="brand-sub">
+            Fine Jewellery House
+          </span>
+
+        </a>
+
+        <p>
+          A modern jewellery house devoted to refined forms, considered
+          details and timeless personal expression.
+        </p>
+
+      </div>
+
+      <div>
+
+        <div class="footer-title">
+          Quick Links
+        </div>
+
+        <div class="footer-links">
+
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="gold.html">Gold</a>
+          <a href="diamond.html">Diamonds</a>
+          <a href="collections.html">Collections</a>
+          <a href="stones.html">Choose Your Stone</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="blogs.html">Blogs</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+
+        </div>
+
+      </div>
+
+      <div>
+
+        <div class="footer-title">
+          Customer Care
+        </div>
+
+        <div class="footer-links">
+
+          <a href="care.html">Jewellery Care</a>
+          <a href="faq.html">FAQs</a>
+          <a href="contact.html">Shipping</a>
+          <a href="contact.html">Returns</a>
+          <a href="contact.html">Privacy Policy</a>
+          <a href="contact.html">Terms</a>
+
+        </div>
+
+        <div class="footer-title"
+          style="margin-top:30px;">
+          Visit Us
+        </div>
+
+        <div class="visit-info">
+
+          <div>
+            <strong>Location</strong>
+            The Jewelica Lahore
+          </div>
+
+          <div>
+            <strong>Address</strong>
+            Lahore, Pakistan
+          </div>
+
+          <div>
+            <strong>Phone</strong>
+            +92 300 0000000
+          </div>
+
+          <div>
+            <strong>Email</strong>
+            hello@thejewelica.example
+          </div>
+
+          <div>
+            <strong>Hours</strong>
+            Monday – Saturday / 11:00 AM – 8:00 PM
+          </div>
+
+        </div>
+
+      </div>
+
+      <div>
+
+        <div class="footer-title">
+          The Jewelica Lahore
+        </div>
+
+        <div class="map-wrap">
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 THE JEWELICA. All Rights Reserved.
+      </span>
+
+      <span>
+        Designed with refined simplicity.
+      </span>
+
+    </div>
+
+  </footer>
+
+  <button class="back-top"
+    id="backTop"
+    aria-label="Back to top">
+    ↑
+  </button>
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+    /* =========================================
+       THE JEWELICA - DIAMOND PAGE
+       Frontend-only interactions
+    ========================================= */
+
+    const CART_KEY = "theJewelicaCart";
+    const WISHLIST_KEY = "theJewelicaWishlist";
+
+    let cart = JSON.parse(
+      localStorage.getItem(CART_KEY) || "[]"
+    );
+
+    let wishlist = JSON.parse(
+      localStorage.getItem(WISHLIST_KEY) || "[]"
+    );
+
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
+
+    if (menuBtn) {
+
+      menuBtn.addEventListener("click", () => {
+
+        mainNav.classList.toggle("open");
+
+        menuBtn.textContent =
+          mainNav.classList.contains("open")
+            ? "×"
+            : "☰";
+
+      });
+
+    }
+
+
+    document.querySelectorAll(".drop-trigger").forEach(trigger => {
+
+      trigger.addEventListener("click", event => {
+
+        event.stopPropagation();
+
+        const dropdown =
+          trigger.closest(".dropdown");
+
+        const wasOpen =
+          dropdown.classList.contains("open");
+
+        document.querySelectorAll(".dropdown")
+          .forEach(item => {
+
+            item.classList.remove("open");
+
+            const btn =
+              item.querySelector(".drop-trigger");
+
+            if (btn) {
+              btn.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+            }
+
+          });
+
+        if (!wasOpen) {
+
+          dropdown.classList.add("open");
+
+          trigger.setAttribute(
+            "aria-expanded",
+            "true"
+          );
+
+        }
+
+      });
+
+    });
+
+
+    document.addEventListener("click", event => {
+
+      if (!event.target.closest(".dropdown")) {
+
+        document.querySelectorAll(".dropdown")
+          .forEach(item => {
+
+            item.classList.remove("open");
+
+            const btn =
+              item.querySelector(".drop-trigger");
+
+            if (btn) {
+
+              btn.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+
+            }
+
+          });
+
+      }
+
+    });
+
+
+    /* =========================================
+       SEARCH
+    ========================================= */
+
+    const searchBtn =
+      document.getElementById("searchBtn");
+
+    const searchOverlay =
+      document.getElementById("searchOverlay");
+
+    const closeSearch =
+      document.getElementById("closeSearch");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const searchResults =
+      document.getElementById("searchResults");
+
+
+    /*
+      IMPORTANT LINK ROUTING:
+
+      Diamond Earrings
+      -> diamond-ring-men.html
+
+      Diamond Pendants / Nose Pins
+      -> diamond-ring-men.html
+    */
+
+    const searchableItems = [
+
+      {
+        name: "Diamond Jewellery",
+        type: "Collection",
+        url: "diamond.html"
+      },
+
+      {
+        name: "Diamond Rings",
+        type: "Category",
+        url: "diamond-rings.html"
+      },
+
+      {
+        name: "Diamond Earrings",
+        type: "Category",
+        url: "diamond-ring-men.html"
+      },
+
+      {
+        name: "Diamond Pendants / Nose Pins",
+        type: "Category",
+        url: "diamond-ring-men.html"
+      },
+
+      {
+        name: "Gold Jewellery",
+        type: "Collection",
+        url: "gold.html"
+      },
+
+      {
+        name: "Choose Your Stone",
+        type: "Discovery",
+        url: "stones.html"
+      },
+
+      {
+        name: "Collections",
+        type: "Collection",
+        url: "collections.html"
+      },
+
+      {
+        name: "Jewellery Services",
+        type: "Services",
+        url: "services.html"
+      },
+
+      {
+        name: "Jewellery Care Studio",
+        type: "Care",
+        url: "care.html"
+      },
+
+      {
+        name: "Jewellery Guides & Stories",
+        type: "Journal",
+        url: "blogs.html"
+      }
+
+    ];
+
+
+    function openSearch() {
+
+      searchOverlay.classList.add("active");
+
+      searchOverlay.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      setTimeout(() => {
+
+        searchInput.focus();
+
+      }, 150);
+
+      renderSearchResults("");
+
+    }
+
+
+    function closeSearchOverlay() {
+
+      searchOverlay.classList.remove("active");
+
+      searchOverlay.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+    }
+
+
+    if (searchBtn) {
+
+      searchBtn.addEventListener(
+        "click",
+        openSearch
+      );
+
+    }
+
+
+    if (closeSearch) {
+
+      closeSearch.addEventListener(
+        "click",
+        closeSearchOverlay
+      );
+
+    }
+
+
+    searchOverlay.addEventListener(
+      "click",
+      event => {
+
+        if (event.target === searchOverlay) {
+
+          closeSearchOverlay();
+
+        }
+
+      }
+    );
+
+
+    function renderSearchResults(query) {
+
+      const value =
+        query.trim().toLowerCase();
+
+      const results =
+        searchableItems.filter(item => {
+
+          return (
+            !value ||
+            item.name
+              .toLowerCase()
+              .includes(value) ||
+            item.type
+              .toLowerCase()
+              .includes(value)
+          );
+
+        });
+
+
+      searchResults.innerHTML =
+        results.length
+
+          ? results.map(item => `
+              <a
+                class="search-result"
+                href="${item.url}">
+                <span>${item.name}</span>
+                <span>${item.type}</span>
+              </a>
+            `).join("")
+
+          : `
+            <div
+              style="
+                padding:20px 0;
+                color:#8c8176;
+                font-size:12px;
+              ">
+              No matching jewellery or category found.
+            </div>
+          `;
+
+    }
+
+
+    if (searchInput) {
+
+      searchInput.addEventListener(
+        "input",
+        event => {
+
+          renderSearchResults(
+            event.target.value
+          );
+
+        }
+      );
+
+    }
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "/" &&
+          document.activeElement !== searchInput
+        ) {
+
+          event.preventDefault();
+
+          openSearch();
+
+        }
+
+
+        if (event.key === "Escape") {
+
+          closeSearchOverlay();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================
+       CART
+    ========================================= */
+
+    function saveCart() {
+
+      localStorage.setItem(
+        CART_KEY,
+        JSON.stringify(cart)
+      );
+
+    }
+
+
+    function updateCartCounter() {
+
+      const total =
+        cart.reduce(
+          (sum, item) =>
+            sum + item.quantity,
+          0
+        );
+
+      document.getElementById(
+        "cartCount"
+      ).textContent = total;
+
+    }
+
+
+    function addToCart(item) {
+
+      const existing =
+        cart.find(
+          product =>
+            product.id === item.id
+        );
+
+
+      if (existing) {
+
+        existing.quantity += 1;
+
+      } else {
+
+        cart.push({
+          ...item,
+          quantity: 1
+        });
+
+      }
+
+
+      saveCart();
+
+      updateCartCounter();
+
+      renderCart();
+
+      openCart();
+
+    }
+
+
+    function removeFromCart(id) {
+
+      cart =
+        cart.filter(
+          item =>
+            item.id !== id
+        );
+
+      saveCart();
+
+      updateCartCounter();
+
+      renderCart();
+
+    }
+
+
+    function changeQuantity(
+      id,
+      amount
+    ) {
+
+      const item =
+        cart.find(
+          product =>
+            product.id === id
+        );
+
+
+      if (!item) return;
+
+
+      item.quantity += amount;
+
+
+      if (item.quantity <= 0) {
+
+        removeFromCart(id);
+
+        return;
+
+      }
+
+
+      saveCart();
+
+      updateCartCounter();
+
+      renderCart();
+
+    }
+
+
+    function renderCart() {
+
+      const container =
+        document.getElementById(
+          "cartItems"
+        );
+
+
+      if (!cart.length) {
+
+        container.innerHTML = `
+          <div class="empty-cart">
+            Your jewellery selection is currently empty.
+          </div>
+        `;
+
+        return;
+
+      }
+
+
+      container.innerHTML =
+        cart.map(item => `
+
+          <div class="cart-item">
+
+            <img
+              src="${item.image}"
+              alt="The Jewelica ${item.type}">
+
+            <div>
+
+              <div class="cart-item-type">
+                ${item.type}
+              </div>
+
+              <div class="cart-item-category">
+                ${item.category}
+              </div>
+
+              <div class="qty-controls">
+
+                <button
+                  type="button"
+                  onclick="changeQuantity('${item.id}', -1)"
+                  aria-label="Decrease quantity">
+                  −
+                </button>
+
+                <span>
+                  ${item.quantity}
+                </span>
+
+                <button
+                  type="button"
+                  onclick="changeQuantity('${item.id}', 1)"
+                  aria-label="Increase quantity">
+                  +
+                </button>
+
+              </div>
+
+            </div>
+
+            <button
+              class="remove-item"
+              type="button"
+              onclick="removeFromCart('${item.id}')">
+              Remove
+            </button>
+
+          </div>
+
+        `).join("");
+
+    }
+
+
+    /* =========================================
+       CART DRAWER
+    ========================================= */
+
+    const cartBtn =
+      document.getElementById("cartBtn");
+
+    const cartDrawer =
+      document.getElementById("cartDrawer");
+
+    const drawerOverlay =
+      document.getElementById(
+        "drawerOverlay"
+      );
+
+    const cartClose =
+      document.getElementById("cartClose");
+
+
+    function openCart() {
+
+      cartDrawer.classList.add(
+        "active"
+      );
+
+      drawerOverlay.classList.add(
+        "active"
+      );
+
+    }
+
+
+    function closeCart() {
+
+      cartDrawer.classList.remove(
+        "active"
+      );
+
+      drawerOverlay.classList.remove(
+        "active"
+      );
+
+    }
+
+
+    if (cartBtn) {
+
+      cartBtn.addEventListener(
+        "click",
+        openCart
+      );
+
+    }
+
+
+    if (cartClose) {
+
+      cartClose.addEventListener(
+        "click",
+        closeCart
+      );
+
+    }
+
+
+    if (drawerOverlay) {
+
+      drawerOverlay.addEventListener(
+        "click",
+        closeCart
+      );
+
+    }
+
+
+    /* =========================================
+       ADD TO CART BUTTONS
+    ========================================= */
+
+    document.querySelectorAll(
+      ".add-cart"
+    ).forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          addToCart({
+
+            id: button.dataset.id,
+
+            type: button.dataset.type,
+
+            category:
+              button.dataset.category,
+
+            image:
+              button.dataset.image
+
+          });
+
+
+          button.textContent =
+            "Added ✓";
+
+
+          setTimeout(() => {
+
+            button.textContent =
+              "Add To Cart";
+
+          }, 1200);
+
+        }
+      );
+
+    });
+
+
+    /* =========================================
+       WISHLIST
+    ========================================= */
+
+    function saveWishlist() {
+
+      localStorage.setItem(
+        WISHLIST_KEY,
+        JSON.stringify(wishlist)
+      );
+
+    }
+
+
+    function updateWishlistCounter() {
+
+      document.getElementById(
+        "wishlistCount"
+      ).textContent =
+        wishlist.length;
+
+    }
+
+
+    function toggleWishlist(button) {
+
+      const id =
+        button.dataset.id;
+
+      const existingIndex =
+        wishlist.indexOf(id);
+
+
+      if (existingIndex === -1) {
+
+        wishlist.push(id);
+
+        button.classList.add(
+          "active"
+        );
+
+        button.textContent = "♥";
+
+      } else {
+
+        wishlist.splice(
+          existingIndex,
+          1
+        );
+
+        button.classList.remove(
+          "active"
+        );
+
+        button.textContent = "♡";
+
+      }
+
+
+      saveWishlist();
+
+      updateWishlistCounter();
+
+    }
+
+
+    document.querySelectorAll(
+      ".wishlist-product"
+    ).forEach(button => {
+
+      if (
+        wishlist.includes(
+          button.dataset.id
+        )
+      ) {
+
+        button.classList.add(
+          "active"
+        );
+
+        button.textContent = "♥";
+
+      }
+
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          toggleWishlist(button);
+
+        }
+      );
+
+    });
+
+
+    const wishlistBtn =
+      document.getElementById(
+        "wishlistBtn"
+      );
+
+
+    if (wishlistBtn) {
+
+      wishlistBtn.addEventListener(
+        "click",
+        () => {
+
+          if (!wishlist.length) {
+
+            alert(
+              "Your wishlist is currently empty."
+            );
+
+            return;
+
+          }
+
+
+          alert(
+            "Your wishlist contains " +
+            wishlist.length +
+            " selected jewellery piece" +
+            (
+              wishlist.length === 1
+                ? "."
+                : "s."
+            )
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =========================================
+       PRODUCT SORTING
+    ========================================= */
+
+    const sortProducts =
+      document.getElementById(
+        "sortProducts"
+      );
+
+    const productGrid =
+      document.getElementById(
+        "productGrid"
+      );
+
+    const resultCount =
+      document.getElementById(
+        "resultCount"
+      );
+
+
+    if (sortProducts) {
+
+      sortProducts.addEventListener(
+        "change",
+        () => {
+
+          const cards =
+            Array.from(
+              productGrid.querySelectorAll(
+                ".product-card"
+              )
+            );
+
+
+          if (
+            sortProducts.value === "az"
+          ) {
+
+            cards.sort(
+              (a, b) =>
+                a.dataset.type.localeCompare(
+                  b.dataset.type
+                )
+            );
+
+          }
+
+
+          else if (
+            sortProducts.value === "za"
+          ) {
+
+            cards.sort(
+              (a, b) =>
+                b.dataset.type.localeCompare(
+                  a.dataset.type
+                )
+            );
+
+          }
+
+
+          cards.forEach(card => {
+
+            productGrid.appendChild(
+              card
+            );
+
+          });
+
+
+          resultCount.textContent =
+            cards.length;
+
+        }
+      );
+
+    }
+
+
+    /* =========================================
+       REVEAL ON SCROLL
+    ========================================= */
+
+    const revealElements =
+      document.querySelectorAll(
+        ".reveal"
+      );
+
+
+    const revealObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (
+              entry.isIntersecting
+            ) {
+
+              entry.target.classList.add(
+                "visible"
+              );
+
+              revealObserver.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: .1
+        }
+      );
+
+
+    revealElements.forEach(
+      element => {
+
+        revealObserver.observe(
+          element
+        );
+
+      }
+    );
+
+
+    /* =========================================
+       BACK TO TOP
+    ========================================= */
+
+    const backTop =
+      document.getElementById(
+        "backTop"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (
+          window.scrollY > 500
+        ) {
+
+          backTop.classList.add(
+            "show"
+          );
+
+        } else {
+
+          backTop.classList.remove(
+            "show"
+          );
+
+        }
+
+      }
+    );
+
+
+    backTop.addEventListener(
+      "click",
+      () => {
+
+        window.scrollTo({
+
+          top: 0,
+
+          behavior: "smooth"
+
+        });
+
+      }
+    );
+
+
+    /* =========================================
+       KEYBOARD CART
+    ========================================= */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape" &&
+          cartDrawer.classList.contains(
+            "active"
+          )
+        ) {
+
+          closeCart();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================
+       INITIAL STATE
+    ========================================= */
+
+    updateCartCounter();
+
+    updateWishlistCounter();
+
+    renderCart();
+
+  </script>
+
+</body>
+
+</html>

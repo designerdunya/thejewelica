@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Discover bespoke jewellery, restoration, gold and diamond consultation, bridal consultation, valuation and jewellery care services at THE JEWELICA.">
+  <meta property="og:title" content="Our Services | THE JEWELICA">
+  <meta property="og:description" content="Explore the premium jewellery services offered by THE JEWELICA.">
+  <meta property="og:type" content="website">
+  <title>Our Services | THE JEWELICA</title>
+   <link rel="icon" type="image/png" href="images/LOGO png.png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: #f5f0e8;
+      color: #302820;
+      font-family: Georgia, "Times New Roman", serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    :root {
+      --ivory: #f8f4ec;
+      --cream: #eee5d7;
+      --beige: #d8c7af;
+      --gold: #b99a61;
+      --gold-dark: #8c6c3c;
+      --espresso: #302820;
+      --charcoal: #24211e;
+      --line: rgba(48, 40, 32, .16);
+      --white: #fffdf9;
+      --muted: #6c6154;
+    }
+
+    .topbar {
+      height: 38px;
+      background: var(--espresso);
+      color: #f6efe4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 10px Arial, sans-serif;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248, 244, 236, .96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 82px;
+      max-width: 1440px;
+      margin: auto;
+      padding: 0 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      font-size: 27px;
+      letter-spacing: 5px;
+      white-space: nowrap;
+    }
+
+    .brand small {
+      display: block;
+      text-align: center;
+      font: 8px Arial, sans-serif;
+      letter-spacing: 4px;
+      margin-top: 5px;
+      color: var(--gold-dark);
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      font: 10px Arial, sans-serif;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .navlinks a {
+      position: relative;
+      padding: 32px 0;
+    }
+
+    .navlinks a:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 25px;
+      width: 0;
+      height: 1px;
+      background: var(--gold-dark);
+      transition: .3s;
+    }
+
+    .navlinks a:hover:after,
+    .navlinks a.active:after {
+      width: 100%
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--line);
+      background: transparent;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .icon-btn:hover {
+      background: var(--espresso);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none
+    }
+
+    .hero {
+      min-height: 570px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--charcoal);
+      color: white;
+    }
+
+    .hero-copy {
+      padding: 100px 8vw;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .eyebrow {
+      font: 10px Arial, sans-serif;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 7vw, 100px);
+      line-height: .88;
+      font-weight: 400;
+      letter-spacing: -3px;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: #d9c7a5;
+      font-style: italic;
+    }
+
+    .hero p {
+      max-width: 560px;
+      margin: 30px 0;
+      color: #d3cbc0;
+      font: 14px/1.9 Arial, sans-serif;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      width: max-content;
+      padding: 0 25px;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--espresso);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font: 10px Arial, sans-serif;
+      transition: .3s;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: white;
+    }
+
+    .btn-gold:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 570px;
+      overflow: hidden;
+      background: #514a41;
+    }
+
+    .hero-art img {
+      opacity: .82;
+      transition: transform 1s ease;
+    }
+
+    .hero:hover .hero-art img {
+      transform: scale(1.04)
+    }
+
+    .hero-art:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--charcoal), transparent 45%);
+    }
+
+    .hero-label {
+      position: absolute;
+      right: 30px;
+      bottom: 30px;
+      z-index: 2;
+      font: 9px Arial, sans-serif;
+      letter-spacing: 3px;
+      color: #eee4d5;
+    }
+
+    .intro {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      padding: 105px 25px 80px;
+    }
+
+    .intro h2 {
+      font-size: clamp(37px, 5vw, 65px);
+      line-height: .98;
+      font-weight: 400;
+      margin-bottom: 25px;
+    }
+
+    .intro p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      font: 14px/2 Arial, sans-serif;
+    }
+
+    .services-grid {
+      max-width: 1350px;
+      margin: 0 auto;
+      padding: 0 28px 105px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      grid-column: span 4;
+      background: #faf7f0;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: .35s;
+    }
+
+    .service-card.featured {
+      grid-column: span 6;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 45px rgba(45, 37, 29, .1);
+    }
+
+    .service-image {
+      height: 270px;
+      background: #d8ccbc;
+      overflow: hidden;
+    }
+
+    .service-card:hover .service-image img {
+      transform: scale(1.05);
+    }
+
+    .service-image img {
+      transition: .8s;
+    }
+
+    .service-content {
+      padding: 30px;
+    }
+
+    .service-number {
+      font: 10px Arial, sans-serif;
+      letter-spacing: 3px;
+      color: var(--gold-dark);
+      margin-bottom: 16px;
+    }
+
+    .service-content h3 {
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+
+    .service-content p {
+      font: 12px/1.8 Arial, sans-serif;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .service-link {
+      display: inline-block;
+      font: 9px Arial, sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--gold-dark);
+      padding-bottom: 6px;
+    }
+
+    .process {
+      background: #e8dece;
+      padding: 105px 30px;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 65px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(38px, 5vw, 65px);
+      font-weight: 400;
+      line-height: .95;
+      margin-bottom: 20px;
+    }
+
+    .section-heading p {
+      font: 13px/1.9 Arial, sans-serif;
+      color: var(--muted);
+    }
+
+    .process-grid {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .process-item {
+      background: #e8dece;
+      text-align: center;
+      padding: 45px 25px;
+    }
+
+    .process-icon {
+      width: 58px;
+      height: 58px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+      color: var(--gold-dark);
+      font-size: 20px;
+    }
+
+    .process-item h3 {
+      font-size: 21px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .process-item p {
+      font: 11px/1.8 Arial, sans-serif;
+      color: var(--muted);
+    }
+
+    .consultation {
+      max-width: 1350px;
+      margin: auto;
+      padding: 105px 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .consultation-image {
+      height: 570px;
+      overflow: hidden;
+      background: #d3c5b3;
+    }
+
+    .consultation-image img {
+      transition: .8s;
+    }
+
+    .consultation-image:hover img {
+      transform: scale(1.04);
+    }
+
+    .consultation-copy h2 {
+      font-size: clamp(40px, 5vw, 70px);
+      line-height: .95;
+      font-weight: 400;
+      margin: 10px 0 25px;
+    }
+
+    .consultation-copy p {
+      color: var(--muted);
+      font: 14px/2 Arial, sans-serif;
+      margin-bottom: 18px;
+    }
+
+    .details {
+      margin: 30px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail button {
+      width: 100%;
+      background: none;
+      border: 0;
+      padding: 19px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      cursor: pointer;
+      color: var(--espresso);
+      font: 12px Arial, sans-serif;
+      letter-spacing: .5px;
+    }
+
+    .detail button span {
+      font-size: 20px;
+      font-weight: 300;
+      transition: .3s;
+    }
+
+    .detail.open button span {
+      transform: rotate(45deg);
+    }
+
+    .detail-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease;
+    }
+
+    .detail-content p {
+      padding: 0 0 20px;
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .care-banner {
+      background: var(--charcoal);
+      color: white;
+      padding: 100px 30px;
+      text-align: center;
+    }
+
+    .care-banner h2 {
+      font-size: clamp(42px, 6vw, 75px);
+      font-weight: 400;
+      line-height: .94;
+      margin-bottom: 20px;
+    }
+
+    .care-banner p {
+      max-width: 620px;
+      margin: 0 auto 30px;
+      color: #c9c0b5;
+      font: 13px/1.9 Arial, sans-serif;
+    }
+
+    footer {
+      background: #191715;
+      color: #eee7dc;
+      padding: 70px 5vw 25px;
+    }
+
+    .footer-grid {
+      max-width: 1340px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.4fr;
+      gap: 50px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    footer h3 {
+      font-size: 27px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+    }
+
+    footer h4 {
+      font: 10px Arial, sans-serif;
+      letter-spacing: 2px;
+      color: #c9aa72;
+      text-transform: uppercase;
+      margin-bottom: 19px;
+    }
+
+    footer p,
+    footer li,
+    footer a {
+      color: #aaa196;
+      font: 12px/2 Arial, sans-serif;
+    }
+
+    footer ul {
+      list-style: none
+    }
+
+    footer a:hover {
+      color: white
+    }
+
+    .map {
+      max-width: 1340px;
+      height: 190px;
+      margin: 30px auto 0;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(1) sepia(.15);
+    }
+
+    .copyright {
+      max-width: 1340px;
+      margin: 20px auto 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font: 9px Arial, sans-serif;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #746d65;
+    }
+
+    .search-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      background: rgba(25, 23, 21, .97);
+      display: none;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 130px 25px;
+    }
+
+    .search-overlay.open {
+      display: flex
+    }
+
+    .search-box {
+      width: min(800px, 100%);
+      color: white;
+    }
+
+    .search-top {
+      display: flex;
+      border-bottom: 1px solid rgba(255, 255, 255, .35);
+    }
+
+    .search-top input {
+      width: 100%;
+      background: none;
+      border: 0;
+      outline: 0;
+      color: white;
+      padding: 18px 0;
+      font-size: 30px;
+    }
+
+    .search-top button {
+      background: none;
+      border: 0;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .search-results {
+      padding-top: 25px;
+      font: 12px/2 Arial, sans-serif;
+      color: #c9c0b5;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media(max-width:1150px) {
+      .nav {
+        padding: 0 25px
+      }
+
+      .navlinks {
+        gap: 15px
+      }
+
+      .navlinks a {
+        font-size: 9px
+      }
+
+      .service-card {
+        grid-column: span 6
+      }
+
+      .service-card.featured {
+        grid-column: span 6
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(max-width:900px) {
+      .navlinks {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 82px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--ivory);
+        border-bottom: 1px solid var(--line);
+        padding: 10px 25px 20px;
+      }
+
+      .navlinks.open {
+        display: flex
+      }
+
+      .navlinks a {
+        padding: 14px 0
+      }
+
+      .navlinks a:after {
+        bottom: 7px
+      }
+
+      .menu-toggle {
+        display: block
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding: 80px 8vw;
+      }
+
+      .hero-art {
+        min-height: 400px;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .consultation {
+        grid-template-columns: 1fr;
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+    }
+
+    @media(max-width:650px) {
+      .topbar {
+        font-size: 8px;
+        letter-spacing: 1.4px;
+      }
+
+      .nav {
+        min-height: 72px;
+        padding: 0 17px;
+      }
+
+      .navlinks {
+        top: 72px
+      }
+
+      .brand {
+        font-size: 20px;
+        letter-spacing: 3px;
+      }
+
+      .brand small {
+        font-size: 6px;
+        letter-spacing: 2px;
+      }
+
+      .hero-copy {
+        padding: 70px 25px;
+      }
+
+      .hero h1 {
+        font-size: 57px;
+        letter-spacing: -2px;
+      }
+
+      .hero-art {
+        min-height: 330px;
+      }
+
+      .intro {
+        padding: 75px 24px 65px;
+      }
+
+      .services-grid {
+        display: block;
+        padding: 0 18px 75px;
+      }
+
+      .service-card,
+      .service-card.featured {
+        margin-bottom: 16px;
+      }
+
+      .service-image {
+        height: 240px;
+      }
+
+      .process {
+        padding: 75px 18px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .consultation {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .consultation-image {
+        height: 360px;
+      }
+
+      .care-banner {
+        padding: 80px 24px;
+      }
+
+      footer {
+        padding: 60px 24px 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .copyright {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">THE JEWELICA — PRIVATE SERVICE &amp; CONSIDERED CRAFT</div>
+
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+
+      <a href="index.html" class="brand">
+        THE JEWELICA
+        <small>FINE JEWELLERY HOUSE</small>
+      </a>
+
+      <div class="navlinks" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gold.html">Gold</a>
+        <a href="diamond.html">Diamonds</a>
+        <a href="collections.html">Collections</a>
+        <a href="stones.html">Choose Your Stone</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="searchBtn" aria-label="Open search">⌕</button>
+        <button class="icon-btn menu-toggle" id="menuBtn" aria-label="Open navigation">☰</button>
+      </div>
+
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-copy reveal">
+        <div class="eyebrow">The Jewelica Services</div>
+
+        <h1>Made for<br><span>your moments.</span></h1>
+
+        <p>
+          From the first idea to the final finishing touch, The Jewelica
+          offers considered jewellery services designed around your
+          individual needs, your pieces and your occasions.
+        </p>
+
+        <a href="#services" class="btn btn-gold">Explore Our Services</a>
+      </div>
+
+      <div class="hero-art">
+        <img src="images/Made for you.png" alt="The Jewelica jewellery services">
+        <div class="hero-label">THE JEWELICA / SERVICES</div>
+      </div>
+
+    </section>
+
+    <section class="intro reveal">
+
+      <div class="eyebrow">A More Personal Approach</div>
+
+      <h2>Service that begins with listening.</h2>
+
+      <p>
+        Fine jewellery deserves attention beyond the moment of purchase.
+        Whether you are imagining a bespoke piece, caring for an existing
+        treasure or looking for guidance on gold, diamonds or gemstones,
+        our service experience is designed to make every step feel clear,
+        thoughtful and personal.
+      </p>
+
+    </section>
+
+    <section class="services-grid" id="services">
+
+      <article class="service-card featured reveal">
+
+        <div class="service-image">
+          <img src="images/Bespoke Jewellery.png" alt="The Jewelica bespoke jewellery service">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">01 / BESPOKE</div>
+
+          <h3>Bespoke Jewellery</h3>
+
+          <p>
+            Bring an idea, inspiration or simply a feeling. Our bespoke
+            service helps shape your vision into a considered jewellery
+            design through a guided consultation process.
+          </p>
+
+          <a href="contact.html" class="service-link">Request A Consultation</a>
+        </div>
+
+      </article>
+
+
+      <article class="service-card featured reveal">
+
+        <div class="service-image">
+          <img src="images/Jewellery Restoration.png" alt="The Jewelica jewellery restoration service">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">02 / RESTORATION</div>
+
+          <h3>Jewellery Restoration</h3>
+
+          <p>
+            Give treasured jewellery a renewed life. Our restoration
+            consultation focuses on understanding the piece, assessing
+            its condition and determining an appropriate care approach.
+          </p>
+
+          <a href="contact.html" class="service-link">Discuss Restoration</a>
+        </div>
+
+      </article>
+
+
+      <article class="service-card reveal">
+
+        <div class="service-image">
+          <img src="images/Gold Consultation.png" alt="The Jewelica gold consultation service">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">03 / GOLD</div>
+
+          <h3>Gold Consultation</h3>
+
+          <p>
+            Explore gold jewellery with guidance on style, purity,
+            proportions, finishing and choosing pieces suited to your
+            personal collection.
+          </p>
+
+          <a href="contact.html" class="service-link">Book A Consultation</a>
+        </div>
+
+      </article>
+
+
+      <article class="service-card reveal">
+
+        <div class="service-image">
+          <img src="images/Diamond Consultation.png"The Jewelica diamond consultation service">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">04 / DIAMONDS</div>
+
+          <h3>Diamond Consultation</h3>
+
+          <p>
+            Understand diamond characteristics and explore jewellery
+            options with a clear, considered approach to selecting a
+            piece that feels right for you.
+          </p>
+
+          <a href="contact.html" class="service-link">Explore Consultation</a>
+        </div>
+
+      </article>
+
+
+      <article class="service-card reveal">
+
+        <div class="service-image">
+          <img src="images/Bridal Consultation.png" alt="The Jewelica bridal jewellery consultation service">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">05 / BRIDAL</div>
+
+          <h3>Bridal Consultation</h3>
+
+          <p>
+            Build a coordinated bridal jewellery selection around your
+            ceremony, attire, preferences and desired overall aesthetic.
+          </p>
+
+          <a href="contact.html" class="service-link">Plan Your Bridal Edit</a>
+        </div>
+
+      </article>
+
+
+      <article class="service-card reveal">
+
+        <div class="service-image">
+          <img src="images/Jewellery Valuation.png" alt="The Jewelica jewellery valuation service">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">06 / VALUATION</div>
+
+          <h3>Jewellery Valuation</h3>
+
+          <p>
+            Arrange a professional consultation for jewellery assessment
+            and documentation requirements, subject to the piece and
+            service requested.
+          </p>
+
+          <a href="contact.html" class="service-link">Enquire About Valuation</a>
+        </div>
+
+      </article>
+
+
+      <article class="service-card featured reveal">
+
+        <div class="service-image">
+          <img src="images/Jewellery Care Studio.png" alt="The Jewelica Jewellery Care Studio">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">07 / CARE STUDIO</div>
+
+          <h3>Jewellery Care Studio</h3>
+
+          <p>
+            Keep your jewellery looking considered and cared for with
+            guidance covering cleaning, storage, periodic inspection,
+            everyday wear and restoration.
+          </p>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <section class="process">
+
+      <div class="section-heading reveal">
+
+        <div class="eyebrow">The Experience</div>
+
+        <h2>Simple. Considered. Personal.</h2>
+
+        <p>
+          Our service journey is designed to keep every interaction
+          comfortable, transparent and focused on what you need.
+        </p>
+
+      </div>
+
+      <div class="process-grid">
+
+        <div class="process-item reveal">
+          <div class="process-icon">01</div>
+          <h3>Discover</h3>
+          <p>
+            Tell us what you are looking for, what you already have
+            or what you would like to create.
+          </p>
+        </div>
+
+        <div class="process-item reveal">
+          <div class="process-icon">02</div>
+          <h3>Discuss</h3>
+          <p>
+            Explore materials, styles, stones and possibilities with
+            a consultation tailored to your request.
+          </p>
+        </div>
+
+        <div class="process-item reveal">
+          <div class="process-icon">03</div>
+          <h3>Refine</h3>
+          <p>
+            Narrow the direction and details until the selection or
+            concept feels naturally right.
+          </p>
+        </div>
+
+        <div class="process-item reveal">
+          <div class="process-icon">04</div>
+          <h3>Complete</h3>
+          <p>
+            Move forward with the selected service while keeping the
+            experience clear from beginning to completion.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="consultation">
+
+      <div class="consultation-image reveal">
+
+        <img src="images/A little.png" alt="The Jewelica private jewellery consultation">
+
+      </div>
+
+      <div class="consultation-copy reveal">
+
+        <div class="eyebrow">Private Consultation</div>
+
+        <h2>A little more time for the details.</h2>
+
+        <p>
+          Some jewellery decisions deserve a slower conversation.
+          A private consultation gives you space to explore designs,
+          materials, gemstones and care requirements without rushing.
+        </p>
+
+        <p>
+          Tell us what you have in mind and we can help direct you
+          toward the most suitable The Jewelica service.
+        </p>
+
+        <div class="details">
+
+          <div class="detail">
+            <button type="button">
+              What can I bring to a consultation?
+              <span>+</span>
+            </button>
+            <div class="detail-content">
+              <p>
+                You can bring an existing jewellery piece, an inspiration,
+                a preferred jewellery category or simply an idea of the
+                occasion and style you have in mind.
+              </p>
+            </div>
+          </div>
+
+          <div class="detail">
+            <button type="button">
+              Can I discuss a custom jewellery idea?
+              <span>+</span>
+            </button>
+            <div class="detail-content">
+              <p>
+                Yes. The bespoke service is intended for conversations
+                around personalised jewellery concepts, design direction,
+                materials and gemstone preferences.
+              </p>
+            </div>
+          </div>
+
+          <div class="detail">
+            <button type="button">
+              Can existing jewellery be assessed for restoration?
+              <span>+</span>
+            </button>
+            <div class="detail-content">
+              <p>
+                Existing pieces can be discussed as part of a restoration
+                consultation. The appropriate approach depends on the
+                condition, construction and materials of the jewellery.
+              </p>
+            </div>
+          </div>
+
+          <div class="detail">
+            <button type="button">
+              How do I request a consultation?
+              <span>+</span>
+            </button>
+            <div class="detail-content">
+              <p>
+                Use the contact page to send your details and describe
+                the service you are interested in. The Jewelica team can
+                then guide you toward the appropriate next step.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <a href="contact.html" class="btn btn-gold">Get In Touch</a>
+
+      </div>
+
+    </section>
+
+
+    <section class="care-banner">
+
+      <div class="eyebrow">The Jewellery Care Studio</div>
+
+      <h2>Care for what<br>you keep close.</h2>
+
+      <p>
+        Discover practical guidance for cleaning, storage, inspection,
+        restoration and everyday jewellery care.
+      </p>
+
+      <a href="care.html" class="btn btn-gold">Explore Jewellery Care</a>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>THE JEWELICA</h3>
+
+        <p>
+          A contemporary jewellery house devoted to refined design,
+          considered craftsmanship and timeless expression.
+        </p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="gold.html">Gold</a></li>
+          <li><a href="diamond.html">Diamonds</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="stones.html">Choose Your Stone</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Customer Care</h4>
+
+        <ul>
+          <li><a href="care.html">Jewellery Care</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="contact.html">Shipping</a></li>
+          <li><a href="contact.html">Returns</a></li>
+          <li><a href="contact.html">Privacy Policy</a></li>
+          <li><a href="contact.html">Terms</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Visit Us</h4>
+
+        <p>
+          The Jewelica Lahore<br>
+          Premium Jewellery District<br>
+          Lahore, Pakistan
+        </p>
+
+        <p style="margin-top:10px">
+          +92 300 0000000<br>
+          hello@thejewelica.com
+        </p>
+
+        <p style="margin-top:10px">
+          Mon — Sat: 11:00 — 20:00<br>
+          Sunday: By Appointment
+        </p>
+      </div>
+
+    </div>
+
+    <div class="map">
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+    </div>
+
+    <div class="copyright">
+      <span>© 2026 THE JEWELICA. ALL RIGHTS RESERVED.</span>
+      <span>FINE JEWELLERY HOUSE</span>
+    </div>
+
+  </footer>
+
+
+  <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+
+    <div class="search-box">
+
+      <div class="search-top">
+        <input id="searchInput" type="search" placeholder="Search The Jewelica..." autocomplete="off">
+        <button id="closeSearch" aria-label="Close search">×</button>
+      </div>
+
+      <div class="search-results" id="searchResults">
+        Explore jewellery, collections, stones and services.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      menuBtn.textContent =
+        navLinks.classList.contains("open") ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+
+    const searchBtn = document.getElementById("searchBtn");
+    const searchOverlay = document.getElementById("searchOverlay");
+    const closeSearch = document.getElementById("closeSearch");
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    const searchablePages = [
+      ["Home", "index.html"],
+      ["Shop", "shop.html"],
+      ["Gold Jewellery", "gold.html"],
+      ["Diamond Jewellery", "diamond.html"],
+      ["Collections", "collections.html"],
+      ["Choose Your Stone", "stones.html"],
+      ["Bespoke Jewellery", "services.html"],
+      ["Jewellery Restoration", "services.html"],
+      ["Gold Consultation", "services.html"],
+      ["Diamond Consultation", "services.html"],
+      ["Bridal Consultation", "services.html"],
+      ["Jewellery Valuation", "services.html"],
+      ["Jewellery Care Studio", "care.html"],
+      ["About The Jewelica", "about.html"],
+      ["Blogs", "blogs.html"],
+      ["FAQ", "faq.html"],
+      ["Contact", "contact.html"]
+    ];
+
+    function openSearch() {
+      searchOverlay.classList.add("open");
+      searchOverlay.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      setTimeout(() => {
+        searchInput.focus();
+      }, 100);
+    }
+
+    function closeSearchBox() {
+      searchOverlay.classList.remove("open");
+      searchOverlay.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      searchInput.value = "";
+      searchResults.textContent =
+        "Explore jewellery, collections, stones and services.";
+    }
+
+    searchBtn.addEventListener("click", openSearch);
+    closeSearch.addEventListener("click", closeSearchBox);
+
+    searchOverlay.addEventListener("click", event => {
+      if (event.target === searchOverlay) {
+        closeSearchBox();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        closeSearchBox();
+      }
+
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        openSearch();
+      }
+    });
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.trim().toLowerCase();
+
+      if (!query) {
+        searchResults.textContent =
+          "Explore jewellery, collections, stones and services.";
+        return;
+      }
+
+      const matches = searchablePages.filter(item =>
+        item[0].toLowerCase().includes(query)
+      );
+
+      if (!matches.length) {
+        searchResults.innerHTML =
+          "<p>No matching destination found. Try Gold, Diamond, Bridal, Care or Services.</p>";
+        return;
+      }
+
+      searchResults.innerHTML = matches
+        .slice(0, 8)
+        .map(item =>
+          `<a href="${item[1]}" style="display:block;color:#eee7dc;border-bottom:1px solid rgba(255,255,255,.1);padding:12px 0">${item[0]} →</a>`
+        )
+        .join("");
+    });
+
+
+    document.querySelectorAll(".detail button").forEach(button => {
+      button.addEventListener("click", () => {
+        const detail = button.parentElement;
+        const content = detail.querySelector(".detail-content");
+
+        document.querySelectorAll(".detail.open").forEach(other => {
+          if (other !== detail) {
+            other.classList.remove("open");
+            other.querySelector(".detail-content").style.maxHeight = null;
+          }
+        });
+
+        detail.classList.toggle("open");
+
+        if (detail.classList.contains("open")) {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } else {
+          content.style.maxHeight = null;
+        }
+      });
+    });
+
+
+    const revealObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: .08 }
+    );
+
+    document.querySelectorAll(".reveal").forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,2524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gold Tops | THE JEWELICA</title>
+   <link rel="icon" type="image/png" href="images/LOGO png.png">
+  <meta name="description"
+    content="Explore refined gold tops from THE JEWELICA, presented in an elegant collection of timeless jewellery forms.">
+  <meta name="keywords" content="THE JEWELICA, Gold Tops, Gold Jewellery, Jewellery">
+  <meta name="author" content="THE JEWELICA">
+
+  <meta property="og:title" content="Gold Tops | THE JEWELICA">
+  <meta property="og:description" content="Discover the Gold Tops collection at THE JEWELICA.">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --ivory: #f8f4ec;
+      --cream: #eee6d8;
+      --champagne: #d8c39a;
+      --gold: #b99655;
+      --gold-dark: #8d6e38;
+      --espresso: #241d18;
+      --charcoal: #171513;
+      --brown: #604c39;
+      --white: #fffdf9;
+      --muted: #81766b;
+      --line: rgba(36, 29, 24, .13);
+      --shadow: 0 20px 55px rgba(36, 29, 24, .12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--espresso);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248, 244, 236, .96);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      min-height: 82px;
+      padding: 0 35px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      letter-spacing: 4px;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links>a,
+    .drop-btn {
+      border: 0;
+      background: none;
+      cursor: pointer;
+      padding: 32px 0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--espresso);
+    }
+
+    .nav-links>a:hover,
+    .drop-btn:hover {
+      color: var(--gold-dark);
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 75px;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      width: 680px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: .25s ease;
+    }
+
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-menu a {
+      padding: 11px;
+      border-bottom: 1px solid var(--line);
+      font-size: 10px;
+      letter-spacing: .8px;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--cream);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .nav-icon {
+      position: relative;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    .nav-icon:hover {
+      background: var(--espresso);
+      color: white;
+    }
+
+    .count {
+      position: absolute;
+      top: -4px;
+      right: -3px;
+      width: 16px;
+      height: 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gold-dark);
+      color: white;
+      font-size: 9px;
+    }
+
+    .mobile-toggle {
+      display: none;
+      border: 0;
+      background: none;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 590px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--charcoal);
+      color: white;
+    }
+
+    .hero-content {
+      padding: 90px clamp(30px, 7vw, 110px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      margin-bottom: 20px;
+      color: var(--champagne);
+      font-size: 10px;
+      letter-spacing: 4px;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      margin-bottom: 25px;
+      font-family: Georgia, serif;
+      font-size: clamp(55px, 7vw, 95px);
+      font-weight: 400;
+      line-height: .92;
+    }
+
+    .hero p {
+      max-width: 510px;
+      margin-bottom: 35px;
+      color: #d3ccc3;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .hero-image {
+      min-height: 590px;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s ease;
+    }
+
+    .hero:hover .hero-image img {
+      transform: scale(1.035);
+    }
+
+    .btn {
+      min-height: 48px;
+      padding: 0 25px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: var(--charcoal);
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: white;
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+      max-width: 900px;
+      padding: 100px 25px 70px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .intro .eyebrow {
+      color: var(--gold-dark);
+    }
+
+    .intro h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .intro p {
+      margin-top: 23px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* =========================
+       CATALOG
+    ========================= */
+
+    .catalog {
+      max-width: 1380px;
+      padding: 20px 30px 100px;
+      margin: auto;
+    }
+
+    .toolbar {
+      padding: 18px 0;
+      margin-bottom: 45px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      background: transparent;
+      cursor: pointer;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--espresso);
+      color: white;
+      border-color: var(--espresso);
+    }
+
+    .sort {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--espresso);
+      font-size: 10px;
+      letter-spacing: .5px;
+    }
+
+    /* =========================
+       PRODUCT GRID
+    ========================= */
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 35px 20px;
+    }
+
+    .product-card {
+      animation: fadeUp .55s ease both;
+    }
+
+    .product-image {
+      position: relative;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    .product-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .65s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.045);
+    }
+
+    .wish {
+      position: absolute;
+      top: 13px;
+      right: 13px;
+      z-index: 2;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255, 255, 255, .7);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .85);
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    .wish.active {
+      background: var(--espresso);
+      color: white;
+    }
+
+    .product-info {
+      padding: 15px 3px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .product-type {
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .mini-btn {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      background: transparent;
+      cursor: pointer;
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+
+    .mini-btn:hover {
+      background: var(--espresso);
+      color: white;
+    }
+
+    /* =========================
+       CRAFTSMANSHIP
+    ========================= */
+
+    .craft {
+      max-width: 1380px;
+      min-height: 430px;
+      margin: 0 auto 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--cream);
+    }
+
+    .craft-image {
+      min-height: 430px;
+      overflow: hidden;
+    }
+
+    .craft-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .craft-content {
+      padding: 65px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .craft-content .eyebrow {
+      color: var(--gold-dark);
+    }
+
+    .craft-content h2 {
+      margin-bottom: 20px;
+      font-family: Georgia, serif;
+      font-size: 46px;
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .craft-content p {
+      max-width: 550px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .craft .btn {
+      width: max-content;
+    }
+
+    .craft .btn:hover {
+      color: var(--espresso);
+      background: transparent;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 75px 35px 25px;
+      background: var(--charcoal);
+      color: #eee5d8;
+    }
+
+    .footer-grid {
+      max-width: 1400px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.5fr;
+      gap: 55px;
+    }
+
+    footer h3 {
+      margin-bottom: 18px;
+      font-family: Georgia, serif;
+      font-size: 27px;
+      font-weight: 400;
+    }
+
+    footer h4 {
+      margin-bottom: 20px;
+      color: var(--champagne);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    footer p,
+    footer a {
+      color: #aaa197;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .map {
+      width: 100%;
+      height: 190px;
+      margin-top: 18px;
+      border: 0;
+      filter: grayscale(1) contrast(.85);
+    }
+
+    .copyright {
+      max-width: 1400px;
+      margin: 55px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      text-align: center;
+      color: #817970;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    .search-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      padding: 120px 25px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: rgba(23, 21, 19, .97);
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s ease;
+    }
+
+    .search-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .search-box {
+      width: min(850px, 100%);
+    }
+
+    .search-close {
+      position: absolute;
+      top: 30px;
+      right: 35px;
+      border: 0;
+      background: none;
+      color: white;
+      cursor: pointer;
+      font-size: 30px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 20px 0;
+      border: 0;
+      border-bottom: 1px solid #777;
+      outline: 0;
+      background: transparent;
+      color: white;
+      font-family: Georgia, serif;
+      font-size: 38px;
+    }
+
+    .search-results {
+      margin-top: 25px;
+      display: grid;
+      gap: 8px;
+      color: #ddd;
+    }
+
+    .search-results button {
+      padding: 13px;
+      border: 1px solid #444;
+      background: transparent;
+      color: #ddd;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    /* =========================
+       CART
+    ========================= */
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -430px;
+      z-index: 1800;
+      width: min(430px, 100%);
+      height: 100vh;
+      padding: 30px;
+      overflow-y: auto;
+      background: var(--white);
+      box-shadow: -15px 0 50px rgba(0, 0, 0, .15);
+      transition: .35s ease;
+    }
+
+    .cart-panel.open {
+      right: 0;
+    }
+
+    .cart-head {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-head h2 {
+      font-family: Georgia, serif;
+      font-weight: 400;
+    }
+
+    .cart-close {
+      border: 0;
+      background: none;
+      cursor: pointer;
+      font-size: 25px;
+    }
+
+    .cart-item {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .cart-item strong {
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .cart-controls {
+      display: flex;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .cart-controls button {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--line);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .empty {
+      padding: 50px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       TOAST / BACK TOP
+    ========================= */
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 25px;
+      z-index: 3000;
+      padding: 14px 22px;
+      background: var(--espresso);
+      color: white;
+      font-size: 11px;
+      letter-spacing: 1px;
+      opacity: 0;
+      transform: translate(-50%, 20px);
+      pointer-events: none;
+      transition: .3s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    .back-top {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      z-index: 900;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--white);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media(max-width:1150px) {
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links>a,
+      .drop-btn {
+        font-size: 9px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:900px) {
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .nav-inner {
+        min-height: 70px;
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 15px 20px 25px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links>a,
+      .drop-btn {
+        padding: 14px 5px;
+        text-align: left;
+      }
+
+      .dropdown-menu {
+        position: static;
+        width: 100%;
+        padding: 10px;
+        display: none;
+        grid-template-columns: repeat(2, 1fr);
+        transform: none !important;
+        box-shadow: none;
+      }
+
+      .dropdown:hover .dropdown-menu,
+      .dropdown:focus-within .dropdown-menu {
+        display: grid;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 430px;
+      }
+
+      .hero-content {
+        padding: 70px 30px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .craft {
+        grid-template-columns: 1fr;
+        margin-left: 18px;
+        margin-right: 18px;
+      }
+
+      .craft-image {
+        min-height: 350px;
+      }
+    }
+
+    @media(max-width:560px) {
+
+      .brand {
+        font-size: 18px;
+        letter-spacing: 2px;
+      }
+
+      .nav-actions {
+        gap: 5px;
+      }
+
+      .nav-icon {
+        width: 34px;
+        height: 34px;
+      }
+
+      .hero h1 {
+        font-size: 53px;
+      }
+
+      .catalog {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .product-grid {
+        gap: 25px 10px;
+      }
+
+      .product-info {
+        display: block;
+      }
+
+      .product-actions {
+        margin-top: 8px;
+      }
+
+      .mini-btn {
+        padding: 7px 8px;
+      }
+
+      .craft-content {
+        padding: 45px 25px;
+      }
+
+      .craft-content h2 {
+        font-size: 38px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <header class="nav">
+
+    <div class="nav-inner">
+
+      <a href="index.html" class="brand">THE JEWELICA</a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="index.html">HOME</a>
+        <a href="shop.html">SHOP</a>
+
+        <div class="dropdown">
+
+          <button class="drop-btn">GOLD ▾</button>
+
+          <div class="dropdown-menu">
+
+            <a href="gold.html">GOLD JEWELLERY</a>
+            <a href="gold-rings.html">GOLD RINGS</a>
+            <a href="gold-bracelets.html">GOLD BRACELETS</a>
+            <a href="gold-bangles.html">GOLD BANGLES</a>
+            <a href="gold-earrings.html">GOLD EARRINGS</a>
+            <a href="gold-necklace-sets.html">GOLD NECKLACE SETS</a>
+            <a href="gold-tops.html">GOLD TOPS</a>
+            <a href="gold-pendants.html">GOLD PENDANTS</a>
+            <a href="gold-chains.html">GOLD CHAINS</a>
+            <a href="gold-mens-rings.html">GOLD MEN'S RINGS</a>
+            <a href="gold.html">GOLD JEWELLERY SETS</a>
+
+          </div>
+
+        </div>
+
+        <div class="dropdown">
+
+          <button class="drop-btn">DIAMONDS ▾</button>
+
+          <div class="dropdown-menu">
+
+            <a href="diamond.html">DIAMOND JEWELLERY</a>
+            <a href="diamond-rings.html">DIAMOND LADIES RINGS</a>
+            <a href="diamond-earrings.html">DIAMOND MEN'S RINGS</a>
+            <a href="diamond-pendants-nose-pins.html">DIAMOND NOSE PINS</a>
+
+          </div>
+
+        </div>
+
+        <a href="collections.html">COLLECTIONS</a>
+        <a href="stones.html">CHOOSE YOUR STONE</a>
+        <a href="services.html">SERVICES</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+
+      </nav>
+
+      <div class="nav-actions">
+
+        <button class="nav-icon" id="searchBtn" aria-label="Search">
+          ⌕
+        </button>
+
+        <button class="nav-icon" id="wishlistBtn" aria-label="Wishlist">
+
+          ♡
+          <span class="count" id="wishlistCount">0</span>
+
+        </button>
+
+        <button class="nav-icon" id="cartBtn" aria-label="Cart">
+
+          ♧
+          <span class="count" id="cartCount">0</span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          THE JEWELICA • GOLD COLLECTION
+        </div>
+
+        <h1>
+          GOLD<br>
+          TOPS
+        </h1>
+
+        <p>
+          A refined edit of delicate gold tops designed to add
+          understated brilliance to everyday jewellery styling.
+        </p>
+
+        <div>
+          <a href="#collection" class="btn">
+            EXPLORE GOLD TOPS
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-image">
+
+        <img src="images/all gold jewellery hero.png" alt="The Jewelica Gold Tops">
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================= -->
+
+    <section class="intro">
+
+      <div class="eyebrow">
+        DELICATE GOLD • EVERYDAY ELEGANCE
+      </div>
+
+      <h2>
+        Small Details. Lasting Impression.
+      </h2>
+
+      <p>
+        Discover The Jewelica Gold Tops collection, created around
+        graceful proportions and refined gold detailing. Designed
+        to complement your everyday jewellery wardrobe while adding
+        a subtle touch of polished character.
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         PRODUCTS
+    ========================= -->
+
+    <section class="catalog" id="collection">
+
+      <div class="toolbar">
+
+        <div class="filter-group">
+
+          <button class="filter-btn active" data-filter="all">
+            ALL
+          </button>
+
+          <button class="filter-btn" data-filter="classic">
+            CLASSIC
+          </button>
+
+          <button class="filter-btn" data-filter="minimal">
+            MINIMAL
+          </button>
+
+          <button class="filter-btn" data-filter="occasion">
+            OCCASION
+          </button>
+
+          <button class="filter-btn" data-filter="everyday">
+            EVERYDAY
+          </button>
+
+        </div>
+
+        <select class="sort" id="sortProducts" aria-label="Sort gold tops">
+
+          <option value="default">
+            SORT COLLECTION
+          </option>
+
+          <option value="az">
+            TYPE A-Z
+          </option>
+
+          <option value="za">
+            TYPE Z-A
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="product-grid" id="productGrid">
+
+        <!-- PRODUCT 01 -->
+        <article class="product-card" data-category="classic" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (1).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt01" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt01">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt01">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCT 02 -->
+        <article class="product-card" data-category="minimal" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (2).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt02" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt02">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt02">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCT 03 -->
+        <article class="product-card" data-category="occasion" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (3).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt03" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt03">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt03">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCT 04 -->
+        <article class="product-card" data-category="everyday" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (4).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt04" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt04">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt04">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCT 05 -->
+        <article class="product-card" data-category="classic" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (5).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt05" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt05">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt05">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCT 06 -->
+        <article class="product-card" data-category="minimal" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (6).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt06" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt06">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt06">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCT 07 -->
+        <article class="product-card" data-category="occasion" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (7).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt07" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt07">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt07">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCT 08 -->
+        <article class="product-card" data-category="everyday" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (8).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt08">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt08">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+        
+        <article class="product-card" data-category="everyday" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (9).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt08">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt08">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+        <article class="product-card" data-category="everyday" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (10).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt08">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt08">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+        <article class="product-card" data-category="everyday" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (11).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt08">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt08">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+        <article class="product-card" data-category="everyday" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (12).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt08">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt08">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+        <article class="product-card" data-category="everyday" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops (13).png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt08">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt08">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+        <article class="product-card" data-category="everyday" data-type="tops">
+
+          <div class="product-image">
+
+            <img src="images/Gold tops.png" alt="The Jewelica Gold Tops">
+
+            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt08">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt08">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CRAFTSMANSHIP
+    ========================= -->
+
+    <section class="craft">
+
+      <div class="craft-image">
+
+        <img src="images/all gold jewellery section.png" alt="The Jewelica Gold Jewellery Craftsmanship">
+
+      </div>
+
+      <div class="craft-content">
+
+        <div class="eyebrow">
+          THE JEWELICA CRAFTSMANSHIP
+        </div>
+
+        <h2>
+          Refined Details,
+          Beautifully Considered
+        </h2>
+
+        <p>
+          Gold Tops are designed to become effortless parts of your
+          jewellery collection. Explore refined forms created around
+          clean proportions, polished finishes and timeless versatility.
+        </p>
+
+        <a href="gold.html" class="btn">
+          EXPLORE GOLD JEWELLERY
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+
+        <h3>THE JEWELICA</h3>
+
+        <p>
+          A refined jewellery destination celebrating gold,
+          diamonds, gemstones and timeless design.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>QUICK LINKS</h4>
+
+        <div class="footer-links">
+
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="gold.html">Gold</a>
+          <a href="diamond.html">Diamonds</a>
+          <a href="collections.html">Collections</a>
+          <a href="stones.html">Choose Your Stone</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="blogs.html">Blogs</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h4>CUSTOMER CARE</h4>
+
+        <div class="footer-links">
+
+          <a href="care.html">Jewellery Care</a>
+          <a href="faq.html">FAQs</a>
+          <a href="#">Shipping</a>
+          <a href="#">Returns</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h4>VISIT US</h4>
+
+        <p>
+          THE JEWELICA<br>
+          Lahore, Pakistan
+        </p>
+
+        <p style="margin-top:12px;">
+          +92 XXX XXXXXXX<br>
+          hello@thejewelica.com
+        </p>
+
+        <p style="margin-top:12px;">
+          Mon — Sat<br>
+          11:00 AM — 8:00 PM
+        </p>
+        <iframe class="map"
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 THE JEWELICA. ALL RIGHTS RESERVED.
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       SEARCH
+  ========================= -->
+
+  <div class="search-overlay" id="searchOverlay">
+
+    <button class="search-close" id="searchClose" aria-label="Close search">
+      ×
+    </button>
+
+    <div class="search-box">
+
+      <input type="search" id="searchInput" placeholder="Search jewellery..." autocomplete="off"
+        aria-label="Search jewellery">
+
+      <div class="search-results" id="searchResults">
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       CART
+  ========================= -->
+
+  <aside class="cart-panel" id="cartPanel">
+
+    <div class="cart-head">
+
+      <h2>Your Cart</h2>
+
+      <button class="cart-close" id="cartClose" aria-label="Close cart">
+        ×
+      </button>
+
+    </div>
+
+    <div id="cartItems"></div>
+
+  </aside>
+
+
+  <div class="toast" id="toast">
+    Added to your collection
+  </div>
+
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    ↑
+  </button>
+
+
+  <script>
+    /* =========================================
+       THE JEWELICA
+       GOLD TOPS PAGE
+       INTERNAL JAVASCRIPT
+    ========================================= */
+
+    const products = [
+      {
+        id: "gt01",
+        type: "TOPS",
+        category: "classic"
+      },
+      {
+        id: "gt02",
+        type: "TOPS",
+        category: "minimal"
+      },
+      {
+        id: "gt03",
+        type: "TOPS",
+        category: "occasion"
+      },
+      {
+        id: "gt04",
+        type: "TOPS",
+        category: "everyday"
+      },
+      {
+        id: "gt05",
+        type: "TOPS",
+        category: "classic"
+      },
+      {
+        id: "gt06",
+        type: "TOPS",
+        category: "minimal"
+      },
+      {
+        id: "gt07",
+        type: "TOPS",
+        category: "occasion"
+      },
+      {
+        id: "gt08",
+        type: "TOPS",
+        category: "everyday"
+      }
+    ];
+
+
+    let cart =
+      JSON.parse(
+        localStorage.getItem("theJewelicaCart") || "[]"
+      );
+
+    let wishlist =
+      JSON.parse(
+        localStorage.getItem("theJewelicaWishlist") || "[]"
+      );
+
+
+    const toast =
+      document.getElementById("toast");
+
+
+    /* =========================
+       STORAGE
+    ========================= */
+
+    function saveData() {
+
+      localStorage.setItem(
+        "theJewelicaCart",
+        JSON.stringify(cart)
+      );
+
+      localStorage.setItem(
+        "theJewelicaWishlist",
+        JSON.stringify(wishlist)
+      );
+
+    }
+
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    function showToast(message) {
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 1800);
+
+    }
+
+
+    /* =========================
+       COUNTERS
+    ========================= */
+
+    function updateCounters() {
+
+      document.getElementById("cartCount").textContent =
+        cart.reduce(
+          (total, item) => total + item.quantity,
+          0
+        );
+
+      document.getElementById("wishlistCount").textContent =
+        wishlist.length;
+
+    }
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const mobileToggle =
+      document.getElementById("mobileToggle");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    mobileToggle.addEventListener("click", () => {
+
+      navLinks.classList.toggle("open");
+
+    });
+
+
+    /* =========================
+       WISHLIST
+    ========================= */
+
+    document.querySelectorAll(".wish").forEach(button => {
+
+      const id = button.dataset.id;
+
+      if (wishlist.includes(id)) {
+
+        button.classList.add("active");
+        button.textContent = "♥";
+
+      }
+
+
+      button.addEventListener("click", () => {
+
+        if (wishlist.includes(id)) {
+
+          wishlist =
+            wishlist.filter(
+              item => item !== id
+            );
+
+          button.classList.remove("active");
+          button.textContent = "♡";
+
+          showToast("Removed from wishlist");
+
+        } else {
+
+          wishlist.push(id);
+
+          button.classList.add("active");
+          button.textContent = "♥";
+
+          showToast("Added to wishlist");
+
+        }
+
+        saveData();
+        updateCounters();
+
+      });
+
+    });
+
+
+    /* =========================
+       ADD TO CART
+    ========================= */
+
+    document.querySelectorAll(".cart-btn").forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const id = button.dataset.id;
+
+        const product =
+          products.find(
+            item => item.id === id
+          );
+
+        if (!product) return;
+
+
+        const existing =
+          cart.find(
+            item => item.id === id
+          );
+
+
+        if (existing) {
+
+          existing.quantity++;
+
+        } else {
+
+          cart.push({
+            id: id,
+            type: product.type,
+            quantity: 1
+          });
+
+        }
+
+
+        saveData();
+        updateCounters();
+        renderCart();
+
+        showToast("Added to cart");
+
+      });
+
+    });
+
+
+    /* =========================
+       CART RENDER
+    ========================= */
+
+    function renderCart() {
+
+      const container =
+        document.getElementById("cartItems");
+
+
+      if (!cart.length) {
+
+        container.innerHTML =
+          '<div class="empty">Your jewellery selection is currently empty.</div>';
+
+        return;
+      }
+
+
+      container.innerHTML =
+        cart.map(item => `
+
+          <div class="cart-item">
+
+            <div>
+
+              <strong>
+                ${item.type}
+              </strong>
+
+              <div class="cart-controls">
+
+                <button
+                  onclick="changeQuantity('${item.id}',-1)">
+                  −
+                </button>
+
+                <button disabled>
+                  ${item.quantity}
+                </button>
+
+                <button
+                  onclick="changeQuantity('${item.id}',1)">
+                  +
+                </button>
+
+                <button
+                  onclick="removeItem('${item.id}')">
+                  ×
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        `).join("");
+
+    }
+
+
+    /* =========================
+       QUANTITY
+    ========================= */
+
+    function changeQuantity(id, change) {
+
+      const item =
+        cart.find(
+          product => product.id === id
+        );
+
+      if (!item) return;
+
+
+      item.quantity += change;
+
+
+      if (item.quantity <= 0) {
+
+        cart =
+          cart.filter(
+            product => product.id !== id
+          );
+
+      }
+
+
+      saveData();
+      updateCounters();
+      renderCart();
+
+    }
+
+
+    /* =========================
+       REMOVE
+    ========================= */
+
+    function removeItem(id) {
+
+      cart =
+        cart.filter(
+          item => item.id !== id
+        );
+
+      saveData();
+      updateCounters();
+      renderCart();
+
+      showToast("Removed from cart");
+
+    }
+
+
+    /* =========================
+       CART PANEL
+    ========================= */
+
+    document
+      .getElementById("cartBtn")
+      .addEventListener("click", () => {
+
+        document
+          .getElementById("cartPanel")
+          .classList.add("open");
+
+        renderCart();
+
+      });
+
+
+    document
+      .getElementById("cartClose")
+      .addEventListener("click", () => {
+
+        document
+          .getElementById("cartPanel")
+          .classList.remove("open");
+
+      });
+
+
+    /* =========================
+       FILTER
+    ========================= */
+
+    const filterButtons =
+      document.querySelectorAll(".filter-btn");
+
+    const productCards =
+      document.querySelectorAll(".product-card");
+
+
+    filterButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn => {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+
+        const filter =
+          button.dataset.filter;
+
+
+        productCards.forEach(card => {
+
+          if (
+            filter === "all" ||
+            card.dataset.category === filter
+          ) {
+
+            card.style.display = "";
+
+          } else {
+
+            card.style.display = "none";
+
+          }
+
+        });
+
+      });
+
+    });
+
+
+    /* =========================
+       SORTING
+    ========================= */
+
+    document
+      .getElementById("sortProducts")
+      .addEventListener("change", function () {
+
+        const grid =
+          document.getElementById("productGrid");
+
+        const cards =
+          [...grid.querySelectorAll(".product-card")];
+
+
+        if (this.value === "az") {
+
+          cards.sort((a, b) =>
+            a.dataset.type.localeCompare(
+              b.dataset.type
+            )
+          );
+
+        }
+
+
+        if (this.value === "za") {
+
+          cards.sort((a, b) =>
+            b.dataset.type.localeCompare(
+              a.dataset.type
+            )
+          );
+
+        }
+
+
+        cards.forEach(card => {
+          grid.appendChild(card);
+        });
+
+      });
+
+
+    /* =========================
+       PRODUCT DETAILS
+    ========================= */
+
+    document
+      .querySelectorAll(".view-btn")
+      .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+          const id =
+            button.dataset.id;
+
+
+          localStorage.setItem(
+            "theJewelicaSelectedProduct",
+            JSON.stringify({
+              id: id,
+              type: "TOPS",
+              category: "Gold Tops"
+            })
+          );
+
+
+          window.location.href =
+            "product.html";
+
+        });
+
+      });
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    const searchOverlay =
+      document.getElementById("searchOverlay");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const searchResults =
+      document.getElementById("searchResults");
+
+
+    document
+      .getElementById("searchBtn")
+      .addEventListener("click", () => {
+
+        searchOverlay.classList.add("open");
+
+        setTimeout(() => {
+          searchInput.focus();
+        }, 150);
+
+      });
+
+
+    document
+      .getElementById("searchClose")
+      .addEventListener("click", () => {
+
+        searchOverlay.classList.remove("open");
+
+        searchInput.value = "";
+
+        searchResults.innerHTML = "";
+
+      });
+
+
+    searchInput.addEventListener("input", () => {
+
+      const query =
+        searchInput.value
+          .trim()
+          .toLowerCase();
+
+
+      if (!query) {
+
+        searchResults.innerHTML = "";
+
+        return;
+
+      }
+
+
+      const results =
+        products.filter(product =>
+          product.type
+            .toLowerCase()
+            .includes(query)
+          ||
+          product.category
+            .toLowerCase()
+            .includes(query)
+        );
+
+
+      if (!results.length) {
+
+        searchResults.innerHTML =
+          "<p>No jewellery found for your search.</p>";
+
+        return;
+
+      }
+
+
+      searchResults.innerHTML =
+        results.map(product => `
+
+          <button
+            onclick="openProduct('${product.id}')">
+
+            ${product.type}
+
+          </button>
+
+        `).join("");
+
+    });
+
+
+    function openProduct(id) {
+
+      localStorage.setItem(
+        "theJewelicaSelectedProduct",
+        JSON.stringify({
+          id: id,
+          type: "TOPS",
+          category: "Gold Tops"
+        })
+      );
+
+      window.location.href =
+        "product.html";
+
+    }
+
+
+    /* =========================
+       KEYBOARD INTERACTION
+    ========================= */
+
+    document.addEventListener("keydown", event => {
+
+      if (event.key === "Escape") {
+
+        searchOverlay.classList.remove("open");
+
+        document
+          .getElementById("cartPanel")
+          .classList.remove("open");
+
+      }
+
+
+      if (
+        (event.ctrlKey || event.metaKey) &&
+        event.key.toLowerCase() === "k"
+      ) {
+
+        event.preventDefault();
+
+        searchOverlay.classList.add("open");
+
+        searchInput.focus();
+
+      }
+
+    });
+
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    const backTop =
+      document.getElementById("backTop");
+
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 500) {
+
+        backTop.classList.add("show");
+
+      } else {
+
+        backTop.classList.remove("show");
+
+      }
+
+    });
+
+
+    backTop.addEventListener("click", () => {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+
+    /* =========================
+       INITIALIZE
+    ========================= */
+
+    updateCounters();
+    renderCart();
+
+  </script>
+
+</body>
+
+</html>

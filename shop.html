@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Shop Jewellery | THE JEWELICA</title>
+  <link rel="icon" type="image/png" href="images/LOGO png.png">
+  <meta name="description"
+    content="Explore The Jewelica jewellery collection including gold, diamond, bridal, gemstone and everyday jewellery.">
+  <meta name="keywords"
+    content="The Jewelica, jewellery shop, gold jewellery, diamond jewellery, rings, earrings, bracelets, necklaces">
+  <meta property="og:title" content="Shop Jewellery | THE JEWELICA">
+  <meta property="og:description" content="Explore refined jewellery from The Jewelica.">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --ivory: #f7f3eb;
+      --paper: #fffdf9;
+      --cream: #eee6d8;
+      --gold: #b49763;
+      --gold-light: #d7c49a;
+      --espresso: #302720;
+      --charcoal: #211c18;
+      --brown: #65594d;
+      --muted: #81766a;
+      --line: rgba(48, 39, 32, .14);
+      --shadow: 0 20px 55px rgba(48, 39, 32, .10);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--espresso);
+      font-family: var(--sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* =========================
+   NAVIGATION
+========================= */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 253, 249, .95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-wrap {
+      max-width: 1380px;
+      min-height: 82px;
+      margin: auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .brand {
+      flex-shrink: 0;
+      font-family: var(--serif);
+      font-size: 24px;
+      letter-spacing: 4px;
+      white-space: nowrap;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: -5px;
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 7px;
+      letter-spacing: 4px;
+      color: var(--gold);
+    }
+
+    .main-nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 21px;
+    }
+
+    .main-nav>a {
+      position: relative;
+      padding: 30px 0;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .main-nav>a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 23px;
+      height: 1px;
+      background: var(--gold);
+      transition: .3s ease;
+    }
+
+    .main-nav>a:hover::after,
+    .main-nav>a[aria-current="page"]::after {
+      right: 0;
+    }
+
+    .main-nav>a:hover,
+    .main-nav>a[aria-current="page"] {
+      color: var(--gold);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      position: relative;
+      width: 39px;
+      height: 39px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--espresso);
+      transition: .3s ease;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .icon-btn svg {
+      width: 17px;
+      height: 17px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+    }
+
+    .count {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      min-width: 17px;
+      height: 17px;
+      padding: 0 4px;
+      border-radius: 20px;
+      background: var(--gold);
+      color: white;
+      font-size: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      padding: 9px 13px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    /* =========================
+   SEARCH OVERLAY
+========================= */
+
+    .search-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(33, 28, 24, .97);
+      color: white;
+      opacity: 0;
+      visibility: hidden;
+      transition: .35s ease;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 130px 25px 40px;
+    }
+
+    .search-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .search-box {
+      width: min(850px, 100%);
+    }
+
+    .search-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .search-label {
+      color: var(--gold-light);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .close-search {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, .25);
+      background: transparent;
+      color: white;
+      font-size: 20px;
+    }
+
+    .search-input-wrap {
+      display: flex;
+      border-bottom: 1px solid rgba(255, 255, 255, .35);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 17px 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: white;
+      font-family: var(--serif);
+      font-size: 36px;
+    }
+
+    .search-input::placeholder {
+      color: #8e857b;
+    }
+
+    .search-results {
+      margin-top: 28px;
+      max-height: 55vh;
+      overflow: auto;
+    }
+
+    .search-result {
+      display: flex;
+      gap: 18px;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .search-result img {
+      width: 75px;
+      height: 75px;
+      background: #ddd2c1;
+    }
+
+    .search-result strong {
+      display: block;
+      margin-top: 5px;
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .search-result small {
+      color: #bcb1a4;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .no-search {
+      color: #aaa093;
+      font-size: 14px;
+    }
+
+    /* =========================
+   CART DRAWER
+========================= */
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 2100;
+      width: min(450px, 100%);
+      height: 100vh;
+      background: var(--paper);
+      box-shadow: -20px 0 60px rgba(0, 0, 0, .15);
+      transform: translateX(105%);
+      transition: .45s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2050;
+      background: rgba(20, 17, 14, .45);
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s ease;
+    }
+
+    .cart-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-header {
+      padding: 25px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h2 {
+      font: 400 30px var(--serif);
+    }
+
+    .cart-close {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      background: transparent;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow: auto;
+      padding: 20px 25px;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 14px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      background: #e4dacc;
+    }
+
+    .cart-item h3 {
+      font: 400 19px var(--serif);
+      margin-bottom: 3px;
+    }
+
+    .cart-item small {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .quantity button {
+      width: 25px;
+      height: 25px;
+      border: 1px solid var(--line);
+      background: transparent;
+    }
+
+    .quantity span {
+      min-width: 18px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .remove-item {
+      align-self: start;
+      border: 0;
+      background: none;
+      color: #9b8570;
+      font-size: 11px;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--muted);
+    }
+
+    .empty-cart h3 {
+      margin-bottom: 8px;
+      font: 400 28px var(--serif);
+    }
+
+    .cart-footer {
+      padding: 22px 25px;
+      border-top: 1px solid var(--line);
+    }
+
+    .cart-note {
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 15px;
+    }
+
+    .cart-btn {
+      width: 100%;
+      border: 0;
+      background: var(--espresso);
+      color: white;
+      padding: 15px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+   HERO
+========================= */
+
+    .shop-hero {
+      min-height: 520px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--espresso);
+      color: white;
+    }
+
+    .hero-copy {
+      padding: 85px clamp(28px, 8vw, 115px);
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .eyebrow {
+      color: var(--gold-light);
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .hero-copy h1 {
+      margin: 20px 0;
+      font: 400 clamp(50px, 6vw, 84px)/.96 var(--serif);
+      letter-spacing: -2px;
+    }
+
+    .hero-copy p {
+      max-width: 520px;
+      color: #d6ccc0;
+      font-size: 14px;
+    }
+
+    .hero-image {
+      min-height: 520px;
+      overflow: hidden;
+      background: #dfd5c5;
+    }
+
+    .hero-image img {
+      height: 100%;
+      min-height: 520px;
+      transition: transform 1.2s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.025);
+    }
+
+    /* =========================
+   SHOP CONTROLS
+========================= */
+
+    .shop-section {
+      max-width: 1320px;
+      margin: auto;
+      padding: 75px 28px 110px;
+    }
+
+    .shop-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    .shop-heading h2 {
+      font: 400 46px var(--serif);
+    }
+
+    .shop-heading p {
+      max-width: 500px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 35px;
+    }
+
+    .control-group {
+      position: relative;
+    }
+
+    .control-group select,
+    .filter-btn,
+    .control-search {
+      height: 43px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--espresso);
+      padding: 0 14px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .control-search {
+      width: 230px;
+      text-transform: none;
+      letter-spacing: 0;
+      outline: none;
+    }
+
+    .control-search:focus {
+      border-color: var(--gold);
+    }
+
+    .filter-btn {
+      display: none;
+    }
+
+    .result-count {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* =========================
+   CATEGORY FILTER
+========================= */
+
+    .category-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 35px;
+    }
+
+    .category-btn {
+      padding: 9px 16px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--brown);
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: .3s ease;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      background: var(--espresso);
+      border-color: var(--espresso);
+      color: white;
+    }
+
+    /* =========================
+   PRODUCT GRID
+========================= */
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px 17px;
+    }
+
+    .product-card {
+      position: relative;
+      min-width: 0;
+      animation: cardIn .45s ease both;
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .product-image {
+      position: relative;
+      overflow: hidden;
+      background: #e4dacc;
+      aspect-ratio: 4/5;
+    }
+
+    .product-image img {
+      height: 100%;
+      transition: transform .7s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.045);
+    }
+
+    .product-actions {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: .3s ease;
+    }
+
+    .product-card:hover .product-actions,
+    .product-actions:focus-within {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .product-action {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(48, 39, 32, .16);
+      background: rgba(255, 253, 249, .94);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--espresso);
+    }
+
+    .product-action:hover {
+      background: var(--espresso);
+      color: white;
+    }
+
+    .product-action.active {
+      color: #9b6d56;
+    }
+
+    .product-action svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+    }
+
+    .product-info {
+      padding: 16px 2px 0;
+    }
+
+    .product-type {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--espresso);
+      text-transform: uppercase;
+    }
+
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .product-category {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .details-btn {
+      border: 0;
+      border-bottom: 1px solid var(--gold);
+      background: none;
+      padding-bottom: 3px;
+      color: var(--brown);
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .details-btn:hover {
+      color: var(--gold);
+    }
+
+    /* =========================
+   QUICK VIEW
+========================= */
+
+    .quick-view {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      background: rgba(30, 25, 21, .65);
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s ease;
+    }
+
+    .quick-view.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .quick-box {
+      width: min(900px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      transform: translateY(20px);
+      transition: .4s ease;
+    }
+
+    .quick-view.open .quick-box {
+      transform: translateY(0);
+    }
+
+    .quick-image {
+      min-height: 560px;
+      background: #e4dacc;
+    }
+
+    .quick-image img {
+      height: 100%;
+      min-height: 560px;
+    }
+
+    .quick-content {
+      padding: 55px 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .quick-label {
+      color: var(--gold);
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .quick-content h2 {
+      margin: 12px 0 10px;
+      font: 400 40px var(--serif);
+    }
+
+    .quick-content p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 8px 0;
+    }
+
+    .quick-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, .5);
+      background: transparent;
+      color: white;
+      font-size: 20px;
+    }
+
+    .quick-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      padding: 14px 18px;
+      border: 1px solid var(--espresso);
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: .3s ease;
+    }
+
+    .primary-btn {
+      background: var(--espresso);
+      color: white;
+    }
+
+    .primary-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .secondary-btn {
+      background: transparent;
+      color: var(--espresso);
+    }
+
+    .secondary-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* =========================
+   EMPTY SEARCH
+========================= */
+
+    .no-products {
+      grid-column: 1/-1;
+      padding: 90px 20px;
+      text-align: center;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .no-products h3 {
+      font: 400 32px var(--serif);
+      margin-bottom: 10px;
+    }
+
+    .no-products p {
+      color: var(--muted);
+    }
+
+    /* =========================
+   CTA
+========================= */
+
+    .shop-cta {
+      max-width: 1320px;
+      margin: 0 auto 90px;
+      padding: 85px 30px;
+      background: #e8dece;
+      text-align: center;
+    }
+
+    .shop-cta h2 {
+      font: 400 clamp(38px, 5vw, 60px) var(--serif);
+      line-height: 1.05;
+    }
+
+    .shop-cta p {
+      max-width: 620px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      margin-top: 27px;
+      padding: 14px 25px;
+      background: var(--espresso);
+      color: white;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: .3s ease;
+    }
+
+    .cta-btn:hover {
+      background: var(--gold);
+    }
+
+    /* =========================
+   FOOTER
+========================= */
+
+    footer {
+      background: #27211c;
+      color: #eee5d9;
+      padding: 75px 28px 25px;
+    }
+
+    .footer-grid {
+      max-width: 1320px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr 1.3fr;
+      gap: 45px;
+    }
+
+    .footer-brand {
+      font: 400 25px var(--serif);
+      letter-spacing: 3px;
+    }
+
+    .footer-description {
+      max-width: 310px;
+      margin-top: 18px;
+      color: #bdb2a4;
+      font-size: 13px;
+    }
+
+    footer h4 {
+      margin-bottom: 18px;
+      color: var(--gold-light);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    footer a,
+    footer p {
+      display: block;
+      margin: 8px 0;
+      color: #c6bbae;
+      font-size: 12px;
+    }
+
+    footer a:hover {
+      color: var(--gold-light);
+    }
+
+    .map {
+      width: 100%;
+      height: 175px;
+      margin-top: 15px;
+      border: 0;
+      filter: grayscale(1);
+    }
+
+    .copyright {
+      max-width: 1320px;
+      margin: 50px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, .13);
+      color: #938a80;
+      font-size: 10px;
+    }
+
+    /* =========================
+   TOAST
+========================= */
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 25px;
+      z-index: 4000;
+      transform: translate(-50%, 20px);
+      opacity: 0;
+      visibility: hidden;
+      background: var(--espresso);
+      color: white;
+      padding: 13px 20px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      box-shadow: var(--shadow);
+      transition: .35s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+
+    /* =========================
+   RESPONSIVE
+========================= */
+
+    @media(max-width:1200px) {
+      .main-nav {
+        gap: 13px;
+      }
+
+      .main-nav>a {
+        font-size: 9px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media(max-width:1000px) {
+      .main-nav {
+        display: none;
+        position: absolute;
+        top: 82px;
+        left: 0;
+        right: 0;
+        padding: 15px 25px 22px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .main-nav>a {
+        padding: 12px 0;
+      }
+
+      .main-nav>a::after {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .nav-actions {
+        margin-left: 0;
+      }
+
+      .shop-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        min-height: 460px;
+      }
+
+      .hero-image,
+      .hero-image img {
+        min-height: 430px;
+        height: 430px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:700px) {
+      .nav-wrap {
+        min-height: 74px;
+        padding: 0 17px;
+        gap: 10px;
+      }
+
+      .brand {
+        font-size: 19px;
+        letter-spacing: 2.5px;
+      }
+
+      .brand small {
+        font-size: 6px;
+        letter-spacing: 3px;
+      }
+
+      .nav-actions {
+        gap: 6px;
+      }
+
+      .icon-btn {
+        width: 35px;
+        height: 35px;
+      }
+
+      .shop-heading {
+        display: block;
+      }
+
+      .shop-heading h2 {
+        font-size: 38px;
+        margin-bottom: 12px;
+      }
+
+      .controls {
+        align-items: stretch;
+      }
+
+      .control-search {
+        width: 100%;
+      }
+
+      .result-count {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .category-bar {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 6px;
+      }
+
+      .category-btn {
+        flex-shrink: 0;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 12px;
+      }
+
+      .product-actions {
+        opacity: 1;
+        transform: none;
+      }
+
+      .product-action {
+        width: 31px;
+        height: 31px;
+      }
+
+      .product-meta {
+        display: block;
+      }
+
+      .details-btn {
+        margin-top: 8px;
+      }
+
+      .quick-box {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-image,
+      .quick-image img {
+        min-height: 300px;
+        height: 300px;
+      }
+
+      .quick-content {
+        padding: 30px 25px 35px;
+      }
+
+      .quick-content h2 {
+        font-size: 34px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:440px) {
+      .nav-actions .search-nav {
+        display: none;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .product-type {
+        font-size: 8px;
+        letter-spacing: 1.3px;
+      }
+
+      .product-category {
+        font-size: 8px;
+      }
+
+      .shop-section {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .shop-cta {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+     SEARCH OVERLAY
+========================= -->
+
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box">
+
+      <div class="search-top">
+        <span class="search-label">Search The Jewelica</span>
+
+        <button class="close-search" id="closeSearch" type="button" aria-label="Close search">
+          ×
+        </button>
+      </div>
+
+      <div class="search-input-wrap">
+        <input class="search-input" id="searchInput" type="search" placeholder="Search jewellery..." autocomplete="off">
+      </div>
+
+      <div class="search-results" id="searchResults"></div>
+
+    </div>
+  </div>
+
+
+  <!-- =========================
+     CART OVERLAY
+========================= -->
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+
+    <div class="cart-header">
+      <h2>Your Selection</h2>
+
+      <button class="cart-close" id="cartClose" type="button" aria-label="Close cart">
+        ×
+      </button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+      <p class="cart-note">
+        Your jewellery selection is saved in this browser.
+        Product pricing is intentionally not displayed.
+      </p>
+
+      <button class="cart-btn" id="consultCart" type="button">
+        Request Consultation
+      </button>
+    </div>
+
+  </aside>
+
+
+  <!-- =========================
+     NAVIGATION
+========================= -->
+
+  <header class="site-header">
+
+    <div class="nav-wrap">
+
+      <a class="brand" href="index.html" aria-label="The Jewelica Home">
+        THE JEWELICA
+        <small>FINE JEWELLERY</small>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        MENU
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+
+        <a href="index.html">Home</a>
+        <a href="shop.html" aria-current="page">Shop</a>
+        <a href="gold.html">Gold</a>
+        <a href="diamond.html">Diamonds</a>
+        <a href="collections.html">Collections</a>
+        <a href="stones.html">Choose Your Stone</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+
+      </nav>
+
+      <div class="nav-actions">
+
+        <button class="icon-btn search-nav" id="openSearch" type="button" aria-label="Search jewellery">
+
+          <svg viewBox="0 0 24 24">
+            <circle cx="10.8" cy="10.8" r="6.8"></circle>
+            <path d="M16 16l5 5"></path>
+          </svg>
+
+        </button>
+
+        <button class="icon-btn" id="openWishlist" type="button" aria-label="Wishlist">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M20.8 8.8c0 5.1-8.8 10.4-8.8 10.4S3.2 13.9 3.2 8.8A5 5 0 0 1 12 6a5 5 0 0 1 8.8 2.8z"></path>
+          </svg>
+
+          <span class="count" id="wishlistCount">0</span>
+
+        </button>
+
+        <button class="icon-btn" id="openCart" type="button" aria-label="Shopping cart">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.4L21 8H6"></path>
+            <circle cx="10" cy="20" r="1"></circle>
+            <circle cx="18" cy="20" r="1"></circle>
+          </svg>
+
+          <span class="count" id="cartCount">0</span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+     HERO
+========================= -->
+
+  <main>
+
+    <section class="shop-hero">
+
+      <div class="hero-copy">
+
+        <span class="eyebrow">
+          The Jewelica Collection
+        </span>
+
+        <h1>
+          Jewellery,<br>
+          thoughtfully chosen.
+        </h1>
+
+        <p>
+          Explore a refined edit of gold, diamonds, gemstones and
+          jewellery designed for meaningful occasions and everyday elegance.
+        </p>
+
+      </div>
+
+      <div class="hero-image">
+
+        <img src="images/shop 1.png" alt="The Jewelica jewellery shop editorial placeholder">
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+     SHOP
+========================= -->
+
+    <section class="shop-section">
+
+      <div class="shop-heading">
+
+        <div>
+          <span class="eyebrow" style="color:var(--gold);">
+            Explore
+          </span>
+
+          <h2>All Jewellery</h2>
+        </div>
+
+        <p>
+          Discover jewellery across gold, diamonds, bridal,
+          gemstones and everyday collections. Refine your selection
+          using the categories below.
+        </p>
+
+      </div>
+
+
+      <!-- CATEGORY FILTER -->
+
+      <div class="category-bar" id="categoryBar">
+
+        <button class="category-btn active" data-category="all">
+          All Jewellery
+        </button>
+
+        <button class="category-btn" data-category="gold">
+          Gold
+        </button>
+
+        <button class="category-btn" data-category="diamond">
+          Diamonds
+        </button>
+
+        <button class="category-btn" data-category="bridal">
+          Bridal
+        </button>
+
+        <button class="category-btn" data-category="rings">
+          Rings
+        </button>
+
+        <button class="category-btn" data-category="bracelets">
+          Bracelets
+        </button>
+
+        <button class="category-btn" data-category="bangles">
+          Bangles
+        </button>
+
+        <button class="category-btn" data-category="earrings">
+          Earrings
+        </button>
+
+        <button class="category-btn" data-category="necklaces">
+          Necklaces
+        </button>
+
+        <button class="category-btn" data-category="pendants">
+          Pendants
+        </button>
+
+        <button class="category-btn" data-category="chains">
+          Chains
+        </button>
+
+        <button class="category-btn" data-category="sets">
+          Jewellery Sets
+        </button>
+
+      </div>
+
+
+      <!-- CONTROLS -->
+
+      <div class="controls">
+
+        <input class="control-search" id="productSearch" type="search" placeholder="Search jewellery..."
+          aria-label="Search jewellery">
+
+        <select id="typeFilter" aria-label="Filter by jewellery type">
+
+          <option value="all">All Types</option>
+          <option value="ring">Rings</option>
+          <option value="bracelet">Bracelets</option>
+          <option value="bangle">Bangles</option>
+          <option value="earrings">Earrings</option>
+          <option value="necklace">Necklaces</option>
+          <option value="pendant">Pendants</option>
+          <option value="chain">Chains</option>
+          <option value="locket">Lockets</option>
+          <option value="tops">Tops</option>
+          <option value="set">Jewellery Sets</option>
+          <option value="nose-pin">Nose Pins</option>
+
+        </select>
+
+        <select id="materialFilter" aria-label="Filter by material">
+
+          <option value="all">All Materials</option>
+          <option value="gold">Gold</option>
+          <option value="diamond">Diamond</option>
+          <option value="gemstone">Gemstone</option>
+          <option value="bridal">Bridal</option>
+
+        </select>
+
+        <select id="sortProducts" aria-label="Sort products">
+
+          <option value="featured">Sort: Featured</option>
+          <option value="az">Sort: A–Z</option>
+          <option value="za">Sort: Z–A</option>
+          <option value="category">Sort: Category</option>
+
+        </select>
+
+        <span class="result-count" id="resultCount">
+          20 Pieces
+        </span>
+
+      </div>
+
+
+      <!-- PRODUCT GRID -->
+
+      <div class="product-grid" id="productGrid"></div>
+
+    </section>
+
+
+    <!-- =========================
+     CTA
+========================= -->
+
+    <section class="shop-cta">
+
+      <span class="eyebrow" style="color:var(--gold);">
+        Need Guidance?
+      </span>
+
+      <h2>
+        Let your jewellery
+        story begin here.
+      </h2>
+
+      <p>
+        If you are selecting jewellery for a special occasion,
+        exploring gemstones or considering a custom piece,
+        The Jewelica team can help guide your choice.
+      </p>
+
+      <a href="contact.html" class="cta-btn">
+        Request Consultation
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+     QUICK VIEW
+========================= -->
+
+  <div class="quick-view" id="quickView">
+
+    <button class="quick-close" id="quickClose" type="button" aria-label="Close quick view">
+      ×
+    </button>
+
+    <div class="quick-box">
+
+      <div class="quick-image">
+        <img id="quickImage" src="" alt="">
+      </div>
+
+      <div class="quick-content">
+
+        <span class="quick-label" id="quickCategory">
+          JEWELLERY
+        </span>
+
+        <h2 id="quickType">
+          RING
+        </h2>
+
+        <p id="quickDescription">
+          Refined jewellery selected from The Jewelica collection.
+        </p>
+
+        <p>
+          Product details, availability and consultation can be
+          discussed with The Jewelica team.
+        </p>
+
+        <div class="quick-buttons">
+
+          <button class="primary-btn" id="quickAdd" type="button">
+            Add To Cart
+          </button>
+
+          <a href="product.html" class="secondary-btn">
+            View Details
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+     TOAST
+========================= -->
+
+  <div class="toast" id="toast" role="status"></div>
+
+
+  <!-- =========================
+     FOOTER
+========================= -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+
+        <div class="footer-brand">
+          THE JEWELICA
+        </div>
+
+        <p class="footer-description">
+          Refined jewellery for meaningful moments, thoughtful gifting
+          and everyday elegance.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>Quick Links</h4>
+
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gold.html">Gold</a>
+        <a href="diamond.html">Diamonds</a>
+        <a href="collections.html">Collections</a>
+        <a href="stones.html">Choose Your Stone</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>Customer Care</h4>
+
+        <a href="care.html">Jewellery Care</a>
+        <a href="faq.html">FAQs</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>Visit Us</h4>
+
+        <p>
+          The Jewelica Lahore<br>
+          Location details to be updated
+        </p>
+
+        <p>
+          Phone: +92 300 0000000<br>
+          Email: hello@thejewelica.example<br>
+          Mon–Sat: 11:00 AM–8:00 PM
+        </p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 THE JEWELICA. All Rights Reserved.
+    </div>
+
+  </footer>
+
+
+  <script>
+    /* =========================================================
+       THE JEWELICA — SHOP PAGE
+       Frontend-only cart, wishlist, search, filtering and sorting
+    ========================================================= */
+
+
+    /* =========================
+       PRODUCT DATA
+       No prices are stored or displayed.
+    ========================= */
+
+    const products = [
+
+      {
+        id: "gold-ring-01",
+        type: "RING",
+        category: "rings",
+        material: "gold",
+        image: "assets/images/gold-rings-01.jpg",
+        description: "A refined gold ring silhouette with a balanced, timeless character."
+      },
+
+      {
+        id: "gold-ring-02",
+        type: "RING",
+        category: "rings",
+        material: "gold",
+        image: "assets/images/gold-rings-02.jpg",
+        description: "An elegant gold ring designed around clean proportions and subtle detail."
+      },
+
+      {
+        id: "gold-bracelet-01",
+        type: "BRACELET",
+        category: "bracelets",
+        material: "gold",
+        image: "assets/images/gold-bracelets-01.jpg",
+        description: "A polished gold bracelet with an understated luxury aesthetic."
+      },
+
+      {
+        id: "gold-bracelet-02",
+        type: "BRACELET",
+        category: "bracelets",
+        material: "gold",
+        image: "assets/images/gold-bracelets-02.jpg",
+        description: "A graceful bracelet silhouette designed for effortless styling."
+      },
+
+      {
+        id: "gold-bangle-01",
+        type: "BANGLE",
+        category: "bangles",
+        material: "gold",
+        image: "assets/images/gold-bangles-01.jpg",
+        description: "A classic bangle form interpreted with refined contemporary detail."
+      },
+
+      {
+        id: "gold-bangle-02",
+        type: "BANGLE",
+        category: "bangles",
+        material: "gold",
+        image: "assets/images/gold-bangles-02.jpg",
+        description: "An elegant bangle created to sit naturally within a jewellery stack."
+      },
+
+      {
+        id: "gold-earrings-01",
+        type: "EARRINGS",
+        category: "earrings",
+        material: "gold",
+        image: "assets/images/gold-earrings-01.jpg",
+        description: "Sophisticated gold earrings with a clean and graceful profile."
+      },
+
+      {
+        id: "gold-earrings-02",
+        type: "EARRINGS",
+        category: "earrings",
+        material: "gold",
+        image: "assets/images/gold-earrings-02.jpg",
+        description: "A polished pair of gold earrings designed for versatile elegance."
+      },
+
+      {
+        id: "gold-necklace-01",
+        type: "NECKLACE",
+        category: "necklaces",
+        material: "gold",
+        image: "assets/images/gold-necklace-sets-01.jpg",
+        description: "A refined necklace composition with a beautifully balanced presence."
+      },
+
+      {
+        id: "gold-pendant-01",
+        type: "PENDANT",
+        category: "pendants",
+        material: "gold",
+        image: "assets/images/gold-pendants-01.jpg",
+        description: "A considered pendant silhouette designed around elegant simplicity."
+      },
+
+      {
+        id: "gold-chain-01",
+        type: "CHAIN",
+        category: "chains",
+        material: "gold",
+        image: "assets/images/gold-chains-01.jpg",
+        description: "A classic gold chain designed to complement both everyday and occasion styling."
+      },
+
+      {
+        id: "gold-locket-01",
+        type: "LOCKET",
+        category: "sets",
+        material: "gold",
+        image: "assets/images/gold-locket-sets-01.jpg",
+        description: "A timeless locket form with an elegant jewellery-house character."
+      },
+
+      {
+        id: "gold-tops-01",
+        type: "TOPS",
+        category: "earrings",
+        material: "gold",
+        image: "assets/images/gold-tops-01.jpg",
+        description: "Delicate gold tops with a polished, versatile finish."
+      },
+
+      {
+        id: "gold-set-01",
+        type: "JEWELLERY SET",
+        category: "sets",
+        material: "gold",
+        image: "assets/images/gold-jewellery-sets-01.jpg",
+        description: "A coordinated gold jewellery set designed for a harmonious look."
+      },
+
+      {
+        id: "mens-ring-01",
+        type: "MEN'S RING",
+        category: "rings",
+        material: "gold",
+        image: "assets/images/gold-mens-rings-01.jpg",
+        description: "A structured gold ring with a confident and refined character."
+      },
+
+      {
+        id: "diamond-ring-01",
+        type: "DIAMOND RING",
+        category: "rings",
+        material: "diamond",
+        image: "assets/images/diamond-rings-01.jpg",
+        description: "A refined diamond ring silhouette created around graceful proportions."
+      },
+
+      {
+        id: "diamond-ring-02",
+        type: "DIAMOND RING",
+        category: "rings",
+        material: "diamond",
+        image: "assets/images/diamond-rings-02.jpg",
+        description: "An elegant diamond ring with a sophisticated jewellery-house presence."
+      },
+
+      {
+        id: "diamond-earrings-01",
+        type: "DIAMOND EARRINGS",
+        category: "earrings",
+        material: "diamond",
+        image: "assets/images/diamond-earrings-01.jpg",
+        description: "Polished diamond earrings designed to bring understated brilliance."
+      },
+
+      {
+        id: "diamond-pendant-01",
+        type: "DIAMOND PENDANT",
+        category: "pendants",
+        material: "diamond",
+        image: "assets/images/diamond-pendants-01.jpg",
+        description: "A graceful diamond pendant designed around light and proportion."
+      },
+
+      {
+        id: "bridal-set-01",
+        type: "BRIDAL JEWELLERY",
+        category: "sets",
+        material: "bridal",
+        image: "assets/images/bridal-jewellery-01.jpg",
+        description: "An elegant bridal jewellery composition created for meaningful celebrations."
+      }
+
+    ];
+
+
+    /* =========================
+       LOCAL STORAGE
+    ========================= */
+
+    const CART_KEY = "theJewelicaCart";
+    const WISHLIST_KEY = "theJewelicaWishlist";
+
+    let cart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+    let wishlist = JSON.parse(localStorage.getItem(WISHLIST_KEY) || "[]");
+
+
+    /* =========================
+       DOM REFERENCES
+    ========================= */
+
+    const productGrid = document.getElementById("productGrid");
+    const resultCount = document.getElementById("resultCount");
+    const productSearch = document.getElementById("productSearch");
+    const typeFilter = document.getElementById("typeFilter");
+    const materialFilter = document.getElementById("materialFilter");
+    const sortProducts = document.getElementById("sortProducts");
+
+    const searchOverlay = document.getElementById("searchOverlay");
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    const cartDrawer = document.getElementById("cartDrawer");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const cartItems = document.getElementById("cartItems");
+
+    const quickView = document.getElementById("quickView");
+    const quickImage = document.getElementById("quickImage");
+    const quickCategory = document.getElementById("quickCategory");
+    const quickType = document.getElementById("quickType");
+    const quickDescription = document.getElementById("quickDescription");
+
+    let quickProductId = null;
+
+
+    /* =========================
+       SAVE STATE
+    ========================= */
+
+    function saveCart() {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+
+    function saveWishlist() {
+      localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
+    }
+
+
+    /* =========================
+       COUNTERS
+    ========================= */
+
+    function updateCounters() {
+
+      const cartTotal = cart.reduce(function (total, item) {
+        return total + item.quantity;
+      }, 0);
+
+      document.getElementById("cartCount").textContent = cartTotal;
+      document.getElementById("wishlistCount").textContent = wishlist.length;
+    }
+
+
+    /* =========================
+       PRODUCT RENDERING
+    ========================= */
+
+    function renderProducts() {
+
+      const activeCategory =
+        document.querySelector(".category-btn.active")?.dataset.category || "all";
+
+      const searchValue =
+        productSearch.value.trim().toLowerCase();
+
+      const selectedType =
+        typeFilter.value;
+
+      const selectedMaterial =
+        materialFilter.value;
+
+      let filtered = products.filter(function (product) {
+
+        const categoryMatch =
+          activeCategory === "all" ||
+          product.category === activeCategory ||
+          (activeCategory === "gold" && product.material === "gold") ||
+          (activeCategory === "diamond" && product.material === "diamond") ||
+          (activeCategory === "bridal" && product.material === "bridal");
+
+        const typeMatch =
+          selectedType === "all" ||
+          product.type.toLowerCase().includes(selectedType);
+
+        const materialMatch =
+          selectedMaterial === "all" ||
+          product.material === selectedMaterial;
+
+        const searchMatch =
+          !searchValue ||
+          product.type.toLowerCase().includes(searchValue) ||
+          product.category.toLowerCase().includes(searchValue) ||
+          product.material.toLowerCase().includes(searchValue);
+
+        return (
+          categoryMatch &&
+          typeMatch &&
+          materialMatch &&
+          searchMatch
+        );
+      });
+
+
+      /* Sorting */
+
+      if (sortProducts.value === "az") {
+        filtered.sort((a, b) => a.type.localeCompare(b.type));
+      }
+
+      if (sortProducts.value === "za") {
+        filtered.sort((a, b) => b.type.localeCompare(a.type));
+      }
+
+      if (sortProducts.value === "category") {
+        filtered.sort((a, b) => a.category.localeCompare(b.category));
+      }
+
+
+      resultCount.textContent =
+        filtered.length +
+        (filtered.length === 1 ? " Piece" : " Pieces");
+
+
+      if (!filtered.length) {
+
+        productGrid.innerHTML = `
+      <div class="no-products">
+        <h3>No jewellery found</h3>
+        <p>
+          Try another category or search term.
+        </p>
+      </div>
+    `;
+
+        return;
+      }
+
+
+      productGrid.innerHTML = filtered.map(function (product, index) {
+
+        const isWishlisted =
+          wishlist.includes(product.id);
+
+        return `
+      <article
+        class="product-card"
+        style="animation-delay:${index * .035}s">
+
+        <div class="product-image">
+
+          <img
+            src="${product.image}"
+            alt="The Jewelica ${product.type} jewellery placeholder"
+            loading="lazy">
+
+          <div class="product-actions">
+
+            <button
+              class="product-action ${isWishlisted ? "active" : ""}"
+              type="button"
+              aria-label="Add ${product.type} to wishlist"
+              onclick="toggleWishlist('${product.id}')">
+
+              <svg viewBox="0 0 24 24">
+                <path d="M20.8 8.8c0 5.1-8.8 10.4-8.8 10.4S3.2 13.9 3.2 8.8A5 5 0 0 1 12 6a5 5 0 0 1 8.8 2.8z"></path>
+              </svg>
+
+            </button>
+
+            <button
+              class="product-action"
+              type="button"
+              aria-label="Add ${product.type} to cart"
+              onclick="addToCart('${product.id}')">
+
+              <svg viewBox="0 0 24 24">
+                <path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.4L21 8H6"></path>
+                <circle cx="10" cy="20" r="1"></circle>
+                <circle cx="18" cy="20" r="1"></circle>
+              </svg>
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="product-info">
+
+          <div class="product-type">
+            ${product.type}
+          </div>
+
+          <div class="product-meta">
+
+            <span class="product-category">
+              ${product.material === "diamond"
+            ? "DIAMOND"
+            : product.material === "bridal"
+              ? "BRIDAL"
+              : "GOLD"}
+            </span>
+
+            <button
+              class="details-btn"
+              type="button"
+              onclick="openQuickView('${product.id}')">
+              Quick View
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+    `;
+      }).join("");
+    }
+
+
+    /* =========================
+       CART
+    ========================= */
+
+    function addToCart(id) {
+
+      const product = products.find(function (item) {
+        return item.id === id;
+      });
+
+      if (!product) {
+        return;
+      }
+
+      const existing = cart.find(function (item) {
+        return item.id === id;
+      });
+
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          id: id,
+          quantity: 1
+        });
+      }
+
+      saveCart();
+      updateCounters();
+      renderCart();
+
+      showToast(product.type + " added to your selection");
+    }
+
+
+    function removeFromCart(id) {
+
+      cart = cart.filter(function (item) {
+        return item.id !== id;
+      });
+
+      saveCart();
+      updateCounters();
+      renderCart();
+    }
+
+
+    function changeQuantity(id, change) {
+
+      const item = cart.find(function (entry) {
+        return entry.id === id;
+      });
+
+      if (!item) {
+        return;
+      }
+
+      item.quantity += change;
+
+      if (item.quantity <= 0) {
+        removeFromCart(id);
+        return;
+      }
+
+      saveCart();
+      updateCounters();
+      renderCart();
+    }
+
+
+    function renderCart() {
+
+      if (!cart.length) {
+
+        cartItems.innerHTML = `
+      <div class="empty-cart">
+        <h3>Your selection is empty</h3>
+        <p>
+          Add jewellery from the collection to begin your selection.
+        </p>
+      </div>
+    `;
+
+        return;
+      }
+
+
+      cartItems.innerHTML = cart.map(function (item) {
+
+        const product =
+          products.find(function (product) {
+            return product.id === item.id;
+          });
+
+        if (!product) {
+          return "";
+        }
+
+        return `
+      <div class="cart-item">
+
+        <img
+          src="${product.image}"
+          alt="The Jewelica ${product.type} placeholder">
+
+        <div>
+
+          <h3>${product.type}</h3>
+
+          <small>
+            ${product.material === "diamond"
+            ? "Diamond"
+            : product.material === "bridal"
+              ? "Bridal"
+              : "Gold"}
+          </small>
+
+          <div class="quantity">
+
+            <button
+              type="button"
+              onclick="changeQuantity('${product.id}',-1)"
+              aria-label="Decrease quantity">
+              −
+            </button>
+
+            <span>${item.quantity}</span>
+
+            <button
+              type="button"
+              onclick="changeQuantity('${product.id}',1)"
+              aria-label="Increase quantity">
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+        <button
+          class="remove-item"
+          type="button"
+          onclick="removeFromCart('${product.id}')">
+          Remove
+        </button>
+
+      </div>
+    `;
+      }).join("");
+    }
+
+
+    /* =========================
+       WISHLIST
+    ========================= */
+
+    function toggleWishlist(id) {
+
+      const product =
+        products.find(function (item) {
+          return item.id === id;
+        });
+
+      if (!product) {
+        return;
+      }
+
+      if (wishlist.includes(id)) {
+
+        wishlist =
+          wishlist.filter(function (item) {
+            return item !== id;
+          });
+
+        showToast(product.type + " removed from wishlist");
+
+      } else {
+
+        wishlist.push(id);
+
+        showToast(product.type + " added to wishlist");
+      }
+
+      saveWishlist();
+      updateCounters();
+      renderProducts();
+    }
+
+
+    /* =========================
+       QUICK VIEW
+    ========================= */
+
+    function openQuickView(id) {
+
+      const product =
+        products.find(function (item) {
+          return item.id === id;
+        });
+
+      if (!product) {
+        return;
+      }
+
+      quickProductId = id;
+
+      quickImage.src = product.image;
+      quickImage.alt =
+        "The Jewelica " + product.type + " jewellery placeholder";
+
+      quickCategory.textContent =
+        product.material === "diamond"
+          ? "DIAMOND JEWELLERY"
+          : product.material === "bridal"
+            ? "BRIDAL JEWELLERY"
+            : "GOLD JEWELLERY";
+
+      quickType.textContent = product.type;
+      quickDescription.textContent = product.description;
+
+      quickView.classList.add("open");
+      document.body.classList.add("no-scroll");
+    }
+
+
+    function closeQuickView() {
+
+      quickView.classList.remove("open");
+      document.body.classList.remove("no-scroll");
+      quickProductId = null;
+    }
+
+
+    /* =========================
+       SEARCH OVERLAY
+    ========================= */
+
+    function openSearch() {
+
+      searchOverlay.classList.add("open");
+      document.body.classList.add("no-scroll");
+
+      setTimeout(function () {
+        searchInput.focus();
+      }, 100);
+
+      performOverlaySearch();
+    }
+
+
+    function closeSearch() {
+
+      searchOverlay.classList.remove("open");
+      document.body.classList.remove("no-scroll");
+    }
+
+
+    function performOverlaySearch() {
+
+      const value =
+        searchInput.value.trim().toLowerCase();
+
+      if (!value) {
+
+        searchResults.innerHTML = `
+      <p class="no-search">
+        Search for rings, earrings, gold, diamonds,
+        bracelets, pendants and more.
+      </p>
+    `;
+
+        return;
+      }
+
+      const matches =
+        products.filter(function (product) {
+
+          return (
+            product.type.toLowerCase().includes(value) ||
+            product.category.toLowerCase().includes(value) ||
+            product.material.toLowerCase().includes(value)
+          );
+
+        });
+
+
+      if (!matches.length) {
+
+        searchResults.innerHTML = `
+      <p class="no-search">
+        No jewellery matched your search.
+      </p>
+    `;
+
+        return;
+      }
+
+
+      searchResults.innerHTML =
+        matches.slice(0, 8).map(function (product) {
+
+          return `
+        <a
+          class="search-result"
+          href="#"
+          onclick="event.preventDefault();closeSearch();openQuickView('${product.id}')">
+
+          <img
+            src="${product.image}"
+            alt="The Jewelica ${product.type} placeholder">
+
+          <div>
+            <small>${product.category}</small>
+            <strong>${product.type}</strong>
+          </div>
+
+        </a>
+      `;
+
+        }).join("");
+    }
+
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    let toastTimer;
+
+    function showToast(message) {
+
+      const toast =
+        document.getElementById("toast");
+
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer =
+        setTimeout(function () {
+          toast.classList.remove("show");
+        }, 2200);
+    }
+
+
+    /* =========================
+       CATEGORY BUTTONS
+    ========================= */
+
+    document.querySelectorAll(".category-btn").forEach(function (button) {
+
+      button.addEventListener("click", function () {
+
+        document.querySelectorAll(".category-btn").forEach(function (item) {
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        renderProducts();
+      });
+
+    });
+
+
+    /* =========================
+       FILTER EVENTS
+    ========================= */
+
+    productSearch.addEventListener("input", renderProducts);
+    typeFilter.addEventListener("change", renderProducts);
+    materialFilter.addEventListener("change", renderProducts);
+    sortProducts.addEventListener("change", renderProducts);
+
+
+    /* =========================
+       SEARCH EVENTS
+    ========================= */
+
+    document
+      .getElementById("openSearch")
+      .addEventListener("click", openSearch);
+
+    document
+      .getElementById("closeSearch")
+      .addEventListener("click", closeSearch);
+
+    searchInput.addEventListener(
+      "input",
+      performOverlaySearch
+    );
+
+
+    /* =========================
+       CART EVENTS
+    ========================= */
+
+    document
+      .getElementById("openCart")
+      .addEventListener("click", function () {
+
+        renderCart();
+
+        cartDrawer.classList.add("open");
+        cartOverlay.classList.add("open");
+        document.body.classList.add("no-scroll");
+
+      });
+
+
+    function closeCart() {
+
+      cartDrawer.classList.remove("open");
+      cartOverlay.classList.remove("open");
+      document.body.classList.remove("no-scroll");
+
+    }
+
+
+    document
+      .getElementById("cartClose")
+      .addEventListener("click", closeCart);
+
+    cartOverlay.addEventListener("click", closeCart);
+
+
+    /* =========================
+       WISHLIST NAVIGATION
+    ========================= */
+
+    document
+      .getElementById("openWishlist")
+      .addEventListener("click", function () {
+
+        if (!wishlist.length) {
+
+          showToast("Your wishlist is empty");
+          return;
+
+        }
+
+        const firstProduct =
+          products.find(function (product) {
+            return product.id === wishlist[0];
+          });
+
+        if (firstProduct) {
+          openQuickView(firstProduct.id);
+        }
+
+      });
+
+
+    /* =========================
+       QUICK VIEW EVENTS
+    ========================= */
+
+    document
+      .getElementById("quickClose")
+      .addEventListener("click", closeQuickView);
+
+    quickView.addEventListener("click", function (event) {
+
+      if (event.target === quickView) {
+        closeQuickView();
+      }
+
+    });
+
+
+    document
+      .getElementById("quickAdd")
+      .addEventListener("click", function () {
+
+        if (quickProductId) {
+          addToCart(quickProductId);
+          closeQuickView();
+          cartDrawer.classList.add("open");
+          cartOverlay.classList.add("open");
+          document.body.classList.add("no-scroll");
+          renderCart();
+        }
+
+      });
+
+
+    /* =========================
+       CONSULTATION
+    ========================= */
+
+    document
+      .getElementById("consultCart")
+      .addEventListener("click", function () {
+
+        window.location.href =
+          "contact.html?subject=Jewellery%20Consultation";
+
+      });
+
+
+    /* =========================
+       MOBILE NAVIGATION
+    ========================= */
+
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const mainNav =
+      document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", function () {
+
+      const isOpen =
+        mainNav.classList.toggle("open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
+
+    });
+
+
+    document
+      .querySelectorAll(".main-nav a")
+      .forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+          mainNav.classList.remove("open");
+
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        });
+
+      });
+
+
+    /* =========================
+       KEYBOARD CONTROLS
+    ========================= */
+
+    document.addEventListener("keydown", function (event) {
+
+      if (event.key === "Escape") {
+
+        closeSearch();
+        closeCart();
+        closeQuickView();
+
+        mainNav.classList.remove("open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    });
+
+
+    /* =========================
+       INITIALIZE
+    ========================= */
+
+    updateCounters();
+    renderProducts();
+    renderCart();
+    performOverlaySearch();
+  </script>
+
+</body>
+
+</html>

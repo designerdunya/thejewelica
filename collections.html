@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the original collections of THE JEWELICA, from refined gold and diamond jewellery to bridal, heritage, signature and everyday luxury edits.">
+  <meta property="og:title" content="Collections | THE JEWELICA">
+  <meta property="og:description" content="Discover thoughtfully curated jewellery collections by THE JEWELICA.">
+  <meta property="og:type" content="website">
+  <title>Collections | THE JEWELICA</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Georgia,"Times New Roman",serif;
+      background:#f5f0e8;
+      color:#302820;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    button,input,select{font:inherit}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    :root{
+      --ivory:#f8f4ec;
+      --cream:#eee5d7;
+      --beige:#d9c8b0;
+      --gold:#b99a61;
+      --gold-dark:#8e7040;
+      --espresso:#302820;
+      --charcoal:#24211e;
+      --line:rgba(48,40,32,.16);
+      --white:#fffdf9;
+    }
+
+    .topbar{
+      height:38px;
+      background:var(--espresso);
+      color:#f6efe4;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font:11px/1.2 Arial,sans-serif;
+      letter-spacing:2.2px;
+      text-transform:uppercase;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(248,244,236,.96);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:82px;
+      max-width:1440px;
+      margin:auto;
+      padding:0 42px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+    }
+
+    .brand{
+      font-size:27px;
+      letter-spacing:5px;
+      white-space:nowrap;
+      color:var(--espresso);
+    }
+
+    .brand small{
+      display:block;
+      font:8px Arial,sans-serif;
+      letter-spacing:4px;
+      text-align:center;
+      margin-top:5px;
+      color:var(--gold-dark);
+    }
+
+    .navlinks{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:27px;
+      font:11px Arial,sans-serif;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+    }
+
+    .navlinks a{
+      position:relative;
+      padding:32px 0;
+    }
+
+    .navlinks a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:25px;
+      width:0;
+      height:1px;
+      background:var(--gold-dark);
+      transition:.3s;
+    }
+
+    .navlinks a:hover::after,
+    .navlinks a.active::after{width:100%}
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .icon-btn{
+      border:1px solid var(--line);
+      background:transparent;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      cursor:pointer;
+      color:var(--espresso);
+      transition:.25s;
+    }
+
+    .icon-btn:hover{
+      background:var(--espresso);
+      color:white;
+      transform:translateY(-2px);
+    }
+
+    .menu-toggle{display:none}
+
+    .hero{
+      min-height:560px;
+      position:relative;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      background:var(--charcoal);
+      color:var(--ivory);
+      overflow:hidden;
+    }
+
+    .hero-copy{
+      padding:105px 9vw 90px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      position:relative;
+      z-index:2;
+    }
+
+    .eyebrow{
+      font:10px Arial,sans-serif;
+      letter-spacing:4px;
+      color:var(--gold);
+      text-transform:uppercase;
+      margin-bottom:22px;
+    }
+
+    .hero h1{
+      font-size:clamp(58px,8vw,112px);
+      font-weight:400;
+      line-height:.88;
+      letter-spacing:-3px;
+      max-width:780px;
+    }
+
+    .hero h1 span{
+      display:block;
+      font-style:italic;
+      color:#d8c6a6;
+    }
+
+    .hero p{
+      max-width:560px;
+      color:#d6cec1;
+      font:15px/1.9 Arial,sans-serif;
+      margin:30px 0;
+    }
+
+    .hero-art{
+      min-height:560px;
+      position:relative;
+      overflow:hidden;
+      background:#4a433b;
+    }
+
+    .hero-art img{
+      opacity:.78;
+      transition:transform 1s ease;
+    }
+
+    .hero:hover .hero-art img{transform:scale(1.035)}
+
+    .hero-art::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,var(--charcoal),transparent 45%);
+      z-index:1;
+    }
+
+    .hero-number{
+      position:absolute;
+      right:35px;
+      bottom:28px;
+      z-index:2;
+      font:10px Arial,sans-serif;
+      letter-spacing:3px;
+      color:#eee4d5;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 26px;
+      border:1px solid var(--gold);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font:10px Arial,sans-serif;
+      transition:.3s;
+      cursor:pointer;
+      width:max-content;
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:#fff;
+    }
+
+    .btn-gold:hover{
+      background:transparent;
+      color:var(--gold);
+    }
+
+    .intro{
+      max-width:920px;
+      margin:auto;
+      padding:105px 30px 85px;
+      text-align:center;
+    }
+
+    .intro h2{
+      font-size:clamp(36px,5vw,64px);
+      font-weight:400;
+      line-height:1;
+      margin-bottom:24px;
+    }
+
+    .intro p{
+      font:14px/2 Arial,sans-serif;
+      color:#685d50;
+      max-width:710px;
+      margin:auto;
+    }
+
+    .filter-wrap{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      max-width:1340px;
+      margin:0 auto 60px;
+      padding:22px 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .filters{
+      display:flex;
+      gap:9px;
+      flex-wrap:wrap;
+    }
+
+    .filter{
+      border:1px solid var(--line);
+      background:transparent;
+      padding:11px 17px;
+      cursor:pointer;
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      font:9px Arial,sans-serif;
+      color:#54493d;
+      transition:.25s;
+    }
+
+    .filter:hover,
+    .filter.active{
+      background:var(--espresso);
+      color:#fff;
+      border-color:var(--espresso);
+    }
+
+    .count{
+      font:10px Arial,sans-serif;
+      color:#776b5d;
+      letter-spacing:1px;
+    }
+
+    .collections{
+      max-width:1340px;
+      margin:0 auto;
+      padding:0 28px 110px;
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:18px;
+    }
+
+    .collection-card{
+      position:relative;
+      min-height:430px;
+      overflow:hidden;
+      background:#ddd1c1;
+      grid-column:span 4;
+      opacity:1;
+      transform:translateY(0);
+      transition:opacity .35s,transform .35s;
+    }
+
+    .collection-card.large{
+      grid-column:span 8;
+      min-height:540px;
+    }
+
+    .collection-card.hidden{
+      display:none;
+    }
+
+    .collection-card img{
+      transition:transform .8s ease;
+    }
+
+    .collection-card:hover img{
+      transform:scale(1.055);
+    }
+
+    .collection-card::after{
+      content:"";
+      position:absolute;
+      inset:35% 0 0;
+      background:linear-gradient(transparent,rgba(25,21,18,.78));
+      pointer-events:none;
+    }
+
+    .collection-info{
+      position:absolute;
+      left:30px;
+      right:30px;
+      bottom:28px;
+      z-index:2;
+      color:white;
+    }
+
+    .collection-info .tag{
+      font:9px Arial,sans-serif;
+      letter-spacing:3px;
+      color:#e5c996;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .collection-info h3{
+      font-size:31px;
+      font-weight:400;
+      margin-bottom:9px;
+    }
+
+    .collection-info p{
+      max-width:520px;
+      font:12px/1.6 Arial,sans-serif;
+      color:#eee7dc;
+      margin-bottom:16px;
+    }
+
+    .text-link{
+      font:10px Arial,sans-serif;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:white;
+      border-bottom:1px solid rgba(255,255,255,.6);
+      padding-bottom:6px;
+    }
+
+    .manifesto{
+      background:#e8dece;
+      padding:100px 30px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:center;
+    }
+
+    .manifesto-image{
+      height:540px;
+      overflow:hidden;
+      background:#d2c4b2;
+    }
+
+    .manifesto-image img{transition:transform .8s}
+    .manifesto-image:hover img{transform:scale(1.04)}
+
+    .manifesto-copy{
+      max-width:580px;
+    }
+
+    .manifesto-copy h2{
+      font-size:clamp(38px,5vw,66px);
+      font-weight:400;
+      line-height:.96;
+      margin:12px 0 25px;
+    }
+
+    .manifesto-copy p{
+      font:14px/2 Arial,sans-serif;
+      color:#665b4e;
+      margin-bottom:28px;
+    }
+
+    .cta{
+      text-align:center;
+      padding:110px 30px;
+      background:var(--charcoal);
+      color:white;
+    }
+
+    .cta h2{
+      font-size:clamp(42px,6vw,76px);
+      font-weight:400;
+      line-height:.95;
+      margin-bottom:22px;
+    }
+
+    .cta p{
+      max-width:600px;
+      margin:0 auto 30px;
+      color:#cec4b5;
+      font:14px/1.8 Arial,sans-serif;
+    }
+
+    footer{
+      background:#191715;
+      color:#eee7dc;
+      padding:70px 5vw 25px;
+    }
+
+    .footer-grid{
+      max-width:1340px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:1.6fr 1fr 1fr 1.4fr;
+      gap:50px;
+      padding-bottom:60px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+
+    footer h3{
+      font-size:27px;
+      font-weight:400;
+      letter-spacing:4px;
+      margin-bottom:15px;
+    }
+
+    footer h4{
+      font:10px Arial,sans-serif;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:#c9aa72;
+      margin-bottom:19px;
+    }
+
+    footer p,footer li,footer a{
+      font:12px/2 Arial,sans-serif;
+      color:#aaa196;
+    }
+
+    footer ul{list-style:none}
+    footer a:hover{color:#fff}
+
+    .map{
+      height:190px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    .map iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      filter:grayscale(1) sepia(.15);
+    }
+
+    .copyright{
+      max-width:1340px;
+      margin:20px auto 0;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      font:9px Arial,sans-serif;
+      letter-spacing:1.5px;
+      color:#746d65;
+      text-transform:uppercase;
+    }
+
+    .search-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(25,23,21,.96);
+      z-index:3000;
+      display:none;
+      align-items:flex-start;
+      justify-content:center;
+      padding:130px 25px;
+    }
+
+    .search-overlay.open{display:flex}
+
+    .search-box{
+      width:min(800px,100%);
+      color:white;
+    }
+
+    .search-top{
+      display:flex;
+      border-bottom:1px solid rgba(255,255,255,.35);
+      align-items:center;
+    }
+
+    .search-top input{
+      width:100%;
+      background:transparent;
+      border:0;
+      outline:0;
+      color:white;
+      padding:18px 0;
+      font-size:30px;
+    }
+
+    .search-top button{
+      background:none;
+      border:0;
+      color:white;
+      font-size:28px;
+      cursor:pointer;
+    }
+
+    .search-results{
+      padding-top:25px;
+      font:12px/2 Arial,sans-serif;
+      color:#c9c0b5;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(25px);
+      transition:opacity .7s ease,transform .7s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
+
+    @media(max-width:1150px){
+      .nav{padding:0 25px}
+      .navlinks{gap:15px}
+      .navlinks a{font-size:9px}
+      .collection-card{grid-column:span 6}
+      .collection-card.large{grid-column:span 6}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media(max-width:900px){
+      .navlinks{
+        position:absolute;
+        left:0;
+        right:0;
+        top:82px;
+        background:var(--ivory);
+        border-bottom:1px solid var(--line);
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        padding:12px 25px 20px;
+        gap:0;
+      }
+      .navlinks.open{display:flex}
+      .navlinks a{padding:14px 0}
+      .navlinks a::after{bottom:7px}
+      .menu-toggle{display:block}
+      .hero{grid-template-columns:1fr}
+      .hero-copy{padding:90px 8vw}
+      .hero-art{min-height:400px}
+      .manifesto{grid-template-columns:1fr}
+      .manifesto-image{height:450px}
+    }
+
+    @media(max-width:650px){
+      .topbar{font-size:8px;letter-spacing:1.5px}
+      .nav{min-height:72px;padding:0 17px}
+      .brand{font-size:20px;letter-spacing:3px}
+      .brand small{font-size:6px;letter-spacing:2px}
+      .navlinks{top:72px}
+      .hero-copy{padding:70px 25px}
+      .hero h1{font-size:57px;letter-spacing:-2px}
+      .hero p{font-size:13px}
+      .hero-art{min-height:330px}
+      .intro{padding:75px 24px 65px}
+      .filter-wrap{margin-bottom:40px;padding:18px}
+      .collections{padding:0 18px 75px;display:block}
+      .collection-card,
+      .collection-card.large{
+        min-height:410px;
+        margin-bottom:16px;
+      }
+      .collection-info h3{font-size:27px}
+      .manifesto{padding:70px 24px}
+      .manifesto-image{height:350px}
+      .cta{padding:80px 24px}
+      .footer-grid{grid-template-columns:1fr}
+      footer{padding:60px 24px 25px}
+      .copyright{flex-direction:column}
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">THE JEWELICA — A STUDY IN TIMELESS BEAUTY</div>
+
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="brand">
+        THE JEWELICA
+        <small>FINE JEWELLERY HOUSE</small>
+      </a>
+
+      <div class="navlinks" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gold.html">Gold</a>
+        <a href="diamond.html">Diamonds</a>
+        <a href="collections.html" class="active">Collections</a>
+        <a href="stones.html">Choose Your Stone</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="searchBtn" aria-label="Open search">⌕</button>
+        <button class="icon-btn menu-toggle" id="menuBtn" aria-label="Open navigation">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">The Jewelica Collections</div>
+        <h1>Curated <span>Elegance.</span></h1>
+        <p>
+          Discover carefully composed jewellery edits designed around
+          character, craftsmanship and enduring beauty. Each collection
+          offers a different expression of The Jewelica aesthetic.
+        </p>
+        <a href="#collectionGrid" class="btn btn-gold">Explore Collections</a>
+      </div>
+
+      <div class="hero-art">
+        <img src="images/collection page 1.png" alt="The Jewelica jewellery collection">
+        <div class="hero-number">THE JEWELICA / 01</div>
+      </div>
+    </section>
+
+    <section class="intro reveal">
+      <div class="eyebrow">The Collection House</div>
+      <h2>Jewellery with a point of view.</h2>
+      <p>
+        From refined everyday pieces to considered bridal adornment,
+        our collections are organised to help you discover jewellery
+        according to mood, occasion, material and personal expression.
+      </p>
+    </section>
+
+    <section class="filter-wrap">
+      <div class="filters" aria-label="Collection filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="gold">Gold</button>
+        <button class="filter" data-filter="diamond">Diamond</button>
+        <button class="filter" data-filter="bridal">Bridal</button>
+        <button class="filter" data-filter="heritage">Heritage</button>
+        <button class="filter" data-filter="signature">Signature</button>
+        <button class="filter" data-filter="everyday">Everyday</button>
+        <button class="filter" data-filter="gemstones">Gemstones</button>
+      </div>
+      <div class="count" id="collectionCount">8 COLLECTIONS</div>
+    </section>
+
+    <section class="collections" id="collectionGrid">
+
+      <article class="collection-card large reveal" data-category="heritage gold">
+        <img src="images/heritage 1.png" alt="The Jewelica Heritage Edit">
+        <div class="collection-info">
+          <div class="tag">Gold / Heritage</div>
+          <h3>The Heritage Edit</h3>
+          <p>Richly composed gold jewellery inspired by enduring forms and refined detailing.</p>
+          <a href="gold.html" class="text-link">Explore Gold</a>
+        </div>
+      </article>
+
+      <article class="collection-card reveal" data-category="signature diamond">
+        <img src="images/heritage 2.png" alt="The Jewelica Signature Edit">
+        <div class="collection-info">
+          <div class="tag">Signature / Diamond</div>
+          <h3>The Signature Edit</h3>
+          <p>A polished selection for distinctive personal style.</p>
+          <a href="diamond.html" class="text-link">Discover Diamonds</a>
+        </div>
+      </article>
+
+      <article class="collection-card reveal" data-category="bridal gold diamond">
+        <img src="images/heritage 3.png" alt="The Jewelica Bridal Edit">
+        <div class="collection-info">
+          <div class="tag">Bridal / Gold / Diamond</div>
+          <h3>The Bridal Edit</h3>
+          <p>Elegant jewellery designed around celebrations, ceremonies and unforgettable moments.</p>
+          <a href="shop.html" class="text-link">Explore Bridal</a>
+        </div>
+      </article>
+
+      <article class="collection-card reveal" data-category="diamond">
+        <img src="images/heritage 4.png" alt="The Jewelica Diamond Edit">
+        <div class="collection-info">
+          <div class="tag">Diamond</div>
+          <h3>The Diamond Edit</h3>
+          <p>Clean silhouettes and luminous diamond-focused designs.</p>
+          <a href="diamond-rings.html" class="text-link">View Diamonds</a>
+        </div>
+      </article>
+
+      <article class="collection-card large reveal" data-category="everyday gold">
+        <img src="images/heritage 6.png" alt="The Jewelica Everyday Luxury Edit">
+        <div class="collection-info">
+          <div class="tag">Everyday / Gold</div>
+          <h3>The Everyday Luxury Edit</h3>
+          <p>Quietly refined jewellery created to become part of your daily rhythm.</p>
+          <a href="gold.html" class="text-link">Discover Everyday</a>
+        </div>
+      </article>
+
+      <article class="collection-card reveal" data-category="gemstones">
+        <img src="images/gemstone edit.png" alt="The Jewelica Gemstone Edit">
+        <div class="collection-info">
+          <div class="tag">Gemstones</div>
+          <h3>The Gemstone Edit</h3>
+          <p>Colour, character and natural brilliance brought together in one considered edit.</p>
+          <a href="stones.html" class="text-link">Choose Your Stone</a>
+        </div>
+      </article>
+
+      <article class="collection-card reveal" data-category="signature gold">
+        <img src="images/modern form.png" alt="The Jewelica Modern Form Edit">
+        <div class="collection-info">
+          <div class="tag">Signature / Gold</div>
+          <h3>The Modern Form</h3>
+          <p>Architectural silhouettes balancing simplicity with a distinctive presence.</p>
+          <a href="shop.html" class="text-link">Explore The Edit</a>
+        </div>
+      </article>
+
+      <article class="collection-card reveal" data-category="heritage gemstones">
+        <img src="images/The Artisan Edit.png" alt="The Jewelica Artisan Edit">
+        <div class="collection-info">
+          <div class="tag">Heritage / Gemstones</div>
+          <h3>The Artisan Edit</h3>
+          <p>Expressive details and precious stones assembled with an appreciation for craft.</p>
+          <a href="stones.html" class="text-link">Explore Stones</a>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="manifesto">
+      <div class="manifesto-image reveal">
+        <img src="images/Designed to become.png" alt="The Jewelica jewellery craftsmanship">
+      </div>
+
+      <div class="manifesto-copy reveal">
+        <div class="eyebrow">The Jewelica Philosophy</div>
+        <h2>Designed to become part of your story.</h2>
+        <p>
+          Jewellery is more than an object. It can mark a beginning,
+          celebrate a milestone or simply become a quiet signature of
+          everyday life. The Jewelica collections are arranged with
+          this sense of meaning in mind.
+        </p>
+        <p>
+          Explore by material, occasion or aesthetic and find a piece
+          that feels naturally yours.
+        </p>
+        <a href="shop.html" class="btn">Enter The Shop</a>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="eyebrow">Find Your Stone</div>
+      <h2>Begin with what<br>speaks to you.</h2>
+      <p>
+        Explore diamonds and gemstones through colour, character and
+        timeless appeal with The Jewelica's dedicated stone discovery experience.
+      </p>
+      <a href="stones.html" class="btn btn-gold">Choose Your Stone</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+
+      <div>
+        <h3>THE JEWELICA</h3>
+        <p>
+          A contemporary jewellery house devoted to refined design,
+          considered craftsmanship and timeless expression.
+        </p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="gold.html">Gold</a></li>
+          <li><a href="diamond.html">Diamonds</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="stones.html">Choose Your Stone</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="care.html">Jewellery Care</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="contact.html">Shipping</a></li>
+          <li><a href="contact.html">Returns</a></li>
+          <li><a href="contact.html">Privacy Policy</a></li>
+          <li><a href="contact.html">Terms</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Visit Us</h4>
+        <p>The Jewelica Lahore<br>Premium Jewellery District<br>Lahore, Pakistan</p>
+        <p style="margin-top:10px">+92 300 0000000<br>hello@thejewelica.com</p>
+        <p style="margin-top:10px">Mon — Sat: 11:00 — 20:00<br>Sunday: By Appointment</p>
+      </div>
+
+    </div>
+
+    <div style="max-width:1340px;margin:30px auto 0">
+      <div class="map">
+        <iframe
+          title="The Jewelica Lahore map placeholder"
+          src="https://www.google.com/maps?q=Lahore%2C%20Pakistan&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <span>© 2026 THE JEWELICA. ALL RIGHTS RESERVED.</span>
+      <span>FINE JEWELLERY HOUSE</span>
+    </div>
+  </footer>
+
+  <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+    <div class="search-box">
+      <div class="search-top">
+        <input id="searchInput" type="search" placeholder="Search The Jewelica..." autocomplete="off">
+        <button id="closeSearch" aria-label="Close search">×</button>
+      </div>
+      <div class="search-results" id="searchResults">
+        Explore collections, jewellery categories and stones.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    const searchBtn = document.getElementById("searchBtn");
+    const searchOverlay = document.getElementById("searchOverlay");
+    const closeSearch = document.getElementById("closeSearch");
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      menuBtn.textContent = navLinks.classList.contains("open") ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    function openSearch(){
+      searchOverlay.classList.add("open");
+      searchOverlay.setAttribute("aria-hidden","false");
+      document.body.style.overflow="hidden";
+      setTimeout(() => searchInput.focus(),100);
+    }
+
+    function closeSearchBox(){
+      searchOverlay.classList.remove("open");
+      searchOverlay.setAttribute("aria-hidden","true");
+      document.body.style.overflow="";
+      searchInput.value="";
+      searchResults.textContent="Explore collections, jewellery categories and stones.";
+    }
+
+    searchBtn.addEventListener("click",openSearch);
+    closeSearch.addEventListener("click",closeSearchBox);
+
+    searchOverlay.addEventListener("click",e=>{
+      if(e.target===searchOverlay) closeSearchBox();
+    });
+
+    document.addEventListener("keydown",e=>{
+      if(e.key==="Escape") closeSearchBox();
+      if((e.ctrlKey || e.metaKey) && e.key.toLowerCase()==="k"){
+        e.preventDefault();
+        openSearch();
+      }
+    });
+
+    const searchablePages = [
+      ["Gold Jewellery","gold.html"],
+      ["Gold Rings","gold-rings.html"],
+      ["Gold Bracelets","gold-bracelets.html"],
+      ["Gold Bangles","gold-bangles.html"],
+      ["Gold Earrings","gold-earrings.html"],
+      ["Gold Necklace Sets","gold-necklace-sets.html"],
+      ["Gold Tops","gold-tops.html"],
+      ["Gold Pendants","gold-pendants.html"],
+      ["Gold Chains","gold-chains.html"],
+      ["Gold Locket Sets","gold-locket-sets.html"],
+      ["Gold Men's Rings","gold-mens-rings.html"],
+      ["Gold Jewellery Sets","gold.html"],
+      ["Diamond Jewellery","diamond.html"],
+      ["Diamond Ladies Rings","diamond-rings.html"],
+      ["Diamond Men's Rings","diamond-ring-men.html"],
+      ["Diamond Pendants / Nose Pins","diamond-pendants-nose-pins.html"],
+      ["Choose Your Stone","stones.html"],
+      ["Services","services.html"],
+      ["Jewellery Care","care.html"],
+      ["Blogs","blogs.html"],
+      ["FAQ","faq.html"]
+    ];
+
+    searchInput.addEventListener("input",()=>{
+      const query = searchInput.value.trim().toLowerCase();
+
+      if(!query){
+        searchResults.textContent="Explore collections, jewellery categories and stones.";
+        return;
+      }
+
+      const matches = searchablePages.filter(item =>
+        item[0].toLowerCase().includes(query)
+      );
+
+      if(!matches.length){
+        searchResults.innerHTML="<p>No matching destination found. Try Gold, Diamond, Stone, Bridal or Collections.</p>";
+        return;
+      }
+
+      searchResults.innerHTML = matches.slice(0,8).map(item =>
+        `<a href="${item[1]}" style="display:block;color:#eee7dc;border-bottom:1px solid rgba(255,255,255,.1);padding:12px 0">${item[0]} →</a>`
+      ).join("");
+    });
+
+    const filterButtons = document.querySelectorAll(".filter");
+    const cards = document.querySelectorAll(".collection-card");
+    const collectionCount = document.getElementById("collectionCount");
+
+    filterButtons.forEach(button=>{
+      button.addEventListener("click",()=>{
+        filterButtons.forEach(btn=>btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+        let visible = 0;
+
+        cards.forEach(card=>{
+          const categories = card.dataset.category.split(" ");
+
+          if(filter === "all" || categories.includes(filter)){
+            card.classList.remove("hidden");
+            visible++;
+          }else{
+            card.classList.add("hidden");
+          }
+        });
+
+        collectionCount.textContent = `${visible} COLLECTION${visible === 1 ? "" : "S"}`;
+      });
+    });
+
+    const revealObserver = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:.08});
+
+    document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
+  </script>
+
+</body>
+</html>

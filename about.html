@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About The Jewelica | THE JEWELICA</title>
+  <link rel="icon" type="image/png" href="images/LOGO png.png">
+  <meta name="description"
+    content="Discover The Jewelica — a refined jewellery house shaped by thoughtful design, craftsmanship, quality and timeless elegance.">
+  <meta name="keywords" content="The Jewelica, jewellery, gold jewellery, diamond jewellery, craftsmanship">
+  <meta property="og:title" content="About The Jewelica">
+  <meta property="og:description" content="Discover the philosophy, craftsmanship and experience behind The Jewelica.">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --ivory: #f7f3eb;
+      --cream: #eee7db;
+      --white: #fffdf9;
+      --gold: #b79a68;
+      --gold-light: #d7c39b;
+      --espresso: #302820;
+      --charcoal: #211d19;
+      --brown: #65594d;
+      --muted: #81766a;
+      --line: rgba(48, 40, 32, .14);
+      --shadow: 0 22px 60px rgba(48, 40, 32, .10);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--espresso);
+      font-family: var(--sans);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 253, 249, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-wrap {
+      max-width: 1380px;
+      min-height: 82px;
+      margin: auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .brand {
+      flex-shrink: 0;
+      font-family: var(--serif);
+      font-size: 24px;
+      letter-spacing: 4px;
+      white-space: nowrap;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: -5px;
+      font-family: var(--sans);
+      font-size: 7px;
+      letter-spacing: 4px;
+      text-align: center;
+      color: var(--gold);
+    }
+
+    .main-nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 30px 0;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 23px;
+      height: 1px;
+      background: var(--gold);
+      transition: right .3s ease;
+    }
+
+    .main-nav a:hover::after,
+    .main-nav a[aria-current="page"]::after {
+      right: 0;
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"] {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      margin-left: auto;
+      border: 1px solid var(--line);
+      background: transparent;
+      padding: 9px 13px;
+      color: var(--espresso);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .about-hero {
+      min-height: 690px;
+      display: grid;
+      grid-template-columns: 48% 52%;
+      background: var(--espresso);
+      color: white;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 90px clamp(35px, 8vw, 120px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 1px solid rgba(215, 195, 155, .22);
+      border-radius: 50%;
+      right: -170px;
+      top: 70px;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(215, 195, 155, .10);
+      border-radius: 50%;
+      right: -220px;
+      top: 15px;
+    }
+
+    .eyebrow {
+      color: var(--gold-light);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .hero-copy h1 {
+      max-width: 680px;
+      margin: 24px 0;
+      font-family: var(--serif);
+      font-size: clamp(55px, 7vw, 105px);
+      font-weight: 400;
+      line-height: .94;
+      letter-spacing: -3px;
+    }
+
+    .hero-copy p {
+      max-width: 520px;
+      color: #d9d0c4;
+      font-size: 15px;
+    }
+
+    .hero-image {
+      min-height: 690px;
+      background: #ded4c5;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      height: 100%;
+      min-height: 690px;
+      transition: transform 1.2s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.025);
+    }
+
+    .outline-btn {
+      width: max-content;
+      margin-top: 30px;
+      padding: 14px 25px;
+      border: 1px solid var(--gold-light);
+      color: white;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: .3s ease;
+    }
+
+    .outline-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* =========================
+       GENERAL
+    ========================== */
+
+    .section {
+      max-width: 1240px;
+      margin: auto;
+      padding: 110px 28px;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .section-label {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 16px 0 22px;
+      font-family: var(--serif);
+      font-size: clamp(38px, 5vw, 66px);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* =========================
+       STORY
+    ========================== */
+
+    .story-layout {
+      margin-top: 75px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .story-image {
+      position: relative;
+      min-height: 580px;
+      padding: 20px;
+    }
+
+    .story-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--gold);
+      opacity: .55;
+    }
+
+    .story-image img {
+      position: relative;
+      height: 540px;
+      background: #e4dbcd;
+    }
+
+    .story-copy {
+      padding: 15px 0;
+    }
+
+    .story-copy h3 {
+      margin: 14px 0 22px;
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .story-copy p {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .signature-line {
+      margin-top: 30px;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 26px;
+      font-style: italic;
+    }
+
+    /* =========================
+       PHILOSOPHY CARDS
+    ========================== */
+
+    .philosophy-section {
+      background: var(--cream);
+    }
+
+    .principles {
+      margin-top: 65px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line);
+    }
+
+    .principle {
+      min-height: 310px;
+      padding: 45px 35px;
+      background: rgba(255, 253, 249, .58);
+      border-right: 1px solid var(--line);
+      transition: .35s ease;
+    }
+
+    .principle:last-child {
+      border-right: 0;
+    }
+
+    .principle:hover {
+      background: var(--white);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .number {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 17px;
+    }
+
+    .principle h3 {
+      margin: 32px 0 13px;
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+    }
+
+    .principle p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       CRAFTSMANSHIP
+    ========================== */
+
+    .craft-layout {
+      margin-top: 70px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 55px;
+    }
+
+    .craft-large img {
+      height: 570px;
+      background: #e1d8ca;
+    }
+
+    .craft-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .craft-side h3 {
+      font-family: var(--serif);
+      font-size: 43px;
+      font-weight: 400;
+      line-height: 1.08;
+      margin: 14px 0 22px;
+    }
+
+    .craft-side p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .gold-rule {
+      width: 65px;
+      height: 1px;
+      margin: 25px 0;
+      background: var(--gold);
+    }
+
+    .text-link {
+      display: inline-flex;
+      width: max-content;
+      margin-top: 18px;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 7px;
+      color: var(--espresso);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .text-link:hover {
+      color: var(--gold);
+    }
+
+    /* =========================
+       PROMISE
+    ========================== */
+
+    .promise {
+      position: relative;
+      padding: 120px 24px;
+      background: var(--charcoal);
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .promise::before,
+    .promise::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(215, 195, 155, .18);
+      border-radius: 50%;
+    }
+
+    .promise::before {
+      width: 500px;
+      height: 500px;
+      left: -290px;
+      top: -190px;
+    }
+
+    .promise::after {
+      width: 430px;
+      height: 430px;
+      right: -250px;
+      bottom: -250px;
+    }
+
+    .promise-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .promise h2 {
+      margin: 17px 0 20px;
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .promise p {
+      color: #cec5b9;
+      font-size: 15px;
+    }
+
+    /* =========================
+       EXPERIENCE
+    ========================== */
+
+    .experience-grid {
+      margin-top: 65px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .experience-card {
+      padding: 38px 25px;
+      min-height: 250px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      transition: .35s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+      box-shadow: var(--shadow);
+    }
+
+    .experience-card span {
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 30px;
+    }
+
+    .experience-card h3 {
+      margin: 24px 0 10px;
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .experience-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta {
+      padding: 105px 24px;
+      background: #e7ddce;
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .cta h2 {
+      margin: 15px 0;
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 62px);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .cta p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .dark-btn {
+      display: inline-flex;
+      margin-top: 28px;
+      padding: 15px 28px;
+      background: var(--espresso);
+      color: white;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: .3s ease;
+    }
+
+    .dark-btn:hover {
+      background: var(--gold);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: #27211c;
+      color: #eee5d9;
+      padding: 75px 28px 25px;
+    }
+
+    .footer-grid {
+      max-width: 1240px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr 1.3fr;
+      gap: 45px;
+    }
+
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 25px;
+      letter-spacing: 3px;
+    }
+
+    .footer-description {
+      max-width: 300px;
+      margin-top: 18px;
+      color: #bdb2a4;
+      font-size: 13px;
+    }
+
+    footer h4 {
+      margin-bottom: 18px;
+      color: var(--gold-light);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    footer a,
+    footer p {
+      display: block;
+      margin: 8px 0;
+      color: #c6bbae;
+      font-size: 12px;
+    }
+
+    footer a:hover {
+      color: var(--gold-light);
+    }
+
+    .map {
+      width: 100%;
+      height: 175px;
+      margin-top: 15px;
+      border: 0;
+      filter: grayscale(1);
+    }
+
+    .copyright {
+      max-width: 1240px;
+      margin: 50px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, .13);
+      color: #938a80;
+      font-size: 10px;
+      letter-spacing: .5px;
+    }
+
+    /* =========================
+       REVEAL
+    ========================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 1120px) {
+      .main-nav {
+        gap: 14px;
+      }
+
+      .main-nav a {
+        font-size: 9px;
+      }
+
+      .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-wrap {
+        min-height: 74px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .main-nav {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        padding: 12px 25px 20px;
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .main-nav a {
+        padding: 13px 0;
+      }
+
+      .main-nav a::after {
+        display: none;
+      }
+
+      .about-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        min-height: 530px;
+      }
+
+      .hero-image,
+      .hero-image img {
+        min-height: 480px;
+        height: 480px;
+      }
+
+      .story-layout,
+      .craft-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .principle {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .principle:last-child {
+        border-bottom: 0;
+      }
+
+      .craft-large img {
+        height: 450px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-wrap {
+        padding: 0 18px;
+      }
+
+      .brand {
+        font-size: 20px;
+        letter-spacing: 2.5px;
+      }
+
+      .section {
+        padding: 75px 18px;
+      }
+
+      .hero-copy {
+        padding: 70px 25px;
+      }
+
+      .hero-copy h1 {
+        font-size: 60px;
+        letter-spacing: -2px;
+      }
+
+      .hero-image,
+      .hero-image img {
+        min-height: 360px;
+        height: 360px;
+      }
+
+      .story-image {
+        min-height: 390px;
+        padding: 12px;
+      }
+
+      .story-image img {
+        height: 365px;
+      }
+
+      .experience-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .craft-large img {
+        height: 360px;
+      }
+
+      .promise {
+        padding: 90px 20px;
+      }
+
+      .cta {
+        padding: 80px 20px;
+      }
+
+      footer {
+        padding: 60px 20px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+  <header class="site-header">
+    <div class="nav-wrap">
+
+      <a href="index.html" class="brand" aria-label="The Jewelica Home">
+        THE JEWELICA
+        <small>FINE JEWELLERY</small>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        MENU
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gold.html">Gold</a>
+        <a href="diamond.html">Diamonds</a>
+        <a href="collections.html">Collections</a>
+        <a href="stones.html">Choose Your Stone</a>
+        <a href="services.html">Services</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="about-hero">
+
+      <div class="hero-copy">
+        <span class="eyebrow">About The Jewelica</span>
+
+        <h1>
+          Made with<br>
+          meaning.
+        </h1>
+
+        <p>
+          The Jewelica is a modern jewellery experience built around
+          thoughtful design, refined craftsmanship and the quiet beauty
+          of pieces created to be treasured.
+        </p>
+
+        <a href="collections.html" class="outline-btn">
+          Explore Collections
+        </a>
+      </div>
+
+      <div class="hero-image">
+        <img src="images/about hero.png" alt="The Jewelica jewellery editorial placeholder">
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         OUR STORY
+    ========================== -->
+
+    <section class="section">
+
+      <div class="section-heading reveal">
+        <span class="section-label">Our Story</span>
+
+        <h2>
+          A language of elegance,
+          expressed in jewellery.
+        </h2>
+
+        <p>
+          The Jewelica is imagined as a refined jewellery house where
+          classic forms meet a fresh, modern point of view.
+        </p>
+      </div>
+
+
+      <div class="story-layout">
+
+        <div class="story-image reveal">
+          <img src="images/about 2.png" alt="The Jewelica jewellery collection placeholder">
+        </div>
+
+
+        <div class="story-copy reveal">
+
+          <span class="section-label">The Jewelica Philosophy</span>
+
+          <h3>
+            Jewellery should feel
+            personal, not excessive.
+          </h3>
+
+          <p>
+            We believe the most memorable jewellery is not simply noticed;
+            it becomes part of the person who wears it.
+          </p>
+
+          <p>
+            Our design approach focuses on balance, proportion, texture
+            and details that feel considered from every angle.
+          </p>
+
+          <p>
+            From understated everyday pieces to expressive jewellery for
+            important occasions, The Jewelica is designed around the idea
+            that beauty can be both contemporary and enduring.
+          </p>
+
+          <div class="signature-line">
+            The Jewelica
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PHILOSOPHY
+    ========================== -->
+
+    <section class="philosophy-section">
+
+      <div class="section">
+
+        <div class="section-heading reveal">
+          <span class="section-label">Our Philosophy</span>
+
+          <h2>
+            Three principles behind
+            every detail.
+          </h2>
+
+          <p>
+            A simple design philosophy guides the way The Jewelica
+            presents jewellery and the experience surrounding it.
+          </p>
+        </div>
+
+
+        <div class="principles">
+
+          <article class="principle reveal">
+            <span class="number">01</span>
+
+            <h3>
+              Thoughtful Design
+            </h3>
+
+            <p>
+              Refined silhouettes, balanced proportions and carefully
+              considered details create jewellery that feels elegant
+              without being overworked.
+            </p>
+          </article>
+
+
+          <article class="principle reveal">
+            <span class="number">02</span>
+
+            <h3>
+              Considered Craft
+            </h3>
+
+            <p>
+              Every element matters. Texture, setting, finish and form
+              are approached with patience and precision to create a
+              beautifully resolved piece.
+            </p>
+          </article>
+
+
+          <article class="principle reveal">
+            <span class="number">03</span>
+
+            <h3>
+              Lasting Beauty
+            </h3>
+
+            <p>
+              We favour designs that can move naturally through different
+              moments of life rather than feeling limited to one occasion.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CRAFTSMANSHIP
+    ========================== -->
+
+    <section class="section">
+
+      <div class="craft-layout">
+
+        <div class="craft-large reveal">
+          <img src="images/about 3.png" alt="The Jewelica jewellery craftsmanship placeholder">
+        </div>
+
+
+        <div class="craft-side reveal">
+
+          <span class="section-label">
+            Craftsmanship
+          </span>
+
+          <h3>
+            Beauty lives
+            in the details.
+          </h3>
+
+          <div class="gold-rule"></div>
+
+          <p>
+            A jewellery piece is more than its overall silhouette.
+            The smallest details contribute to how it catches light,
+            how it feels in the hand and how naturally it becomes part
+            of an everyday collection.
+          </p>
+
+          <p>
+            The Jewelica celebrates this attention to detail through
+            considered materials, elegant finishing and jewellery
+            designed to be appreciated from every perspective.
+          </p>
+
+          <a href="services.html" class="text-link">
+            Explore Our Services
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUALITY PROMISE
+    ========================== -->
+
+    <section class="promise">
+
+      <div class="promise-inner reveal">
+
+        <span class="section-label">
+          The Jewelica Promise
+        </span>
+
+        <h2>
+          Quality that feels
+          as beautiful as the design.
+        </h2>
+
+        <p>
+          Our promise is simple: create a jewellery experience that is
+          clear, thoughtful and centred on pieces you can enjoy with
+          confidence.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================== -->
+
+    <section class="section">
+
+      <div class="section-heading reveal">
+
+        <span class="section-label">
+          The Experience
+        </span>
+
+        <h2>
+          More than jewellery.
+        </h2>
+
+        <p>
+          From discovery to consultation and care, every part of the
+          journey is designed to feel considered.
+        </p>
+
+      </div>
+
+
+      <div class="experience-grid">
+
+        <article class="experience-card reveal">
+          <span>01</span>
+          <h3>Discover</h3>
+          <p>
+            Explore gold, diamonds, gemstones and curated jewellery
+            through an elegant, uncomplicated experience.
+          </p>
+        </article>
+
+
+        <article class="experience-card reveal">
+          <span>02</span>
+          <h3>Choose</h3>
+          <p>
+            Discover jewellery categories, collections and gemstones
+            with clear information to help guide your selection.
+          </p>
+        </article>
+
+
+        <article class="experience-card reveal">
+          <span>03</span>
+          <h3>Consult</h3>
+          <p>
+            Request guidance for bespoke jewellery, bridal pieces,
+            diamonds, gemstones or thoughtful gifting.
+          </p>
+        </article>
+
+
+        <article class="experience-card reveal">
+          <span>04</span>
+          <h3>Care</h3>
+          <p>
+            Continue enjoying your jewellery with practical care,
+            cleaning, inspection and restoration guidance.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+      <div class="cta-inner reveal">
+
+        <span class="section-label">
+          Discover The Jewelica
+        </span>
+
+        <h2>
+          Find something
+          worth keeping.
+        </h2>
+
+        <p>
+          Explore our jewellery, discover your stone or speak with us
+          about creating something considered for a meaningful moment.
+        </p>
+
+        <a href="shop.html" class="dark-btn">
+          Explore Jewellery
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-brand">
+          THE JEWELICA
+        </div>
+
+        <p class="footer-description">
+          Refined jewellery for meaningful moments, thoughtful gifting
+          and everyday elegance.
+        </p>
+      </div>
+
+
+      <div>
+
+        <h4>Quick Links</h4>
+
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gold.html">Gold</a>
+        <a href="diamond.html">Diamonds</a>
+        <a href="collections.html">Collections</a>
+        <a href="stones.html">Choose Your Stone</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>Customer Care</h4>
+
+        <a href="care.html">Jewellery Care</a>
+        <a href="faq.html">FAQs</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>Visit Us</h4>
+
+        <p>
+          The Jewelica Lahore<br>
+          Location details to be updated
+        </p>
+
+        <p>
+          Phone: +92 300 0000000<br>
+          Email: hello@thejewelica.example<br>
+          Mon–Sat: 11:00 AM–8:00 PM
+        </p>
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786846326088!5m2!1sen!2s"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 THE JEWELICA. All Rights Reserved.
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       PAGE JAVASCRIPT
+  ========================== -->
+
+  <script>
+    /* Mobile Navigation */
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mainNav.classList.toggle("open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
+    });
+
+
+    /* Close mobile navigation after selecting a page */
+    document.querySelectorAll(".main-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+
+    /* Scroll Reveal */
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealItems.forEach(function (item) {
+      revealObserver.observe(item);
+    });
+
+
+    /* Keyboard accessibility for mobile menu */
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+
+</body>
+
+</html>

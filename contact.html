@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact | THE JEWELICA</title>
+  <link rel="icon" type="image/png" href="images/LOGO png.png">
+  <meta name="description" content="Get in touch with THE JEWELICA for jewellery consultations, bespoke jewellery, care services and enquiries.">
+  <meta name="keywords" content="The Jewelica, jewellery, contact, jewellery consultation, bespoke jewellery, Lahore">
+  <meta name="author" content="THE JEWELICA">
+
+  <meta property="og:title" content="Contact | THE JEWELICA">
+  <meta property="og:description" content="Connect with THE JEWELICA for jewellery enquiries, consultations and services.">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --ivory: #f7f3eb;
+      --cream: #eee7d9;
+      --champagne: #d4bd8b;
+      --gold: #b79a62;
+      --gold-dark: #8d7442;
+      --espresso: #2b211b;
+      --charcoal: #171513;
+      --muted: #756b60;
+      --white: #fffdf9;
+      --line: rgba(43, 33, 27, .14);
+      --shadow: 0 24px 60px rgba(43, 33, 27, .10);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--espresso);
+      font-family: var(--sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .top-line {
+      height: 4px;
+      background: var(--gold);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 243, 235, .96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navbar {
+      max-width: 1440px;
+      margin: auto;
+      min-height: 82px;
+      padding: 0 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      flex-shrink: 0;
+    }
+
+    .brand-main {
+      font-family: var(--serif);
+      font-size: 25px;
+      letter-spacing: 5px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      margin-top: 7px;
+      text-align: center;
+      font-size: 8px;
+      letter-spacing: 4px;
+      color: var(--gold-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      list-style: none;
+      flex: 1;
+    }
+
+    .nav-links > li {
+      position: relative;
+    }
+
+    .nav-links > li > a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 30px 0;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: color .25s ease;
+    }
+
+    .nav-links > li > a:hover,
+    .nav-links > li > a.active {
+      color: var(--gold-dark);
+    }
+
+    .arrow {
+      font-size: 8px;
+      transition: transform .25s ease;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, 12px);
+      width: 230px;
+      padding: 18px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: .25s ease;
+    }
+
+    .nav-links li:hover .dropdown,
+    .nav-links li.open .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+      pointer-events: auto;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 9px 10px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(43,33,27,.07);
+    }
+
+    .dropdown a:last-child {
+      border-bottom: 0;
+    }
+
+    .dropdown a:hover {
+      background: var(--cream);
+      color: var(--gold-dark);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-action {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--line);
+      background: transparent;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      color: var(--espresso);
+      transition: .25s ease;
+    }
+
+    .nav-action:hover {
+      background: var(--espresso);
+      color: var(--ivory);
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    .search-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(23,21,19,.72);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 110px 20px 30px;
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s ease;
+    }
+
+    .search-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .search-box {
+      width: min(760px, 100%);
+      background: var(--white);
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .search-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .search-top h2 {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+    }
+
+    .close-search {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .search-input-wrap {
+      display: flex;
+      border-bottom: 1px solid var(--espresso);
+    }
+
+    .search-input-wrap input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      padding: 14px 4px;
+      font-size: 15px;
+    }
+
+    .search-results {
+      margin-top: 20px;
+      max-height: 350px;
+      overflow-y: auto;
+    }
+
+    .search-result {
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .search-result span {
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .page-hero {
+      min-height: 480px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(115deg, rgba(23,21,19,.94), rgba(55,43,32,.78)),
+        url("assets/images/contact-hero.jpg") center/cover;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(212,189,139,.35);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 760px;
+      padding: 50px 25px;
+      color: var(--ivory);
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--champagne);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero-content h1 {
+      font-family: var(--serif);
+      font-size: clamp(50px, 8vw, 92px);
+      line-height: .95;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .hero-content p {
+      max-width: 620px;
+      margin: auto;
+      color: rgba(247,243,235,.78);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    /* =========================
+       GENERAL
+    ========================= */
+
+    .section {
+      max-width: 1240px;
+      margin: auto;
+      padding: 105px 30px;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 55px;
+    }
+
+    .section-heading.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .gold-line {
+      width: 58px;
+      height: 1px;
+      background: var(--gold);
+      margin: 20px 0;
+    }
+
+    .center .gold-line {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* =========================
+       CONTACT INTRO
+    ========================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .contact-copy {
+      padding-right: 30px;
+    }
+
+    .contact-copy h2 {
+      font-family: var(--serif);
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    .contact-copy > p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+      margin-bottom: 35px;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 20px;
+    }
+
+    .detail-item {
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail-item:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--gold-dark);
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .detail-value {
+      font-family: var(--serif);
+      font-size: 20px;
+    }
+
+    .detail-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 42px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-card h3 {
+      font-family: var(--serif);
+      font-size: 35px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .form-card > p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field textarea {
+      border: 1px solid var(--line);
+      background: #fbf9f4;
+      padding: 14px 15px;
+      color: var(--espresso);
+      outline: none;
+      transition: .25s ease;
+      resize: vertical;
+    }
+
+    .field textarea {
+      min-height: 145px;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(183,154,98,.10);
+    }
+
+    .field.error input,
+    .field.error textarea {
+      border-color: #9a4b42;
+    }
+
+    .error-text {
+      display: none;
+      font-size: 10px;
+      color: #9a4b42;
+    }
+
+    .field.error .error-text {
+      display: block;
+    }
+
+    .submit-row {
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .btn {
+      border: 1px solid var(--espresso);
+      background: var(--espresso);
+      color: var(--ivory);
+      padding: 15px 25px;
+      min-width: 170px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: .3s ease;
+    }
+
+    .btn:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+    }
+
+    .form-status {
+      font-size: 11px;
+      color: var(--gold-dark);
+      display: none;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
+    /* =========================
+       VISIT US
+    ========================= */
+
+    .visit-section {
+      background: var(--espresso);
+      color: var(--ivory);
+    }
+
+    .visit-inner {
+      max-width: 1240px;
+      margin: auto;
+      padding: 100px 30px;
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 65px;
+      align-items: stretch;
+    }
+
+    .visit-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .visit-copy h2 {
+      font-family: var(--serif);
+      font-size: clamp(42px, 5vw, 62px);
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 22px;
+    }
+
+    .visit-copy p {
+      color: rgba(247,243,235,.68);
+      font-size: 14px;
+      line-height: 1.9;
+      margin-bottom: 35px;
+    }
+
+    .visit-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .visit-item {
+      border-top: 1px solid rgba(247,243,235,.18);
+      padding-top: 18px;
+    }
+
+    .visit-item strong {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--champagne);
+      margin-bottom: 7px;
+    }
+
+    .visit-item span {
+      color: rgba(247,243,235,.82);
+      font-size: 13px;
+    }
+
+    .map-wrap {
+      min-height: 460px;
+      border: 1px solid rgba(212,189,139,.25);
+      overflow: hidden;
+      background: #29231e;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 460px;
+      border: 0;
+      filter: grayscale(1) sepia(.15);
+    }
+
+    /* =========================
+       APPOINTMENT
+    ========================= */
+
+    .appointment {
+      background: var(--cream);
+    }
+
+    .appointment-box {
+      max-width: 920px;
+      margin: auto;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .appointment-box h2 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 60px);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+
+    .appointment-box p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #141210;
+      color: var(--ivory);
+    }
+
+    .footer-main {
+      max-width: 1440px;
+      margin: auto;
+      padding: 75px 42px 55px;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.4fr;
+      gap: 55px;
+    }
+
+    .footer-brand .brand-main {
+      color: var(--ivory);
+    }
+
+    .footer-brand p {
+      margin-top: 25px;
+      color: rgba(247,243,235,.56);
+      font-size: 12px;
+      line-height: 1.9;
+      max-width: 300px;
+    }
+
+    .footer-title {
+      color: var(--champagne);
+      font-size: 9px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(247,243,235,.65);
+      font-size: 11px;
+      transition: .2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--champagne);
+    }
+
+    .footer-visit {
+      display: grid;
+      gap: 13px;
+    }
+
+    .footer-visit div {
+      color: rgba(247,243,235,.65);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .footer-map {
+      height: 210px;
+      border: 1px solid rgba(212,189,139,.18);
+      overflow: hidden;
+      margin-top: 5px;
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(1) sepia(.15);
+    }
+
+    .footer-bottom {
+      max-width: 1440px;
+      margin: auto;
+      padding: 22px 42px;
+      border-top: 1px solid rgba(247,243,235,.10);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: rgba(247,243,235,.4);
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    .back-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 44px;
+      height: 44px;
+      background: var(--gold-dark);
+      color: white;
+      border: 0;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(15px);
+      transition: .3s ease;
+      z-index: 800;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       REVEAL
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1180px) {
+      .navbar {
+        padding: 0 25px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links > li > a {
+        font-size: 9px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .navbar {
+        min-height: 72px;
+      }
+
+      .menu-btn {
+        display: grid;
+      }
+
+      .nav-links {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 72px;
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        padding: 15px 25px 25px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links > li > a {
+        padding: 15px 4px;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .dropdown {
+        position: static;
+        width: 100%;
+        transform: none !important;
+        box-shadow: none;
+        border: 0;
+        border-bottom: 1px solid var(--line);
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        padding: 7px 12px;
+      }
+
+      .nav-links li.open .dropdown {
+        display: block;
+      }
+
+      .contact-grid,
+      .visit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-copy {
+        padding-right: 0;
+      }
+
+      .map-wrap {
+        min-height: 400px;
+      }
+
+      .map-wrap iframe {
+        min-height: 400px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        padding: 0 16px;
+      }
+
+      .brand-main {
+        font-size: 20px;
+        letter-spacing: 3px;
+      }
+
+      .brand-sub {
+        font-size: 7px;
+      }
+
+      .nav-actions {
+        gap: 7px;
+      }
+
+      .nav-action {
+        width: 36px;
+        height: 36px;
+      }
+
+      .page-hero {
+        min-height: 390px;
+      }
+
+      .page-hero::after {
+        inset: 12px;
+      }
+
+      .section {
+        padding: 75px 20px;
+      }
+
+      .form-card {
+        padding: 27px 20px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .submit-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .visit-inner {
+        padding: 75px 20px;
+      }
+
+      .visit-info {
+        grid-template-columns: 1fr;
+      }
+
+      .map-wrap,
+      .map-wrap iframe {
+        min-height: 330px;
+      }
+
+      .footer-main {
+        padding: 60px 22px 40px;
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-bottom {
+        padding: 20px 22px;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-line"></div>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+
+      <a href="index.html" class="brand" aria-label="The Jewelica Home">
+        <div class="brand-main">THE JEWELICA</div>
+        <div class="brand-sub">FINE JEWELLERY HOUSE</div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li>
+          <a href="index.html">HOME</a>
+        </li>
+
+        <li>
+          <a href="shop.html">SHOP</a>
+        </li>
+
+        <li class="has-dropdown">
+          <a href="gold.html" class="dropdown-toggle">
+            GOLD <span class="arrow">⌄</span>
+          </a>
+
+          <div class="dropdown">
+            <a href="gold-rings.html">Gold Rings</a>
+            <a href="gold-bracelets.html">Gold Bracelets</a>
+            <a href="gold-bangles.html">Gold Bangles</a>
+            <a href="gold-earrings.html">Gold Earrings</a>
+            <a href="gold-necklace-sets.html">Gold Necklace Sets</a>
+            <a href="gold-tops.html">Gold Tops</a>
+            <a href="gold-pendants.html">Gold Pendants</a>
+            <a href="gold-chains.html">Gold Chains</a>
+            <a href="gold-mens-rings.html">Gold Men's Rings</a>
+            <a href="gold.html">Gold Jewellery Sets</a>
+          </div>
+        </li>
+
+        <li class="has-dropdown">
+          <a href="diamond.html" class="dropdown-toggle">
+            DIAMONDS <span class="arrow">⌄</span>
+          </a>
+
+          <div class="dropdown">
+            <a href="diamond-rings.html">Diamond Ladies Rings</a>
+            <a href="diamond-ring-men.html">Diamond Men's Rings</a>
+          </div>
+        </li>
+
+        <li>
+          <a href="collections.html">COLLECTIONS</a>
+        </li>
+
+        <li>
+          <a href="stones.html">CHOOSE YOUR STONE</a>
+        </li>
+
+        <li>
+          <a href="services.html">SERVICES</a>
+        </li>
+
+        <li>
+          <a href="about.html">ABOUT</a>
+        </li>
+
+        <li>
+          <a href="contact.html" class="active">CONTACT</a>
+        </li>
+
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-action" id="searchButton" aria-label="Open Search">⌕</button>
+
+        <button class="nav-action menu-btn" id="menuButton" aria-label="Open Menu" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- =========================
+       SEARCH OVERLAY
+  ========================== -->
+
+  <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+    <div class="search-box">
+
+      <div class="search-top">
+        <h2>Search The Jewelica</h2>
+        <button class="close-search" id="closeSearch" aria-label="Close Search">×</button>
+      </div>
+
+      <div class="search-input-wrap">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search jewellery, collections, services..."
+          autocomplete="off"
+          aria-label="Search"
+        >
+      </div>
+
+      <div class="search-results" id="searchResults">
+        <div class="search-result">
+          <strong>Try searching for jewellery, gold, diamonds or services.</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main>
+
+    <section class="page-hero">
+      <div class="hero-content reveal">
+        <div class="eyebrow">THE JEWELICA</div>
+        <h1>GET IN TOUCH</h1>
+        <p>
+          Every jewellery journey begins with a conversation.
+          Connect with The Jewelica for thoughtful guidance,
+          bespoke ideas, consultations and care for the pieces
+          that matter to you.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================
+         CONTACT SECTION
+    ========================= -->
+
+    <section class="section">
+
+      <div class="contact-grid">
+
+        <div class="contact-copy reveal">
+
+          <div class="eyebrow">WE ARE HERE FOR YOU</div>
+
+          <h2>LET'S CREATE SOMETHING TIMELESS.</h2>
+
+          <div class="gold-line"></div>
+
+          <p>
+            Whether you are searching for a meaningful piece,
+            exploring gemstones, planning a bridal collection,
+            considering a bespoke design or simply looking for
+            professional jewellery guidance, our team is here
+            to help you make an informed and personal choice.
+          </p>
+
+          <div class="contact-details">
+
+            <div class="detail-item">
+              <div class="detail-label">VISIT</div>
+              <div class="detail-value">The Jewelica Lahore</div>
+              <div class="detail-note">
+                A future showroom location for The Jewelica.
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-label">CALL</div>
+              <div class="detail-value">+92 300 000 0000</div>
+              <div class="detail-note">
+                Placeholder contact number.
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-label">EMAIL</div>
+              <div class="detail-value">hello@thejewelica.example</div>
+              <div class="detail-note">
+                Placeholder email address.
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-label">OPENING HOURS</div>
+              <div class="detail-value">11:00 AM — 8:00 PM</div>
+              <div class="detail-note">
+                Monday — Saturday · Sunday by appointment.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- CONTACT FORM -->
+
+        <div class="form-card reveal">
+
+          <h3>GET IN TOUCH</h3>
+
+          <p>
+            Send us your enquiry and a member of The Jewelica
+            team can guide you through the next step.
+          </p>
+
+          <form id="contactForm" novalidate>
+
+            <div class="form-grid">
+
+              <div class="field">
+                <label for="firstName">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="Your first name"
+                  autocomplete="given-name"
+                >
+                <span class="error-text">Please enter your first name.</span>
+              </div>
+
+              <div class="field">
+                <label for="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Your last name"
+                  autocomplete="family-name"
+                >
+                <span class="error-text">Please enter your last name.</span>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+92"
+                  autocomplete="tel"
+                >
+                <span class="error-text">Please enter your phone number.</span>
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                >
+                <span class="error-text">Please enter a valid email address.</span>
+              </div>
+
+              <div class="field full">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="How can we help?"
+                >
+                <span class="error-text">Please enter a subject.</span>
+              </div>
+
+              <div class="field full">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us about your jewellery enquiry..."
+                ></textarea>
+                <span class="error-text">Please enter your message.</span>
+              </div>
+
+            </div>
+
+            <div class="submit-row">
+
+              <button type="submit" class="btn">
+                SEND ENQUIRY
+              </button>
+
+              <div class="form-status" id="formStatus" role="status">
+                Thank you. Your enquiry has been prepared successfully.
+              </div>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         VISIT US
+    ========================== -->
+
+    <section class="visit-section">
+
+      <div class="visit-inner">
+
+        <div class="visit-grid">
+
+          <div class="visit-copy reveal">
+
+            <div class="eyebrow">A PLACE FOR JEWELLERY DISCOVERY</div>
+
+            <h2>VISIT THE JEWELICA</h2>
+
+            <p>
+              Our future Lahore location is designed as a refined
+              space where jewellery can be explored slowly, thoughtfully
+              and personally. Replace the placeholder information below
+              with your final showroom details when ready.
+            </p>
+
+            <div class="visit-info">
+
+              <div class="visit-item">
+                <strong>ADDRESS</strong>
+                <span>
+                  The Jewelica Lahore,
+                  Lahore, Pakistan
+                </span>
+              </div>
+
+              <div class="visit-item">
+                <strong>PHONE</strong>
+                <span>
+                  +92 300 000 0000
+                </span>
+              </div>
+
+              <div class="visit-item">
+                <strong>EMAIL</strong>
+                <span>
+                  hello@thejewelica.example
+                </span>
+              </div>
+
+              <div class="visit-item">
+                <strong>HOURS</strong>
+                <span>
+                  Monday — Saturday<br>
+                  11:00 AM — 8:00 PM
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="map-wrap reveal">
+
+            <iframe
+              title="The Jewelica Lahore Map"
+              src="https://www.google.com/maps?q=Lahore%2C%20Pakistan&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         APPOINTMENT CTA
+    ========================== -->
+
+    <section class="section appointment">
+
+      <div class="appointment-box reveal">
+
+        <div class="eyebrow">PERSONAL GUIDANCE</div>
+
+        <h2>YOUR JEWELLERY JOURNEY STARTS HERE.</h2>
+
+        <div class="gold-line"></div>
+
+        <p>
+          Looking for a bespoke piece, a gemstone recommendation,
+          bridal jewellery guidance or professional jewellery care?
+          Explore our services or begin with a personal enquiry.
+        </p>
+
+        <a href="services.html" class="btn">
+          EXPLORE OUR SERVICES
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <div class="brand-main">THE JEWELICA</div>
+
+        <div class="brand-sub">FINE JEWELLERY HOUSE</div>
+
+        <p>
+          Refined jewellery, thoughtful guidance and timeless
+          design. Discover a more considered way to experience
+          fine jewellery with The Jewelica.
+        </p>
+
+      </div>
+
+      <div>
+
+        <div class="footer-title">QUICK LINKS</div>
+
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="gold.html">Gold</a></li>
+          <li><a href="diamond.html">Diamonds</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="stones.html">Choose Your Stone</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <div class="footer-title">CUSTOMER CARE</div>
+
+        <ul class="footer-links">
+          <li><a href="care.html">Jewellery Care</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <div class="footer-title">VISIT US</div>
+
+        <div class="footer-visit">
+
+          <div>
+            The Jewelica Lahore<br>
+            Lahore, Pakistan
+          </div>
+
+          <div>
+            +92 300 000 0000<br>
+            hello@thejewelica.example
+          </div>
+
+          <div>
+            Monday — Saturday<br>
+            11:00 AM — 8:00 PM
+          </div>
+
+          <div class="footer-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
+              width="600"
+              height="450"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 THE JEWELICA. ALL RIGHTS RESERVED.</span>
+      <span>CRAFTED FOR TIMELESS JEWELLERY DISCOVERY.</span>
+    </div>
+
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    ↑
+  </button>
+
+  <script>
+    /* ==========================================
+       THE JEWELICA — CONTACT PAGE JAVASCRIPT
+    ========================================== */
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const navLinks = document.getElementById("navLinks");
+      const menuButton = document.getElementById("menuButton");
+
+      /* -----------------------------
+         MOBILE NAVIGATION
+      ----------------------------- */
+
+      if (menuButton) {
+        menuButton.addEventListener("click", function () {
+
+          const isOpen = navLinks.classList.toggle("show");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+          );
+
+          menuButton.textContent = isOpen ? "×" : "☰";
+        });
+      }
+
+      /* -----------------------------
+         MOBILE DROPDOWNS
+      ----------------------------- */
+
+      const dropdownToggles =
+        document.querySelectorAll(".dropdown-toggle");
+
+      dropdownToggles.forEach(function (toggle) {
+
+        toggle.addEventListener("click", function (event) {
+
+          if (window.innerWidth <= 980) {
+
+            const parent = toggle.parentElement;
+
+            if (parent.classList.contains("has-dropdown")) {
+              event.preventDefault();
+
+              document
+                .querySelectorAll(".nav-links .has-dropdown")
+                .forEach(function (item) {
+
+                  if (item !== parent) {
+                    item.classList.remove("open");
+                  }
+
+                });
+
+              parent.classList.toggle("open");
+            }
+          }
+
+        });
+
+      });
+
+      /* -----------------------------
+         CLOSE MOBILE MENU AFTER LINK
+      ----------------------------- */
+
+      document
+        .querySelectorAll(".nav-links a:not(.dropdown-toggle)")
+        .forEach(function (link) {
+
+          link.addEventListener("click", function () {
+
+            if (window.innerWidth <= 980) {
+
+              navLinks.classList.remove("show");
+
+              menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+
+              menuButton.textContent = "☰";
+            }
+
+          });
+
+        });
+
+      /* -----------------------------
+         SEARCH
+      ----------------------------- */
+
+      const searchButton =
+        document.getElementById("searchButton");
+
+      const searchOverlay =
+        document.getElementById("searchOverlay");
+
+      const closeSearch =
+        document.getElementById("closeSearch");
+
+      const searchInput =
+        document.getElementById("searchInput");
+
+      const searchResults =
+        document.getElementById("searchResults");
+
+      const searchItems = [
+        {
+          title: "All Jewellery",
+          category: "Shop",
+          url: "shop.html"
+        },
+        {
+          title: "Gold Jewellery",
+          category: "Gold",
+          url: "gold.html"
+        },
+        {
+          title: "Gold Rings",
+          category: "Gold",
+          url: "gold-rings.html"
+        },
+        {
+          title: "Gold Bracelets",
+          category: "Gold",
+          url: "gold-bracelets.html"
+        },
+        {
+          title: "Gold Bangles",
+          category: "Gold",
+          url: "gold-bangles.html"
+        },
+        {
+          title: "Gold Earrings",
+          category: "Gold",
+          url: "gold-earrings.html"
+        },
+        {
+          title: "Gold Pendants",
+          category: "Gold",
+          url: "gold-pendants.html"
+        },
+        {
+          title: "Gold Chains",
+          category: "Gold",
+          url: "gold-chains.html"
+        },
+        {
+          title: "Diamond Jewellery",
+          category: "Diamonds",
+          url: "diamond.html"
+        },
+        {
+          title: "Diamond Rings",
+          category: "Diamonds",
+          url: "diamond-rings.html"
+        },
+        {
+          title: "Diamond Men's Rings",
+          category: "Diamonds",
+          url: "diamond-ring-men.html"
+        },
+        {
+          title: "Choose Your Stone",
+          category: "Stones",
+          url: "stones.html"
+        },
+        {
+          title: "Jewellery Services",
+          category: "Services",
+          url: "services.html"
+        },
+        {
+          title: "Jewellery Care Studio",
+          category: "Care",
+          url: "care.html"
+        },
+        {
+          title: "Jewellery Guides & Stories",
+          category: "Blogs",
+          url: "blogs.html"
+        },
+        {
+          title: "Questions & FAQs",
+          category: "Customer Care",
+          url: "faq.html"
+        },
+        {
+          title: "About The Jewelica",
+          category: "The Jewelica",
+          url: "about.html"
+        },
+        {
+          title: "Contact The Jewelica",
+          category: "The Jewelica",
+          url: "contact.html"
+        }
+      ];
+
+      function openSearch() {
+
+        searchOverlay.classList.add("show");
+
+        searchOverlay.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+        document.body.style.overflow = "hidden";
+
+        setTimeout(function () {
+          searchInput.focus();
+        }, 150);
+      }
+
+      function closeSearchOverlay() {
+
+        searchOverlay.classList.remove("show");
+
+        searchOverlay.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+        document.body.style.overflow = "";
+
+        searchInput.value = "";
+
+        renderSearchResults("");
+      }
+
+      function renderSearchResults(query) {
+
+        const cleanQuery =
+          query.trim().toLowerCase();
+
+        if (!cleanQuery) {
+
+          searchResults.innerHTML = `
+            <div class="search-result">
+              <strong>Try searching for jewellery, gold, diamonds or services.</strong>
+            </div>
+          `;
+
+          return;
+        }
+
+        const matches = searchItems.filter(function (item) {
+
+          return (
+            item.title.toLowerCase().includes(cleanQuery) ||
+            item.category.toLowerCase().includes(cleanQuery)
+          );
+
+        });
+
+        if (!matches.length) {
+
+          searchResults.innerHTML = `
+            <div class="search-result">
+              <strong>No matching result found.</strong>
+              <span>Try another search.</span>
+            </div>
+          `;
+
+          return;
+        }
+
+        searchResults.innerHTML = matches
+          .map(function (item) {
+
+            return `
+              <a class="search-result" href="${item.url}">
+                <strong>${item.title}</strong>
+                <span>${item.category}</span>
+              </a>
+            `;
+
+          })
+          .join("");
+      }
+
+      if (searchButton) {
+        searchButton.addEventListener(
+          "click",
+          openSearch
+        );
+      }
+
+      if (closeSearch) {
+        closeSearch.addEventListener(
+          "click",
+          closeSearchOverlay
+        );
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener(
+          "input",
+          function () {
+            renderSearchResults(
+              searchInput.value
+            );
+          }
+        );
+      }
+
+      searchOverlay.addEventListener(
+        "click",
+        function (event) {
+
+          if (event.target === searchOverlay) {
+            closeSearchOverlay();
+          }
+
+        }
+      );
+
+      document.addEventListener(
+        "keydown",
+        function (event) {
+
+          if (event.key === "Escape") {
+
+            if (
+              searchOverlay.classList.contains("show")
+            ) {
+              closeSearchOverlay();
+            }
+
+            navLinks.classList.remove("show");
+
+            if (menuButton) {
+              menuButton.textContent = "☰";
+              menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+            }
+          }
+
+          if (
+            (event.ctrlKey || event.metaKey) &&
+            event.key.toLowerCase() === "k"
+          ) {
+            event.preventDefault();
+            openSearch();
+          }
+
+        }
+      );
+
+      /* -----------------------------
+         CONTACT FORM VALIDATION
+      ----------------------------- */
+
+      const form =
+        document.getElementById("contactForm");
+
+      const formStatus =
+        document.getElementById("formStatus");
+
+      const firstName =
+        document.getElementById("firstName");
+
+      const lastName =
+        document.getElementById("lastName");
+
+      const phone =
+        document.getElementById("phone");
+
+      const email =
+        document.getElementById("email");
+
+      const subject =
+        document.getElementById("subject");
+
+      const message =
+        document.getElementById("message");
+
+      function markField(field, valid) {
+
+        const wrapper = field.closest(".field");
+
+        if (!wrapper) return;
+
+        wrapper.classList.toggle(
+          "error",
+          !valid
+        );
+      }
+
+      function validateEmail(value) {
+
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+          .test(value.trim());
+      }
+
+      function validateForm() {
+
+        let valid = true;
+
+        const firstValid =
+          firstName.value.trim().length >= 2;
+
+        const lastValid =
+          lastName.value.trim().length >= 2;
+
+        const phoneValid =
+          phone.value.trim().replace(/\D/g, "").length >= 7;
+
+        const emailValid =
+          validateEmail(email.value);
+
+        const subjectValid =
+          subject.value.trim().length >= 3;
+
+        const messageValid =
+          message.value.trim().length >= 10;
+
+        markField(firstName, firstValid);
+        markField(lastName, lastValid);
+        markField(phone, phoneValid);
+        markField(email, emailValid);
+        markField(subject, subjectValid);
+        markField(message, messageValid);
+
+        valid =
+          firstValid &&
+          lastValid &&
+          phoneValid &&
+          emailValid &&
+          subjectValid &&
+          messageValid;
+
+        return valid;
+      }
+
+      [
+        firstName,
+        lastName,
+        phone,
+        email,
+        subject,
+        message
+      ].forEach(function (field) {
+
+        field.addEventListener(
+          "input",
+          function () {
+
+            const wrapper =
+              field.closest(".field");
+
+            if (wrapper) {
+              wrapper.classList.remove("error");
+            }
+
+            formStatus.classList.remove("show");
+          }
+        );
+
+      });
+
+      form.addEventListener(
+        "submit",
+        function (event) {
+
+          event.preventDefault();
+
+          formStatus.classList.remove("show");
+
+          if (!validateForm()) {
+
+            const firstError =
+              document.querySelector(
+                ".field.error input, .field.error textarea"
+              );
+
+            if (firstError) {
+              firstError.focus();
+            }
+
+            return;
+          }
+
+          /*
+             Frontend-only success state.
+             No backend request is made.
+          */
+
+          formStatus.textContent =
+            "Thank you. Your enquiry has been prepared successfully.";
+
+          formStatus.classList.add("show");
+
+          form.reset();
+
+          window.setTimeout(function () {
+
+            formStatus.classList.remove(
+              "show"
+            );
+
+          }, 7000);
+
+        }
+      );
+
+      /* -----------------------------
+         SCROLL REVEAL
+      ----------------------------- */
+
+      const revealElements =
+        document.querySelectorAll(".reveal");
+
+      if ("IntersectionObserver" in window) {
+
+        const observer =
+          new IntersectionObserver(
+            function (entries) {
+
+              entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                  entry.target.classList.add(
+                    "visible"
+                  );
+
+                  observer.unobserve(
+                    entry.target
+                  );
+                }
+
+              });
+
+            },
+            {
+              threshold: .12
+            }
+          );
+
+        revealElements.forEach(function (element) {
+          observer.observe(element);
+        });
+
+      } else {
+
+        revealElements.forEach(function (element) {
+          element.classList.add("visible");
+        });
+
+      }
+
+      /* -----------------------------
+         BACK TO TOP
+      ----------------------------- */
+
+      const backTop =
+        document.getElementById("backTop");
+
+      function updateBackTop() {
+
+        if (window.scrollY > 500) {
+          backTop.classList.add("show");
+        } else {
+          backTop.classList.remove("show");
+        }
+
+      }
+
+      window.addEventListener(
+        "scroll",
+        updateBackTop,
+        { passive: true }
+      );
+
+      backTop.addEventListener(
+        "click",
+        function () {
+
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+
+        }
+      );
+
+      updateBackTop();
+
+      /* -----------------------------
+         CLOSE DROPDOWNS ON OUTSIDE CLICK
+      ----------------------------- */
+
+      document.addEventListener(
+        "click",
+        function (event) {
+
+          if (!event.target.closest(".has-dropdown")) {
+
+            document
+              .querySelectorAll(".has-dropdown")
+              .forEach(function (item) {
+
+                item.classList.remove("open");
+
+              });
+
+          }
+
+        }
+      );
+
+      /* -----------------------------
+         RESIZE CLEANUP
+      ----------------------------- */
+
+      window.addEventListener(
+        "resize",
+        function () {
+
+          if (window.innerWidth > 980) {
+
+            navLinks.classList.remove("show");
+
+            if (menuButton) {
+              menuButton.textContent = "☰";
+              menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+            }
+
+            document
+              .querySelectorAll(".has-dropdown")
+              .forEach(function (item) {
+                item.classList.remove("open");
+              });
+
+          }
+
+        }
+      );
+
+    });
+  </script>
+
+</body>
+</html>
