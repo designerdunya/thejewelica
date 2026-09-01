@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Gold Tops | THE JEWELICA</title>
    <link rel="icon" type="image/png" href="images/LOGO png.png">
@@ -23,6 +23,7 @@
       --champagne: #d8c39a;
       --gold: #b99655;
       --gold-dark: #8d6e38;
+      --gold-light: #e6d4a8;
       --espresso: #241d18;
       --charcoal: #171513;
       --brown: #604c39;
@@ -42,11 +43,18 @@
       scroll-behavior: smooth;
     }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       background: var(--ivory);
       color: var(--espresso);
       font-family: Arial, Helvetica, sans-serif;
       overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     a {
@@ -58,6 +66,13 @@
     input,
     select {
       font: inherit;
+    }
+
+    img,
+    iframe,
+    svg,
+    video {
+      max-width: 100%;
     }
 
     img {
@@ -79,7 +94,9 @@
     }
 
     .nav-inner {
+      position: relative;
       max-width: 1400px;
+      min-width: 0;
       min-height: 82px;
       padding: 0 35px;
       margin: auto;
@@ -90,6 +107,7 @@
     }
 
     .brand {
+      flex-shrink: 0;
       font-family: Georgia, serif;
       font-size: 25px;
       letter-spacing: 4px;
@@ -129,6 +147,7 @@
       left: 50%;
       transform: translateX(-50%) translateY(10px);
       width: 680px;
+      max-width: 90vw;
       padding: 28px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -163,12 +182,14 @@
       display: flex;
       align-items: center;
       gap: 9px;
+      flex-shrink: 0;
     }
 
     .nav-icon {
       position: relative;
       width: 38px;
       height: 38px;
+      flex-shrink: 0;
       display: grid;
       place-items: center;
       border: 1px solid var(--line);
@@ -176,6 +197,7 @@
       background: transparent;
       cursor: pointer;
       font-size: 17px;
+      transition: .3s ease;
     }
 
     .nav-icon:hover {
@@ -199,10 +221,22 @@
 
     .mobile-toggle {
       display: none;
-      border: 0;
-      background: none;
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--espresso);
       cursor: pointer;
-      font-size: 24px;
+      font-size: 19px;
+      line-height: 1;
+      place-items: center;
+    }
+
+    .mobile-toggle:hover {
+      background: var(--espresso);
+      color: white;
     }
 
     /* =========================
@@ -215,9 +249,11 @@
       grid-template-columns: 1fr 1fr;
       background: var(--charcoal);
       color: white;
+      overflow: hidden;
     }
 
     .hero-content {
+      min-width: 0;
       padding: 90px clamp(30px, 7vw, 110px);
       display: flex;
       flex-direction: column;
@@ -235,7 +271,7 @@
     .hero h1 {
       margin-bottom: 25px;
       font-family: Georgia, serif;
-      font-size: clamp(55px, 7vw, 95px);
+      font-size: clamp(44px, 7vw, 95px);
       font-weight: 400;
       line-height: .92;
     }
@@ -250,6 +286,7 @@
 
     .hero-image {
       min-height: 590px;
+      min-width: 0;
       overflow: hidden;
     }
 
@@ -263,25 +300,46 @@
       transform: scale(1.035);
     }
 
+    /* BUTTONS — refined luxury shape */
     .btn {
-      min-height: 48px;
-      padding: 0 25px;
+      min-height: 50px;
+      padding: 0 28px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      overflow: hidden;
       border: 1px solid var(--gold);
-      background: var(--gold);
+      background: linear-gradient(120deg, var(--gold-light), var(--gold), var(--gold-dark));
       color: var(--charcoal);
       font-size: 10px;
-      letter-spacing: 2px;
+      letter-spacing: 2.2px;
       font-weight: 700;
+      border-radius: 2px 16px 2px 16px;
       cursor: pointer;
-      transition: .25s ease;
+      z-index: 1;
+      transition: color .35s ease, border-color .35s ease, transform .3s ease, box-shadow .3s ease;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--espresso);
+      transform: translateY(102%);
+      transition: transform .4s cubic-bezier(.65, 0, .35, 1);
     }
 
     .btn:hover {
-      background: transparent;
-      color: white;
+      color: var(--gold-light);
+      border-color: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(141, 110, 56, .3);
+    }
+
+    .btn:hover::before {
+      transform: translateY(0);
     }
 
     /* =========================
@@ -301,7 +359,7 @@
 
     .intro h2 {
       font-family: Georgia, serif;
-      font-size: clamp(36px, 4vw, 56px);
+      font-size: clamp(32px, 4vw, 56px);
       font-weight: 400;
       line-height: 1.1;
     }
@@ -319,6 +377,7 @@
 
     .catalog {
       max-width: 1380px;
+      min-width: 0;
       padding: 20px 30px 100px;
       margin: auto;
     }
@@ -342,12 +401,15 @@
     }
 
     .filter-btn {
-      padding: 10px 15px;
+      padding: 10px 16px;
       border: 1px solid var(--line);
       background: transparent;
       cursor: pointer;
       font-size: 10px;
+      font-weight: 700;
       letter-spacing: 1px;
+      border-radius: 30px;
+      transition: .3s ease;
     }
 
     .filter-btn:hover,
@@ -357,6 +419,14 @@
       border-color: var(--espresso);
     }
 
+    .product-count {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
     .sort {
       padding: 10px 14px;
       border: 1px solid var(--line);
@@ -364,19 +434,21 @@
       color: var(--espresso);
       font-size: 10px;
       letter-spacing: .5px;
+      max-width: 100%;
     }
 
     /* =========================
-       PRODUCT GRID
+       PRODUCT GRID — luxury cards
     ========================= */
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 35px 20px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 36px 20px;
     }
 
     .product-card {
+      min-width: 0;
       animation: fadeUp .55s ease both;
     }
 
@@ -384,7 +456,16 @@
       position: relative;
       aspect-ratio: 4/5;
       overflow: hidden;
-      background: var(--cream);
+      background: linear-gradient(160deg, #f2ebdf, var(--cream));
+      border: 1px solid rgba(185, 150, 85, .2);
+      border-radius: 3px 18px 3px 18px;
+      box-shadow: 0 16px 36px rgba(36, 29, 24, .1);
+      transition: box-shadow .4s ease, transform .4s ease;
+    }
+
+    .product-card:hover .product-image {
+      box-shadow: 0 24px 50px rgba(36, 29, 24, .18);
+      transform: translateY(-4px);
     }
 
     .product-image img {
@@ -406,27 +487,36 @@
       height: 38px;
       border: 1px solid rgba(255, 255, 255, .7);
       border-radius: 50%;
-      background: rgba(255, 255, 255, .85);
+      background: rgba(255, 255, 255, .88);
+      backdrop-filter: blur(6px);
       cursor: pointer;
       font-size: 17px;
+      box-shadow: 0 6px 16px rgba(36, 29, 24, .16);
+      transition: .3s ease;
+    }
+
+    .wish:hover {
+      transform: scale(1.08);
     }
 
     .wish.active {
-      background: var(--espresso);
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
       color: white;
     }
 
     .product-info {
-      padding: 15px 3px 0;
+      padding: 18px 3px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .product-type {
-      font-size: 11px;
-      letter-spacing: 2px;
+      font-family: Georgia, serif;
+      font-size: 15px;
+      letter-spacing: 1px;
       font-weight: 700;
     }
 
@@ -436,17 +526,35 @@
     }
 
     .mini-btn {
-      padding: 8px 10px;
+      padding: 9px 13px;
       border: 1px solid var(--line);
       background: transparent;
       cursor: pointer;
-      font-size: 9px;
-      letter-spacing: 1px;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      border-radius: 3px 11px 3px 11px;
+      transition: .3s ease, transform .3s ease, box-shadow .3s ease;
     }
 
     .mini-btn:hover {
       background: var(--espresso);
       color: white;
+      border-color: var(--espresso);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(36, 29, 24, .2);
+    }
+
+    .cart-btn {
+      background: linear-gradient(120deg, var(--gold-dark), var(--gold), var(--champagne));
+      color: var(--white);
+      border-color: var(--gold-dark);
+      box-shadow: 0 10px 20px rgba(141, 110, 56, .28);
+    }
+
+    .cart-btn:hover {
+      background: var(--espresso);
+      border-color: var(--espresso);
     }
 
     /* =========================
@@ -455,15 +563,18 @@
 
     .craft {
       max-width: 1380px;
+      min-width: 0;
       min-height: 430px;
       margin: 0 auto 100px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       background: var(--cream);
+      overflow: hidden;
     }
 
     .craft-image {
       min-height: 430px;
+      min-width: 0;
       overflow: hidden;
     }
 
@@ -473,6 +584,7 @@
     }
 
     .craft-content {
+      min-width: 0;
       padding: 65px;
       display: flex;
       flex-direction: column;
@@ -486,7 +598,7 @@
     .craft-content h2 {
       margin-bottom: 20px;
       font-family: Georgia, serif;
-      font-size: 46px;
+      font-size: clamp(32px, 4vw, 46px);
       font-weight: 400;
       line-height: 1.05;
     }
@@ -503,11 +615,6 @@
       width: max-content;
     }
 
-    .craft .btn:hover {
-      color: var(--espresso);
-      background: transparent;
-    }
-
     /* =========================
        FOOTER
     ========================= */
@@ -516,14 +623,20 @@
       padding: 75px 35px 25px;
       background: var(--charcoal);
       color: #eee5d8;
+      overflow: hidden;
     }
 
     .footer-grid {
       max-width: 1400px;
+      min-width: 0;
       margin: auto;
       display: grid;
       grid-template-columns: 1.4fr 1fr 1fr 1.5fr;
       gap: 55px;
+    }
+
+    .footer-grid > div {
+      min-width: 0;
     }
 
     footer h3 {
@@ -559,6 +672,7 @@
 
     .map {
       width: 100%;
+      max-width: 100%;
       height: 190px;
       margin-top: 18px;
       border: 0;
@@ -623,7 +737,7 @@
       background: transparent;
       color: white;
       font-family: Georgia, serif;
-      font-size: 38px;
+      font-size: 32px;
     }
 
     .search-results {
@@ -652,6 +766,7 @@
       right: -430px;
       z-index: 1800;
       width: min(430px, 100%);
+      max-width: 100%;
       height: 100vh;
       padding: 30px;
       overflow-y: auto;
@@ -728,6 +843,7 @@
       left: 50%;
       bottom: 25px;
       z-index: 3000;
+      max-width: calc(100vw - 40px);
       padding: 14px 22px;
       background: var(--espresso);
       color: white;
@@ -793,7 +909,7 @@
       }
 
       .product-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .footer-grid {
@@ -804,7 +920,8 @@
     @media(max-width:900px) {
 
       .mobile-toggle {
-        display: block;
+        display: grid;
+        flex-shrink: 0;
       }
 
       .nav-inner {
@@ -823,6 +940,8 @@
         align-items: stretch;
         background: var(--white);
         border-bottom: 1px solid var(--line);
+        max-height: 85vh;
+        overflow-y: auto;
       }
 
       .nav-links.open {
@@ -838,6 +957,7 @@
       .dropdown-menu {
         position: static;
         width: 100%;
+        max-width: 100%;
         padding: 10px;
         display: none;
         grid-template-columns: repeat(2, 1fr);
@@ -857,15 +977,15 @@
       }
 
       .hero-image {
-        min-height: 430px;
+        min-height: 380px;
       }
 
       .hero-content {
-        padding: 70px 30px;
+        padding: 60px 30px;
       }
 
       .product-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .craft {
@@ -875,14 +995,19 @@
       }
 
       .craft-image {
-        min-height: 350px;
+        min-height: 300px;
       }
     }
 
     @media(max-width:560px) {
 
+      .nav-inner {
+        min-height: 66px;
+        padding: 0 16px;
+      }
+
       .brand {
-        font-size: 18px;
+        font-size: 17px;
         letter-spacing: 2px;
       }
 
@@ -890,47 +1015,108 @@
         gap: 5px;
       }
 
-      .nav-icon {
+      .nav-icon,
+      .mobile-toggle {
         width: 34px;
         height: 34px;
       }
 
+      .hero-image {
+        min-height: 260px;
+      }
+
+      .hero-content {
+        padding: 45px 20px;
+      }
+
       .hero h1 {
-        font-size: 53px;
+        font-size: 40px;
+      }
+
+      .hero p {
+        font-size: 12px;
+        margin-bottom: 26px;
+      }
+
+      .intro {
+        padding: 60px 18px 45px;
+      }
+
+      .intro p {
+        font-size: 12px;
       }
 
       .catalog {
-        padding-left: 18px;
-        padding-right: 18px;
+        padding: 16px 14px 65px;
+      }
+
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .filter-group {
+        justify-content: center;
+      }
+
+      .product-count {
+        margin: 0;
+        text-align: center;
+      }
+
+      .sort {
+        width: 100%;
       }
 
       .product-grid {
-        gap: 25px 10px;
+        gap: 24px 10px;
       }
 
       .product-info {
-        display: block;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
       }
 
       .product-actions {
-        margin-top: 8px;
+        margin-top: 4px;
+        width: 100%;
       }
 
       .mini-btn {
-        padding: 7px 8px;
+        flex: 1;
+        padding: 9px 8px;
+        text-align: center;
       }
 
       .craft-content {
-        padding: 45px 25px;
+        padding: 40px 22px;
       }
 
       .craft-content h2 {
-        font-size: 38px;
+        font-size: 30px;
+      }
+
+      .craft .btn,
+      .btn {
+        width: 100%;
       }
 
       .footer-grid {
         grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 32px;
+      }
+
+      footer {
+        padding: 50px 18px 22px;
+      }
+
+      .search-box input {
+        font-size: 22px;
+      }
+
+      .cart-panel {
+        padding: 22px;
       }
     }
   </style>
@@ -947,10 +1133,6 @@
     <div class="nav-inner">
 
       <a href="index.html" class="brand">THE JEWELICA</a>
-
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
-        ☰
-      </button>
 
       <nav class="nav-links" id="navLinks">
 
@@ -987,7 +1169,7 @@
 
             <a href="diamond.html">DIAMOND JEWELLERY</a>
             <a href="diamond-rings.html">DIAMOND LADIES RINGS</a>
-            <a href="diamond-earrings.html">DIAMOND MEN'S RINGS</a>
+            <a href="diamond-ring-men.html">DIAMOND MEN'S RINGS</a>
             <a href="diamond-pendants-nose-pins.html">DIAMOND NOSE PINS</a>
 
           </div>
@@ -996,6 +1178,7 @@
 
         <a href="collections.html">COLLECTIONS</a>
         <a href="stones.html">CHOOSE YOUR STONE</a>
+        <a href="trending.html">Trending Uniques</a>
         <a href="services.html">SERVICES</a>
         <a href="about.html">ABOUT</a>
         <a href="contact.html">CONTACT</a>
@@ -1003,6 +1186,10 @@
       </nav>
 
       <div class="nav-actions">
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+          ☰
+        </button>
 
         <button class="nav-icon" id="searchBtn" aria-label="Search">
           ⌕
@@ -1125,6 +1312,8 @@
           </button>
 
         </div>
+
+        <span class="product-count" id="productCount" aria-live="polite"></span>
 
         <select class="sort" id="sortProducts" aria-label="Sort gold tops">
 
@@ -1420,11 +1609,11 @@
 
             <div class="product-actions">
 
-              <button class="mini-btn view-btn" data-id="gt08">
+              <button class="mini-btn view-btn" data-id="gt09">
                 VIEW
               </button>
 
-              <button class="mini-btn cart-btn" data-id="gt08">
+              <button class="mini-btn cart-btn" data-id="gt09">
                 ADD
               </button>
 
@@ -1440,7 +1629,7 @@
 
             <img src="images/Gold tops (9).png" alt="The Jewelica Gold Tops">
 
-            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+            <button class="wish" data-id="gt09" aria-label="Add Gold Tops to wishlist">
               ♡
             </button>
 
@@ -1454,11 +1643,11 @@
 
             <div class="product-actions">
 
-              <button class="mini-btn view-btn" data-id="gt08">
+              <button class="mini-btn view-btn" data-id="gt10">
                 VIEW
               </button>
 
-              <button class="mini-btn cart-btn" data-id="gt08">
+              <button class="mini-btn cart-btn" data-id="gt10">
                 ADD
               </button>
 
@@ -1473,7 +1662,7 @@
 
             <img src="images/Gold tops (10).png" alt="The Jewelica Gold Tops">
 
-            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+            <button class="wish" data-id="gt10" aria-label="Add Gold Tops to wishlist">
               ♡
             </button>
 
@@ -1487,11 +1676,11 @@
 
             <div class="product-actions">
 
-              <button class="mini-btn view-btn" data-id="gt08">
+              <button class="mini-btn view-btn" data-id="gt11">
                 VIEW
               </button>
 
-              <button class="mini-btn cart-btn" data-id="gt08">
+              <button class="mini-btn cart-btn" data-id="gt11">
                 ADD
               </button>
 
@@ -1506,7 +1695,7 @@
 
             <img src="images/Gold tops (11).png" alt="The Jewelica Gold Tops">
 
-            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+            <button class="wish" data-id="gt11" aria-label="Add Gold Tops to wishlist">
               ♡
             </button>
 
@@ -1520,11 +1709,11 @@
 
             <div class="product-actions">
 
-              <button class="mini-btn view-btn" data-id="gt08">
+              <button class="mini-btn view-btn" data-id="gt12">
                 VIEW
               </button>
 
-              <button class="mini-btn cart-btn" data-id="gt08">
+              <button class="mini-btn cart-btn" data-id="gt12">
                 ADD
               </button>
 
@@ -1539,7 +1728,7 @@
 
             <img src="images/Gold tops (12).png" alt="The Jewelica Gold Tops">
 
-            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+            <button class="wish" data-id="gt12" aria-label="Add Gold Tops to wishlist">
               ♡
             </button>
 
@@ -1553,11 +1742,11 @@
 
             <div class="product-actions">
 
-              <button class="mini-btn view-btn" data-id="gt08">
+              <button class="mini-btn view-btn" data-id="gt13">
                 VIEW
               </button>
 
-              <button class="mini-btn cart-btn" data-id="gt08">
+              <button class="mini-btn cart-btn" data-id="gt13">
                 ADD
               </button>
 
@@ -1572,7 +1761,7 @@
 
             <img src="images/Gold tops (13).png" alt="The Jewelica Gold Tops">
 
-            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+            <button class="wish" data-id="gt13" aria-label="Add Gold Tops to wishlist">
               ♡
             </button>
 
@@ -1586,11 +1775,11 @@
 
             <div class="product-actions">
 
-              <button class="mini-btn view-btn" data-id="gt08">
+              <button class="mini-btn view-btn" data-id="gt14">
                 VIEW
               </button>
 
-              <button class="mini-btn cart-btn" data-id="gt08">
+              <button class="mini-btn cart-btn" data-id="gt14">
                 ADD
               </button>
 
@@ -1605,7 +1794,7 @@
 
             <img src="images/Gold tops.png" alt="The Jewelica Gold Tops">
 
-            <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+            <button class="wish" data-id="gt14" aria-label="Add Gold Tops to wishlist">
               ♡
             </button>
 
@@ -1759,7 +1948,7 @@
         </p>
         <iframe class="map"
           src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
-          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
       </div>
@@ -1873,6 +2062,36 @@
       },
       {
         id: "gt08",
+        type: "TOPS",
+        category: "everyday"
+      },
+      {
+        id: "gt09",
+        type: "TOPS",
+        category: "everyday"
+      },
+      {
+        id: "gt10",
+        type: "TOPS",
+        category: "everyday"
+      },
+      {
+        id: "gt11",
+        type: "TOPS",
+        category: "everyday"
+      },
+      {
+        id: "gt12",
+        type: "TOPS",
+        category: "everyday"
+      },
+      {
+        id: "gt13",
+        type: "TOPS",
+        category: "everyday"
+      },
+      {
+        id: "gt14",
         type: "TOPS",
         category: "everyday"
       }
@@ -2009,6 +2228,7 @@
 
         saveData();
         updateCounters();
+    updateProductCount();
 
       });
 
@@ -2252,9 +2472,23 @@
 
         });
 
+        updateProductCount();
+
       });
 
     });
+
+
+    function updateProductCount() {
+      const countElement = document.getElementById("productCount");
+      const visibleCards = [...document.querySelectorAll(".product-card")]
+        .filter(card => card.style.display !== "none");
+
+      if (countElement) {
+        countElement.textContent =
+          `${visibleCards.length} ${visibleCards.length === 1 ? "PIECE" : "PIECES"}`;
+      }
+    }
 
 
     /* =========================

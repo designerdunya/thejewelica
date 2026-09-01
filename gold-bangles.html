@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <title>Gold Bangles | THE JEWELICA</title>
     <link rel="icon" type="image/png" href="images/LOGO png.png">
@@ -23,6 +23,7 @@
             --champagne: #d7c39c;
             --gold: #ad915c;
             --gold-dark: #8d7549;
+            --gold-light: #e4cd9f;
             --espresso: #30251e;
             --charcoal: #211d1a;
             --muted: #766b61;
@@ -41,11 +42,18 @@
             scroll-behavior: smooth;
         }
 
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             background: var(--ivory);
             color: var(--espresso);
             font-family: "DM Sans", sans-serif;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
 
         a {
@@ -61,6 +69,13 @@
 
         button {
             cursor: pointer;
+        }
+
+        img,
+        iframe,
+        svg,
+        video {
+            max-width: 100%;
         }
 
         img {
@@ -86,6 +101,7 @@
         .nav {
             width: 100%;
             max-width: 1440px;
+            min-width: 0;
             min-height: 82px;
             margin: auto;
             padding: 0 34px;
@@ -150,13 +166,18 @@
         .nav-actions {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
             gap: 8px;
+            min-width: 0;
+            flex-shrink: 1;
+            white-space: nowrap;
         }
 
         .icon-btn {
             position: relative;
             width: 40px;
             height: 40px;
+            flex-shrink: 0;
             border: 1px solid var(--line);
             background: transparent;
             color: var(--espresso);
@@ -195,9 +216,20 @@
             display: none;
             width: 40px;
             height: 40px;
+            flex-shrink: 0;
             border: 1px solid var(--line);
             background: transparent;
             font-size: 19px;
+        }
+
+        .menu-toggle svg {
+            width: 20px;
+            height: 20px;
+            display: block;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            stroke-linecap: round;
         }
 
         /* =========================
@@ -216,6 +248,7 @@
 
         .hero-image {
             min-height: 590px;
+            min-width: 0;
             position: relative;
             overflow: hidden;
         }
@@ -240,6 +273,7 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            min-width: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -257,8 +291,8 @@
         .hero h1 {
             max-width: 620px;
             font-family: "Cormorant Garamond", serif;
-            font-size: clamp(58px, 7vw, 100px);
-            line-height: .84;
+            font-size: clamp(44px, 7vw, 100px);
+            line-height: .88;
             font-weight: 500;
         }
 
@@ -270,24 +304,48 @@
             line-height: 1.9;
         }
 
+        /* =========================
+   BUTTONS — refined luxury shape
+========================= */
+
         .btn {
-            min-height: 48px;
-            padding: 0 25px;
+            position: relative;
+            min-height: 50px;
+            padding: 0 34px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             border: 1px solid var(--champagne);
             color: var(--ivory);
             background: transparent;
-            font-size: 9px;
+            font-size: 9.5px;
             font-weight: 600;
-            letter-spacing: .16em;
-            transition: .3s ease;
+            letter-spacing: .24em;
+            border-radius: 2px 14px 2px 14px;
+            overflow: hidden;
+            transition: color .35s ease, border-color .35s ease, transform .3s ease, box-shadow .3s ease;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, var(--champagne), var(--gold));
+            transform: translateX(-101%);
+            transition: transform .45s cubic-bezier(.65, 0, .35, 1);
+            z-index: -1;
         }
 
         .btn:hover {
-            background: var(--champagne);
             color: var(--espresso);
+            border-color: var(--champagne);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(173, 145, 92, .3);
+        }
+
+        .btn:hover::before {
+            transform: translateX(0);
         }
 
         .btn.dark {
@@ -296,9 +354,14 @@
             color: var(--ivory);
         }
 
+        .btn.dark::before {
+            background: linear-gradient(120deg, var(--gold), var(--gold-dark));
+        }
+
         .btn.dark:hover {
-            background: var(--gold);
+            color: var(--ivory);
             border-color: var(--gold);
+            box-shadow: 0 14px 30px rgba(48, 37, 30, .3);
         }
 
         /* =========================
@@ -315,7 +378,7 @@
         .intro h2,
         .section-heading h2 {
             font-family: "Cormorant Garamond", serif;
-            font-size: clamp(42px, 5vw, 66px);
+            font-size: clamp(36px, 5vw, 66px);
             font-weight: 500;
             line-height: .95;
         }
@@ -355,12 +418,14 @@
         }
 
         .filter {
-            padding: 10px 15px;
+            padding: 10px 18px;
             border: 1px solid var(--line);
             background: transparent;
             color: var(--espresso);
             font-size: 9px;
             letter-spacing: .14em;
+            font-weight: 600;
+            border-radius: 30px;
             transition: .3s ease;
         }
 
@@ -373,6 +438,7 @@
 
         .sort {
             min-width: 165px;
+            max-width: 100%;
             padding: 11px 13px;
             border: 1px solid var(--line);
             background: var(--ivory);
@@ -383,7 +449,7 @@
         }
 
         /* =========================
-   PRODUCTS
+   PRODUCTS — luxury card treatment
 ========================= */
 
         .products {
@@ -391,11 +457,12 @@
             margin: auto;
             padding: 0 25px 95px;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px 17px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 34px 20px;
         }
 
         .product-card {
+            min-width: 0;
             animation: fadeUp .55s ease both;
         }
 
@@ -403,15 +470,32 @@
             position: relative;
             aspect-ratio: 4/5;
             overflow: hidden;
-            background: var(--cream);
+            background: linear-gradient(160deg, var(--cream), #f6efe1);
+            box-shadow: 0 18px 40px rgba(48, 37, 30, .1);
+            border: 1px solid rgba(173, 145, 92, .16);
+            border-radius: 3px 18px 3px 18px;
+            transition: box-shadow .4s ease, transform .4s ease;
+        }
+
+        .product-card:hover .product-image {
+            box-shadow: 0 26px 54px rgba(48, 37, 30, .18);
+            transform: translateY(-4px);
+        }
+
+        .product-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            box-shadow: inset 0 0 0 1px rgba(255, 253, 249, .5);
+            pointer-events: none;
         }
 
         .product-image img {
-            transition: transform .7s ease;
+            transition: transform .8s cubic-bezier(.16, 1, .3, 1);
         }
 
         .product-card:hover .product-image img {
-            transform: scale(1.045);
+            transform: scale(1.06);
         }
 
         .product-tools {
@@ -420,7 +504,7 @@
             right: 14px;
             display: flex;
             flex-direction: column;
-            gap: 7px;
+            gap: 8px;
             opacity: 0;
             transform: translateX(8px);
             transition: .3s ease;
@@ -432,23 +516,30 @@
         }
 
         .product-tools button {
-            width: 35px;
-            height: 35px;
-            border: 1px solid var(--line);
-            background: rgba(255, 253, 249, .94);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(48, 37, 30, .1);
+            background: rgba(255, 253, 249, .92);
+            backdrop-filter: blur(6px);
             color: var(--espresso);
+            font-size: 13px;
             display: grid;
             place-items: center;
+            box-shadow: 0 6px 16px rgba(48, 37, 30, .14);
+            transition: .3s ease;
         }
 
         .product-tools button:hover {
-            background: var(--espresso);
+            background: var(--gold);
+            border-color: var(--gold);
             color: white;
+            transform: scale(1.08);
         }
 
         .product-info {
             min-height: 48px;
-            padding: 15px 2px 0;
+            padding: 20px 4px 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -456,45 +547,82 @@
         }
 
         .product-type {
-            font-size: 10px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 16px;
             font-weight: 600;
-            letter-spacing: .22em;
+            letter-spacing: .04em;
         }
 
         .product-category {
-            color: var(--muted);
-            font-size: 8px;
-            letter-spacing: .12em;
+            padding: 4px 10px;
+            border: 1px solid rgba(173, 145, 92, .35);
+            border-radius: 20px;
+            color: var(--gold-dark);
+            font-size: 7.5px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            white-space: nowrap;
         }
 
         .product-bottom {
             display: flex;
-            gap: 7px;
-            margin-top: 11px;
+            gap: 8px;
+            margin-top: 15px;
         }
 
         .product-bottom button {
-            min-height: 38px;
+            position: relative;
+            min-height: 44px;
             flex: 1;
             border: 1px solid var(--line);
             background: transparent;
             color: var(--espresso);
-            font-size: 8px;
-            font-weight: 600;
-            letter-spacing: .11em;
-            transition: .3s ease;
+            font-size: 8.5px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            border-radius: 3px 12px 3px 12px;
+            overflow: hidden;
+            isolation: isolate;
+            transition: color .35s ease, border-color .35s ease, transform .3s ease, box-shadow .3s ease;
+        }
+
+        .product-bottom button::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            transform: translateY(102%);
+            transition: transform .35s cubic-bezier(.65, 0, .35, 1);
         }
 
         .product-bottom button:first-child {
+            background: linear-gradient(120deg, var(--gold-dark), var(--gold), var(--champagne));
+            color: var(--white);
+            border-color: var(--gold-dark);
+            box-shadow: 0 10px 22px rgba(141, 117, 73, .28);
+        }
+
+        .product-bottom button:first-child::before {
             background: var(--espresso);
-            color: var(--ivory);
-            border-color: var(--espresso);
+        }
+
+        .product-bottom button:last-child {
+            background: transparent;
+        }
+
+        .product-bottom button:last-child::before {
+            background: var(--espresso);
         }
 
         .product-bottom button:hover {
-            background: var(--gold);
-            color: white;
-            border-color: var(--gold);
+            color: var(--ivory);
+            border-color: var(--espresso);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 26px rgba(48, 37, 30, .22);
+        }
+
+        .product-bottom button:hover::before {
+            transform: translateY(0);
         }
 
         /* =========================
@@ -509,6 +637,7 @@
 
         .editorial-box {
             min-height: 390px;
+            min-width: 0;
             background: var(--cream);
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -517,9 +646,11 @@
 
         .editorial-image {
             min-height: 390px;
+            min-width: 0;
         }
 
         .editorial-copy {
+            min-width: 0;
             padding: 60px;
             display: flex;
             justify-content: center;
@@ -528,7 +659,7 @@
 
         .editorial-copy h2 {
             font-family: "Cormorant Garamond", serif;
-            font-size: clamp(38px, 4vw, 58px);
+            font-size: clamp(34px, 4vw, 58px);
             font-weight: 500;
             line-height: .95;
         }
@@ -553,7 +684,7 @@
 
         .cta h2 {
             font-family: "Cormorant Garamond", serif;
-            font-size: clamp(42px, 5vw, 64px);
+            font-size: clamp(36px, 5vw, 64px);
             font-weight: 500;
             line-height: .95;
         }
@@ -574,6 +705,7 @@
             padding: 75px 35px 30px;
             background: var(--charcoal);
             color: var(--ivory);
+            overflow: hidden;
         }
 
         .footer-grid {
@@ -582,6 +714,10 @@
             display: grid;
             grid-template-columns: 1.45fr 1fr 1fr 1.5fr;
             gap: 50px;
+        }
+
+        .footer-grid > div {
+            min-width: 0;
         }
 
         .footer h3 {
@@ -619,6 +755,7 @@
         }
 
         .map {
+            width: 100%;
             height: 190px;
             margin-top: 13px;
             overflow: hidden;
@@ -626,8 +763,10 @@
         }
 
         .map iframe {
+            display: block;
             width: 100%;
             height: 100%;
+            max-width: 100%;
             border: 0;
             filter: grayscale(1) contrast(.8);
         }
@@ -683,6 +822,7 @@
 
         .search-input {
             width: 100%;
+            max-width: 100%;
             margin-top: 25px;
             padding: 18px 0;
             border: 0;
@@ -691,7 +831,7 @@
             background: transparent;
             color: white;
             font-family: "Cormorant Garamond", serif;
-            font-size: 48px;
+            font-size: 40px;
         }
 
         .search-results {
@@ -707,7 +847,7 @@
             color: #c8beb3;
             text-align: left;
             font-family: "Cormorant Garamond", serif;
-            font-size: 24px;
+            font-size: 22px;
         }
 
         /* =========================
@@ -720,6 +860,7 @@
             right: -440px;
             z-index: 1900;
             width: min(440px, 100%);
+            max-width: 100%;
             height: 100%;
             padding: 30px;
             background: var(--white);
@@ -743,7 +884,7 @@
 
         .cart-head h2 {
             font-family: "Cormorant Garamond", serif;
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 500;
         }
 
@@ -794,6 +935,7 @@
             height: 25px;
             border: 1px solid var(--line);
             background: transparent;
+            border-radius: 50%;
         }
 
         .qty span {
@@ -830,6 +972,7 @@
             right: 25px;
             bottom: 25px;
             z-index: 3000;
+            max-width: calc(100vw - 50px);
             padding: 14px 20px;
             background: var(--espresso);
             color: var(--ivory);
@@ -852,11 +995,13 @@
             z-index: 900;
             width: 40px;
             height: 40px;
+            border-radius: 50%;
             border: 0;
             background: var(--gold);
             color: white;
             opacity: 0;
             visibility: hidden;
+            box-shadow: 0 10px 25px rgba(173, 145, 92, .4);
             transition: .3s ease;
         }
 
@@ -881,6 +1026,22 @@
    RESPONSIVE
 ========================= */
 
+        .nav,
+        .hero,
+        .hero-content,
+        .hero-image,
+        .products,
+        .product-card,
+        .editorial-box,
+        .editorial-copy,
+        .editorial-image,
+        .footer-grid,
+        .toolbar,
+        .filters,
+        .cart-item {
+            min-width: 0;
+        }
+
         @media(max-width:1180px) {
 
             .nav-links {
@@ -892,7 +1053,7 @@
             }
 
             .products {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
 
             .footer-grid {
@@ -938,13 +1099,13 @@
             }
 
             .hero-image {
-                min-height: 430px;
+                min-height: 380px;
                 order: 1;
             }
 
             .hero-content {
                 order: 2;
-                padding: 70px 30px;
+                padding: 60px 30px;
             }
 
             .editorial-box {
@@ -952,30 +1113,45 @@
             }
 
             .editorial-image {
-                min-height: 340px;
+                min-height: 300px;
             }
 
             .editorial-copy {
-                padding: 55px 35px;
+                padding: 50px 35px;
             }
         }
 
         @media(max-width:650px) {
 
             .nav {
-                min-height: 72px;
+                min-height: 68px;
+                padding: 0 16px;
+                gap: 10px;
             }
 
             .nav-links {
-                top: 72px;
+                top: 68px;
             }
 
             .logo {
-                font-size: 24px;
+                font-size: 18px;
+                letter-spacing: .12em;
             }
 
             .logo span {
-                font-size: 6px;
+                font-size: 5.5px;
+                letter-spacing: .26em;
+                margin-top: 4px;
+            }
+
+            .nav-actions {
+                gap: 5px;
+            }
+
+            .icon-btn,
+            .menu-toggle {
+                width: 36px;
+                height: 36px;
             }
 
             .nav-actions .search-btn {
@@ -983,20 +1159,41 @@
             }
 
             .hero-image {
-                min-height: 330px;
+                min-height: 280px;
+            }
+
+            .hero-content {
+                padding: 45px 20px;
             }
 
             .hero h1 {
-                font-size: 57px;
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 12px;
+                margin: 18px 0;
+                line-height: 1.8;
             }
 
             .intro {
-                padding-top: 70px;
+                padding: 60px 20px 45px;
+            }
+
+            .intro p {
+                font-size: 12px;
             }
 
             .toolbar {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
+                gap: 14px;
+                min-height: auto;
+                padding: 14px 0;
+            }
+
+            .filters {
+                justify-content: center;
             }
 
             .sort {
@@ -1004,26 +1201,27 @@
             }
 
             .products {
-                grid-template-columns: repeat(2, 1fr);
-                padding: 0 15px 75px;
-                gap: 28px 10px;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                padding: 0 14px 65px;
+                gap: 24px 12px;
             }
 
             .toolbar-wrap {
-                padding: 0 15px;
+                padding: 0 14px;
             }
 
             .product-info {
-                display: block;
-            }
-
-            .product-category {
-                display: block;
-                margin-top: 6px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
             }
 
             .product-bottom {
                 flex-direction: column;
+            }
+
+            .product-bottom button {
+                min-height: 40px;
             }
 
             .product-tools {
@@ -1031,32 +1229,77 @@
                 transform: none;
             }
 
+            .product-tools button {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+
+            .editorial-copy {
+                padding: 40px 20px;
+            }
+
+            .editorial-copy p {
+                font-size: 11.5px;
+            }
+
+            .cta {
+                padding: 60px 18px;
+            }
+
+            .cta p {
+                font-size: 12px;
+            }
+
             .footer {
-                padding: 60px 22px 25px;
+                padding: 50px 20px 22px;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 35px;
+                gap: 32px;
+            }
+
+            .search-overlay {
+                padding: 80px 18px;
             }
 
             .search-input {
-                font-size: 32px;
+                font-size: 24px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .cart-panel {
+                padding: 22px;
             }
         }
 
         @media(max-width:420px) {
 
             .products {
-                gap: 25px 8px;
+                gap: 20px 8px;
             }
 
             .product-type {
-                font-size: 8px;
+                font-size: 12.5px;
             }
 
             .product-category {
                 font-size: 7px;
+                padding: 3px 8px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .filter {
+                padding: 8px 13px;
+                font-size: 8px;
             }
         }
     </style>
@@ -1079,6 +1322,7 @@
                 <a href="diamond.html">DIAMONDS</a>
                 <a href="collections.html">COLLECTIONS</a>
                 <a href="stones.html">CHOOSE YOUR STONE</a>
+                <a href="trending.html">TRENDING UNIQUES</a>
                 <a href="services.html">SERVICES</a>
                 <a href="about.html">ABOUT</a>
                 <a href="contact.html">CONTACT</a>
@@ -1556,7 +1800,7 @@
 
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
                 </div>
@@ -1638,62 +1882,67 @@
 
             gbl01: {
                 type: "BANGLE",
-                image: "assets/images/gold-bangles-01.jpg"
+                image: "images/"
             },
 
             gbl02: {
                 type: "BANGLE",
-                image: "assets/images/gold-bangles-02.jpg"
+                image: "images/bangles (1).png"
             },
 
             gbl03: {
                 type: "BANGLE",
-                image: "assets/images/gold-bangles-03.jpg"
+                image: "images/bangles (2).png"
             },
 
             gbl04: {
                 type: "BANGLE",
-                image: "assets/images/gold-bangles-04.jpg"
+                image: "images/bangles (3).png"
             },
 
             gbl05: {
                 type: "BANGLE",
-                image: "assets/images/gold-bangles-05.jpg"
+                image: "images/bangles (4).png"
             },
 
             gbl06: {
                 type: "BANGLE",
-                image: "assets/images/gold-bangles-06.jpg"
+                image: "images/bangles (5).png"
             },
 
             gbl07: {
                 type: "BANGLE",
-                image: "assets/images/gold-bangles-07.jpg"
+                image: "images/bangles (6).png"
             },
 
             gbl08: {
                 type: "BANGLE",
-                image: "assets/images/gold-bangles-08.jpg"
+                image: "images/bangles (7).png"
             },
 
             gbl09: {
                 type: "BANGLE",
-                image: "assets/images/gold-bangles-09.jpg"
+                image: "images/bangles (8).png"
             },
 
             gbl10: {
                 type: "BANGLE",
-                image: "assets/images/gold-bangles-10.jpg"
+                image: "images/bangles (9).png"
             },
 
             gbl11: {
                 type: "BANGLE",
-                image: "assets/images/gold-bangles-11.jpg"
+                image: "images/bangles (10).png"
             },
 
             gbl12: {
                 type: "BANGLE",
-                image: "assets/images/gold-bangles-12.jpg"
+                image: "images/bangles (11).png"
+            },
+
+                gbl13: {
+                type: "BANGLE",
+                image: "images/bangles.png"
             }
 
         };

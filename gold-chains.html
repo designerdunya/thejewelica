@@ -8,11 +8,6 @@
   <link rel="icon" type="image/png" href="images/LOGO png.png">
   <meta name="description"
     content="Explore the refined Gold Chains collection by THE JEWELICA. Discover timeless gold jewellery designed with modern elegance.">
-  <meta name="keywords" content="THE JEWELICA, gold chains, gold jewellery, jewellery chains">
-  <meta property="og:title" content="Gold Chains | THE JEWELICA">
-  <meta property="og:description" content="Discover refined gold chains by THE JEWELICA.">
-  <meta property="og:type" content="website">
-
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
 
@@ -25,18 +20,19 @@
       --charcoal: #171513;
       --muted: #786f64;
       --white: #fffdf8;
-      --line: rgba(45, 36, 28, .14);
-      --shadow: 0 18px 50px rgba(40, 30, 20, .10);
+      --line: rgba(45, 36, 28, .14)
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
-      padding: 0;
+      padding: 0
     }
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%
     }
 
     body {
@@ -45,23 +41,26 @@
       font-family: "DM Sans", sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+      position: relative
     }
 
     a {
       color: inherit;
-      text-decoration: none;
+      text-decoration: none
     }
 
     button,
     input,
     select {
-      font: inherit;
+      font: inherit
     }
 
     img {
       display: block;
       width: 100%;
-      object-fit: cover;
+      object-fit: cover
     }
 
     .announcement {
@@ -71,7 +70,7 @@
       padding: 9px 15px;
       font-size: 10px;
       letter-spacing: 2px;
-      text-transform: uppercase;
+      text-transform: uppercase
     }
 
     header {
@@ -80,7 +79,7 @@
       z-index: 1000;
       background: rgba(247, 243, 235, .96);
       border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px)
     }
 
     .nav {
@@ -90,7 +89,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 25px;
+      gap: 25px
     }
 
     .brand {
@@ -98,18 +97,19 @@
       font-size: 31px;
       font-weight: 600;
       letter-spacing: 5px;
-      white-space: nowrap;
+      white-space: nowrap
     }
 
-    .brand span {
-      color: var(--gold);
+    .brand span,
+    .footer-brand span {
+      color: var(--gold)
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 25px;
-      list-style: none;
+      list-style: none
     }
 
     .nav-links a {
@@ -118,10 +118,10 @@
       letter-spacing: 1.3px;
       text-transform: uppercase;
       color: #40382f;
-      padding: 10px 0;
+      padding: 10px 0
     }
 
-    .nav-links a::after {
+    .nav-links a:after {
       content: "";
       position: absolute;
       left: 0;
@@ -129,18 +129,18 @@
       width: 0;
       height: 1px;
       background: var(--gold);
-      transition: .3s;
+      transition: .3s
     }
 
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
+    .nav-links a:hover:after,
+    .nav-links a.active:after {
+      width: 100%
     }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 9px
     }
 
     .nav-btn {
@@ -152,12 +152,13 @@
       cursor: pointer;
       color: var(--espresso);
       position: relative;
-      transition: .3s;
+      transition: .35s cubic-bezier(.4, 0, .2, 1)
     }
 
     .nav-btn:hover {
       background: var(--espresso);
       color: var(--ivory);
+      transform: translateY(-1px)
     }
 
     .count {
@@ -171,7 +172,7 @@
       color: white;
       font-size: 9px;
       display: grid;
-      place-items: center;
+      place-items: center
     }
 
     .menu-toggle {
@@ -179,7 +180,7 @@
       border: 0;
       background: transparent;
       font-size: 25px;
-      cursor: pointer;
+      cursor: pointer
     }
 
     .hero {
@@ -188,28 +189,24 @@
       position: relative;
       overflow: hidden;
       display: grid;
-      place-items: center;
+      place-items: center
     }
 
     .hero-image {
       position: absolute;
       inset: 0;
-      opacity: .62;
+      opacity: .62
     }
 
     .hero-image img {
       height: 100%;
-      filter: saturate(.72);
+      filter: saturate(.72)
     }
 
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(90deg,
-          rgba(23, 21, 19, .88),
-          rgba(23, 21, 19, .34),
-          rgba(23, 21, 19, .76));
+      background: linear-gradient(90deg, rgba(23, 21, 19, .88), rgba(23, 21, 19, .34), rgba(23, 21, 19, .76))
     }
 
     .hero-content {
@@ -218,7 +215,7 @@
       width: min(850px, 90%);
       text-align: center;
       color: white;
-      padding: 100px 0;
+      padding: 100px 0
     }
 
     .eyebrow {
@@ -226,49 +223,48 @@
       font-size: 11px;
       letter-spacing: 4px;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 18px
     }
 
     .hero h1 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(58px, 9vw, 110px);
+      font-size: clamp(48px, 9vw, 110px);
       line-height: .88;
       font-weight: 500;
       letter-spacing: 2px;
-      margin-bottom: 28px;
+      margin-bottom: 28px
     }
 
     .hero p {
       max-width: 590px;
       margin: auto;
       color: #e6ded1;
-      font-size: 14px;
+      font-size: 14px
     }
 
     .section {
       width: min(1380px, 92%);
       margin: auto;
-      padding: 100px 0;
+      padding: 100px 0
     }
 
     .intro {
       text-align: center;
       max-width: 780px;
-      margin: auto;
+      margin: auto
     }
 
-    .intro h2,
-    .section-heading h2 {
+    .intro h2 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(40px, 5vw, 65px);
+      font-size: clamp(36px, 5vw, 65px);
       line-height: 1;
-      font-weight: 500;
+      font-weight: 500
     }
 
     .intro p {
       color: var(--muted);
       margin-top: 22px;
-      font-size: 15px;
+      font-size: 15px
     }
 
     .category-strip {
@@ -276,26 +272,28 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 40px;
+      margin-top: 40px
     }
 
     .filter-btn {
       border: 1px solid var(--line);
+      border-radius: 999px;
       background: transparent;
-      padding: 11px 18px;
+      padding: 11px 20px;
       cursor: pointer;
       color: var(--espresso);
       font-size: 10px;
+      font-weight: 600;
       letter-spacing: 1.4px;
       text-transform: uppercase;
-      transition: .3s;
+      transition: .3s
     }
 
     .filter-btn:hover,
     .filter-btn.active {
       background: var(--espresso);
       color: white;
-      border-color: var(--espresso);
+      border-color: var(--espresso)
     }
 
     .toolbar {
@@ -303,36 +301,38 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      flex-wrap: wrap;
       margin: 45px 0 25px;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      padding: 15px 0;
+      padding: 15px 0
     }
 
     .result-count {
       font-size: 11px;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--muted)
     }
 
     .sort {
       border: 1px solid var(--line);
+      border-radius: 999px;
       background: transparent;
-      padding: 10px 14px;
+      padding: 10px 18px;
       color: var(--espresso);
-      outline: none;
+      outline: none
     }
 
     .products {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 28px 18px;
+      gap: 34px 22px
     }
 
     .product-card {
       position: relative;
-      animation: fadeUp .5s ease both;
+      animation: fadeUp .5s ease both
     }
 
     .product-image {
@@ -340,15 +340,17 @@
       overflow: hidden;
       background: #e5ded2;
       aspect-ratio: 4/5;
+      border-radius: 3px;
+      box-shadow: 0 1px 3px rgba(45, 36, 28, .06)
     }
 
     .product-image img {
       height: 100%;
-      transition: transform .65s cubic-bezier(.2, .7, .2, 1);
+      transition: transform .65s cubic-bezier(.2, .7, .2, 1)
     }
 
     .product-card:hover .product-image img {
-      transform: scale(1.045);
+      transform: scale(1.045)
     }
 
     .product-actions {
@@ -357,39 +359,48 @@
       top: 12px;
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 8px;
       opacity: 0;
       transform: translateX(10px);
-      transition: .3s;
+      transition: .3s
     }
 
     .product-card:hover .product-actions {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(0)
     }
 
     .icon-btn {
-      width: 36px;
-      height: 36px;
-      border: 0;
+      width: 37px;
+      height: 37px;
+      border: 1px solid var(--line);
       border-radius: 50%;
-      background: rgba(255, 253, 248, .93);
+      background: rgba(255, 253, 248, .95);
       cursor: pointer;
-      box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+      color: var(--espresso);
+      box-shadow: 0 5px 18px rgba(0, 0, 0, .1);
+      transition: .3s cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .icon-btn:hover {
+      background: var(--espresso);
+      border-color: var(--espresso);
+      color: var(--gold-light);
+      transform: scale(1.08)
     }
 
     .product-info {
-      padding: 15px 3px 5px;
+      padding: 16px 3px 5px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 12px
     }
 
     .product-type {
       font-size: 11px;
       letter-spacing: 1.8px;
-      text-transform: uppercase;
+      text-transform: uppercase
     }
 
     .view-btn {
@@ -402,140 +413,188 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       padding-bottom: 3px;
+      transition: .3s
+    }
+
+    .view-btn:hover {
+      color: var(--espresso);
+      border-color: var(--espresso)
     }
 
     .add-btn {
       width: 100%;
+      height: 44px;
+      border-radius: 999px;
       border: 1px solid var(--espresso);
       background: var(--espresso);
       color: white;
-      padding: 12px;
-      margin-top: 8px;
+      margin-top: 10px;
       cursor: pointer;
       font-size: 10px;
+      font-weight: 600;
       letter-spacing: 1.4px;
       text-transform: uppercase;
-      transition: .3s;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: color .4s ease, border-color .4s ease
+    }
+
+    .add-btn:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, var(--gold), var(--gold-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .45s cubic-bezier(.65, 0, .35, 1);
+      z-index: -1
     }
 
     .add-btn:hover {
-      background: var(--gold);
-      border-color: var(--gold);
+      color: var(--espresso);
+      border-color: var(--gold-light)
+    }
+
+    .add-btn:hover:before {
+      transform: scaleX(1)
     }
 
     .craft {
-      background: var(--cream);
+      background: var(--cream)
     }
 
     .craft-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 70px;
-      align-items: center;
+      align-items: center
     }
 
     .craft-image {
       aspect-ratio: 1/1;
-      overflow: hidden;
+      overflow: hidden
     }
 
     .craft-image img {
-      height: 100%;
+      height: 100%
     }
 
-    .craft-copy h2 {
+    .craft-copy h2,
+    .cta h2 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(42px, 5vw, 72px);
+      font-size: clamp(38px, 5vw, 72px);
       line-height: .95;
       font-weight: 500;
-      margin-bottom: 25px;
+      margin-bottom: 25px
     }
 
     .craft-copy p {
       color: var(--muted);
       max-width: 540px;
-      margin-bottom: 25px;
+      margin-bottom: 25px
     }
 
     .gold-line {
       width: 70px;
       height: 1px;
       background: var(--gold);
-      margin-bottom: 24px;
+      margin-bottom: 24px
     }
 
     .outline-btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
       border: 1px solid var(--espresso);
-      padding: 13px 23px;
+      border-radius: 999px;
+      padding: 0 26px;
       text-transform: uppercase;
       font-size: 10px;
+      font-weight: 600;
       letter-spacing: 1.6px;
-      transition: .3s;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: color .4s ease, border-color .4s ease
+    }
+
+    .outline-btn:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, var(--gold), var(--gold-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .45s cubic-bezier(.65, 0, .35, 1);
+      z-index: -1
     }
 
     .outline-btn:hover {
-      background: var(--espresso);
-      color: white;
+      color: var(--espresso);
+      border-color: var(--gold-light)
+    }
+
+    .outline-btn:hover:before {
+      transform: scaleX(1)
     }
 
     .cta {
       background: var(--charcoal);
       color: white;
-      text-align: center;
+      text-align: center
     }
 
     .cta h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(42px, 6vw, 75px);
-      font-weight: 500;
-      line-height: .95;
+      font-size: clamp(38px, 6vw, 75px)
     }
 
     .cta p {
       color: #cfc6b9;
       max-width: 570px;
-      margin: 20px auto 30px;
+      margin: 20px auto 30px
     }
 
     .cta .outline-btn {
       color: white;
-      border-color: #b9ad9d;
+      border-color: #b9ad9d
+    }
+
+    .cta .outline-btn:hover {
+      color: var(--espresso)
     }
 
     footer {
       background: #11100e;
       color: #e9e1d5;
       padding: 80px 0 25px;
+      overflow: hidden
     }
 
     .footer-wrap {
       width: min(1380px, 92%);
-      margin: auto;
+      margin: auto
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
       gap: 50px;
-      padding-bottom: 55px;
+      padding-bottom: 55px
     }
 
     .footer-brand {
       font-family: "Cormorant Garamond", serif;
       font-size: 38px;
       letter-spacing: 5px;
-      margin-bottom: 18px;
-    }
-
-    .footer-brand span {
-      color: var(--gold-light);
+      margin-bottom: 18px
     }
 
     .footer-text {
       color: #aaa298;
       max-width: 310px;
-      font-size: 13px;
+      font-size: 13px
     }
 
     footer h4 {
@@ -543,43 +602,44 @@
       font-size: 10px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 20px
     }
 
     .footer-links {
       display: grid;
       gap: 10px;
-      list-style: none;
+      list-style: none
     }
 
     .footer-links a {
       color: #aaa298;
       font-size: 12px;
-      transition: .25s;
+      transition: .25s
     }
 
     .footer-links a:hover {
-      color: var(--gold-light);
+      color: var(--gold-light)
     }
 
     .visit p {
       color: #aaa298;
       font-size: 12px;
-      margin-bottom: 9px;
+      margin-bottom: 9px
     }
 
     .map {
       margin-top: 18px;
       height: 180px;
+      max-width: 100%;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .12)
     }
 
     .map iframe {
       width: 100%;
       height: 100%;
       border: 0;
-      filter: grayscale(1) sepia(.15);
+      filter: grayscale(1) sepia(.15)
     }
 
     .copyright {
@@ -588,7 +648,7 @@
       color: #77736d;
       font-size: 10px;
       letter-spacing: 1px;
-      text-align: center;
+      text-align: center
     }
 
     .toast {
@@ -598,17 +658,19 @@
       z-index: 2000;
       background: var(--espresso);
       color: white;
-      padding: 14px 20px;
+      padding: 14px 22px;
+      border-radius: 999px;
       font-size: 11px;
       letter-spacing: .5px;
       transform: translateY(100px);
       opacity: 0;
       transition: .35s;
+      max-width: calc(100vw - 44px)
     }
 
     .toast.show {
       transform: translateY(0);
-      opacity: 1;
+      opacity: 1
     }
 
     .search-overlay {
@@ -621,32 +683,36 @@
       align-items: center;
       justify-content: center;
       padding: 30px;
+      overflow-y: auto
     }
 
     .search-overlay.open {
-      display: flex;
+      display: flex
     }
 
     .search-box {
-      width: min(700px, 100%);
+      width: min(700px, 100%)
     }
 
     .search-close {
       position: fixed;
       top: 25px;
       right: 30px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
       background: transparent;
-      border: 0;
+      border: 1px solid rgba(255, 255, 255, .2);
       color: white;
-      font-size: 30px;
-      cursor: pointer;
+      font-size: 22px;
+      cursor: pointer
     }
 
     .search-box label {
       color: var(--gold-light);
       text-transform: uppercase;
       letter-spacing: 3px;
-      font-size: 10px;
+      font-size: 10px
     }
 
     .search-input {
@@ -660,69 +726,79 @@
       font-family: "Cormorant Garamond", serif;
       font-size: 42px;
       outline: none;
+      max-width: 100%
     }
 
     .search-results {
       margin-top: 25px;
       color: #cfc7bb;
-      font-size: 13px;
+      font-size: 13px
     }
 
     .back-top {
       position: fixed;
       right: 20px;
       bottom: 20px;
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
       border: 1px solid var(--line);
       background: var(--white);
+      color: var(--espresso);
       cursor: pointer;
       display: none;
       z-index: 500;
+      box-shadow: 0 6px 18px rgba(45, 36, 28, .15);
+      transition: .3s
+    }
+
+    .back-top:hover {
+      background: var(--espresso);
+      color: var(--ivory)
     }
 
     .back-top.show {
-      display: block;
+      display: block
     }
 
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(18px);
+        transform: translateY(18px)
       }
 
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0)
       }
     }
 
     @media(max-width:1100px) {
       .nav-links {
-        gap: 14px;
+        gap: 14px
       }
 
       .products {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr)
       }
 
       .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr)
       }
     }
 
     @media(max-width:800px) {
       .nav {
-        min-height: 70px;
+        min-height: 70px
       }
 
       .brand {
-        font-size: 25px;
+        font-size: 25px
       }
 
       .menu-toggle {
         display: block;
-        order: 3;
+        order: 3
       }
 
       .nav-links {
@@ -735,47 +811,51 @@
         display: none;
         flex-direction: column;
         align-items: stretch;
-        padding: 20px 6%;
+        padding: 20px 6%
       }
 
       .nav-links.open {
-        display: flex;
+        display: flex
       }
 
       .nav-links a {
         display: block;
-        padding: 13px 0;
+        padding: 13px 0
       }
 
       .nav-actions {
-        margin-left: auto;
+        margin-left: auto
       }
 
       .nav-actions .nav-btn:nth-child(2) {
-        display: none;
+        display: none
       }
 
       .hero {
-        min-height: 500px;
+        min-height: 460px
       }
 
       .section {
-        padding: 70px 0;
+        padding: 65px 0
       }
 
       .products {
         grid-template-columns: repeat(2, 1fr);
-        gap: 25px 12px;
+        gap: 26px 14px
       }
 
       .craft-grid {
         grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 35px
       }
 
       .toolbar {
         align-items: flex-start;
-        flex-direction: column;
+        flex-direction: column
+      }
+
+      .sort {
+        width: 100%
       }
     }
 
@@ -783,66 +863,92 @@
       .announcement {
         font-size: 8px;
         letter-spacing: 1.4px;
+        padding: 8px 10px
       }
 
       .nav {
         width: 94%;
-        gap: 8px;
+        gap: 8px
       }
 
       .brand {
-        font-size: 21px;
-        letter-spacing: 3px;
+        font-size: 19px;
+        letter-spacing: 2px
       }
 
       .nav-btn {
-        width: 35px;
-        height: 35px;
+        width: 34px;
+        height: 34px
+      }
+
+      .hero {
+        min-height: 380px
+      }
+
+      .hero-content {
+        padding: 60px 0
       }
 
       .hero h1 {
-        font-size: 58px;
+        font-size: 46px
       }
 
       .hero p {
-        font-size: 13px;
+        font-size: 13px
       }
 
       .products {
         grid-template-columns: 1fr 1fr;
+        gap: 22px 10px
       }
 
       .product-info {
-        display: block;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px
       }
 
       .view-btn {
-        margin-top: 8px;
+        margin-top: 4px;
+        padding-bottom: 2px
       }
 
       .footer-grid {
         grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 35px
       }
 
       .search-input {
-        font-size: 30px;
+        font-size: 28px
+      }
+
+      .search-close {
+        top: 18px;
+        right: 18px;
+        width: 38px;
+        height: 38px;
+        font-size: 18px
+      }
+
+      .toast {
+        left: 16px;
+        right: 16px;
+        text-align: center
+      }
+
+      .back-top {
+        width: 40px;
+        height: 40px
       }
     }
   </style>
 </head>
 
 <body>
-
-  <div class="announcement">
-    THE JEWELICA — REFINED BEAUTY, MADE TIMELESS
-  </div>
-
+  <div class="announcement">THE JEWELICA — REFINED BEAUTY, MADE TIMELESS</div>
   <header>
     <nav class="nav" aria-label="Main navigation">
-
       <a href="index.html" class="brand">THE <span>JEWELICA</span></a>
-
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="shop.html">Shop</a></li>
@@ -850,497 +956,316 @@
         <li><a href="diamond.html">Diamonds</a></li>
         <li><a href="collections.html">Collections</a></li>
         <li><a href="stones.html">Choose Your Stone</a></li>
+        <li><a href="trending.html">Trending Uniques</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-
       <div class="nav-actions">
         <button class="nav-btn" id="searchBtn" aria-label="Open search">⌕</button>
-
-        <button class="nav-btn" aria-label="Wishlist">
-          ♡
-          <span class="count" id="wishlistCount">0</span>
-        </button>
-
-        <button class="nav-btn" aria-label="Cart">
-          ♢
-          <span class="count" id="cartCount">0</span>
-        </button>
+        <button class="nav-btn" aria-label="Wishlist">♡<span class="count" id="wishlistCount">0</span></button>
+        <button class="nav-btn" aria-label="Cart">♢<span class="count" id="cartCount">0</span></button>
       </div>
-
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
-
     </nav>
   </header>
 
   <main>
-
     <section class="hero">
-      <div class="hero-image">
-        <img src="images/all gold jewellery hero.png" alt="The Jewelica Gold Chains">
-      </div>
-
+      <div class="hero-image"><img src="images/all gold jewellery hero.png" alt="The Jewelica Gold Chains"></div>
       <div class="hero-overlay"></div>
-
       <div class="hero-content">
         <div class="eyebrow">The Jewelica Gold Collection</div>
         <h1>Gold<br>Chains</h1>
-        <p>
-          Refined links, graceful proportions and polished gold come together
-          in a collection designed to become an effortless part of your style.
-        </p>
+        <p>Refined links, graceful proportions and polished gold come together in a collection designed to become an
+          effortless part of your style.</p>
       </div>
     </section>
 
     <section class="section">
-
       <div class="intro">
-        <div class="eyebrow" style="color:var(--gold);">
-          Gold Jewellery
-        </div>
-
+        <div class="eyebrow" style="color:var(--gold);">Gold Jewellery</div>
         <h2>The Art Of The Golden Link</h2>
-
-        <p>
-          Discover elegant gold chains created around balance, texture and
-          timeless form. From subtle everyday silhouettes to more expressive
-          designs, each piece brings a distinctive golden finish to your collection.
-        </p>
+        <p>Discover elegant gold chains created around balance, texture and timeless form. From subtle everyday
+          silhouettes to more expressive designs, each piece brings a distinctive golden finish to your collection.</p>
       </div>
-
       <div class="category-strip">
-        <a class="filter-btn" href="gold-rings.html">Gold Rings</a>
-        <a class="filter-btn" href="gold-bracelets.html">Gold Bracelets</a>
-        <a class="filter-btn" href="gold-bangles.html">Gold Bangles</a>
-        <a class="filter-btn" href="gold-earrings.html">Gold Earrings</a>
-        <a class="filter-btn" href="gold-necklace-sets.html">Necklace Sets</a>
-        <a class="filter-btn" href="gold-tops.html">Gold Tops</a>
-        <a class="filter-btn" href="gold-pendants.html">Gold Pendants</a>
-        <a class="filter-btn active" href="gold-chains.html">Gold Chains</a>
-        <a class="filter-btn" href="gold-locket-sets.html">Locket Sets</a>
-        <a class="filter-btn" href="gold-mens-rings.html">Men's Rings</a>
-        <a class="filter-btn" href="gold.html">Jewellery Sets</a>
+        <a class="filter-btn" href="gold-rings.html">Gold Rings</a><a class="filter-btn" href="gold-bracelets.html">Gold
+          Bracelets</a><a class="filter-btn" href="gold-bangles.html">Gold Bangles</a><a class="filter-btn"
+          href="gold-earrings.html">Gold Earrings</a><a class="filter-btn" href="gold-necklace-sets.html">Necklace
+          Sets</a><a class="filter-btn" href="gold-tops.html">Gold Tops</a><a class="filter-btn"
+          href="gold-pendants.html">Gold Pendants</a><a class="filter-btn active" href="gold-chains.html">Gold
+          Chains</a><a class="filter-btn" href="gold-locket-sets.html">Locket Sets</a><a class="filter-btn"
+          href="gold-mens-rings.html">Men's Rings</a><a class="filter-btn" href="gold.html">Jewellery Sets</a>
       </div>
-
       <div class="toolbar">
-        <div class="result-count" id="resultCount">8 Pieces</div>
-
-        <select class="sort" id="sortProducts" aria-label="Sort products">
+        <div class="result-count" id="resultCount">17 Pieces</div><select class="sort" id="sortProducts"
+          aria-label="Sort products">
           <option value="featured">Sort: Featured</option>
           <option value="az">Type A — Z</option>
           <option value="za">Type Z — A</option>
         </select>
       </div>
-
       <div class="products" id="productGrid">
 
-        <article class="product-card" data-type="chain">
+        <article class="product-card" data-type="chain" data-product="chain-1">
           <div class="product-image">
-            <img src="images/chain (1).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (1).png" alt="The Jewelica Gold Chain 1"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-1"
+                aria-label="Add gold chain 1 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(1)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 1</span><button class="view-btn"
+              onclick="viewProduct(1)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 1')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="chain">
+        <article class="product-card" data-type="chain" data-product="chain-2">
           <div class="product-image">
-            <img src="images/chain (2).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (2).png" alt="The Jewelica Gold Chain 2"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-2"
+                aria-label="Add gold chain 2 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(2)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 2</span><button class="view-btn"
+              onclick="viewProduct(2)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 2')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="chain">
+        <article class="product-card" data-type="chain" data-product="chain-3">
           <div class="product-image">
-            <img src="images/chain (3).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (3).png" alt="The Jewelica Gold Chain 3"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-3"
+                aria-label="Add gold chain 3 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(3)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 3</span><button class="view-btn"
+              onclick="viewProduct(3)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 3')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="chain">
+        <article class="product-card" data-type="chain" data-product="chain-4">
           <div class="product-image">
-            <img src="images/chain (4).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (4).png" alt="The Jewelica Gold Chain 4"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-4"
+                aria-label="Add gold chain 4 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(4)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 4</span><button class="view-btn"
+              onclick="viewProduct(4)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 4')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="chain">
+        <article class="product-card" data-type="chain" data-product="chain-5">
           <div class="product-image">
-            <img src="images/chain (5).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (5).png" alt="The Jewelica Gold Chain 5"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-5"
+                aria-label="Add gold chain 5 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(5)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 5</span><button class="view-btn"
+              onclick="viewProduct(5)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 5')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="chain">
+        <article class="product-card" data-type="chain" data-product="chain-6">
           <div class="product-image">
-            <img src="images/chain (6).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (6).png" alt="The Jewelica Gold Chain 6"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-6"
+                aria-label="Add gold chain 6 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(6)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 6</span><button class="view-btn"
+              onclick="viewProduct(6)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 6')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="chain">
+        <article class="product-card" data-type="chain" data-product="chain-7">
           <div class="product-image">
-            <img src="images/chain (7).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (7).png" alt="The Jewelica Gold Chain 7"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-7"
+                aria-label="Add gold chain 7 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(7)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 7</span><button class="view-btn"
+              onclick="viewProduct(7)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 7')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="chain">
+        <article class="product-card" data-type="chain" data-product="chain-8">
           <div class="product-image">
-            <img src="images/chain (8).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (8).png" alt="The Jewelica Gold Chain 8"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-8"
+                aria-label="Add gold chain 8 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(8)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 8</span><button class="view-btn"
+              onclick="viewProduct(8)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 8')">Add To Cart</button>
         </article>
-        
-        <article class="product-card" data-type="chain">
+
+        <article class="product-card" data-type="chain" data-product="chain-9">
           <div class="product-image">
-            <img src="images/chain (9).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (9).png" alt="The Jewelica Gold Chain 9"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-9"
+                aria-label="Add gold chain 9 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(9)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 9</span><button class="view-btn"
+              onclick="viewProduct(9)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 9')">Add To Cart</button>
         </article>
-        
-        <article class="product-card" data-type="chain">
+
+        <article class="product-card" data-type="chain" data-product="chain-10">
           <div class="product-image">
-            <img src="images/chain (10).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (10).png" alt="The Jewelica Gold Chain 10"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-10"
+                aria-label="Add gold chain 10 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(10)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 10</span><button class="view-btn"
+              onclick="viewProduct(10)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 10')">Add To Cart</button>
         </article>
-        
-        <article class="product-card" data-type="chain">
+
+        <article class="product-card" data-type="chain" data-product="chain-11">
           <div class="product-image">
-            <img src="images/chain (11).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (11).png" alt="The Jewelica Gold Chain 11"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-11"
+                aria-label="Add gold chain 11 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(11)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 11</span><button class="view-btn"
+              onclick="viewProduct(11)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 11')">Add To Cart</button>
         </article>
-        
-        <article class="product-card" data-type="chain">
+
+        <article class="product-card" data-type="chain" data-product="chain-12">
           <div class="product-image">
-            <img src="images/chain (12).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (12).png" alt="The Jewelica Gold Chain 12"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-12"
+                aria-label="Add gold chain 12 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(12)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 12</span><button class="view-btn"
+              onclick="viewProduct(12)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 12')">Add To Cart</button>
         </article>
-        
-        <article class="product-card" data-type="chain">
+
+        <article class="product-card" data-type="chain" data-product="chain-13">
           <div class="product-image">
-            <img src="images/chain (13).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (13).png" alt="The Jewelica Gold Chain 13"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-13"
+                aria-label="Add gold chain 13 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(13)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 13</span><button class="view-btn"
+              onclick="viewProduct(13)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 13')">Add To Cart</button>
         </article>
-        
-        <article class="product-card" data-type="chain">
+
+        <article class="product-card" data-type="chain" data-product="chain-14">
           <div class="product-image">
-            <img src="images/chain (14).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (14).png" alt="The Jewelica Gold Chain 14"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-14"
+                aria-label="Add gold chain 14 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(14)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 14</span><button class="view-btn"
+              onclick="viewProduct(14)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 14')">Add To Cart</button>
         </article>
-        
-        <article class="product-card" data-type="chain">
+
+        <article class="product-card" data-type="chain" data-product="chain-15">
           <div class="product-image">
-            <img src="images/chain (15).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (15).png" alt="The Jewelica Gold Chain 15"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-15"
+                aria-label="Add gold chain 15 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(15)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 15</span><button class="view-btn"
+              onclick="viewProduct(15)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 15')">Add To Cart</button>
         </article>
-        
-        <article class="product-card" data-type="chain">
+
+        <article class="product-card" data-type="chain" data-product="chain-16">
           <div class="product-image">
-            <img src="images/chain (16).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (16).png" alt="The Jewelica Gold Chain 16"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-16"
+                aria-label="Add gold chain 16 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(16)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 16</span><button class="view-btn"
+              onclick="viewProduct(16)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 16')">Add To Cart</button>
         </article>
-        
-        <article class="product-card" data-type="chain">
+
+        <article class="product-card" data-type="chain" data-product="chain-17">
           <div class="product-image">
-            <img src="images/chain (17).png" alt="The Jewelica Gold Chain">
-            <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add gold chain to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
-            </div>
+            <img src="images/chain (17).png" alt="The Jewelica Gold Chain 17"
+              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-17"
+                aria-label="Add gold chain 17 to wishlist">♡</button><button class="icon-btn"
+                onclick="viewProduct(17)">↗</button></div>
           </div>
-
-          <div class="product-info">
-            <span class="product-type">CHAIN</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
-          </div>
-
-          <button class="add-btn" onclick="addToCart('CHAIN')">
-            Add To Cart
-          </button>
+          <div class="product-info"><span class="product-type">CHAIN 17</span><button class="view-btn"
+              onclick="viewProduct(17)">View Details</button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 17')">Add To Cart</button>
         </article>
 
       </div>
     </section>
 
     <section class="craft">
-
       <div class="section craft-grid">
-
-        <div class="craft-image">
-          <img src="images/all gold jewellery section.png" alt="The Jewelica Gold Chain Craftsmanship">
-        </div>
-
+        <div class="craft-image"><img src="images/all gold jewellery section.png"
+            alt="The Jewelica Gold Chain Craftsmanship"></div>
         <div class="craft-copy">
-
-          <div class="eyebrow" style="color:var(--gold);">
-            The Jewelica Craft
-          </div>
-
+          <div class="eyebrow" style="color:var(--gold);">The Jewelica Craft</div>
           <div class="gold-line"></div>
-
           <h2>Every Link, Considered</h2>
-
-          <p>
-            A beautiful chain is defined by its movement, balance and finish.
-            The Jewelica celebrates these details through refined silhouettes
-            designed to sit naturally and become enduring jewellery staples.
-          </p>
-
-          <a href="services.html" class="outline-btn">
-            Discover Our Craft
-          </a>
-
+          <p>A beautiful chain is defined by its movement, balance and finish. The Jewelica celebrates these details
+            through refined silhouettes designed to sit naturally and become enduring jewellery staples.</p><a
+            href="services.html" class="outline-btn">Discover Our Craft</a>
         </div>
-
       </div>
-
     </section>
-
     <section class="cta">
-
       <div class="section">
-
-        <div class="eyebrow">
-          Discover More
-        </div>
-
+        <div class="eyebrow">Discover More</div>
         <h2>Find Your Golden Signature</h2>
-
-        <p>
-          Explore the complete gold jewellery collection and discover pieces
-          designed to complement your individual style.
-        </p>
-
-        <a href="gold.html" class="outline-btn">
-          Explore Gold Jewellery
-        </a>
-
+        <p>Explore the complete gold jewellery collection and discover pieces designed to complement your individual
+          style.</p><a href="gold.html" class="outline-btn">Explore Gold Jewellery</a>
       </div>
-
     </section>
-
   </main>
 
   <footer>
-
     <div class="footer-wrap">
-
       <div class="footer-grid">
-
         <div>
-          <div class="footer-brand">
-            THE <span>JEWELICA</span>
-          </div>
-
-          <p class="footer-text">
-            A refined jewellery destination where thoughtful design,
-            timeless materials and modern elegance meet.
-          </p>
+          <div class="footer-brand">THE <span>JEWELICA</span></div>
+          <p class="footer-text">A refined jewellery destination where thoughtful design, timeless materials and modern
+            elegance meet.</p>
         </div>
-
         <div>
-
           <h4>Quick Links</h4>
-
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
@@ -1354,13 +1279,9 @@
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
-
         </div>
-
         <div>
-
           <h4>Customer Care</h4>
-
           <ul class="footer-links">
             <li><a href="care.html">Jewellery Care</a></li>
             <li><a href="faq.html">FAQs</a></li>
@@ -1369,268 +1290,82 @@
             <li><a href="contact.html">Privacy Policy</a></li>
             <li><a href="contact.html">Terms</a></li>
           </ul>
-
         </div>
-
         <div class="visit">
-
           <h4>Visit Us</h4>
-
           <p>The Jewelica Lahore</p>
           <p>Premium Jewellery District</p>
           <p>+92 300 0000000</p>
           <p>hello@thejewelica.com</p>
           <p>Mon — Sat: 11:00 AM — 8:00 PM</p>
-
-          <div class="map">
-            <iframe
+          <div class="map"><iframe
               src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
-              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"></iframe>
-
-          </div>
-
+              allowfullscreen loading="lazy"></iframe></div>
         </div>
-
       </div>
-
-      <div class="copyright">
-        © 2026 THE JEWELICA. ALL RIGHTS RESERVED.
-      </div>
-
+      <div class="copyright">© 2026 THE JEWELICA. ALL RIGHTS RESERVED.</div>
     </div>
-
   </footer>
 
-  <div class="toast" id="toast">
-    Added to your collection.
-  </div>
-
-  <div class="search-overlay" id="searchOverlay">
-
-    <button class="search-close" id="searchClose" aria-label="Close search">
-      ×
-    </button>
-
-    <div class="search-box">
-
-      <label for="searchInput">
-        Search The Jewelica
-      </label>
-
-      <input id="searchInput" class="search-input" type="search" placeholder="Search jewellery..." autocomplete="off">
-
-      <div class="search-results" id="searchResults">
-        Explore gold chains, jewellery categories and collections.
-      </div>
-
+  <div class="toast" id="toast">Added to your collection.</div>
+  <div class="search-overlay" id="searchOverlay"><button class="search-close" id="searchClose"
+      aria-label="Close search">×</button>
+    <div class="search-box"><label for="searchInput">Search The Jewelica</label><input id="searchInput"
+        class="search-input" type="search" placeholder="Search jewellery..." autocomplete="off">
+      <div class="search-results" id="searchResults">Explore gold chains, jewellery categories and collections.</div>
     </div>
-
   </div>
-
-  <button class="back-top" id="backTop" aria-label="Back to top">
-    ↑
-  </button>
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
 
   <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-      menuToggle.textContent = navLinks.classList.contains("open") ? "×" : "☰";
-    });
-
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.textContent = "☰";
-      });
-    });
+    const menuToggle = document.getElementById("menuToggle"), navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => { navLinks.classList.toggle("open"); menuToggle.textContent = navLinks.classList.contains("open") ? "×" : "☰" });
+    document.querySelectorAll(".nav-links a").forEach(link => link.addEventListener("click", () => { navLinks.classList.remove("open"); menuToggle.textContent = "☰" }));
 
     let cart = JSON.parse(localStorage.getItem("jewelicaCart") || "[]");
     let wishlist = JSON.parse(localStorage.getItem("jewelicaWishlist") || "[]");
 
-    function updateCounters() {
-      document.getElementById("cartCount").textContent = cart.length;
-      document.getElementById("wishlistCount").textContent = wishlist.length;
-    }
-
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-      toast.textContent = message;
-      toast.classList.add("show");
-
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 2200);
-    }
-
-    function addToCart(type) {
-      cart.push({
-        type: type,
-        category: "Gold Chains",
-        quantity: 1,
-        addedAt: new Date().toISOString()
-      });
-
-      localStorage.setItem("jewelicaCart", JSON.stringify(cart));
-      updateCounters();
-      showToast(type + " added to your cart.");
-    }
-
-    function viewProduct() {
-      window.location.href = "product.html";
-    }
+    function updateCounters() { document.getElementById("cartCount").textContent = cart.length; document.getElementById("wishlistCount").textContent = wishlist.length }
+    function updateResultCount() { const visible = [...document.querySelectorAll(".product-card")].filter(c => c.style.display !== "none").length; document.getElementById("resultCount").textContent = visible + " Pieces" }
+    function showToast(message) { const toast = document.getElementById("toast"); toast.textContent = message; toast.classList.add("show"); setTimeout(() => toast.classList.remove("show"), 2200) }
+    function addToCart(type) { cart.push({ type, category: "Gold Chains", quantity: 1, addedAt: new Date().toISOString() }); localStorage.setItem("jewelicaCart", JSON.stringify(cart)); updateCounters(); showToast(type + " added to your cart.") }
+    function viewProduct(id) { window.location.href = "product.html?id=chain-" + id }
 
     document.querySelectorAll(".wishlist").forEach(button => {
       button.addEventListener("click", () => {
-        const type = "CHAIN";
-
-        if (!wishlist.includes(type)) {
-          wishlist.push(type);
-          button.textContent = "♥";
-          showToast("Added to your wishlist.");
-        } else {
-          wishlist = wishlist.filter(item => item !== type);
-          button.textContent = "♡";
-          showToast("Removed from your wishlist.");
-        }
-
-        localStorage.setItem(
-          "jewelicaWishlist",
-          JSON.stringify(wishlist)
-        );
-
-        updateCounters();
+        const type = button.dataset.product;
+        if (!wishlist.includes(type)) { wishlist.push(type); button.textContent = "♥"; showToast("Added to your wishlist.") }
+        else { wishlist = wishlist.filter(item => item !== type); button.textContent = "♡"; showToast("Removed from your wishlist.") }
+        localStorage.setItem("jewelicaWishlist", JSON.stringify(wishlist)); updateCounters();
       });
     });
 
-    const sortProducts = document.getElementById("sortProducts");
-    const productGrid = document.getElementById("productGrid");
-
+    const sortProducts = document.getElementById("sortProducts"), productGrid = document.getElementById("productGrid");
     sortProducts.addEventListener("change", () => {
-
       const cards = [...productGrid.querySelectorAll(".product-card")];
-
       cards.sort((a, b) => {
-
-        const first = a.dataset.type;
-        const second = b.dataset.type;
-
-        if (sortProducts.value === "az") {
-          return first.localeCompare(second);
-        }
-
-        if (sortProducts.value === "za") {
-          return second.localeCompare(first);
-        }
-
-        return 0;
+        if (sortProducts.value === "az") return a.dataset.product.localeCompare(b.dataset.product, undefined, { numeric: true });
+        if (sortProducts.value === "za") return b.dataset.product.localeCompare(a.dataset.product, undefined, { numeric: true });
+        return Number(a.dataset.product.split("-")[1]) - Number(b.dataset.product.split("-")[1]);
       });
-
       cards.forEach(card => productGrid.appendChild(card));
     });
 
-    const searchOverlay = document.getElementById("searchOverlay");
-    const searchBtn = document.getElementById("searchBtn");
-    const searchClose = document.getElementById("searchClose");
-    const searchInput = document.getElementById("searchInput");
-    const searchResults = document.getElementById("searchResults");
-
-    searchBtn.addEventListener("click", () => {
-      searchOverlay.classList.add("open");
-
-      setTimeout(() => {
-        searchInput.focus();
-      }, 100);
-    });
-
-    searchClose.addEventListener("click", () => {
-      searchOverlay.classList.remove("open");
-      searchInput.value = "";
-    });
-
+    const searchOverlay = document.getElementById("searchOverlay"), searchBtn = document.getElementById("searchBtn"), searchClose = document.getElementById("searchClose"), searchInput = document.getElementById("searchInput"), searchResults = document.getElementById("searchResults");
+    searchBtn.addEventListener("click", () => { searchOverlay.classList.add("open"); setTimeout(() => searchInput.focus(), 100) });
+    searchClose.addEventListener("click", () => { searchOverlay.classList.remove("open"); searchInput.value = "" });
     searchInput.addEventListener("input", () => {
-
       const value = searchInput.value.trim().toLowerCase();
-
-      if (!value) {
-        searchResults.textContent =
-          "Explore gold chains, jewellery categories and collections.";
-        return;
-      }
-
-      const matches = [
-        "Gold Chains",
-        "Gold Rings",
-        "Gold Bracelets",
-        "Gold Bangles",
-        "Gold Earrings",
-        "Gold Necklace Sets",
-        "Gold Tops",
-        "Gold Pendants",
-        "Gold Locket Sets",
-        "Gold Men's Rings",
-        "Gold Jewellery Sets",
-        "Diamond Jewellery",
-        "Collections",
-        "Choose Your Stone"
-      ].filter(item => item.toLowerCase().includes(value));
-
-      if (matches.length) {
-
-        searchResults.innerHTML = matches
-          .map(item => "• " + item)
-          .join("<br>");
-
-      } else {
-
-        searchResults.textContent =
-          "No matching jewellery category found.";
-
-      }
+      if (!value) { searchResults.textContent = "Explore gold chains, jewellery categories and collections."; return }
+      const matches = ["Gold Chains", "Gold Rings", "Gold Bracelets", "Gold Bangles", "Gold Earrings", "Gold Necklace Sets", "Gold Tops", "Gold Pendants", "Gold Locket Sets", "Gold Men's Rings", "Gold Jewellery Sets", "Diamond Jewellery", "Collections", "Choose Your Stone"].filter(item => item.toLowerCase().includes(value));
+      searchResults.innerHTML = matches.length ? matches.map(item => "• " + item).join("<br>") : "No matching jewellery category found.";
     });
-
-    document.addEventListener("keydown", event => {
-
-      if (event.key === "Escape") {
-        searchOverlay.classList.remove("open");
-      }
-
-      if (
-        (event.ctrlKey || event.metaKey) &&
-        event.key.toLowerCase() === "k"
-      ) {
-        event.preventDefault();
-        searchOverlay.classList.add("open");
-        searchInput.focus();
-      }
-
-    });
-
+    document.addEventListener("keydown", event => { if (event.key === "Escape") searchOverlay.classList.remove("open"); if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") { event.preventDefault(); searchOverlay.classList.add("open"); searchInput.focus() } });
     const backTop = document.getElementById("backTop");
-
-    window.addEventListener("scroll", () => {
-
-      if (window.scrollY > 500) {
-        backTop.classList.add("show");
-      } else {
-        backTop.classList.remove("show");
-      }
-
-    });
-
-    backTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-
-    updateCounters();
+    window.addEventListener("scroll", () => { window.scrollY > 500 ? backTop.classList.add("show") : backTop.classList.remove("show") });
+    backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    updateCounters(); updateResultCount();
   </script>
-
 </body>
 
 </html>

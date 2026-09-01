@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="description"
     content="Discover The Jewelica Gold Jewellery collection — refined gold rings, bracelets, bangles, earrings, necklaces, pendants, chains and more.">
   <meta name="keywords"
@@ -24,6 +24,7 @@
       --champagne: #c8ad79;
       --gold: #aa8a50;
       --gold-dark: #806333;
+      --gold-light: #e0cda1;
       --espresso: #30271f;
       --charcoal: #1c1a17;
       --muted: #756d62;
@@ -43,16 +44,30 @@
       scroll-behavior: smooth;
     }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       background: var(--ivory);
       color: var(--espresso);
       font-family: "DM Sans", sans-serif;
       font-weight: 400;
       overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body.no-scroll {
       overflow: hidden;
+    }
+
+    img,
+    iframe,
+    svg,
+    video {
+      max-width: 100%;
     }
 
     img {
@@ -99,16 +114,18 @@
 
     .nav-inner {
       max-width: 1450px;
+      min-width: 0;
       min-height: 86px;
       margin: auto;
       padding: 0 42px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
+      gap: 15px;
     }
 
     .brand {
+      flex-shrink: 0;
       font-family: "Cormorant Garamond", serif;
       font-size: 31px;
       font-weight: 600;
@@ -130,8 +147,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 24px;
+      gap: 18px;
       flex: 1;
+      min-width: 0;
     }
 
     .nav-item {
@@ -157,6 +175,7 @@
       top: 100%;
       left: 50%;
       width: 730px;
+      max-width: 90vw;
       transform: translate(-50%, 12px);
       padding: 30px;
       background: var(--white);
@@ -198,12 +217,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-shrink: 0;
     }
 
     .tool-btn {
       position: relative;
       width: 40px;
       height: 40px;
+      flex-shrink: 0;
       border: 1px solid var(--line);
       background: transparent;
       color: var(--espresso);
@@ -252,6 +273,7 @@
     .gold-hero-content {
       position: relative;
       z-index: 2;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -271,8 +293,8 @@
 
     .gold-hero h1 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(65px, 8vw, 128px);
-      line-height: .78;
+      font-size: clamp(48px, 8vw, 128px);
+      line-height: .82;
       font-weight: 500;
       letter-spacing: -3px;
       margin-bottom: 30px;
@@ -296,6 +318,7 @@
     .gold-hero-image {
       position: relative;
       min-height: 650px;
+      min-width: 0;
       overflow: hidden;
     }
 
@@ -314,30 +337,52 @@
       background: linear-gradient(90deg, rgba(28, 26, 23, .55), transparent 50%);
     }
 
-    /* ================= BUTTONS ================= */
+    /* ================= BUTTONS — refined luxury shape ================= */
 
     .btn {
+      position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
-      min-height: 48px;
-      padding: 0 24px;
+      min-height: 50px;
+      padding: 0 28px;
+      overflow: hidden;
       border: 1px solid var(--champagne);
       text-transform: uppercase;
-      letter-spacing: 1.8px;
+      letter-spacing: 2px;
       font-size: 9px;
-      transition: .3s ease;
+      font-weight: 600;
+      border-radius: 2px 16px 2px 16px;
+      z-index: 1;
+      transition: color .35s ease, border-color .35s ease, transform .3s ease, box-shadow .3s ease;
     }
 
     .btn-gold {
-      background: var(--champagne);
+      background: linear-gradient(120deg, var(--gold-light), var(--champagne), var(--gold-dark));
       color: var(--espresso);
+      border-color: var(--gold-dark);
+    }
+
+    .btn-gold::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--espresso);
+      transform: translateY(102%);
+      transition: transform .4s cubic-bezier(.65, 0, .35, 1);
     }
 
     .btn-gold:hover {
-      background: transparent;
-      color: var(--champagne);
+      color: var(--gold-light);
+      border-color: var(--espresso);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(128, 99, 51, .3);
+    }
+
+    .btn-gold:hover::before {
+      transform: translateY(0);
     }
 
     .btn-outline {
@@ -345,9 +390,25 @@
       color: inherit;
     }
 
+    .btn-outline::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(120deg, var(--champagne), var(--gold-dark));
+      transform: translateX(-101%);
+      transition: transform .4s cubic-bezier(.65, 0, .35, 1);
+    }
+
     .btn-outline:hover {
-      background: var(--champagne);
       color: var(--espresso);
+      border-color: var(--champagne);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, .18);
+    }
+
+    .btn-outline:hover::before {
+      transform: translateX(0);
     }
 
     /* ================= INTRO ================= */
@@ -363,12 +424,13 @@
       align-items: end;
       justify-content: space-between;
       gap: 30px;
+      flex-wrap: wrap;
     }
 
     .section-head h2 {
       font-family: "Cormorant Garamond", serif;
       font-weight: 500;
-      font-size: clamp(44px, 5vw, 70px);
+      font-size: clamp(38px, 5vw, 70px);
       line-height: .95;
     }
 
@@ -387,7 +449,7 @@
 
     .intro h2 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(42px, 5vw, 72px);
+      font-size: clamp(36px, 5vw, 72px);
       font-weight: 500;
       line-height: .95;
       margin-bottom: 28px;
@@ -410,17 +472,20 @@
 
     .category-grid {
       max-width: 1350px;
+      min-width: 0;
       margin: auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 14px;
     }
 
     .category-card {
       position: relative;
+      min-width: 0;
       min-height: 350px;
       overflow: hidden;
       background: var(--cream);
+      border-radius: 3px 20px 3px 20px;
     }
 
     .category-card:nth-child(5),
@@ -456,7 +521,7 @@
 
     .category-info h3 {
       font-family: "Cormorant Garamond", serif;
-      font-size: 31px;
+      font-size: 28px;
       font-weight: 500;
       margin-bottom: 12px;
     }
@@ -466,12 +531,21 @@
       letter-spacing: 1.8px;
       text-transform: uppercase;
       color: #f2dfb7;
+      border-bottom: 1px solid rgba(242, 223, 183, .5);
+      padding-bottom: 3px;
+      transition: .3s ease;
+    }
+
+    .category-info a:hover {
+      color: white;
+      border-color: white;
     }
 
     /* ================= PRODUCTS ================= */
 
     .product-toolbar {
       max-width: 1350px;
+      min-width: 0;
       margin: 0 auto 30px;
       padding: 18px 0;
       border-top: 1px solid var(--line);
@@ -480,6 +554,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 15px;
+      flex-wrap: wrap;
     }
 
     .filters {
@@ -491,12 +566,14 @@
     .filter-btn {
       border: 1px solid var(--line);
       background: transparent;
-      padding: 10px 15px;
+      padding: 10px 16px;
       font-size: 9px;
+      font-weight: 600;
       letter-spacing: 1.2px;
       text-transform: uppercase;
       color: var(--muted);
-      transition: .25s ease;
+      border-radius: 30px;
+      transition: .3s ease;
     }
 
     .filter-btn.active,
@@ -513,18 +590,21 @@
       font-size: 10px;
       color: var(--espresso);
       outline: none;
+      max-width: 100%;
     }
 
     .product-grid {
       max-width: 1350px;
+      min-width: 0;
       margin: auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px 15px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 30px 15px;
     }
 
     .product-card {
       position: relative;
+      min-width: 0;
       background: transparent;
       animation: productIn .5s ease both;
     }
@@ -545,7 +625,16 @@
       position: relative;
       aspect-ratio: 4 / 5;
       overflow: hidden;
-      background: var(--cream);
+      background: linear-gradient(160deg, #f3ece0, var(--cream));
+      border: 1px solid rgba(170, 138, 80, .2);
+      border-radius: 3px 18px 3px 18px;
+      box-shadow: 0 16px 36px rgba(35, 27, 18, .1);
+      transition: box-shadow .4s ease, transform .4s ease;
+    }
+
+    .product-card:hover .product-image {
+      box-shadow: 0 24px 50px rgba(35, 27, 18, .18);
+      transform: translateY(-4px);
     }
 
     .product-image img {
@@ -579,22 +668,39 @@
       height: 36px;
       border: 1px solid rgba(255, 255, 255, .65);
       background: rgba(255, 255, 255, .88);
+      backdrop-filter: blur(6px);
       border-radius: 50%;
       display: grid;
       place-items: center;
       font-size: 14px;
       color: var(--espresso);
+      box-shadow: 0 6px 16px rgba(35, 27, 18, .16);
+      transition: .3s ease;
     }
 
     .round-action:hover {
-      background: var(--espresso);
+      background: var(--gold-dark);
       color: white;
+      transform: scale(1.08);
+    }
+
+    .round-action.add-cart {
+      background: linear-gradient(120deg, var(--gold-dark), var(--gold), var(--champagne));
+      color: white;
+      border-color: var(--gold-dark);
+    }
+
+    .round-action.add-cart:hover {
+      background: var(--espresso);
+      border-color: var(--espresso);
     }
 
     .product-label {
-      padding: 16px 3px 4px;
-      font-size: 10px;
-      letter-spacing: 2px;
+      padding: 18px 3px 4px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--espresso);
     }
@@ -611,10 +717,12 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       min-height: 620px;
+      overflow: hidden;
     }
 
     .craft-image {
       min-height: 620px;
+      min-width: 0;
       overflow: hidden;
     }
 
@@ -623,6 +731,7 @@
     }
 
     .craft-content {
+      min-width: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -631,7 +740,7 @@
 
     .craft-content h2 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(50px, 5vw, 78px);
+      font-size: clamp(38px, 5vw, 78px);
       font-weight: 500;
       line-height: .9;
       margin-bottom: 28px;
@@ -682,6 +791,7 @@
 
     .collection-grid {
       max-width: 1350px;
+      min-width: 0;
       margin: auto;
       display: grid;
       grid-template-columns: 1.25fr .75fr .75fr;
@@ -690,6 +800,7 @@
 
     .collection-card {
       position: relative;
+      min-width: 0;
       min-height: 450px;
       overflow: hidden;
     }
@@ -731,7 +842,7 @@
 
     .collection-content h3 {
       font-family: "Cormorant Garamond", serif;
-      font-size: 34px;
+      font-size: 30px;
       font-weight: 500;
       margin: 6px 0 12px;
     }
@@ -740,6 +851,7 @@
 
     .stone-feature {
       max-width: 1350px;
+      min-width: 0;
       margin: auto;
       background: #ded3c1;
       min-height: 470px;
@@ -749,6 +861,7 @@
     }
 
     .stone-copy {
+      min-width: 0;
       padding: 75px;
       display: flex;
       flex-direction: column;
@@ -757,7 +870,7 @@
 
     .stone-copy h2 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(52px, 6vw, 82px);
+      font-size: clamp(42px, 6vw, 82px);
       line-height: .82;
       font-weight: 500;
       margin-bottom: 24px;
@@ -772,8 +885,9 @@
     }
 
     .stone-images {
+      min-width: 0;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 8px;
       padding: 8px;
     }
@@ -793,9 +907,9 @@
 
     .gold-cta h2 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(50px, 6vw, 86px);
+      font-size: clamp(38px, 6vw, 86px);
       font-weight: 500;
-      line-height: .85;
+      line-height: .9;
       margin-bottom: 22px;
     }
 
@@ -812,15 +926,21 @@
     footer {
       background: var(--charcoal);
       color: #e9e1d5;
+      overflow: hidden;
     }
 
     .footer-main {
       max-width: 1450px;
+      min-width: 0;
       margin: auto;
       padding: 80px 5vw 55px;
       display: grid;
       grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
       gap: 60px;
+    }
+
+    .footer-column {
+      min-width: 0;
     }
 
     .footer-brand {
@@ -853,6 +973,7 @@
 
     .map {
       width: 100%;
+      max-width: 100%;
       height: 210px;
       border: 0;
       filter: grayscale(1) sepia(.15);
@@ -904,16 +1025,18 @@
 
     .search-top input {
       width: 100%;
+      min-width: 0;
       background: transparent;
       border: 0;
       outline: 0;
       color: white;
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(34px, 5vw, 60px);
+      font-size: clamp(28px, 5vw, 60px);
       padding: 15px 0;
     }
 
     .search-top button {
+      flex-shrink: 0;
       background: none;
       border: 0;
       color: white;
@@ -933,6 +1056,7 @@
       top: 0;
       right: -430px;
       width: min(430px, 100%);
+      max-width: 100%;
       height: 100vh;
       background: var(--white);
       z-index: 2500;
@@ -1039,12 +1163,20 @@
     .cart-checkout {
       width: 100%;
       border: 1px solid var(--espresso);
-      background: var(--espresso);
+      background: linear-gradient(120deg, var(--espresso), #3a2f24 55%, var(--gold-dark));
       color: white;
-      padding: 15px;
+      padding: 16px;
       text-transform: uppercase;
-      letter-spacing: 1.8px;
+      letter-spacing: 1.9px;
       font-size: 9px;
+      font-weight: 700;
+      border-radius: 3px 14px 3px 14px;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .cart-checkout:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(35, 27, 18, .28);
     }
 
     /* ================= TOAST ================= */
@@ -1054,6 +1186,7 @@
       bottom: 25px;
       left: 50%;
       transform: translate(-50%, 100px);
+      max-width: calc(100vw - 40px);
       background: var(--espresso);
       color: white;
       padding: 14px 24px;
@@ -1102,11 +1235,11 @@
       }
 
       .category-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .product-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .footer-main {
@@ -1148,6 +1281,7 @@
       .dropdown {
         position: static;
         width: 100%;
+        max-width: 100%;
         transform: none;
         box-shadow: none;
         border: 0;
@@ -1174,11 +1308,11 @@
       }
 
       .gold-hero-content {
-        min-height: 530px;
+        min-height: 460px;
       }
 
       .gold-hero-image {
-        min-height: 480px;
+        min-height: 420px;
       }
 
       .craft {
@@ -1186,7 +1320,7 @@
       }
 
       .craft-image {
-        min-height: 450px;
+        min-height: 380px;
       }
 
       .stone-feature {
@@ -1194,11 +1328,11 @@
       }
 
       .stone-copy {
-        padding: 60px 8vw;
+        padding: 55px 8vw;
       }
 
       .stone-images {
-        min-height: 400px;
+        min-height: 350px;
       }
     }
 
@@ -1209,13 +1343,13 @@
       }
 
       .nav-inner {
-        min-height: 72px;
-        padding: 0 18px;
+        min-height: 68px;
+        padding: 0 16px;
       }
 
       .brand {
-        font-size: 25px;
-        letter-spacing: 3px;
+        font-size: 20px;
+        letter-spacing: 2px;
       }
 
       .nav-tools {
@@ -1223,50 +1357,54 @@
       }
 
       .tool-btn {
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
       }
 
       .gold-hero-content {
-        padding: 70px 8vw;
-        min-height: 500px;
+        padding: 55px 7vw;
+        min-height: 420px;
       }
 
       .gold-hero h1 {
-        font-size: 68px;
+        font-size: 52px;
+      }
+
+      .gold-hero p {
+        font-size: 12.5px;
       }
 
       .gold-hero-image {
-        min-height: 390px;
+        min-height: 300px;
       }
 
       .section {
-        padding: 75px 5vw;
+        padding: 60px 5vw;
       }
 
       .section-head {
         display: block;
-        margin-bottom: 35px;
+        margin-bottom: 32px;
       }
 
       .section-head p {
-        margin-top: 18px;
+        margin-top: 16px;
       }
 
       .category-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .category-card,
       .category-card:nth-child(5),
       .category-card:nth-child(10) {
         grid-column: span 1;
-        min-height: 290px;
+        min-height: 250px;
       }
 
       .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 10px;
       }
 
       .product-actions {
@@ -1303,33 +1441,51 @@
 
       .collection-card:first-child {
         grid-column: span 2;
-        min-height: 470px;
+        min-height: 400px;
       }
 
       .collection-card {
-        min-height: 300px;
+        min-height: 260px;
       }
 
       .stone-images {
-        grid-template-columns: repeat(3, 1fr);
-        min-height: 300px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        min-height: 260px;
       }
 
       .stone-images img {
-        min-height: 280px;
+        min-height: 240px;
+      }
+
+      .stone-copy {
+        padding: 45px 22px;
+      }
+
+      .craft-content {
+        padding: 55px 6vw;
       }
 
       .craft-points {
         grid-template-columns: 1fr;
       }
 
+      .gold-cta {
+        padding: 60px 22px;
+      }
+
       .footer-main {
         grid-template-columns: 1fr;
-        gap: 38px;
+        gap: 34px;
+        padding: 60px 6vw 40px;
       }
 
       .footer-bottom {
         flex-direction: column;
+        padding: 20px 6vw;
+      }
+
+      .btn {
+        width: 100%;
       }
     }
 
@@ -1341,16 +1497,15 @@
       .category-card,
       .category-card:nth-child(5),
       .category-card:nth-child(10) {
-        min-height: 330px;
+        min-height: 280px;
       }
 
       .product-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .product-label {
-        font-size: 8px;
-        letter-spacing: 1.2px;
+        font-size: 12px;
       }
 
       .collection-grid {
@@ -1362,15 +1517,15 @@
       }
 
       .stone-copy {
-        padding: 55px 25px;
+        padding: 45px 20px;
       }
 
       .stone-images {
-        height: 250px;
+        height: 220px;
       }
 
       .stone-images img {
-        min-height: 230px;
+        min-height: 200px;
       }
     }
   </style>
@@ -1428,8 +1583,8 @@
 
           <div class="dropdown">
             <a href="diamond-rings.html">Diamond Ladies Rings</a>
-            <a href="diamond-earrings.html">Diamond Men's Rings</a>
-            <a href="diamond-pendants-nose-pins.html">Diamond Nose Pins</a>
+            <a href="diamond-ring-men.html">Diamond Men's Rings</a>
+            <a href="diamond-pendants-nose-pins.html">Diamond Earrings</a>
           </div>
         </div>
 
@@ -1439,6 +1594,10 @@
 
         <div class="nav-item">
           <a href="stones.html">Choose Your Stone</a>
+        </div>
+        
+        <div class="nav-item">
+          <a href="trending.html">Trending Uniques</a>
         </div>
 
         <div class="nav-item">
@@ -1578,7 +1737,7 @@
         </article>
 
         <article class="category-card">
-          <img src="assets/images/gold-earrings.jpg" alt="The Jewelica Gold Earrings">
+          <img src="images/earings (14).png" alt="The Jewelica Gold Earrings">
           <div class="category-shade"></div>
           <div class="category-info">
             <h3>Gold Earrings</h3>
@@ -1596,7 +1755,7 @@
         </article>
 
         <article class="category-card">
-          <img src="assets/images/gold-tops.jpg" alt="The Jewelica Gold Tops">
+          <img src="images/Gold tops (10).png" alt="The Jewelica Gold Tops">
           <div class="category-shade"></div>
           <div class="category-info">
             <h3>Gold Tops</h3>
@@ -1614,7 +1773,7 @@
         </article>
 
         <article class="category-card">
-          <img src="assets/images/gold-chains.jpg" alt="The Jewelica Gold Chains">
+          <img src="images/chain (14).png" alt="The Jewelica Gold Chains">
           <div class="category-shade"></div>
           <div class="category-info">
             <h3>Gold Chains</h3>
@@ -1623,16 +1782,16 @@
         </article>
 
         <article class="category-card">
-          <img src="assets/images/gold-locket-sets.jpg" alt="The Jewelica Gold Locket Sets">
+          <img src="images/bangles (4).png" alt="The Jewelica Gold Locket Sets">
           <div class="category-shade"></div>
           <div class="category-info">
-            <h3>Gold Locket Sets</h3>
-            <a href="gold-locket-sets.html">Explore Category →</a>
+            <h3>Gold bangles</h3>
+            <a href="gold.html">Explore Category →</a>
           </div>
         </article>
 
         <article class="category-card">
-          <img src="assets/images/gold-mens-rings.jpg" alt="The Jewelica Gold Men's Rings">
+          <img src="images/men's ring gold (3).png" alt="The Jewelica Gold Men's Rings">
           <div class="category-shade"></div>
           <div class="category-info">
             <h3>Gold Men's Rings</h3>
@@ -1693,7 +1852,7 @@
 
         <article class="product-card" data-type="earring" data-name="Earrings">
           <div class="product-image">
-            <img src="assets/images/gold-earrings-01.jpg" alt="The Jewelica Gold Earrings">
+            <img src="images/earings (16).png" alt="The Jewelica Gold Earrings">
             <div class="product-actions">
               <button class="round-action wishlist" aria-label="Add Earrings to wishlist">♡</button>
               <button class="round-action add-cart" aria-label="Add Earrings to cart">+</button>
@@ -1759,7 +1918,7 @@
 
         <article class="product-card" data-type="earring" data-name="Earrings">
           <div class="product-image">
-            <img src="assets/images/gold-earrings-02.jpg" alt="The Jewelica Gold Earrings">
+            <img src="images/earings (17).png" alt="The Jewelica Gold Earrings">
             <div class="product-actions">
               <button class="round-action wishlist" aria-label="Add Earrings to wishlist">♡</button>
               <button class="round-action add-cart" aria-label="Add Earrings to cart">+</button>
@@ -2099,9 +2258,9 @@
 
         <h4>Find The Jewelica</h4>
 
-        <iframe
+        <iframe class="map"
           src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
-          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
         <p style="margin-top:12px;">

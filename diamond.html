@@ -16,7 +16,7 @@
   <meta property="og:title" content="Diamond Jewellery | THE JEWELICA">
   <meta property="og:description" content="Explore refined diamond jewellery from THE JEWELICA.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/diamond-og.jpg">
+  <meta property="og:image" content="images/all diamond jewellery hero.png">
 
   <style>
     :root {
@@ -43,6 +43,8 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
     }
 
     body {
@@ -51,6 +53,10 @@
       color: var(--espresso);
       line-height: 1.6;
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
 
     button,
@@ -73,6 +79,11 @@
       display: block;
       width: 100%;
       height: auto;
+      max-width: 100%;
+    }
+
+    iframe {
+      max-width: 100%;
     }
 
     .serif {
@@ -98,8 +109,10 @@
     }
 
     .nav-wrap {
+      width: 100%;
       max-width: 1440px;
       margin: auto;
+      min-width: 0;
       min-height: 84px;
       padding: 0 42px;
       display: flex;
@@ -109,7 +122,10 @@
     }
 
     .brand {
-      flex-shrink: 0;
+      flex-shrink: 1;
+      min-width: 0;
+      max-width: 62%;
+      overflow: hidden;
       display: inline-flex;
       flex-direction: column;
       line-height: 1;
@@ -120,6 +136,9 @@
       font-family: Georgia, "Times New Roman", serif;
       font-size: 25px;
       letter-spacing: .13em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .brand-sub {
@@ -128,6 +147,9 @@
       letter-spacing: .42em;
       color: var(--gold);
       text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .nav-links {
@@ -135,7 +157,8 @@
       align-items: center;
       justify-content: center;
       gap: 4px;
-      flex: 1;
+      flex: 1 1 auto;
+      min-width: 0;
     }
 
     .nav-links>a,
@@ -173,6 +196,7 @@
       top: calc(100% + 16px);
       transform: translateX(-50%) translateY(8px);
       width: 590px;
+      max-width: calc(100vw - 30px);
       background: var(--white);
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
@@ -222,7 +246,10 @@
     .nav-actions {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
       gap: 8px;
+      flex: 0 0 auto;
+      white-space: nowrap;
     }
 
     .nav-icon {
@@ -260,6 +287,17 @@
 
     .menu-btn {
       display: none;
+      flex: 0 0 39px;
+    }
+
+    .menu-btn svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
     }
 
     /* =========================
@@ -416,33 +454,38 @@
       justify-content: center;
       align-items: center;
       min-height: 48px;
-      padding: 0 25px;
+      padding: 0 30px;
       border: 1px solid var(--gold);
-      background: var(--gold);
+      border-radius: 2px;
+      background: linear-gradient(135deg, var(--gold), #a3844e);
       color: white;
       font-size: 10px;
-      letter-spacing: .18em;
+      letter-spacing: .2em;
       text-transform: uppercase;
       cursor: pointer;
       transition: var(--transition);
+      box-shadow: 0 10px 26px rgba(185, 154, 91, .0);
     }
 
     .btn:hover {
-      background: var(--gold-light);
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
       border-color: var(--gold-light);
       transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(185, 154, 91, .35);
     }
 
     .btn-outline {
       background: transparent;
       color: white;
       border-color: rgba(255, 255, 255, .55);
+      box-shadow: none;
     }
 
     .btn-outline:hover {
       background: white;
       color: var(--espresso);
       border-color: white;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .2);
     }
 
     /* =========================
@@ -603,6 +646,11 @@
     .product-card {
       position: relative;
       min-width: 0;
+      transition: transform .4s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
     }
 
     .product-image {
@@ -610,6 +658,14 @@
       aspect-ratio: 4 / 5;
       background: #e8e0d4;
       overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(36, 29, 24, .07);
+      transition: var(--transition);
+    }
+
+    .product-card:hover .product-image {
+      box-shadow: 0 24px 50px rgba(36, 29, 24, .14);
+      border-color: rgba(185, 154, 91, .4);
     }
 
     .product-image img {
@@ -635,11 +691,13 @@
       width: 36px;
       height: 36px;
       border: 0;
+      border-radius: 50%;
       background: rgba(255, 253, 248, .94);
       color: var(--espresso);
       cursor: pointer;
       display: grid;
       place-items: center;
+      box-shadow: 0 6px 16px rgba(36, 29, 24, .16);
       transition: var(--transition);
     }
 
@@ -647,6 +705,7 @@
     .product-tool.active {
       background: var(--gold);
       color: white;
+      transform: scale(1.08);
     }
 
     .product-info {
@@ -673,19 +732,24 @@
 
     .product-buttons {
       display: flex;
-      gap: 7px;
-      margin-top: 8px;
+      gap: 8px;
+      margin-top: 10px;
     }
 
     .mini-btn {
+      position: relative;
+      overflow: hidden;
       flex: 1;
       border: 1px solid var(--border);
+      border-radius: 2px;
       background: transparent;
-      min-height: 38px;
+      min-height: 42px;
       cursor: pointer;
       font-size: 9px;
-      letter-spacing: .12em;
+      font-weight: 600;
+      letter-spacing: .13em;
       text-transform: uppercase;
+      color: var(--espresso);
       transition: var(--transition);
     }
 
@@ -693,6 +757,35 @@
       background: var(--espresso);
       color: white;
       border-color: var(--espresso);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(36, 29, 24, .22);
+    }
+
+    .mini-btn.add-cart {
+      border-color: var(--gold);
+      color: var(--espresso);
+      background: linear-gradient(135deg, rgba(217, 199, 160, .18), rgba(185, 154, 91, .06));
+      letter-spacing: .14em;
+    }
+
+    .mini-btn.add-cart::before {
+      content: "◇";
+      display: inline-block;
+      margin-right: 6px;
+      font-size: 10px;
+      color: var(--gold);
+      transition: var(--transition);
+    }
+
+    .mini-btn.add-cart:hover {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: white;
+      border-color: var(--gold);
+      box-shadow: 0 12px 26px rgba(185, 154, 91, .38);
+    }
+
+    .mini-btn.add-cart:hover::before {
+      color: white;
     }
 
     /* =========================
@@ -1069,6 +1162,7 @@
       width: 42px;
       height: 42px;
       border: 1px solid var(--gold);
+      border-radius: 50%;
       background: var(--white);
       color: var(--espresso);
       z-index: 800;
@@ -1085,6 +1179,12 @@
       transform: translateY(0);
     }
 
+    .back-top:hover {
+      background: var(--gold);
+      color: white;
+      box-shadow: 0 10px 22px rgba(185, 154, 91, .35);
+    }
+
     /* =========================
        RESPONSIVE
     ========================== */
@@ -1094,11 +1194,19 @@
         padding: 0 25px;
       }
 
+      .nav-wrap {
+        gap: 14px;
+      }
+
+      .nav-links {
+        gap: 0;
+      }
+
       .nav-links>a,
       .drop-trigger {
-        padding-left: 8px;
-        padding-right: 8px;
-        font-size: 9px;
+        padding-left: 6px;
+        padding-right: 6px;
+        font-size: 8px;
       }
 
       .product-grid {
@@ -1113,6 +1221,9 @@
     @media (max-width: 900px) {
       .nav-wrap {
         min-height: 72px;
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 8px;
       }
 
       .menu-btn {
@@ -1148,6 +1259,7 @@
       .mega-menu {
         position: static;
         width: 100%;
+        max-width: 100%;
         transform: none !important;
         display: none;
         opacity: 1;
@@ -1201,11 +1313,22 @@
 
       .nav-actions {
         margin-left: auto;
+        gap: 5px;
       }
 
       .nav-icon {
         width: 35px;
         height: 35px;
+        flex: 0 0 35px;
+      }
+
+      .menu-btn {
+        flex-basis: 35px;
+      }
+
+      .menu-btn svg {
+        width: 19px;
+        height: 19px;
       }
 
       .page-hero {
@@ -1251,6 +1374,10 @@
 
       .product-buttons {
         flex-direction: column;
+      }
+
+      .mini-btn {
+        min-height: 44px;
       }
 
       .note-grid {
@@ -1309,6 +1436,44 @@
 
       .hero-actions .btn {
         width: 100%;
+      }
+
+      .nav-wrap {
+        gap: 6px;
+      }
+
+      .nav-actions {
+        gap: 4px;
+      }
+
+      .nav-icon {
+        width: 32px;
+        height: 32px;
+        flex: 0 0 32px;
+      }
+
+      .menu-btn {
+        flex-basis: 32px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .brand {
+        max-width: 55%;
+      }
+
+      .brand-main {
+        font-size: 17px;
+      }
+
+      .brand-sub {
+        letter-spacing: .28em;
+      }
+
+      .nav-icon {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
       }
     }
   </style>
@@ -1380,7 +1545,7 @@
               <a href="diamond-ring-men.html">Diamond Men's Rings</a>
 
               <!-- Earrings/Pendant-Nose-Pin category now connects to Men's Rings page -->
-              <a href="diamond-ring-men.html">Diamond Nose Pins</a>
+              <a href="diamond-pendants-nose-pins.html">Diamond Earrings</a>
 
             </div>
           </div>
@@ -1388,6 +1553,7 @@
 
         <a href="collections.html">Collections</a>
         <a href="stones.html">Choose Your Stone</a>
+        <a href="trending.html">Trending Uniques</a>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
@@ -1410,8 +1576,10 @@
           <span class="counter" id="cartCount">0</span>
         </button>
 
-        <button class="nav-icon menu-btn" id="menuBtn" aria-label="Open menu">
-          ☰
+        <button class="nav-icon menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
         </button>
 
       </div>
@@ -1513,7 +1681,7 @@
         <!-- DIAMOND RINGS -->
         <article class="category-card reveal">
 
-          <img src="assets/images/diamond-rings-category.jpg"
+          <img src="images/ladies diamond ring (1).png"
             alt="The Jewelica Diamond Rings"
             loading="lazy">
 
@@ -1531,7 +1699,7 @@
         <!-- DIAMOND EARRINGS -->
         <article class="category-card reveal">
 
-          <img src="assets/images/diamond-earrings-category.jpg"
+          <img src="images/diamond earring (1).png"
             alt="The Jewelica Diamond Earrings"
             loading="lazy">
 
@@ -1540,7 +1708,7 @@
             <h3>Diamond Earrings</h3>
 
             <!-- CHANGED TO DIAMOND MEN'S RINGS FILE -->
-            <a href="diamond-ring-men.html">Explore Category</a>
+            <a href="diamond-pendants-nose-pins.html">Explore Category</a>
 
           </div>
 
@@ -1549,16 +1717,16 @@
         <!-- DIAMOND PENDANTS / NOSE PINS -->
         <article class="category-card reveal">
 
-          <img src="assets/images/diamond-pendants-category.jpg"
+          <img src="images/diamond earring (4).png"
             alt="The Jewelica Diamond Pendants and Nose Pins"
             loading="lazy">
 
           <div class="category-overlay">
             <span>03 / DIAMOND</span>
-            <h3>Pendants / Nose Pins</h3>
+            <h3>Earrings</h3>
 
             <!-- CHANGED TO DIAMOND MEN'S RINGS FILE -->
-            <a href="diamond-ring-men.html">Explore Category</a>
+            <a href="diamond-pendants-nose-pins.html">Explore Category</a>
 
           </div>
 
@@ -1611,7 +1779,7 @@
 
           <div class="product-image">
 
-            <img src="assets/images/diamond-ring-01.jpg"
+            <img src="images/ladies diamond ring (2).png"
               alt="The Jewelica Diamond Ring"
               loading="lazy">
 
@@ -1638,7 +1806,7 @@
               data-id="diamond-ring-01"
               data-type="DIAMOND RING"
               data-category="Diamond Jewellery"
-              data-image="assets/images/diamond-ring-01.jpg">
+              data-image="images/ladies diamond ring (2).png">
               Add To Cart
             </button>
 
@@ -1659,7 +1827,7 @@
 
           <div class="product-image">
 
-            <img src="assets/images/diamond-ring-02.jpg"
+            <img src="images/men diamond ring (2).png"
               alt="The Jewelica Diamond Ring"
               loading="lazy">
 
@@ -1686,7 +1854,7 @@
               data-id="diamond-ring-02"
               data-type="DIAMOND RING"
               data-category="Diamond Jewellery"
-              data-image="assets/images/diamond-ring-02.jpg">
+              data-image="images/men diamond ring (2).png">
               Add To Cart
             </button>
 
@@ -1707,7 +1875,7 @@
 
           <div class="product-image">
 
-            <img src="assets/images/diamond-earrings-01.jpg"
+            <img src="images/diamond earring (1).png"
               alt="The Jewelica Diamond Earrings"
               loading="lazy">
 
@@ -1734,12 +1902,12 @@
               data-id="diamond-earrings-01"
               data-type="DIAMOND EARRINGS"
               data-category="Diamond Jewellery"
-              data-image="assets/images/diamond-earrings-01.jpg">
+              data-image="images/diamond earring (1).png">
               Add To Cart
             </button>
 
             <!-- CHANGED -->
-            <a href="diamond-ring-men.html"
+            <a href="diamond-pendants-nose-pins.html"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details
@@ -1756,7 +1924,7 @@
 
           <div class="product-image">
 
-            <img src="assets/images/diamond-earrings-02.jpg"
+            <img src="images/diamond earring (2).png"
               alt="The Jewelica Diamond Earrings"
               loading="lazy">
 
@@ -1783,12 +1951,12 @@
               data-id="diamond-earrings-02"
               data-type="DIAMOND EARRINGS"
               data-category="Diamond Jewellery"
-              data-image="assets/images/diamond-earrings-02.jpg">
+              data-image="images/diamond earring (2).png">
               Add To Cart
             </button>
 
             <!-- CHANGED -->
-            <a href="diamond-ring-men.html"
+            <a href="diamond-pendants-nose-pins.html"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details
@@ -1805,7 +1973,7 @@
 
           <div class="product-image">
 
-            <img src="assets/images/diamond-pendant-01.jpg"
+            <img src="images/men diamond ring.png"
               alt="The Jewelica Diamond Pendant"
               loading="lazy">
 
@@ -1821,7 +1989,7 @@
 
           <div class="product-info">
             <div>
-              <div class="product-type">DIAMOND PENDANT</div>
+              <div class="product-type">DIAMOND RING</div>
               <div class="product-category">Diamond Jewellery</div>
             </div>
           </div>
@@ -1832,7 +2000,7 @@
               data-id="diamond-pendant-01"
               data-type="DIAMOND PENDANT"
               data-category="Diamond Jewellery"
-              data-image="assets/images/diamond-pendant-01.jpg">
+              data-image="images/men diamond ring.png">
               Add To Cart
             </button>
 
@@ -1854,7 +2022,7 @@
 
           <div class="product-image">
 
-            <img src="assets/images/diamond-pendant-02.jpg"
+            <img src="images/ladies diamond ring (4).png"
               alt="The Jewelica Diamond Pendant"
               loading="lazy">
 
@@ -1870,7 +2038,7 @@
 
           <div class="product-info">
             <div>
-              <div class="product-type">DIAMOND PENDANT</div>
+              <div class="product-type">DIAMOND RING</div>
               <div class="product-category">Diamond Jewellery</div>
             </div>
           </div>
@@ -1881,12 +2049,12 @@
               data-id="diamond-pendant-02"
               data-type="DIAMOND PENDANT"
               data-category="Diamond Jewellery"
-              data-image="assets/images/diamond-pendant-02.jpg">
+              data-image="images/ladies diamond ring (4).png">
               Add To Cart
             </button>
 
             <!-- CHANGED -->
-            <a href="diamond-ring-men.html"
+            <a href="diamond-rings.html"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details
@@ -1903,7 +2071,7 @@
 
           <div class="product-image">
 
-            <img src="assets/images/diamond-nose-pin-01.jpg"
+            <img src="images/ladies diamond ring (3).png"
               alt="The Jewelica Diamond Nose Pin"
               loading="lazy">
 
@@ -1919,7 +2087,7 @@
 
           <div class="product-info">
             <div>
-              <div class="product-type">NOSE PIN</div>
+              <div class="product-type">DIAMOND RING</div>
               <div class="product-category">Diamond Jewellery</div>
             </div>
           </div>
@@ -1930,12 +2098,12 @@
               data-id="diamond-nose-pin-01"
               data-type="NOSE PIN"
               data-category="Diamond Jewellery"
-              data-image="assets/images/diamond-nose-pin-01.jpg">
+              data-image="images/ladies diamond ring (3).png">
               Add To Cart
             </button>
 
             <!-- CHANGED -->
-            <a href="diamond-ring-men.html"
+            <a href="diamond-rings.html"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details
@@ -1952,7 +2120,7 @@
 
           <div class="product-image">
 
-            <img src="assets/images/diamond-pendant-03.jpg"
+            <img src="images/ladies diamond ring (6).png"
               alt="The Jewelica Diamond Pendant"
               loading="lazy">
 
@@ -1968,7 +2136,7 @@
 
           <div class="product-info">
             <div>
-              <div class="product-type">DIAMOND PENDANT</div>
+              <div class="product-type">DIAMOND RING</div>
               <div class="product-category">Diamond Jewellery</div>
             </div>
           </div>
@@ -1979,12 +2147,12 @@
               data-id="diamond-pendant-03"
               data-type="DIAMOND PENDANT"
               data-category="Diamond Jewellery"
-              data-image="assets/images/diamond-pendant-03.jpg">
+              data-image="images/ladies diamond ring (6).png">
               Add To Cart
             </button>
 
             <!-- CHANGED -->
-            <a href="diamond-ring-men.html"
+            <a href="diamond-rings.html"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details
@@ -2432,12 +2600,22 @@
 
       menuBtn.addEventListener("click", () => {
 
-        mainNav.classList.toggle("open");
+        const isOpen =
+          mainNav.classList.toggle("open");
 
-        menuBtn.textContent =
-          mainNav.classList.contains("open")
-            ? "×"
-            : "☰";
+        menuBtn.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+        menuBtn.setAttribute(
+          "aria-label",
+          isOpen ? "Close menu" : "Open menu"
+        );
+
+        menuBtn.innerHTML = isOpen
+          ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg>'
+          : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>';
 
       });
 
@@ -2568,9 +2746,9 @@
       },
 
       {
-        name: "Diamond Pendants / Nose Pins",
+        name: "Diamond Earrings",
         type: "Category",
-        url: "diamond-ring-men.html"
+        url: "diamond-pendants-nose-pins.html"
       },
 
       {
