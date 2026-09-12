@@ -932,6 +932,12 @@
       font-size: 13px;
     }
 
+    .cta-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .cta-button {
       display: inline-flex;
       align-items: center;
@@ -955,6 +961,11 @@
       color: white;
       box-shadow: 0 14px 30px rgba(181, 150, 90, .3);
       transform: translateY(-2px);
+    }
+
+    .cta-button-secondary {
+      background: transparent;
+      color: var(--espresso);
     }
 
     /* =========================
@@ -1303,9 +1314,12 @@
       visibility: visible;
     }
 
-    /* =========================
-       RESPONSIVE
-    ========================= */
+    /* =====================================================
+       ============  RESPONSIVE / TABLET  ===================
+       These groups only change LAYOUT (position, direction,
+       columns, sizing). Colours, fonts and content stay the
+       same as desktop at every breakpoint.
+    ===================================================== */
 
     @media (max-width: 1150px) {
       .nav-links {
@@ -1375,97 +1389,366 @@
       }
     }
 
+    /* =====================================================
+       ============  MOBILE LAYOUT GROUP (<=650px) ==========
+       A genuinely different arrangement of the SAME elements
+       and SAME images used on desktop: rows instead of grids,
+       side-by-side stone cards, a scrollable filter bar and a
+       swipeable guide strip. No new assets are introduced.
+    ===================================================== */
+
     @media (max-width: 650px) {
+
+      /* ---- global page frame ---- */
+      body {
+        font-size: 15px;
+      }
+
       .topbar {
         font-size: 8px;
         letter-spacing: 1.5px;
+        padding: 8px 14px;
       }
 
+      /* ---- nav ---- */
       .nav-inner {
-        width: min(100% - 30px, 1400px);
+        width: calc(100% - 28px);
+        min-height: 68px;
       }
 
       .brand-main {
-        font-size: 20px;
-        letter-spacing: 3px;
+        font-size: 18px;
+        letter-spacing: 2.5px;
       }
 
       .brand-sub {
         font-size: 6px;
-        letter-spacing: 2.5px;
+        letter-spacing: 2.2px;
+        margin-top: 4px;
+      }
+
+      .nav-action {
+        width: 36px;
+        height: 36px;
+      }
+
+      .menu-toggle {
+        width: 38px;
+        height: 38px;
+      }
+
+      /* ---- hero: text-first stack, orbit becomes a quiet
+             background motif behind the copy, not beside it ---- */
+      .hero {
+        min-height: 0;
+        padding: 0;
       }
 
       .hero-inner {
-        width: calc(100% - 40px);
-        padding: 90px 0 110px;
+        width: calc(100% - 32px);
+        padding: 56px 0 64px;
+      }
+
+      .hero::before {
+        width: 300px;
+        height: 300px;
+        right: -140px;
+        top: -90px;
+      }
+
+      .eyebrow {
+        font-size: 9px;
+        letter-spacing: 3.5px;
+        margin-bottom: 12px;
       }
 
       .hero h1 {
-        font-size: 54px;
-        letter-spacing: -2px;
+        font-size: 40px;
+        letter-spacing: -1.5px;
+        max-width: 100%;
+      }
+
+      .hero-copy {
+        max-width: 100%;
+        font-size: 13.5px;
+        margin: 18px 0 24px;
+      }
+
+      .hero-button {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        padding: 15px 20px;
       }
 
       .hero-orbit {
-        width: 230px;
-        height: 230px;
-        right: -110px;
-        top: 70%;
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        right: 50%;
+        top: auto;
+        bottom: -110px;
+        transform: translateX(50%);
+        opacity: .35;
       }
 
       .orbit-stone {
-        width: 70px;
-        height: 70px;
-        right: 45px;
-        top: 80px;
+        width: 64px;
+        height: 64px;
+        right: 30px;
+        top: 40px;
       }
 
+      /* ---- intro ---- */
       .intro {
-        padding: 85px 0 60px;
+        width: calc(100% - 32px);
+        padding: 60px 0 44px;
+      }
+
+      .intro h2 {
+        font-size: 32px;
+      }
+
+      .intro p {
+        font-size: 13.5px;
+        margin-top: 18px;
+      }
+
+      /* ---- stone section head ---- */
+      .stone-section {
+        padding: 50px 0 70px;
       }
 
       .section-head {
-        width: calc(100% - 40px);
+        width: calc(100% - 32px);
         display: block;
+        margin-bottom: 26px;
+      }
+
+      .section-head h2 {
+        font-size: 30px;
       }
 
       .section-head p {
-        margin-top: 20px;
+        max-width: 100%;
+        margin-top: 14px;
+        font-size: 12.5px;
       }
 
+      /* ---- filter bar becomes a single horizontal
+             swipeable strip instead of a wrapping block ---- */
       .filter-wrap {
-        width: calc(100% - 40px);
+        width: 100%;
+        padding: 0 16px 6px;
+        margin: 0 0 28px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
       }
 
+      .filter-wrap::-webkit-scrollbar {
+        display: none;
+      }
+
+      .filter-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+
+      /* ---- stone cards: side-by-side (image | content)
+             row layout instead of stacked image-over-text ---- */
       .stone-grid {
-        width: calc(100% - 40px);
+        width: calc(100% - 32px);
         grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .stone-card {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
       }
 
       .stone-image {
-        height: 300px;
+        flex: 0 0 128px;
+        width: 128px;
+        height: auto;
+      }
+
+      .stone-content {
+        flex: 1;
+        min-width: 0;
+        padding: 14px 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .stone-number {
+        margin-bottom: 6px;
+      }
+
+      .stone-name {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      .stone-description {
+        min-height: 0;
+        margin-bottom: 12px;
+        font-size: 11.5px;
+      }
+
+      /* ---- education: image full width above a
+             single, tighter accordion column ---- */
+      .education {
+        padding: 56px 0;
       }
 
       .education-inner {
-        width: calc(100% - 40px);
+        width: calc(100% - 32px);
+        gap: 30px;
       }
 
-      .education {
-        padding: 85px 0;
+      .education-image,
+      .education-image img {
+        min-height: 220px;
+        height: 220px;
+      }
+
+      .education-copy h2 {
+        font-size: 30px;
+      }
+
+      .education-copy p {
+        font-size: 13px;
+        margin: 18px 0;
+      }
+
+      .education-item button {
+        padding: 15px 0;
+        font-size: 10px;
+      }
+
+      /* ---- guide cards: horizontal swipeable strip
+             instead of a stacked single column ---- */
+      .guide {
+        padding: 64px 0;
+      }
+
+      .guide h2 {
+        font-size: 30px;
+        max-width: 100%;
+      }
+
+      .guide-copy {
+        max-width: 100%;
+        font-size: 12.5px;
+        margin: 16px auto 28px;
+        padding: 0 16px;
       }
 
       .guide-grid {
-        width: calc(100% - 40px);
-        grid-template-columns: 1fr;
+        width: 100%;
+        margin-top: 0;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 14px;
+        padding: 0 16px 8px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
       }
 
+      .guide-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .guide-card {
+        flex: 0 0 78%;
+        min-height: 0;
+        scroll-snap-align: start;
+      }
+
+      /* ---- CTA: buttons stack full width ---- */
+      .cta {
+        padding: 64px 20px;
+      }
+
+      .cta h2 {
+        font-size: 30px;
+      }
+
+      .cta p {
+        font-size: 12.5px;
+        margin: 16px auto 22px;
+      }
+
+      .cta-actions {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+
+      .cta-button {
+        width: 100%;
+      }
+
+      /* ---- footer: single column ---- */
       .footer-grid {
-        width: calc(100% - 40px);
+        width: calc(100% - 32px);
         grid-template-columns: 1fr;
-        gap: 38px;
+        gap: 34px;
+        padding-bottom: 45px;
       }
 
+      .footer-description {
+        max-width: 100%;
+      }
+
+      .map-wrap {
+        height: 150px;
+      }
+
+      /* ---- search results: single column list ---- */
       .search-results {
         grid-template-columns: 1fr;
+      }
+
+      /* ---- cart / misc floats stay inside viewport ---- */
+      .back-top {
+        right: 14px;
+        bottom: 14px;
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+    /* =====================================================
+       ============  SMALL PHONE GROUP (<=400px) ============
+       Same mobile layout, just tighter spacing so nothing
+       touches the edges or needs zoom/scroll to view.
+    ===================================================== */
+
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .stone-image {
+        flex-basis: 104px;
+        width: 104px;
+      }
+
+      .stone-name {
+        font-size: 18px;
+      }
+
+      .guide-card {
+        flex-basis: 86%;
       }
     }
   </style>
@@ -2105,13 +2388,15 @@
         stone that works beautifully with your jewellery vision.
       </p>
 
-      <a href="services.html" class="cta-button">
-        Explore Our Services
-      </a>
+      <div class="cta-actions">
+        <a href="services.html" class="cta-button">
+          Explore Our Services
+        </a>
 
-      <a href="contact.html" class="cta-button" style="margin-left:8px;background:transparent;color:var(--espresso);">
-        Contact The Jewelica
-      </a>
+        <a href="contact.html" class="cta-button cta-button-secondary">
+          Contact The Jewelica
+        </a>
+      </div>
 
     </section>
 

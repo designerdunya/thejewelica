@@ -480,6 +480,12 @@
       background: #e9e1d4;
     }
 
+    .product-media a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
     .product-media img {
       transition: transform .65s ease;
     }
@@ -1193,43 +1199,6 @@
         font-size: 13px
       }
 
-      .product-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 14px
-      }
-
-      .product-media {
-        height: 220px
-      }
-
-      .product-info {
-        padding: 15px 8px
-      }
-
-      .product-type {
-        font-size: 9px;
-        letter-spacing: 1.3px;
-      }
-
-      .product-buttons {
-        flex-direction: column;
-      }
-
-      .mini-btn {
-        width: 100%
-      }
-
-      .product-actions {
-        opacity: 1;
-        transform: none;
-      }
-
-      .round-action {
-        width: 32px;
-        height: 32px;
-        font-size: 12px;
-      }
-
       .craft-copy h2,
       .cta h2 {
         font-size: 34px
@@ -1237,11 +1206,6 @@
 
       .craft-image {
         height: 300px
-      }
-
-      .footer-main {
-        grid-template-columns: 1fr;
-        padding: 55px 20px 30px;
       }
 
       .footer-bottom {
@@ -1268,6 +1232,272 @@
       .back-top {
         width: 40px;
         height: 40px;
+      }
+    }
+
+    /* ==========================================================
+       MOBILE LAYOUT — genuinely restructured (not scaled-down)
+       Applies from where phone-sized screens begin.
+       Same elements, same images, same colors/fonts — layout only.
+       ========================================================== */
+    @media (max-width: 680px) {
+
+      /* ---- HERO: text repositioned to bottom band over image ---- */
+      .hero {
+        min-height: 420px;
+      }
+
+      .hero-content {
+        min-height: 420px;
+        align-items: flex-end;
+        padding: 0 18px 30px;
+      }
+
+      .hero-copy {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+        letter-spacing: -1px;
+        margin-bottom: 14px;
+      }
+
+      .hero p {
+        font-size: 12.5px;
+        margin-bottom: 20px;
+        max-width: 100%;
+      }
+
+      .hero .btn {
+        width: 100%;
+      }
+
+      .breadcrumb {
+        padding: 14px 18px;
+        font-size: 9px;
+      }
+
+      /* ---- INTRO ---- */
+      .section {
+        padding: 44px 18px;
+      }
+
+      .intro {
+        text-align: left;
+        margin: 0 0 28px;
+      }
+
+      .intro p {
+        margin: 0;
+      }
+
+      /* ---- TOOLBAR: filters become a horizontal scroll strip,
+             sort dropdown sits full-width underneath ---- */
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 14px 0;
+        margin-bottom: 22px;
+      }
+
+      .filter-wrap {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        margin: 0 -18px;
+        padding: 0 18px 4px;
+      }
+
+      .filter-wrap::-webkit-scrollbar {
+        display: none;
+      }
+
+      .filter-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+
+      .sort {
+        width: 100%;
+      }
+
+      /* ---- PRODUCT GRID: switches from a card grid to a
+             horizontal snap-scroll rail of compact cards ---- */
+      .product-grid {
+        display: flex;
+        grid-template-columns: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 14px;
+        margin: 0 -18px;
+        padding: 4px 18px 10px;
+        scrollbar-width: none;
+      }
+
+      .product-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .product-card {
+        flex: 0 0 62vw;
+        max-width: 240px;
+        scroll-snap-align: start;
+      }
+
+      .product-media {
+        height: 220px;
+      }
+
+      .product-actions {
+        opacity: 1;
+        transform: none;
+      }
+
+      .round-action {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+      }
+
+      .product-info {
+        padding: 13px 10px 16px;
+      }
+
+      .product-type {
+        font-size: 9px;
+        letter-spacing: 1.2px;
+        margin-bottom: 10px;
+      }
+
+      .product-buttons {
+        flex-direction: row;
+        gap: 6px;
+      }
+
+      .mini-btn {
+        height: 34px;
+        font-size: 8px;
+      }
+
+      /* ---- CRAFT: image becomes a full-bleed backdrop with the
+             copy in a solid card overlapping its lower edge ---- */
+      .craft {
+        overflow: hidden;
+      }
+
+      .craft-inner {
+        display: block;
+        padding: 0;
+      }
+
+      .craft-image {
+        height: 280px;
+        margin: 0;
+      }
+
+      .craft-copy {
+        margin: -60px 18px 0;
+        position: relative;
+        z-index: 2;
+        background: var(--charcoal);
+        border: 1px solid rgba(255, 255, 255, .12);
+        padding: 26px 20px 36px;
+      }
+
+      .craft-copy h2 {
+        font-size: 28px;
+      }
+
+      .craft-copy p {
+        max-width: 100%;
+        font-size: 13px;
+      }
+
+      .craft-copy .btn {
+        width: 100%;
+      }
+
+      /* ---- CTA ---- */
+      .cta {
+        padding: 50px 20px 60px;
+        text-align: left;
+      }
+
+      .cta h2 {
+        font-size: 30px;
+      }
+
+      .cta p {
+        margin: 0 0 22px;
+        max-width: 100%;
+      }
+
+      .cta .btn {
+        width: 100%;
+      }
+
+      /* ---- FOOTER: single column, each block becomes a bordered
+             row instead of the desktop's four-up grid ---- */
+      .footer-main {
+        grid-template-columns: 1fr;
+        padding: 40px 18px 10px;
+        gap: 0;
+      }
+
+      .footer-main>div {
+        padding: 22px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .08);
+      }
+
+      .footer-main>div:first-child {
+        padding-top: 0;
+      }
+
+      .footer-brand {
+        font-size: 22px;
+      }
+
+      .map {
+        height: 170px;
+      }
+
+      .footer-bottom {
+        padding: 16px 18px 22px;
+        gap: 6px;
+      }
+
+      /* ---- CART / SEARCH: use full viewport cleanly, no overflow ---- */
+      .cart-panel {
+        width: 100%;
+        padding: 20px;
+      }
+
+      .cart-thumb {
+        width: 60px;
+        height: 68px;
+      }
+
+      .search-overlay {
+        padding: 10vh 16px;
+      }
+
+      .search-input {
+        font-size: 20px;
+      }
+
+      .back-top,
+      .toast {
+        right: 14px;
+      }
+
+      .back-top {
+        bottom: 14px;
       }
     }
   </style>
@@ -1404,9 +1634,11 @@
 
       <div class="product-grid" id="productGrid">
 
-        <article class="product-card" data-category="bands" data-name="Gold Earrings">
+        <article class="product-card" data-category="bands" data-name="Gold Earrings" data-target="earing-01">
           <div class="product-media">
-            <img src="images/earings (1).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-01" aria-label="View Gold Earrings 1 details">
+              <img src="images/earings (1).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1421,9 +1653,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="signet" data-name="Gold Earrings">
+        <article class="product-card" data-category="signet" data-name="Gold Earrings" data-target="earing-02">
           <div class="product-media">
-            <img src="images/earings (2).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-02" aria-label="View Gold Earrings 2 details">
+              <img src="images/earings (2).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1438,9 +1672,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="solitaire" data-name="Gold Earrings">
+        <article class="product-card" data-category="solitaire" data-name="Gold Earrings" data-target="earing-03">
           <div class="product-media">
-            <img src="images/earings (3).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-03" aria-label="View Gold Earrings 3 details">
+              <img src="images/earings (3).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1455,9 +1691,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="classic" data-name="Gold Earrings">
+        <article class="product-card" data-category="classic" data-name="Gold Earrings" data-target="earing-04">
           <div class="product-media">
-            <img src="images/earings (4).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-04" aria-label="View Gold Earrings 4 details">
+              <img src="images/earings (4).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1472,9 +1710,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="bands" data-name="Gold Earrings">
+        <article class="product-card" data-category="bands" data-name="Gold Earrings" data-target="earing-05">
           <div class="product-media">
-            <img src="images/earings (5).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-05" aria-label="View Gold Earrings 5 details">
+              <img src="images/earings (5).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1489,9 +1729,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="signet" data-name="Gold Earrings">
+        <article class="product-card" data-category="signet" data-name="Gold Earrings" data-target="earing-06">
           <div class="product-media">
-            <img src="images/earings (6).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-06" aria-label="View Gold Earrings 6 details">
+              <img src="images/earings (6).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1506,9 +1748,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="solitaire" data-name="Gold Earrings">
+        <article class="product-card" data-category="solitaire" data-name="Gold Earrings" data-target="earing-07">
           <div class="product-media">
-            <img src="images/earings (7).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-07" aria-label="View Gold Earrings 7 details">
+              <img src="images/earings (7).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1523,9 +1767,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="classic" data-name="Gold Earrings">
+        <article class="product-card" data-category="classic" data-name="Gold Earrings" data-target="earing-08">
           <div class="product-media">
-            <img src="images/earings (8).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-08" aria-label="View Gold Earrings 8 details">
+              <img src="images/earings (8).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1540,9 +1786,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="bands" data-name="Gold Earrings">
+        <article class="product-card" data-category="bands" data-name="Gold Earrings" data-target="earing-09">
           <div class="product-media">
-            <img src="images/earings (9).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-09" aria-label="View Gold Earrings 9 details">
+              <img src="images/earings (9).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1557,9 +1805,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="signet" data-name="Gold Earrings">
+        <article class="product-card" data-category="signet" data-name="Gold Earrings" data-target="earing-10">
           <div class="product-media">
-            <img src="images/earings (10).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-10" aria-label="View Gold Earrings 10 details">
+              <img src="images/earings (10).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1574,9 +1824,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="solitaire" data-name="Gold Earrings">
+        <article class="product-card" data-category="solitaire" data-name="Gold Earrings" data-target="earing-11">
           <div class="product-media">
-            <img src="images/earings (11).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-11" aria-label="View Gold Earrings 11 details">
+              <img src="images/earings (11).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1591,9 +1843,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="bands" data-name="Gold Earrings">
+        <article class="product-card" data-category="bands" data-name="Gold Earrings" data-target="earing-12">
           <div class="product-media">
-            <img src="images/earings (12).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-12" aria-label="View Gold Earrings 12 details">
+              <img src="images/earings (12).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1608,9 +1862,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="bands" data-name="Gold Earrings">
+        <article class="product-card" data-category="bands" data-name="Gold Earrings" data-target="earing-13">
           <div class="product-media">
-            <img src="images/earings (13).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-13" aria-label="View Gold Earrings 13 details">
+              <img src="images/earings (13).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1625,9 +1881,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="bands" data-name="Gold Earrings">
+        <article class="product-card" data-category="bands" data-name="Gold Earrings" data-target="earing-14">
           <div class="product-media">
-            <img src="images/earings (14).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-14" aria-label="View Gold Earrings 14 details">
+              <img src="images/earings (14).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1642,9 +1900,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="bands" data-name="Gold Earrings">
+        <article class="product-card" data-category="bands" data-name="Gold Earrings" data-target="earing-15">
           <div class="product-media">
-            <img src="images/earings (15).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-15" aria-label="View Gold Earrings 15 details">
+              <img src="images/earings (15).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1659,9 +1919,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="bands" data-name="Gold Earrings">
+        <article class="product-card" data-category="bands" data-name="Gold Earrings" data-target="earing-16">
           <div class="product-media">
-            <img src="images/earings (16).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-16" aria-label="View Gold Earrings 16 details">
+              <img src="images/earings (16).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -1676,9 +1938,11 @@
           </div>
         </article>
 
-        <article class="product-card" data-category="bands" data-name="Gold Earrings">
+        <article class="product-card" data-category="bands" data-name="Gold Earrings" data-target="earing-17">
           <div class="product-media">
-            <img src="images/earings (17).png" alt="The Jewelica Gold Earrings">
+            <a href="product.html#earing-17" aria-label="View Gold Earrings 17 details">
+              <img src="images/earings (17).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
               <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
@@ -2065,14 +2329,9 @@
       $$(".details, .quick").forEach(button => {
         button.addEventListener("click", () => {
           const card = button.closest(".product-card");
-          const type = $(".product-type", card)?.textContent.trim() || "JEWELLERY";
+          const target = card.dataset.target;
 
-          localStorage.setItem("jewelicaSelectedProduct", JSON.stringify({
-            type,
-            image: $("img", card)?.getAttribute("src") || ""
-          }));
-
-          window.location.href = "product.html";
+          window.location.href = target ? "product.html#" + target : "product.html";
         });
       });
 
@@ -2130,10 +2389,8 @@
 
       updateCart();
       updateWishlist();
-
     })();
   </script>
-
 </body>
 
 </html>

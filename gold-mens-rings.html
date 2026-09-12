@@ -788,12 +788,22 @@
 
       .story-grid {
         grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 30px;
+      }
+
+      .story-copy {
+        order: 1;
+      }
+
+      .story-image {
+        order: 2;
+        aspect-ratio: 16 / 10;
       }
 
       .toolbar {
-        align-items: flex-start;
-        flex-direction: column;
+        align-items: stretch;
+        flex-direction: column-reverse;
+        gap: 12px;
       }
     }
 
@@ -869,17 +879,40 @@
       }
 
       .category-strip {
-        margin-top: 30px;
-        gap: 7px;
+        margin-top: 28px;
+        gap: 8px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 6px;
+        margin-left: -5%;
+        margin-right: -5%;
+        padding-left: 5%;
+        padding-right: 5%;
+        scrollbar-width: none;
+      }
+
+      .category-strip::-webkit-scrollbar {
+        display: none;
       }
 
       .category-btn {
-        padding: 10px 12px;
+        padding: 10px 14px;
         font-size: 8px;
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        white-space: nowrap;
       }
 
       .toolbar {
-        margin-top: 35px;
+        margin-top: 32px;
+      }
+
+      .result-count {
+        text-align: center;
       }
 
       .sort {
@@ -889,6 +922,27 @@
       .products {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 25px 10px;
+      }
+
+      .product-card:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .product-card:first-child .product-image {
+        aspect-ratio: 16 / 11;
+      }
+
+      .product-card:first-child .product-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 3px 5px;
+      }
+
+      .product-card:first-child .add-btn {
+        max-width: 220px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .product-info {
@@ -932,7 +986,21 @@
 
       .footer-grid {
         grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 32px;
+      }
+
+      .footer-grid > div:nth-child(1) { order: 1; }
+      .footer-grid > div:nth-child(4) { order: 2; }
+      .footer-grid > div:nth-child(2) { order: 3; }
+      .footer-grid > div:nth-child(3) { order: 4; }
+
+      .footer-text {
+        max-width: 100%;
+      }
+
+      .footer-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 14px;
       }
 
       footer {
@@ -1112,12 +1180,12 @@
             <img src="images/men's ring gold (1).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-01')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-01')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1127,12 +1195,12 @@
             <img src="images/men's ring gold (2).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-02')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-02')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1142,12 +1210,12 @@
             <img src="images/men's ring gold (3).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-03')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-03')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1157,12 +1225,12 @@
             <img src="images/men's ring gold (4).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-04')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-04')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1172,12 +1240,12 @@
             <img src="images/men's ring gold (5).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-05')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-05')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1187,12 +1255,12 @@
             <img src="images/men's ring gold (6).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-06')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-06')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1202,12 +1270,12 @@
             <img src="images/men's ring gold (7).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-07')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-07')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1217,12 +1285,12 @@
             <img src="images/men's ring gold (8).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-08')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-08')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1232,12 +1300,12 @@
             <img src="images/men's ring gold (9).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-09')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-09')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1247,12 +1315,12 @@
             <img src="images/men's ring gold (10).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-10')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-10')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1262,12 +1330,12 @@
             <img src="images/men's ring gold (11).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-11')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-11')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1277,12 +1345,12 @@
             <img src="images/men's ring gold (12).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-12')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-12')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1292,12 +1360,12 @@
             <img src="images/men's ring gold (13).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-13')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-13')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1307,12 +1375,12 @@
             <img src="images/men's ring gold (14).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-14')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-14')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1322,12 +1390,12 @@
             <img src="images/men's ring gold (15).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-15')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-15')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1337,12 +1405,12 @@
             <img src="images/men's ring gold (16).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-16')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-16')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1352,12 +1420,12 @@
             <img src="images/men's ring gold (17).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-17')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-17')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1367,12 +1435,12 @@
             <img src="images/men's ring gold (18).png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-18')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-18')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1382,12 +1450,12 @@
             <img src="images/men's ring gold.png" alt="The Jewelica Gold Men's Ring">
             <div class="product-actions">
               <button class="icon-btn wishlist" aria-label="Add men's ring to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View details">↗</button>
+              <button class="icon-btn" onclick="viewProduct('mens-ring-19')" aria-label="View details">↗</button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">MEN'S RING</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <button class="view-btn" onclick="viewProduct('mens-ring-19')">View Details</button>
           </div>
           <button class="add-btn" onclick="addToCart('MEN’S RING')">Add To Cart</button>
         </article>
@@ -1598,8 +1666,8 @@
       showToast(type + " added to your cart.");
     }
 
-    function viewProduct() {
-      window.location.href = "product.html";
+    function viewProduct(id) {
+      window.location.href = "product.html#" + id;
     }
 
     document.querySelectorAll(".wishlist").forEach(button => {

@@ -773,6 +773,15 @@
       }
     }
 
+    /* ======================================================
+       RESPONSIVE LAYOUT GROUPS
+       Desktop/tablet rules above stay untouched. Everything
+       below only reshapes the mobile experience — same
+       elements, same images, same colors/fonts — so nothing
+       overlaps, nothing overflows and nothing needs zoom.
+       ====================================================== */
+
+    /* ---------- GROUP 1: LARGE TABLET (<=1100px) ---------- */
     @media(max-width:1100px) {
       .nav-links {
         gap: 14px
@@ -787,6 +796,9 @@
       }
     }
 
+    /* ---------- GROUP 2: TABLET (<=800px) ----------
+       Nav becomes hamburger, sections tighten, craft block
+       stacks. Products still a compact 2-up grid here. */
     @media(max-width:800px) {
       .nav {
         min-height: 70px
@@ -806,12 +818,15 @@
         left: 0;
         right: 0;
         top: 70px;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
         background: var(--ivory);
         border-bottom: 1px solid var(--line);
         display: none;
         flex-direction: column;
         align-items: stretch;
-        padding: 20px 6%
+        padding: 20px 6%;
+        box-shadow: 0 20px 40px rgba(23, 21, 19, .12)
       }
 
       .nav-links.open {
@@ -832,7 +847,11 @@
       }
 
       .hero {
-        min-height: 460px
+        min-height: 420px
+      }
+
+      .hero-content {
+        padding: 70px 0
       }
 
       .section {
@@ -850,8 +869,9 @@
       }
 
       .toolbar {
-        align-items: flex-start;
-        flex-direction: column
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px
       }
 
       .sort {
@@ -859,6 +879,11 @@
       }
     }
 
+    /* ---------- GROUP 3: MOBILE (<=480px) ----------
+       Real mobile layout: the product grid becomes a stacked
+       LIST — image on the left, name/details/add-button on the
+       right, one product per row — built from the exact same
+       markup and images, not a shrunken grid. */
     @media(max-width:480px) {
       .announcement {
         font-size: 8px;
@@ -882,35 +907,93 @@
       }
 
       .hero {
-        min-height: 380px
+        min-height: 360px
       }
 
       .hero-content {
-        padding: 60px 0
+        padding: 55px 0
       }
 
       .hero h1 {
-        font-size: 46px
+        font-size: 44px
       }
 
       .hero p {
         font-size: 13px
       }
 
+      .section {
+        padding: 50px 0
+      }
+
+      .category-strip {
+        margin-top: 30px;
+        gap: 8px
+      }
+
+      .filter-btn {
+        padding: 9px 14px
+      }
+
       .products {
-        grid-template-columns: 1fr 1fr;
-        gap: 22px 10px
+        display: flex;
+        flex-direction: column;
+        gap: 0
+      }
+
+      .product-card {
+        display: grid;
+        grid-template-columns: 108px 1fr;
+        grid-template-areas:
+          "image info"
+          "image add";
+        column-gap: 14px;
+        row-gap: 8px;
+        align-items: start;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line)
+      }
+
+      .product-image {
+        grid-area: image
+      }
+
+      .product-actions {
+        opacity: 1;
+        transform: none;
+        top: 8px;
+        right: 8px;
+        gap: 6px
+      }
+
+      .icon-btn {
+        width: 30px;
+        height: 30px
       }
 
       .product-info {
+        grid-area: info;
+        padding: 0;
         flex-direction: column;
         align-items: flex-start;
         gap: 6px
       }
 
       .view-btn {
-        margin-top: 4px;
+        margin-top: 0;
         padding-bottom: 2px
+      }
+
+      .add-btn {
+        grid-area: add;
+        margin-top: 0;
+        height: 38px;
+        align-self: end
+      }
+
+      .craft-copy .outline-btn,
+      .cta .outline-btn {
+        width: 100%
       }
 
       .footer-grid {
@@ -1010,8 +1093,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-1">
           <div class="product-image">
-            <img src="images/chain (1).png" alt="The Jewelica Gold Chain 1"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-01" aria-label="View CHAIN 1 details">
+              <img src="images/chain (1).png" alt="The Jewelica Gold Chain 1"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-1"
                 aria-label="Add gold chain 1 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(1)">↗</button></div>
@@ -1023,8 +1108,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-2">
           <div class="product-image">
-            <img src="images/chain (2).png" alt="The Jewelica Gold Chain 2"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-02" aria-label="View CHAIN 2 details">
+              <img src="images/chain (2).png" alt="The Jewelica Gold Chain 2"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-2"
                 aria-label="Add gold chain 2 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(2)">↗</button></div>
@@ -1036,8 +1123,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-3">
           <div class="product-image">
-            <img src="images/chain (3).png" alt="The Jewelica Gold Chain 3"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-03" aria-label="View CHAIN 3 details">
+              <img src="images/chain (3).png" alt="The Jewelica Gold Chain 3"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-3"
                 aria-label="Add gold chain 3 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(3)">↗</button></div>
@@ -1049,8 +1138,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-4">
           <div class="product-image">
-            <img src="images/chain (4).png" alt="The Jewelica Gold Chain 4"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-04" aria-label="View CHAIN 4 details">
+              <img src="images/chain (4).png" alt="The Jewelica Gold Chain 4"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-4"
                 aria-label="Add gold chain 4 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(4)">↗</button></div>
@@ -1062,8 +1153,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-5">
           <div class="product-image">
-            <img src="images/chain (5).png" alt="The Jewelica Gold Chain 5"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-05" aria-label="View CHAIN 5 details">
+              <img src="images/chain (5).png" alt="The Jewelica Gold Chain 5"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-5"
                 aria-label="Add gold chain 5 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(5)">↗</button></div>
@@ -1075,8 +1168,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-6">
           <div class="product-image">
-            <img src="images/chain (6).png" alt="The Jewelica Gold Chain 6"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-06" aria-label="View CHAIN 6 details">
+              <img src="images/chain (6).png" alt="The Jewelica Gold Chain 6"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-6"
                 aria-label="Add gold chain 6 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(6)">↗</button></div>
@@ -1088,8 +1183,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-7">
           <div class="product-image">
-            <img src="images/chain (7).png" alt="The Jewelica Gold Chain 7"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-07" aria-label="View CHAIN 7 details">
+              <img src="images/chain (7).png" alt="The Jewelica Gold Chain 7"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-7"
                 aria-label="Add gold chain 7 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(7)">↗</button></div>
@@ -1101,8 +1198,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-8">
           <div class="product-image">
-            <img src="images/chain (8).png" alt="The Jewelica Gold Chain 8"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-08" aria-label="View CHAIN 8 details">
+              <img src="images/chain (8).png" alt="The Jewelica Gold Chain 8"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-8"
                 aria-label="Add gold chain 8 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(8)">↗</button></div>
@@ -1114,8 +1213,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-9">
           <div class="product-image">
-            <img src="images/chain (9).png" alt="The Jewelica Gold Chain 9"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-09" aria-label="View CHAIN 9 details">
+              <img src="images/chain (9).png" alt="The Jewelica Gold Chain 9"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-9"
                 aria-label="Add gold chain 9 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(9)">↗</button></div>
@@ -1127,8 +1228,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-10">
           <div class="product-image">
-            <img src="images/chain (10).png" alt="The Jewelica Gold Chain 10"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-10" aria-label="View CHAIN 10 details">
+              <img src="images/chain (10).png" alt="The Jewelica Gold Chain 10"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-10"
                 aria-label="Add gold chain 10 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(10)">↗</button></div>
@@ -1140,8 +1243,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-11">
           <div class="product-image">
-            <img src="images/chain (11).png" alt="The Jewelica Gold Chain 11"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-11" aria-label="View CHAIN 11 details">
+              <img src="images/chain (11).png" alt="The Jewelica Gold Chain 11"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-11"
                 aria-label="Add gold chain 11 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(11)">↗</button></div>
@@ -1153,8 +1258,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-12">
           <div class="product-image">
-            <img src="images/chain (12).png" alt="The Jewelica Gold Chain 12"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-12" aria-label="View CHAIN 12 details">
+              <img src="images/chain (12).png" alt="The Jewelica Gold Chain 12"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-12"
                 aria-label="Add gold chain 12 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(12)">↗</button></div>
@@ -1166,8 +1273,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-13">
           <div class="product-image">
-            <img src="images/chain (13).png" alt="The Jewelica Gold Chain 13"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-13" aria-label="View CHAIN 13 details">
+              <img src="images/chain (13).png" alt="The Jewelica Gold Chain 13"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-13"
                 aria-label="Add gold chain 13 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(13)">↗</button></div>
@@ -1179,8 +1288,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-14">
           <div class="product-image">
-            <img src="images/chain (14).png" alt="The Jewelica Gold Chain 14"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-14" aria-label="View CHAIN 14 details">
+              <img src="images/chain (14).png" alt="The Jewelica Gold Chain 14"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-14"
                 aria-label="Add gold chain 14 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(14)">↗</button></div>
@@ -1192,8 +1303,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-15">
           <div class="product-image">
-            <img src="images/chain (15).png" alt="The Jewelica Gold Chain 15"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-15" aria-label="View CHAIN 15 details">
+              <img src="images/chain (15).png" alt="The Jewelica Gold Chain 15"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-15"
                 aria-label="Add gold chain 15 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(15)">↗</button></div>
@@ -1205,8 +1318,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-16">
           <div class="product-image">
-            <img src="images/chain (16).png" alt="The Jewelica Gold Chain 16"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-16" aria-label="View CHAIN 16 details">
+              <img src="images/chain (16).png" alt="The Jewelica Gold Chain 16"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-16"
                 aria-label="Add gold chain 16 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(16)">↗</button></div>
@@ -1218,8 +1333,10 @@
 
         <article class="product-card" data-type="chain" data-product="chain-17">
           <div class="product-image">
-            <img src="images/chain (17).png" alt="The Jewelica Gold Chain 17"
-              onerror="this.parentElement.parentElement.style.display='none'; updateResultCount();">
+            <a href="product.html#chain-17" aria-label="View CHAIN 17 details">
+              <img src="images/chain (17).png" alt="The Jewelica Gold Chain 17"
+                onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
+            </a>
             <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-17"
                 aria-label="Add gold chain 17 to wishlist">♡</button><button class="icon-btn"
                 onclick="viewProduct(17)">↗</button></div>
@@ -1329,7 +1446,7 @@
     function updateResultCount() { const visible = [...document.querySelectorAll(".product-card")].filter(c => c.style.display !== "none").length; document.getElementById("resultCount").textContent = visible + " Pieces" }
     function showToast(message) { const toast = document.getElementById("toast"); toast.textContent = message; toast.classList.add("show"); setTimeout(() => toast.classList.remove("show"), 2200) }
     function addToCart(type) { cart.push({ type, category: "Gold Chains", quantity: 1, addedAt: new Date().toISOString() }); localStorage.setItem("jewelicaCart", JSON.stringify(cart)); updateCounters(); showToast(type + " added to your cart.") }
-    function viewProduct(id) { window.location.href = "product.html?id=chain-" + id }
+    function viewProduct(id) { const padded = String(id).padStart(2, "0"); window.location.href = "product.html#chain-" + padded }
 
     document.querySelectorAll(".wishlist").forEach(button => {
       button.addEventListener("click", () => {

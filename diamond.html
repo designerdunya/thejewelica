@@ -1189,13 +1189,27 @@
        RESPONSIVE
     ========================== */
 
-    @media (max-width: 1150px) {
-      .nav-wrap {
-        padding: 0 25px;
-      }
+    @media (max-width: 1536px) and (min-width: 901px) {
+      /* Laptop range: keep the FULL nav-links list visible
+         (no hamburger) — just shrink logo, link spacing and
+         icons enough that everything fits on one line. */
 
       .nav-wrap {
-        gap: 14px;
+        padding: 0 18px;
+        gap: 8px;
+      }
+
+      .brand {
+        max-width: 30%;
+      }
+
+      .brand-main {
+        font-size: 16px;
+        letter-spacing: .08em;
+      }
+
+      .brand-sub {
+        display: none;
       }
 
       .nav-links {
@@ -1204,11 +1218,28 @@
 
       .nav-links>a,
       .drop-trigger {
-        padding-left: 6px;
-        padding-right: 6px;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 9px;
+        letter-spacing: .04em;
+      }
+
+      .drop-trigger span {
+        margin-left: 2px;
         font-size: 8px;
       }
 
+      .nav-actions {
+        gap: 4px;
+      }
+
+      .nav-icon {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    @media (max-width: 1150px) {
       .product-grid {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -1218,7 +1249,25 @@
       }
     }
 
+    /* ==========================================================
+       MOBILE LAYOUT (<=900px)
+       Below this point the page reflows into a genuinely
+       different, mobile-first layout built from the same
+       markup and images: a top-banner hero instead of a
+       centered overlay, swipeable card strips instead of
+       static grids, list-style product rows instead of a
+       photo grid, and a re-ordered footer that leads with
+       contact/visit info. No new assets are introduced.
+
+       Laptop widths (901px-1536px) are handled separately
+       above: the full nav-links list stays visible there,
+       just shrunk to fit — only phones/tablets get the
+       hamburger menu.
+       ========================================================== */
+
     @media (max-width: 900px) {
+
+      /* ---- Nav ---- */
       .nav-wrap {
         min-height: 72px;
         padding-left: 16px;
@@ -1242,6 +1291,8 @@
         align-items: stretch;
         padding: 10px 20px 20px;
         box-shadow: 0 20px 40px rgba(36, 29, 24, .08);
+        max-height: calc(100vh - 72px);
+        overflow-y: auto;
       }
 
       .nav-links.open {
@@ -1254,12 +1305,14 @@
         text-align: left;
         padding: 14px 4px;
         border-bottom: 1px solid var(--border);
+        font-size: 11px;
       }
 
       .mega-menu {
         position: static;
         width: 100%;
         max-width: 100%;
+        grid-template-columns: 1fr;
         transform: none !important;
         display: none;
         opacity: 1;
@@ -1273,28 +1326,132 @@
         display: grid;
       }
 
-      .category-grid {
-        grid-template-columns: repeat(2, 1fr);
+      /* ---- Hero: banner image on top, copy on a solid
+             panel below instead of centered text over a
+             full-bleed dark overlay ---- */
+      .page-hero {
+        display: block;
+        min-height: auto;
+        place-items: initial;
       }
 
+      .page-hero-image {
+        position: static;
+        height: 280px;
+        opacity: 1;
+      }
+
+      .page-hero::after {
+        display: none;
+      }
+
+      .hero-content {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        text-align: left;
+        background: var(--charcoal);
+        padding: 36px 24px 42px;
+      }
+
+      .hero-content p {
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .hero-actions {
+        justify-content: flex-start;
+      }
+
+      .intro {
+        padding: 65px 24px 55px;
+      }
+
+      .section {
+        padding: 65px 24px;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 15px;
+      }
+
+      /* ---- Category cards: swipeable horizontal strip
+             instead of a static multi-column grid ---- */
+      .category-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 14px;
+        padding-bottom: 4px;
+      }
+
+      .category-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .category-card {
+        flex: 0 0 78%;
+        scroll-snap-align: start;
+        min-height: 380px;
+      }
+
+      /* ---- Craftsmanship: stacked, image first ---- */
       .craftsmanship {
         grid-template-columns: 1fr;
       }
 
       .craft-image {
-        min-height: 450px;
+        min-height: 320px;
       }
 
+      .craft-copy {
+        padding: 55px 24px;
+      }
+
+      /* ---- Diamond notes: swipeable strip instead of a
+             static 4-up band ---- */
       .note-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
       }
 
-      .note:nth-child(2) {
-        border-right: 0;
+      .note-grid::-webkit-scrollbar {
+        display: none;
       }
 
-      .note:nth-child(-n+2) {
-        border-bottom: 1px solid var(--border);
+      .note {
+        flex: 0 0 72%;
+        scroll-snap-align: start;
+      }
+
+      /* ---- Footer: contact/visit info leads, then the
+             brand statement, then the link lists ---- */
+      .footer-main {
+        grid-template-columns: 1fr;
+        padding: 55px 24px 35px;
+      }
+
+      .footer-main>div:nth-child(4) {
+        order: -2;
+      }
+
+      .footer-main>div:nth-child(3) {
+        order: -1;
+      }
+
+      .map-wrap {
+        height: 210px;
       }
     }
 
@@ -1331,40 +1488,68 @@
         height: 19px;
       }
 
-      .page-hero {
-        min-height: 540px;
+      .page-hero-image {
+        height: 240px;
       }
 
       .hero-content h1 {
-        font-size: 58px;
-      }
-
-      .section {
-        padding: 65px 18px;
-      }
-
-      .section-heading {
-        display: block;
-      }
-
-      .section-heading p {
-        margin-top: 15px;
-      }
-
-      .category-grid {
-        grid-template-columns: 1fr;
+        font-size: 52px;
       }
 
       .category-card {
-        min-height: 380px;
+        flex: 0 0 84%;
+        min-height: 340px;
       }
 
+      .note {
+        flex: 0 0 82%;
+      }
+
+      /* ---- Products: list rows (image left, details and
+             actions stacked on the right) instead of a
+             shrunk photo grid ---- */
       .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .product-card {
+        display: grid;
+        grid-template-columns: 118px 1fr;
+        grid-template-areas:
+          "img info"
+          "img btn";
+        column-gap: 16px;
+        row-gap: 10px;
+        align-items: start;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .product-card:hover {
+        transform: none;
+      }
+
+      .product-image {
+        grid-area: img;
+        aspect-ratio: 1/1;
+      }
+
+      .product-tools {
+        top: 8px;
+        right: 8px;
+      }
+
+      .product-tool {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
       }
 
       .product-info {
+        grid-area: info;
+        padding: 0;
         display: block;
       }
 
@@ -1373,33 +1558,14 @@
       }
 
       .product-buttons {
-        flex-direction: column;
+        grid-area: btn;
+        flex-direction: row;
+        margin-top: 0;
       }
 
       .mini-btn {
-        min-height: 44px;
-      }
-
-      .note-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .note {
-        border-right: 0 !important;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .note:last-child {
-        border-bottom: 0;
-      }
-
-      .craft-copy {
-        padding: 65px 25px;
-      }
-
-      .footer-main {
-        grid-template-columns: 1fr;
-        padding: 60px 22px 35px;
+        min-height: 38px;
+        font-size: 8px;
       }
 
       .footer-bottom {
@@ -1413,7 +1579,7 @@
       }
 
       .map-wrap {
-        height: 220px;
+        height: 190px;
       }
 
       .search-panel {
@@ -1422,16 +1588,26 @@
     }
 
     @media (max-width: 420px) {
-      .product-grid {
-        grid-template-columns: 1fr;
+      .product-card {
+        grid-template-columns: 92px 1fr;
+        column-gap: 12px;
       }
 
-      .product-image {
-        aspect-ratio: 1 / 1.12;
+      .product-buttons {
+        flex-direction: column;
+      }
+
+      .category-card {
+        flex-basis: 88%;
+        min-height: 300px;
+      }
+
+      .note {
+        flex-basis: 90%;
       }
 
       .hero-content h1 {
-        font-size: 49px;
+        font-size: 44px;
       }
 
       .hero-actions .btn {
@@ -1785,7 +1961,7 @@
 
             <div class="product-tools">
               <button class="product-tool wishlist-product"
-                data-id="diamond-ring-01"
+                data-id="diamond-ring-02"
                 aria-label="Add Diamond Ring to wishlist">
                 ♡
               </button>
@@ -1803,14 +1979,14 @@
           <div class="product-buttons">
 
             <button class="mini-btn add-cart"
-              data-id="diamond-ring-01"
+              data-id="diamond-ring-02"
               data-type="DIAMOND RING"
               data-category="Diamond Jewellery"
               data-image="images/ladies diamond ring (2).png">
               Add To Cart
             </button>
 
-            <a href="product.html?type=diamond-ring"
+            <a href="product.html#diamond-ring-02"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details
@@ -1833,7 +2009,7 @@
 
             <div class="product-tools">
               <button class="product-tool wishlist-product"
-                data-id="diamond-ring-02"
+                data-id="diamond-mens-ring-02"
                 aria-label="Add Diamond Ring to wishlist">
                 ♡
               </button>
@@ -1851,14 +2027,14 @@
           <div class="product-buttons">
 
             <button class="mini-btn add-cart"
-              data-id="diamond-ring-02"
+              data-id="diamond-mens-ring-02"
               data-type="DIAMOND RING"
               data-category="Diamond Jewellery"
               data-image="images/men diamond ring (2).png">
               Add To Cart
             </button>
 
-            <a href="product.html?type=diamond-ring"
+            <a href="product.html#diamond-mens-ring-02"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details
@@ -1881,7 +2057,7 @@
 
             <div class="product-tools">
               <button class="product-tool wishlist-product"
-                data-id="diamond-earrings-01"
+                data-id="diamond-earing-01"
                 aria-label="Add Diamond Earrings to wishlist">
                 ♡
               </button>
@@ -1899,15 +2075,14 @@
           <div class="product-buttons">
 
             <button class="mini-btn add-cart"
-              data-id="diamond-earrings-01"
+              data-id="diamond-earing-01"
               data-type="DIAMOND EARRINGS"
               data-category="Diamond Jewellery"
               data-image="images/diamond earring (1).png">
               Add To Cart
             </button>
 
-            <!-- CHANGED -->
-            <a href="diamond-pendants-nose-pins.html"
+            <a href="product.html#diamond-earing-01"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details
@@ -1930,7 +2105,7 @@
 
             <div class="product-tools">
               <button class="product-tool wishlist-product"
-                data-id="diamond-earrings-02"
+                data-id="diamond-earing-02"
                 aria-label="Add Diamond Earrings to wishlist">
                 ♡
               </button>
@@ -1948,15 +2123,14 @@
           <div class="product-buttons">
 
             <button class="mini-btn add-cart"
-              data-id="diamond-earrings-02"
+              data-id="diamond-earing-02"
               data-type="DIAMOND EARRINGS"
               data-category="Diamond Jewellery"
               data-image="images/diamond earring (2).png">
               Add To Cart
             </button>
 
-            <!-- CHANGED -->
-            <a href="diamond-pendants-nose-pins.html"
+            <a href="product.html#diamond-earing-02"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details
@@ -1979,7 +2153,7 @@
 
             <div class="product-tools">
               <button class="product-tool wishlist-product"
-                data-id="diamond-pendant-01"
+                data-id="diamond-mens-ring-01"
                 aria-label="Add Diamond Pendant to wishlist">
                 ♡
               </button>
@@ -1997,15 +2171,14 @@
           <div class="product-buttons">
 
             <button class="mini-btn add-cart"
-              data-id="diamond-pendant-01"
+              data-id="diamond-mens-ring-01"
               data-type="DIAMOND PENDANT"
               data-category="Diamond Jewellery"
               data-image="images/men diamond ring.png">
               Add To Cart
             </button>
 
-            <!-- CHANGED -->
-            <a href="diamond-ring-men.html"
+            <a href="product.html#diamond-mens-ring-01"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details
@@ -2028,7 +2201,7 @@
 
             <div class="product-tools">
               <button class="product-tool wishlist-product"
-                data-id="diamond-pendant-02"
+                data-id="diamond-ring-04"
                 aria-label="Add Diamond Pendant to wishlist">
                 ♡
               </button>
@@ -2046,15 +2219,14 @@
           <div class="product-buttons">
 
             <button class="mini-btn add-cart"
-              data-id="diamond-pendant-02"
+              data-id="diamond-ring-04"
               data-type="DIAMOND PENDANT"
               data-category="Diamond Jewellery"
               data-image="images/ladies diamond ring (4).png">
               Add To Cart
             </button>
 
-            <!-- CHANGED -->
-            <a href="diamond-rings.html"
+            <a href="product.html#diamond-ring-04"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details
@@ -2077,7 +2249,7 @@
 
             <div class="product-tools">
               <button class="product-tool wishlist-product"
-                data-id="diamond-nose-pin-01"
+                data-id="diamond-ring-03"
                 aria-label="Add Diamond Nose Pin to wishlist">
                 ♡
               </button>
@@ -2095,15 +2267,14 @@
           <div class="product-buttons">
 
             <button class="mini-btn add-cart"
-              data-id="diamond-nose-pin-01"
+              data-id="diamond-ring-03"
               data-type="NOSE PIN"
               data-category="Diamond Jewellery"
               data-image="images/ladies diamond ring (3).png">
               Add To Cart
             </button>
 
-            <!-- CHANGED -->
-            <a href="diamond-rings.html"
+            <a href="product.html#diamond-ring-03"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details
@@ -2126,7 +2297,7 @@
 
             <div class="product-tools">
               <button class="product-tool wishlist-product"
-                data-id="diamond-pendant-03"
+                data-id="diamond-ring-06"
                 aria-label="Add Diamond Pendant to wishlist">
                 ♡
               </button>
@@ -2144,15 +2315,14 @@
           <div class="product-buttons">
 
             <button class="mini-btn add-cart"
-              data-id="diamond-pendant-03"
+              data-id="diamond-ring-06"
               data-type="DIAMOND PENDANT"
               data-category="Diamond Jewellery"
               data-image="images/ladies diamond ring (6).png">
               Add To Cart
             </button>
 
-            <!-- CHANGED -->
-            <a href="diamond-rings.html"
+            <a href="product.html#diamond-ring-06"
               class="mini-btn"
               style="display:grid;place-items:center;">
               View Details

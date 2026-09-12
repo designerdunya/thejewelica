@@ -816,7 +816,9 @@
       }
     }
 
-    /* RESPONSIVE */
+    /* =====================================================
+       DESKTOP / TABLET FINE-TUNING (still same layout family)
+    ===================================================== */
     @media(max-width:1150px) {
       .nav-links {
         gap: 15px;
@@ -836,9 +838,20 @@
       }
     }
 
+    /* =====================================================
+       MOBILE LAYOUT — from here down the page runs on its
+       OWN layout rules, not a shrunk version of the desktop
+       grid. Same elements, same images, same colors/fonts —
+       different structure: drawer nav, overlay hero, a
+       swipeable product rail, single-column footer.
+    ===================================================== */
     @media(max-width:900px) {
+
+      /* ---------- top bar ---------- */
       .mobile-toggle {
         display: block;
+        order: 3;
+        margin-left: 6px;
       }
 
       .nav-inner {
@@ -846,27 +859,58 @@
         padding: 0 20px;
       }
 
+      .brand {
+        order: 1;
+      }
+
+      .nav-actions {
+        order: 2;
+      }
+
+      /* ---------- slide-in drawer menu (replaces the inline bar) ---------- */
       .nav-links {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: var(--white);
-        border-bottom: 1px solid var(--line);
-        padding: 15px 20px 25px;
-        display: none;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(320px, 86vw);
+        height: 100vh;
+        height: 100dvh;
+        margin: 0;
+        background: var(--charcoal);
+        border-bottom: 0;
+        padding: 90px 26px 40px;
+        display: flex;
         flex-direction: column;
         align-items: stretch;
+        gap: 0;
+        overflow-y: auto;
+        box-shadow: -25px 0 60px rgba(0, 0, 0, .3);
+        transition: right .35s ease;
+        z-index: 1500;
       }
 
       .nav-links.open {
-        display: flex;
+        right: 0;
       }
 
       .nav-links>a,
       .drop-btn {
-        padding: 14px 5px;
+        width: 100%;
         text-align: left;
+        color: var(--ivory);
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        padding: 16px 2px;
+        border-bottom: 1px solid rgba(248, 244, 236, .12);
+      }
+
+      .nav-links a:hover,
+      .drop-btn:hover {
+        color: var(--champagne);
+      }
+
+      .dropdown {
+        width: 100%;
       }
 
       .dropdown-menu {
@@ -874,33 +918,182 @@
         transform: none !important;
         width: 100%;
         max-width: 100%;
-        display: none;
+        margin: 0;
+        padding: 4px 0 10px 14px;
+        background: transparent;
+        border: 0;
         box-shadow: none;
-        padding: 10px;
-        grid-template-columns: repeat(2, 1fr);
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 0;
+        opacity: 1;
+        visibility: visible;
       }
 
       .dropdown:hover .dropdown-menu,
       .dropdown:focus-within .dropdown-menu {
         display: grid;
-        opacity: 1;
-        visibility: visible;
       }
 
+      .dropdown-menu a {
+        color: #c9c1b6;
+        padding: 12px 0;
+        font-size: 10.5px;
+        border-bottom: 1px solid rgba(248, 244, 236, .08);
+      }
+
+      .dropdown-menu a:hover {
+        background: transparent;
+        color: var(--champagne);
+      }
+
+      /* ---------- hero: image + text become one overlay panel ---------- */
       .hero {
-        grid-template-columns: 1fr;
+        display: block;
+        position: relative;
+        min-height: 76vh;
+        max-height: 620px;
       }
 
       .hero-image {
-        min-height: 380px;
+        position: absolute;
+        inset: 0;
+        min-height: 0;
+        height: 100%;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: 100%;
       }
 
       .hero-content {
-        padding: 60px 30px;
+        position: relative;
+        z-index: 2;
+        min-height: 76vh;
+        height: 100%;
+        padding: 32px 24px 44px;
+        justify-content: flex-end;
+        background: linear-gradient(180deg, rgba(23, 21, 19, 0) 30%, rgba(23, 21, 19, .78) 72%, rgba(23, 21, 19, .96) 100%);
       }
 
+      .hero p {
+        max-width: 100%;
+        font-size: 13px;
+        margin-bottom: 26px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero .btn {
+        width: 100%;
+      }
+
+      /* ---------- intro ---------- */
+      .intro {
+        padding: 60px 22px 45px;
+      }
+
+      .intro p {
+        font-size: 12px;
+      }
+
+      /* ---------- catalog shell: no side padding, children own it ---------- */
+      .catalog {
+        padding: 16px 0 65px;
+      }
+
+      .toolbar {
+        margin: 0 20px 34px;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .filter-group {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+      }
+
+      .sort {
+        width: 100%;
+      }
+
+      /* ---------- product rail: horizontal swipe, not a squeezed grid ---------- */
       .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: flex;
+        grid-template-columns: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding: 2px 20px 12px;
+        margin: 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .product-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .product-card {
+        flex: 0 0 68%;
+        scroll-snap-align: start;
+      }
+
+      /* ---------- craftsmanship CTA ---------- */
+      .cta {
+        margin-left: 14px;
+        margin-right: 14px;
+        padding: 50px 20px;
+      }
+
+      .cta h2 {
+        font-size: 32px;
+      }
+
+      .cta p {
+        font-size: 12.5px;
+      }
+
+      /* ---------- footer: single centered column, brand first ---------- */
+      footer {
+        padding: 55px 22px 24px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        text-align: center;
+      }
+
+      .footer-links {
+        align-items: center;
+      }
+
+      footer h3 {
+        font-size: 26px;
+      }
+
+      .map {
+        height: 170px;
+      }
+
+      .copyright {
+        margin-top: 40px;
+        font-size: 9.5px;
+      }
+
+      /* ---------- overlays / panels ---------- */
+      .search-box input {
+        font-size: 22px;
+      }
+
+      .cart-panel {
+        padding: 22px;
       }
     }
 
@@ -909,10 +1102,6 @@
         min-height: 66px;
         padding: 0 16px;
         gap: 12px;
-      }
-
-      .nav-links {
-        top: 66px;
       }
 
       .brand {
@@ -929,51 +1118,25 @@
         height: 34px;
       }
 
-      .hero-image {
-        min-height: 260px;
+      .hero {
+        min-height: 68vh;
       }
 
       .hero-content {
-        padding: 45px 20px;
+        min-height: 68vh;
+        padding: 26px 18px 36px;
       }
 
       .hero h1 {
-        font-size: 40px;
-      }
-
-      .hero p {
-        font-size: 12px;
-        margin-bottom: 26px;
-      }
-
-      .intro {
-        padding: 60px 18px 45px;
-      }
-
-      .intro p {
-        font-size: 12px;
-      }
-
-      .catalog {
-        padding: 16px 14px 65px;
+        font-size: 34px;
       }
 
       .toolbar {
-        align-items: stretch;
-        flex-direction: column;
+        margin: 0 16px 28px;
       }
 
-      .filter-group {
-        justify-content: center;
-      }
-
-      .sort {
-        width: 100%;
-      }
-
-      .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px 10px;
+      .product-card {
+        flex-basis: 78%;
       }
 
       .product-info {
@@ -992,54 +1155,19 @@
         padding: 9px 8px;
         text-align: center;
       }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      footer {
-        padding: 50px 18px 22px;
-      }
-
-      .cta {
-        margin-left: 14px;
-        margin-right: 14px;
-        padding: 50px 18px;
-      }
-
-      .cta h2 {
-        font-size: 32px;
-      }
-
-      .cta p {
-        font-size: 12.5px;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .search-box input {
-        font-size: 22px;
-      }
-
-      .cart-panel {
-        padding: 22px;
-      }
     }
 
     @media(max-width:420px) {
-      .product-grid {
-        gap: 20px 8px;
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .product-card {
+        flex-basis: 84%;
       }
 
       .product-type {
         font-size: 11.5px;
-      }
-
-      .hero h1 {
-        font-size: 34px;
       }
 
       .filter-btn {
@@ -1194,13 +1322,13 @@
         <article class="product-card" data-category="classic" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (1).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns01" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-01" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns01">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns01">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-01">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-01">ADD</button>
             </div>
           </div>
         </article>
@@ -1209,13 +1337,13 @@
         <article class="product-card" data-category="occasion" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (2).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns02" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-02" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns02">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns02">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-02">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-02">ADD</button>
             </div>
           </div>
         </article>
@@ -1224,13 +1352,13 @@
         <article class="product-card" data-category="bridal" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (3).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns03" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-03" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns03">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns03">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-03">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-03">ADD</button>
             </div>
           </div>
         </article>
@@ -1239,13 +1367,13 @@
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (4).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns04" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-04" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns04">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns04">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-04">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-04">ADD</button>
             </div>
           </div>
         </article>
@@ -1254,13 +1382,13 @@
         <article class="product-card" data-category="classic" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (5).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns05" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-05" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns05">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns05">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-05">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-05">ADD</button>
             </div>
           </div>
         </article>
@@ -1269,13 +1397,13 @@
         <article class="product-card" data-category="occasion" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (6).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns06" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-06" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns06">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns06">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-06">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-06">ADD</button>
             </div>
           </div>
         </article>
@@ -1284,13 +1412,13 @@
         <article class="product-card" data-category="bridal" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (7).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns07" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-07" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns07">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns07">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-07">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-07">ADD</button>
             </div>
           </div>
         </article>
@@ -1299,169 +1427,169 @@
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (8).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-08" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-08">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-08">ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (9).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-09" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-09">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-09">ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (10).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-10" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-10">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-10">ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (11).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-11" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-11">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-11">ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (12).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-12" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-12">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-12">ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (13).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-13" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-13">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-13">ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (14).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-14" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-14">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-14">ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (15).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-15" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-15">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-15">ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (16).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-16" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-16">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-16">ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (17).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-17" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-17">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-17">ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (18).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-18" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-18">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-18">ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (19).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-19" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-19">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-19">ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (20).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="gns08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-20" aria-label="Add to wishlist">♡</button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="gns08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="gns08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-20">VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-20">ADD</button>
             </div>
           </div>
         </article>
@@ -1611,14 +1739,26 @@
     ============================ */
 
     const products = [
-      { id: "gns01", type: "NECKLACE SET", category: "classic" },
-      { id: "gns02", type: "NECKLACE SET", category: "occasion" },
-      { id: "gns03", type: "NECKLACE SET", category: "bridal" },
-      { id: "gns04", type: "NECKLACE SET", category: "everyday" },
-      { id: "gns05", type: "NECKLACE SET", category: "classic" },
-      { id: "gns06", type: "NECKLACE SET", category: "occasion" },
-      { id: "gns07", type: "NECKLACE SET", category: "bridal" },
-      { id: "gns08", type: "NECKLACE SET", category: "everyday" }
+      { id: "necklace-01", type: "NECKLACE SET", category: "classic" },
+      { id: "necklace-02", type: "NECKLACE SET", category: "occasion" },
+      { id: "necklace-03", type: "NECKLACE SET", category: "bridal" },
+      { id: "necklace-04", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-05", type: "NECKLACE SET", category: "classic" },
+      { id: "necklace-06", type: "NECKLACE SET", category: "occasion" },
+      { id: "necklace-07", type: "NECKLACE SET", category: "bridal" },
+      { id: "necklace-08", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-09", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-10", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-11", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-12", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-13", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-14", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-15", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-16", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-17", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-18", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-19", type: "NECKLACE SET", category: "everyday" },
+      { id: "necklace-20", type: "NECKLACE SET", category: "everyday" }
     ];
 
     let cart = JSON.parse(localStorage.getItem("theJewelicaCart") || "[]");
@@ -1842,16 +1982,7 @@
 
         const id = button.dataset.id;
 
-        localStorage.setItem(
-          "theJewelicaSelectedProduct",
-          JSON.stringify({
-            id: id,
-            type: "NECKLACE SET",
-            category: "Gold Necklace Sets"
-          })
-        );
-
-        window.location.href = "product.html";
+        window.location.href = "product.html#" + id;
       });
 
     });
@@ -1900,17 +2031,7 @@
     });
 
     function openProduct(id) {
-
-      localStorage.setItem(
-        "theJewelicaSelectedProduct",
-        JSON.stringify({
-          id: id,
-          type: "NECKLACE SET",
-          category: "Gold Necklace Sets"
-        })
-      );
-
-      window.location.href = "product.html";
+      window.location.href = "product.html#" + id;
     }
 
     document.addEventListener("keydown", event => {

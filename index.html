@@ -60,8 +60,6 @@
 
     html {
       scroll-behavior: smooth;
-      /* reserves the scrollbar's width at all times so toggling
-               body overflow (loader lock) never shifts the layout */
       scrollbar-gutter: stable;
     }
 
@@ -76,8 +74,6 @@
       overflow: hidden;
     }
 
-    /* body starts in this state while the preloader is visible,
-           and JS removes it the moment the loader finishes hiding */
     body.loading {
       overflow: hidden;
       height: 100vh;
@@ -114,10 +110,6 @@
       color: var(--ivory);
     }
 
-    /* =========================================================
-           LUXURY SCROLLBAR
-        ========================================================= */
-
     ::-webkit-scrollbar {
       width: 9px;
       height: 9px;
@@ -140,10 +132,6 @@
       outline-offset: 3px;
     }
 
-    /* =========================================================
-       PRELOADER
-       ========================================================= */
-
     .loader {
       position: fixed;
       inset: 0;
@@ -161,8 +149,6 @@
       pointer-events: none;
     }
 
-    /* used when the loader must disappear instantly (already shown
-           earlier this session) — no fade, no flash, no scroll lock */
     .loader.skip {
       display: none !important;
     }
@@ -194,10 +180,6 @@
       }
     }
 
-    /* =========================================================
-           ANNOUNCEMENT
-        ========================================================= */
-
     .announcement {
       min-height: 34px;
       background: var(--ink);
@@ -211,10 +193,6 @@
       letter-spacing: 2.8px;
       text-transform: uppercase;
     }
-
-    /* =========================================================
-           HEADER
-        ========================================================= */
 
     .site-header {
       position: sticky;
@@ -329,10 +307,6 @@
       transform: rotate(180deg);
     }
 
-    /* =========================================================
-           MEGA MENU
-        ========================================================= */
-
     .mega-menu {
       position: absolute;
       top: calc(100% + 1px);
@@ -410,10 +384,6 @@
       padding-left: 5px;
     }
 
-    /* =========================================================
-           NAV ACTIONS
-        ========================================================= */
-
     .nav-action {
       width: 37px;
       height: 37px;
@@ -454,15 +424,6 @@
     .mobile-menu-btn {
       display: none;
     }
-
-    /* =========================================================
-           HERO — Premium redesign
-           Desktop: refined framed triptych with gold hairline
-           border, deeper cinematic vignette, elevated typography.
-           Mobile: horizontal snap-scroll "showcase" carousel with
-           a fixed gold-glass caption overlay and live dot indicator,
-           replacing the old vertically-stacked strip.
-        ========================================================= */
 
     .hero {
       padding: 30px 30px 0;
@@ -746,9 +707,12 @@
       border-color: var(--gold-light);
     }
 
-    /* =========================================================
-           INTRO
-        ========================================================= */
+    /* Mobile-only centred intro block below the hero frame.
+       Hidden by default (desktop/tablet) — only switched on
+       inside the max-width:900px breakpoint below. */
+    .hero-mobile-intro {
+      display: none;
+    }
 
     .intro {
       padding: 135px 8% 130px;
@@ -823,10 +787,6 @@
       transform: scaleX(1);
     }
 
-    /* =========================================================
-           SECTION SYSTEM
-        ========================================================= */
-
     .section {
       padding: 115px 5.5%;
     }
@@ -896,10 +856,6 @@
       color: var(--gold);
     }
 
-    /* =========================================================
-           CATEGORY GRID
-        ========================================================= */
-
     .category-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -961,10 +917,6 @@
       font-weight: 400;
       font-size: 26px;
     }
-
-    /* =========================================================
-           MODERN EDIT
-        ========================================================= */
 
     .modern-edit {
       display: grid;
@@ -1033,10 +985,6 @@
       letter-spacing: 2px;
       text-transform: uppercase;
     }
-
-    /* =========================================================
-           PRODUCT GRID
-        ========================================================= */
 
     .product-grid {
       display: grid;
@@ -1155,27 +1103,22 @@
       color: var(--ivory);
     }
 
-    /* =========================================================
-           SERVICES
-        ========================================================= */
-
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 230px;
+      gap: 14px;
     }
 
     .service-card {
       position: relative;
-      min-height: 310px;
-      padding: 35px 27px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      padding: 32px 28px;
+      border: 1px solid var(--line);
       display: flex;
       flex-direction: column;
-      transition: background .4s ease, transform .4s var(--ease);
+      transition: background .4s ease, transform .4s var(--ease), box-shadow .4s var(--ease);
       overflow: hidden;
+      background: var(--ivory);
     }
 
     .service-card::before {
@@ -1187,6 +1130,7 @@
       height: 2px;
       background: var(--gold);
       transition: width .5s var(--ease);
+      z-index: 3;
     }
 
     .service-card:hover::before {
@@ -1196,6 +1140,73 @@
     .service-card:hover {
       background: #f0e9df;
       transform: translateY(-5px);
+      box-shadow: 0 26px 55px rgba(23, 20, 17, .12);
+    }
+
+    .service-card.featured {
+      grid-column: span 2;
+      grid-row: span 2;
+      justify-content: flex-end;
+      padding: 40px;
+      color: var(--ivory);
+      background: var(--ink);
+      overflow: hidden;
+    }
+
+    .service-card.featured .service-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      transition: transform 1s var(--ease);
+    }
+
+    .service-card.featured:hover .service-bg-img {
+      transform: scale(1.05);
+    }
+
+    .service-card.featured::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to top, rgba(15, 12, 9, .88) 0%, rgba(15, 12, 9, .32) 55%, rgba(15, 12, 9, .12) 100%);
+      pointer-events: none;
+    }
+
+    .service-card.featured:hover::after {
+      background:
+        linear-gradient(to top, rgba(15, 12, 9, .92) 0%, rgba(15, 12, 9, .4) 55%, rgba(15, 12, 9, .16) 100%);
+    }
+
+    .service-card.featured>* {
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-card.featured .service-tag {
+      color: var(--gold-light);
+      font-size: 8px;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .service-card.featured h3 {
+      font-size: 36px;
+      max-width: 320px;
+    }
+
+    .service-card.featured p {
+      color: #d9d0c2;
+      max-width: 300px;
+    }
+
+    .service-card.featured .service-link {
+      color: var(--gold-light);
     }
 
     .service-icon {
@@ -1209,8 +1220,9 @@
       color: var(--gold-dark);
       font-family: var(--serif);
       font-size: 20px;
-      margin-bottom: 35px;
+      margin-bottom: 22px;
       transition: transform .4s var(--ease), background .4s ease, color .4s ease;
+      flex-shrink: 0;
     }
 
     .service-card:hover .service-icon {
@@ -1221,10 +1233,10 @@
 
     .service-card h3 {
       font-family: var(--serif);
-      font-size: 25px;
-      line-height: 1;
+      font-size: 23px;
+      line-height: 1.05;
       font-weight: 400;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .service-card p {
@@ -1235,16 +1247,12 @@
 
     .service-link {
       margin-top: auto;
-      padding-top: 25px;
+      padding-top: 20px;
       color: var(--gold-dark);
       font-size: 7px;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
-
-    /* =========================================================
-           COLLECTIONS
-        ========================================================= */
 
     .collection-grid {
       display: grid;
@@ -1307,10 +1315,6 @@
       font-size: 29px;
       font-weight: 400;
     }
-
-    /* =========================================================
-           STONE EDITORIAL
-        ========================================================= */
 
     .stone-section {
       position: relative;
@@ -1451,10 +1455,6 @@
       color: var(--ink);
     }
 
-    /* =========================================================
-           DIAMOND FEATURE
-        ========================================================= */
-
     .diamond-feature {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1503,10 +1503,6 @@
       font-size: 11px;
       line-height: 1.9;
     }
-
-    /* =========================================================
-           CRAFTSMANSHIP
-        ========================================================= */
 
     .craft {
       background: var(--ink);
@@ -1584,10 +1580,6 @@
       text-transform: uppercase;
     }
 
-    /* =========================================================
-           CARE STUDIO
-        ========================================================= */
-
     .care-studio {
       background: #e4dace;
     }
@@ -1651,9 +1643,261 @@
       text-transform: uppercase;
     }
 
-    /* =========================================================
-           BLOG
-        ========================================================= */
+    .journal-spotlight {
+      background: var(--ivory);
+    }
+
+    .journal-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .journal-copy .section-kicker {
+      color: var(--gold-dark);
+    }
+
+    .journal-copy h2 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 4.6vw, 60px);
+      line-height: .96;
+      font-weight: 400;
+      letter-spacing: -1px;
+      margin: 14px 0 22px;
+    }
+
+    .journal-copy h2 em {
+      color: var(--gold-dark);
+      font-style: italic;
+    }
+
+    .journal-copy p {
+      max-width: 430px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.95;
+      margin-bottom: 16px;
+    }
+
+    .journal-stats {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 34px;
+      margin: 30px 0 34px;
+    }
+
+    .journal-stat strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 30px;
+      color: var(--gold-dark);
+      line-height: 1;
+    }
+
+    .journal-stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 8px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .journal-visual {
+      position: relative;
+    }
+
+    .journal-visual-main {
+      position: relative;
+      aspect-ratio: 1.05;
+      overflow: hidden;
+      background: #ddd2c2;
+    }
+
+    .journal-visual-main img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s var(--ease);
+    }
+
+    .journal-visual:hover .journal-visual-main img {
+      transform: scale(1.04);
+    }
+
+    .journal-visual-tag {
+      position: absolute;
+      left: -18px;
+      bottom: 28px;
+      z-index: 2;
+      background: var(--ink);
+      color: var(--ivory);
+      padding: 18px 26px;
+      max-width: 230px;
+      box-shadow: 0 20px 45px rgba(23, 20, 17, .22);
+    }
+
+    .journal-visual-tag span {
+      display: block;
+      color: var(--gold-light);
+      font-size: 7px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .journal-visual-tag p {
+      font-family: var(--serif);
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    .bars-section {
+      background: #eee7dc;
+    }
+
+    .bars-split {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .bars-divider {
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold) 15%, var(--gold) 85%, transparent);
+      margin: 0 34px;
+      position: relative;
+    }
+
+    .bars-divider::before {
+      content: "◆";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #eee7dc;
+      color: var(--gold-dark);
+      font-size: 11px;
+      padding: 10px 0;
+    }
+
+    .bars-side {
+      padding: 6px;
+    }
+
+    .bars-side-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--ink);
+    }
+
+    .bars-side-label::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--gold);
+      display: inline-block;
+    }
+
+    .bars-silver .bars-side-label {
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .bars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .bar-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bar-image {
+      aspect-ratio: .82;
+      overflow: hidden;
+      background: #ded3c2;
+      border: 1px solid rgba(23, 20, 17, .1);
+    }
+
+    .bars-silver .bar-image {
+      background: #dbdcdd;
+    }
+
+    .bar-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s var(--ease);
+    }
+
+    .bar-item:hover .bar-image img {
+      transform: scale(1.05);
+    }
+
+    .bar-desc {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 8.5px;
+      line-height: 1.8;
+    }
+
+    .bars-cta {
+      margin-top: 55px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .bars-cta p {
+      max-width: 420px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .bars-call-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(120deg, var(--gold-dark), var(--gold) 50%, var(--gold-light));
+      background-size: 200% auto;
+      background-position: 0% center;
+      color: var(--white);
+      padding: 0 28px;
+      min-height: 50px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      transition: all .35s var(--ease);
+    }
+
+    .bars-call-btn:hover {
+      background-position: 100% center;
+      color: var(--espresso);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(181, 150, 91, .35);
+    }
+
+    .bars-call-btn .call-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+    }
 
     .blog-grid {
       display: grid;
@@ -1735,10 +1979,6 @@
       letter-spacing: 1.8px;
       text-transform: uppercase;
     }
-
-    /* =========================================================
-           FAQ
-        ========================================================= */
 
     .faq-section {
       background: var(--ink);
@@ -1825,10 +2065,6 @@
       line-height: 1.9;
     }
 
-    /* =========================================================
-           VISIT US
-        ========================================================= */
-
     .visit {
       background: var(--ivory);
     }
@@ -1899,10 +2135,6 @@
       border: 0;
       filter: grayscale(.85) sepia(.12) contrast(.9);
     }
-
-    /* =========================================================
-           FOOTER
-        ========================================================= */
 
     .footer {
       background: var(--ink);
@@ -1992,10 +2224,6 @@
       text-transform: uppercase;
     }
 
-    /* =========================================================
-           SEARCH OVERLAY
-        ========================================================= */
-
     .search-overlay {
       position: fixed;
       inset: 0;
@@ -2076,10 +2304,6 @@
       text-transform: uppercase;
     }
 
-    /* =========================================================
-           MOBILE MENU
-        ========================================================= */
-
     .mobile-panel {
       position: fixed;
       inset: 0;
@@ -2143,10 +2367,6 @@
       letter-spacing: 1px;
       text-transform: uppercase;
     }
-
-    /* =========================================================
-           CART DRAWER
-        ========================================================= */
 
     .drawer-overlay {
       position: fixed;
@@ -2346,10 +2566,6 @@
       border-color: var(--gold-dark);
     }
 
-    /* =========================================================
-           BACK TO TOP
-        ========================================================= */
-
     .back-top {
       position: fixed;
       right: 22px;
@@ -2372,10 +2588,6 @@
       transform: translateY(0);
     }
 
-    /* =========================================================
-           REVEAL ANIMATION
-        ========================================================= */
-
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -2386,10 +2598,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* =========================================================
-           RESPONSIVE — TABLET
-        ========================================================= */
 
     @media (max-width: 1200px) {
 
@@ -2421,7 +2629,22 @@
       }
 
       .service-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 210px;
+      }
+
+      .service-card.featured {
+        grid-column: span 2;
+        grid-row: span 1;
+        min-height: 260px;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 30px;
+      }
+
+      .service-card.featured h3 {
+        max-width: none;
       }
 
       .product-grid {
@@ -2431,14 +2654,15 @@
       .footer-main {
         grid-template-columns: repeat(2, 1fr);
       }
-    }
 
-    /* =========================================================
-           RESPONSIVE — MOBILE
-           Hero becomes a premium horizontal snap-scroll showcase:
-           one full-width slide at a time, live gold dot indicator,
-           fixed glass-caption overlay above the carousel.
-        ========================================================= */
+      .journal-layout {
+        gap: 45px;
+      }
+
+      .bars-divider {
+        margin: 0 22px;
+      }
+    }
 
     @media (max-width: 900px) {
 
@@ -2504,23 +2728,51 @@
         inset: 3px;
       }
 
-      /* All 3 pictures stay visible together, side by side, at a
-         short, wide aspect — this replaces the old tall stacked
-         strip without switching to a one-at-a-time carousel. */
       .hero-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1.3fr 1fr;
+        grid-template-areas:
+          "lead lead"
+          "second third";
         gap: 3px;
-        height: 60vh;
-        min-height: 400px;
-        max-height: 540px;
+        height: 78vh;
+        min-height: 480px;
+        max-height: 620px;
         overflow: hidden;
+      }
+
+      .hero-card:nth-of-type(1) {
+        grid-area: lead;
+      }
+
+      .hero-card:nth-of-type(2) {
+        grid-area: second;
+      }
+
+      .hero-card:nth-of-type(3) {
+        grid-area: third;
       }
 
       .hero-content {
         left: 9px;
         right: 9px;
         bottom: 12px;
+      }
+
+      .hero-card:nth-of-type(1) .hero-number {
+        font-size: 7px;
+      }
+
+      .hero-card:nth-of-type(1) .hero-card-title {
+        font-size: 21px;
+      }
+
+      .hero-card:nth-of-type(2) .hero-content,
+      .hero-card:nth-of-type(3) .hero-content {
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
       }
 
       .hero-number {
@@ -2535,8 +2787,8 @@
       }
 
       .hero-card-title {
-        font-size: 15px;
-        margin-bottom: 8px;
+        font-size: 14px;
+        margin-bottom: 6px;
       }
 
       .hero-card-link {
@@ -2547,32 +2799,74 @@
       }
 
       .hero-center-message {
-        top: 50%;
-        bottom: auto;
-        transform: translate(-50%, -50%);
-        width: 90%;
+        display: none;
       }
 
-      .hero-center-message h1 {
-        font-size: 38px;
+      .hero-mobile-intro {
+        display: block;
+        text-align: center;
+        padding: 26px 6% 6px;
       }
 
-      .hero-center-message p {
+      .hero-mobile-intro .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--gold-dark);
+        font-size: 8px;
+        letter-spacing: .3em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      .hero-mobile-intro .eyebrow::before,
+      .hero-mobile-intro .eyebrow::after {
+        content: "";
+        width: 18px;
+        height: 1px;
+        background: var(--gold);
+      }
+
+      .hero-mobile-intro h1 {
+        font-family: var(--serif);
+        font-size: 34px;
+        line-height: .95;
+        letter-spacing: -.5px;
+        color: var(--ink);
+      }
+
+      .hero-mobile-intro p {
+        font-family: var(--serif);
+        font-style: italic;
         font-size: 13px;
-        margin-top: 13px;
+        color: var(--muted);
+        margin-top: 12px;
       }
 
-      .hero-buttons {
+      .hero-mobile-intro .hero-buttons {
+        margin-top: 22px;
         flex-direction: column;
-        width: 200px;
+        width: 100%;
+        max-width: 260px;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 46px;
       }
 
-      .hero-buttons .btn {
+      .hero-mobile-intro .btn {
         width: 100%;
-        min-height: 42px;
+        min-height: 46px;
+      }
+
+      .hero-mobile-intro .btn-outline-light {
+        color: var(--ink);
+        border-color: rgba(23, 20, 17, .25);
+        background: transparent;
+      }
+
+      .hero-mobile-intro .btn-outline-light:hover {
+        background: var(--ink);
+        color: var(--ivory);
+        border-color: var(--ink);
       }
 
       .hero-dots {
@@ -2580,37 +2874,63 @@
       }
 
       .section {
-        padding: 80px 5%;
+        padding: 70px 6%;
       }
 
       .section-head {
         flex-direction: column;
         align-items: flex-start;
+        margin-bottom: 34px;
       }
 
       .category-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
       }
 
       .category-card {
-        min-height: 280px;
+        min-height: 190px;
+      }
+
+      .category-card:nth-child(1) {
+        grid-column: span 2;
+        min-height: 260px;
+      }
+
+      .category-card:nth-child(5),
+      .category-card:nth-child(6) {
+        grid-column: span 1;
+      }
+
+      .category-label {
+        left: 15px;
+        bottom: 15px;
+      }
+
+      .category-label h3 {
+        font-size: 19px;
       }
 
       .modern-edit {
         grid-template-columns: 1fr;
-      }
-
-      .modern-copy {
-        padding: 75px 8%;
-        min-height: 450px;
+        grid-template-rows: auto auto;
       }
 
       .modern-image {
-        min-height: 520px;
+        order: 1;
+        min-height: 340px;
+      }
+
+      .modern-copy {
+        order: 2;
+        padding: 42px 7% 55px;
+        min-height: 0;
+        text-align: left;
       }
 
       .product-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 26px 10px;
       }
 
       .product-actions {
@@ -2620,11 +2940,31 @@
 
       .service-grid {
         grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+        gap: 8px;
+      }
+
+      .service-card {
+        grid-column: span 1;
+        min-height: 190px;
+        padding: 22px 18px;
+      }
+
+      .service-card.featured {
+        grid-column: span 2;
+        grid-row: auto;
+        min-height: 280px;
+        padding: 28px 22px;
+      }
+
+      .service-card.featured h3 {
+        font-size: 28px;
       }
 
       .collection-grid {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 300px 240px 240px;
+        grid-template-rows: 240px 190px 190px;
+        gap: 8px;
       }
 
       .collection-card:first-child {
@@ -2632,15 +2972,19 @@
         grid-row: auto;
       }
 
-      /* mobile-only: bring collection captions flush to the card's edge */
       .collection-content {
         left: 14px;
         right: 14px;
       }
 
+      .stone-section {
+        padding: 60px 4%;
+      }
+
       .stone-grid {
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 100px 250px 100px;
+        grid-template-rows: 90px 230px 90px;
+        gap: 6px;
       }
 
       .stone-one {
@@ -2679,22 +3023,31 @@
 
       .diamond-feature {
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
       }
 
       .diamond-image {
-        min-height: 550px;
+        order: 1;
+        min-height: 380px;
       }
 
       .diamond-copy {
-        min-height: 500px;
+        order: 2;
+        padding: 46px 7% 55px;
+        min-height: 0;
       }
 
       .craft-layout {
         grid-template-columns: 1fr;
+        gap: 0;
       }
 
       .craft-image {
-        min-height: 500px;
+        min-height: 360px;
+      }
+
+      .craft-copy {
+        padding: 40px 0 10px;
       }
 
       .care-layout {
@@ -2702,16 +3055,82 @@
       }
 
       .care-image {
-        min-height: 480px;
+        min-height: 320px;
+      }
+
+      .care-copy {
+        padding: 40px 0 10px;
+      }
+
+      .journal-layout {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .journal-visual {
+        order: 1;
+      }
+
+      .journal-copy {
+        order: 2;
+      }
+
+      .journal-visual-main {
+        aspect-ratio: 1.3;
+      }
+
+      .journal-visual-tag {
+        left: 12px;
+        bottom: 16px;
+        padding: 14px 18px;
+        max-width: 190px;
+      }
+
+      .journal-stats {
+        gap: 18px;
+        margin: 22px 0 26px;
+      }
+
+      .journal-stat strong {
+        font-size: 24px;
+      }
+
+      .bars-split {
+        grid-template-columns: 1fr;
+      }
+
+      .bars-divider {
+        width: auto;
+        height: 1px;
+        margin: 30px 0;
+        background: linear-gradient(to right, transparent, var(--gold) 15%, var(--gold) 85%, transparent);
+      }
+
+      .bars-divider::before {
+        background: #eee7dc;
+      }
+
+      .bars-side-label,
+      .bars-silver .bars-side-label {
+        justify-content: flex-start;
+        flex-direction: row;
+      }
+
+      .bars-cta {
+        margin-top: 38px;
       }
 
       .blog-grid {
         grid-template-columns: 1fr 1fr;
       }
 
+      .blog-grid .blog-card:first-child {
+        grid-column: span 2;
+      }
+
       .faq-layout {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 40px;
       }
 
       .visit-layout {
@@ -2720,7 +3139,7 @@
 
       .map-wrap,
       .map-wrap iframe {
-        min-height: 400px;
+        min-height: 340px;
       }
 
       .footer-main {
@@ -2766,46 +3185,42 @@
       }
 
       .hero-grid {
-        height: 52vh;
-        min-height: 350px;
+        height: 66vh;
+        min-height: 400px;
       }
 
-      .hero-content {
-        left: 7px;
-        right: 7px;
-        bottom: 9px;
-      }
-
-      .hero-number,
-      .hero-card-link {
+      .hero-card:nth-of-type(2) .hero-number,
+      .hero-card:nth-of-type(3) .hero-number,
+      .hero-card:nth-of-type(2) .hero-card-link,
+      .hero-card:nth-of-type(3) .hero-card-link {
         display: none;
       }
 
-      .hero-card-title {
-        font-size: 12.5px;
+      .hero-card:nth-of-type(1) .hero-card-title {
+        font-size: 18px;
+      }
+
+      .hero-card:nth-of-type(2) .hero-card-title,
+      .hero-card:nth-of-type(3) .hero-card-title {
+        font-size: 12px;
         margin-bottom: 0;
       }
 
-      .hero-center-message h1 {
-        font-size: 32px;
+      .hero-mobile-intro h1 {
+        font-size: 28px;
       }
 
-      .hero-center-message p {
+      .hero-mobile-intro p {
         font-size: 11px;
-        margin-top: 10px;
-      }
-
-      .hero-buttons {
-        margin-top: 34px;
-        width: 180px;
       }
 
       .intro {
-        padding: 90px 7% 85px;
+        padding: 60px 7% 65px;
       }
 
       .intro-title {
-        font-size: 48px;
+        margin-top: 34px;
+        font-size: 40px;
       }
 
       .intro-copy {
@@ -2813,43 +3228,39 @@
       }
 
       .section {
-        padding: 70px 5%;
+        padding: 55px 6%;
       }
 
       .section-title {
-        font-size: 42px;
+        font-size: 36px;
       }
 
       .category-grid {
-        grid-template-columns: 1fr 1fr;
         gap: 6px;
       }
 
       .category-card {
-        min-height: 230px;
+        min-height: 160px;
       }
 
-      .category-label {
-        left: 15px;
-        bottom: 15px;
+      .category-card:nth-child(1) {
+        min-height: 220px;
       }
 
       .category-label h3 {
-        font-size: 20px;
-      }
-
-      .modern-copy {
-        padding: 65px 7%;
-        min-height: 400px;
+        font-size: 17px;
       }
 
       .modern-image {
-        min-height: 430px;
+        min-height: 280px;
+      }
+
+      .modern-copy {
+        padding: 36px 7% 45px;
       }
 
       .product-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 28px 9px;
+        gap: 24px 8px;
       }
 
       .product-type {
@@ -2861,37 +3272,34 @@
         padding: 7px 8px;
       }
 
-      .service-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .service-card {
-        min-height: 280px;
-        padding: 25px 17px;
+        min-height: 170px;
+        padding: 18px 15px;
       }
 
       .service-card h3 {
-        font-size: 21px;
+        font-size: 19px;
+      }
+
+      .service-card.featured {
+        min-height: 250px;
+      }
+
+      .service-card.featured h3 {
+        font-size: 24px;
       }
 
       .collection-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 270px 210px 210px;
-      }
-
-      .stone-section {
-        padding: 75px 4%;
+        grid-template-rows: 210px 160px 160px;
       }
 
       .stone-grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 75px 280px 75px;
-        gap: 6px;
+        grid-template-rows: 70px 220px 70px;
+        gap: 5px;
       }
 
       .stone-center h2 {
-        font-size: 40px;
+        font-size: 34px;
       }
 
       .stone-center p {
@@ -2899,20 +3307,15 @@
       }
 
       .diamond-image {
-        min-height: 410px;
+        min-height: 300px;
       }
 
       .diamond-copy {
-        padding: 65px 8%;
-        min-height: 430px;
+        padding: 40px 7% 45px;
       }
 
       .craft-image {
-        min-height: 400px;
-      }
-
-      .craft-copy {
-        padding: 0 2px;
+        min-height: 300px;
       }
 
       .craft-points {
@@ -2920,19 +3323,44 @@
       }
 
       .care-image {
-        min-height: 390px;
+        min-height: 280px;
       }
 
       .care-copy {
-        padding: 60px 7%;
+        padding: 36px 0 8px;
       }
 
       .care-list {
         grid-template-columns: 1fr;
       }
 
+      .journal-visual-main {
+        aspect-ratio: 1.15;
+      }
+
+      .journal-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .journal-stat strong {
+        font-size: 20px;
+      }
+
+      .bars-grid {
+        gap: 12px;
+      }
+
+      .bars-cta p {
+        font-size: 9px;
+      }
+
       .blog-grid {
         grid-template-columns: 1fr;
+      }
+
+      .blog-grid .blog-card:first-child {
+        grid-column: span 1;
       }
 
       .faq-question {
@@ -2963,15 +3391,6 @@
 
 <body class="loading">
 
-  <!-- =======================================================
-       PRELOADER
-       Only ever plays once per browser session (sessionStorage
-       flag "jewelicaLoaderShown"). Navigating between pages or
-       coming back to a page you already visited will NOT show
-       the loader again — this inline script runs synchronously,
-       before the loader is even painted, so there is no flash.
-       ======================================================= -->
-
   <div class="loader" id="loader">
     <div class="loader-inner">
       <div class="loader-brand">THE JEWELICA</div>
@@ -2983,31 +3402,18 @@
     (function () {
       try {
         if (sessionStorage.getItem("jewelicaLoaderShown")) {
-          // Already shown earlier in this browser session (i.e. this
-          // is a page-to-page navigation, or the user came back to
-          // this page) — skip the loader instantly, no fade, no lock.
           var loaderEl = document.getElementById("loader");
           if (loaderEl) loaderEl.classList.add("skip");
           document.body.classList.remove("loading");
         }
       } catch (error) {
-        // sessionStorage unavailable (privacy mode etc.) — fail safe
-        // by just letting the normal first-load loader logic run.
       }
     })();
   </script>
 
-  <!-- =====================================================
-         ANNOUNCEMENT
-    ====================================================== -->
-
   <div class="announcement">
     THE JEWELICA — FINE JEWELLERY, BEAUTY MADE TIMELESS
   </div>
-
-  <!-- =====================================================
-         HEADER / NAVIGATION
-    ====================================================== -->
 
   <header class="site-header">
 
@@ -3204,10 +3610,6 @@
   </header>
 
 
-  <!-- =====================================================
-         MOBILE NAVIGATION
-    ====================================================== -->
-
   <aside class="mobile-panel" id="mobilePanel">
 
     <button class="mobile-close" type="button" aria-label="Close navigation" onclick="closeMobileMenu()">
@@ -3308,10 +3710,6 @@
   </aside>
 
 
-  <!-- =====================================================
-         HERO
-    ====================================================== -->
-
   <main>
 
     <section class="hero">
@@ -3373,12 +3771,19 @@
 
         </div>
       </div>
+
+      <div class="hero-mobile-intro">
+        <div class="eyebrow">The Jewelica</div>
+        <h1>Jewellery,<br>Redefined</h1>
+        <p>Crafted for moments that deserve to last forever.</p>
+
+        <div class="hero-buttons">
+          <a href="collections.html" class="btn btn-gold">Explore Collection</a>
+          <a href="about.html" class="btn btn-outline-light">Discover The Jewelica</a>
+        </div>
+      </div>
     </section>
 
-
-    <!-- =================================================
-             BRAND INTRODUCTION
-        ================================================== -->
 
     <section class="intro reveal">
 
@@ -3407,10 +3812,6 @@
 
     </section>
 
-
-    <!-- =================================================
-             SHOP BY CATEGORY
-        ================================================== -->
 
     <section class="section section-soft reveal">
 
@@ -3564,10 +3965,6 @@
     </section>
 
 
-    <!-- =================================================
-             MODERN EDIT
-        ================================================== -->
-
     <section class="modern-edit reveal">
 
       <div class="modern-copy">
@@ -3607,9 +4004,114 @@
     </section>
 
 
-    <!-- =================================================
-             FEATURED JEWELLERY
-        ================================================== -->
+    <section class="section bars-section reveal">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            Investment Grade
+          </div>
+
+          <h2 class="section-title">
+            Gold & Silver Bars
+          </h2>
+
+        </div>
+
+        <p class="section-description">
+          Certified gold and silver bars, weighed and sealed
+          for buyers who value purity as much as design.
+        </p>
+
+      </div>
+
+      <div class="bars-split">
+
+        <div class="bars-side bars-gold">
+
+          <div class="bars-side-label">
+            Gold Bars
+          </div>
+
+          <div class="bars-grid">
+
+            <div class="bar-item">
+              <div class="bar-image">
+                <img src="images/gold bar.png" alt="The Jewelica Gold Bar" loading="lazy">
+              </div>
+              <p class="bar-desc">
+                999.9 fine gold, cast and stamped with
+                weight and purity for easy verification.
+              </p>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-image">
+                <img src="images/gold bar (2).png" alt="The Jewelica Gold Bar" loading="lazy">
+              </div>
+              <p class="bar-desc">
+                A compact bar sized for everyday saving,
+                sealed to protect its finish over time.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="bars-divider"></div>
+
+        <div class="bars-side bars-silver">
+
+          <div class="bars-side-label">
+            Silver Bars
+          </div>
+
+          <div class="bars-grid">
+
+            <div class="bar-item">
+              <div class="bar-image">
+                <img src="images/silver bar.png" alt="The Jewelica Silver Bar" loading="lazy">
+              </div>
+              <p class="bar-desc">
+                999 fine silver with a clean mirrored
+                finish, ideal for gifting or saving.
+              </p>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-image">
+                <img src="images/silver bar (2).png" alt="The Jewelica Silver Bar" loading="lazy">
+              </div>
+              <p class="bar-desc">
+                A heavier silver bar for buyers building
+                a longer-term collection.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="bars-cta">
+        <p>
+          Have a question about weight, purity or availability?
+          Message us directly and we'll get back to you the same day.
+        </p>
+
+        <a href="https://wa.me/923000000000?text=Hi%2C%20I%27m%20interested%20in%20your%20gold%20%26%20silver%20bars."
+          class="bars-call-btn" target="_blank" rel="noopener">
+          <span class="call-icon">☎</span>
+          Call / WhatsApp Us
+        </a>
+      </div>
+
+    </section>
+
 
     <section class="section reveal">
 
@@ -3770,10 +4272,6 @@
 
     </section>
 
-
-    <!-- =================================================
-             NEW ARRIVALS
-        ================================================== -->
 
     <section class="section section-soft reveal">
 
@@ -3937,10 +4435,6 @@
     </section>
 
 
-    <!-- =================================================
-             OUR SERVICES
-        ================================================== -->
-
     <section class="section reveal">
 
       <div class="section-head">
@@ -3967,10 +4461,14 @@
 
       <div class="service-grid">
 
-        <article class="service-card">
+        <article class="service-card featured">
 
-          <div class="service-icon">
-            ◇
+          <img src="images/Bespoke Jewellery.png" alt="The Jewelica Bespoke Jewellery" loading="lazy"
+            class="service-bg-img"
+            onerror="this.style.display='none';">
+
+          <div class="service-tag">
+            Our Flagship Service
           </div>
 
           <h3>
@@ -3980,11 +4478,11 @@
           <p>
             Bring an idea, inspiration or personal story
             to life through a considered custom jewellery
-            experience.
+            experience, guided from first sketch to final polish.
           </p>
 
           <a href="services.html" class="service-link">
-            Learn More →
+            Start A Bespoke Piece →
           </a>
 
         </article>
@@ -4083,10 +4581,6 @@
 
     </section>
 
-
-    <!-- =================================================
-             CURATED COLLECTIONS
-        ================================================== -->
 
     <section class="section section-soft reveal">
 
@@ -4212,10 +4706,6 @@
     </section>
 
 
-    <!-- =================================================
-             CHOOSE YOUR STONE
-        ================================================== -->
-
     <section class="stone-section reveal">
 
       <div class="stone-grid">
@@ -4289,10 +4779,6 @@
     </section>
 
 
-    <!-- =================================================
-             DIAMOND FEATURE
-        ================================================== -->
-
     <section class="diamond-feature reveal">
 
       <div class="diamond-image">
@@ -4327,10 +4813,6 @@
 
     </section>
 
-
-    <!-- =================================================
-             CRAFTSMANSHIP
-        ================================================== -->
 
     <section class="section craft reveal">
 
@@ -4394,10 +4876,6 @@
     </section>
 
 
-    <!-- =================================================
-             JEWELLERY CARE STUDIO
-        ================================================== -->
-
     <section class="section care-studio reveal">
 
       <div class="care-layout">
@@ -4445,9 +4923,78 @@
     </section>
 
 
-    <!-- =================================================
-             RECENT BLOGS
-        ================================================== -->
+    <section class="section journal-spotlight reveal">
+
+      <div class="journal-layout">
+
+        <div class="journal-copy">
+
+          <div class="section-kicker">
+            The Jewelica Journal
+          </div>
+
+          <h2>
+            Stories worth<br>
+            <em>reading twice.</em>
+          </h2>
+
+          <p>
+            Beyond the pieces themselves, The Jewelica Journal is
+            where we slow down and talk about the craft behind
+            them — how gold is chosen, how a diamond is cut, and
+            how a piece is meant to be worn and cared for long
+            after the day you bring it home.
+          </p>
+
+          <p>
+            Every guide is written by people who work with this
+            jewellery every day, so the advice is practical rather
+            than promotional — the kind of thing we'd tell a friend
+            standing at our counter.
+          </p>
+
+          <div class="journal-stats">
+
+            <div class="journal-stat">
+              <strong>30+</strong>
+              <span>Guides Published</span>
+            </div>
+
+            <div class="journal-stat">
+              <strong>6</strong>
+              <span>Journal Categories</span>
+            </div>
+
+            <div class="journal-stat">
+              <strong>Weekly</strong>
+              <span>New Stories</span>
+            </div>
+
+          </div>
+
+          <a href="blogs.html" class="text-link">
+            Read The Journal →
+          </a>
+
+        </div>
+
+        <div class="journal-visual">
+
+          <div class="journal-visual-main">
+            <img src="images/care 1.png" alt="The Jewelica Journal" loading="lazy">
+          </div>
+
+          <div class="journal-visual-tag">
+            <span>Latest Guide</span>
+            <p>How to Care for Gold Jewellery</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
 
     <section class="section section-soft reveal">
 
@@ -4576,10 +5123,6 @@
 
     </section>
 
-
-    <!-- =================================================
-             FAQ
-        ================================================== -->
 
     <section class="section faq-section reveal">
 
@@ -4730,10 +5273,6 @@
     </section>
 
 
-    <!-- =================================================
-             VISIT US
-        ================================================== -->
-
     <section class="section visit reveal">
 
       <div class="visit-layout">
@@ -4819,12 +5358,6 @@
 
         <div class="map-wrap">
 
-          <!--
-                        Placeholder Google Maps embed.
-                        Replace this URL with The Jewelica Lahore
-                        location when the final location is available.
-                    -->
-
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
@@ -4838,10 +5371,6 @@
 
   </main>
 
-
-  <!-- =====================================================
-         SEARCH OVERLAY
-    ====================================================== -->
 
   <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search The Jewelica">
 
@@ -4870,10 +5399,6 @@
 
   </div>
 
-
-  <!-- =====================================================
-         CART DRAWER
-    ====================================================== -->
 
   <div class="drawer-overlay" id="drawerOverlay" onclick="closeCart()">
   </div>
@@ -4914,10 +5439,6 @@
 
   </aside>
 
-
-  <!-- =====================================================
-         FOOTER
-    ====================================================== -->
 
   <footer class="footer">
 
@@ -5051,10 +5572,6 @@
   </footer>
 
 
-  <!-- =====================================================
-         BACK TO TOP
-    ====================================================== -->
-
   <button class="back-top" id="backTop" type="button" aria-label="Back to top"
     onclick="window.scrollTo({top:0,behavior:'smooth'})">
     ↑
@@ -5062,11 +5579,6 @@
 
 
   <script>
-    /* =========================================================
-       THE JEWELICA — INDEX JAVASCRIPT
-       Vanilla JavaScript only
-    ========================================================= */
-
     const loader =
       document.getElementById("loader");
 
@@ -5095,27 +5607,11 @@
       document.getElementById("cartCount");
 
 
-    /* =========================================================
-       PRELOADER — plays once per browser session.
-       - If the "skip" class is already on the loader (set by the
-         tiny inline script right after the loader element), it
-         means this session already saw the loader on an earlier
-         page, so we do nothing further here.
-       - Otherwise this is the first page opened this session:
-         run the normal fade-out once the page has fully loaded,
-         then remember that in sessionStorage so it never plays
-         again until the browser tab/session is closed.
-       A hard fallback timeout guarantees the loader can never
-       get stuck open for more than 2.5s even if some asset
-       (e.g. the map iframes) never finishes loading.
-    ========================================================= */
-
     function markLoaderShown() {
 
       try {
         sessionStorage.setItem("jewelicaLoaderShown", "1");
       } catch (error) {
-        // sessionStorage unavailable — safe to ignore
       }
 
     }
@@ -5146,17 +5642,11 @@
 
       }
 
-      // Hard fallback: never let the loader block the homepage
-      // for more than 2.5s even if some asset never finishes.
       setTimeout(hideLoader, 2500);
 
     }
 
 
-    // Safety net for browser back/forward-cache (bfcache) restores:
-    // if a cached page is restored and the loader element is still
-    // mid-animation for any reason, make sure it's not blocking the
-    // page and that the session flag is set.
     window.addEventListener("pageshow", function (event) {
 
       if (event.persisted) {
@@ -5167,12 +5657,6 @@
 
     });
 
-
-    /* =========================================================
-       HERO MOBILE CAROUSEL
-       Horizontal snap-scroll on mobile. Dots reflect the
-       currently centred slide and can also be tapped to jump.
-    ========================================================= */
 
     const heroGrid = document.getElementById("heroGrid");
     const heroDots = document.getElementById("heroDots");
@@ -5245,10 +5729,6 @@
     }
 
 
-    /* =========================================================
-       CART STATE
-    ========================================================= */
-
     let jewelicaCart = [];
 
     try {
@@ -5261,10 +5741,6 @@
     }
 
 
-    /* =========================================================
-       WISHLIST STATE
-    ========================================================= */
-
     let jewelicaWishlist = [];
 
     try {
@@ -5276,10 +5752,6 @@
       jewelicaWishlist = [];
     }
 
-
-    /* =========================================================
-       MOBILE MENU
-    ========================================================= */
 
     function openMobileMenu() {
 
@@ -5323,10 +5795,6 @@
 
       });
 
-
-    /* =========================================================
-       SEARCH
-    ========================================================= */
 
     const searchableItems = [
 
@@ -5595,10 +6063,6 @@
     );
 
 
-    /* =========================================================
-       CART
-    ========================================================= */
-
     function saveCart() {
 
       localStorage.setItem(
@@ -5821,10 +6285,6 @@
     }
 
 
-    /* =========================================================
-       WISHLIST
-    ========================================================= */
-
     function saveWishlist() {
 
       localStorage.setItem(
@@ -5918,10 +6378,6 @@
     }
 
 
-    /* =========================================================
-       QUICK VIEW
-    ========================================================= */
-
     function quickView(type) {
 
       alert(
@@ -5933,10 +6389,6 @@
 
     }
 
-
-    /* =========================================================
-       FAQ ACCORDION
-    ========================================================= */
 
     function toggleFAQ(button) {
 
@@ -6008,10 +6460,6 @@
     }
 
 
-    /* =========================================================
-       SCROLL REVEAL
-    ========================================================= */
-
     const revealObserver =
       new IntersectionObserver(
         entries => {
@@ -6048,10 +6496,6 @@
       });
 
 
-    /* =========================================================
-       BACK TO TOP
-    ========================================================= */
-
     const backTop =
       document.getElementById("backTop");
 
@@ -6077,10 +6521,6 @@
     );
 
 
-    /* =========================================================
-       HELPERS
-    ========================================================= */
-
     function escapeHTML(value) {
 
       return String(value)
@@ -6103,10 +6543,6 @@
 
     }
 
-
-    /* =========================================================
-       INITIALIZE
-    ========================================================= */
 
     updateCartCount();
 

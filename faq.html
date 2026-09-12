@@ -752,6 +752,10 @@
       visibility: visible;
     }
 
+    /* =========================================================
+       BREAKPOINT GROUP 1 — TABLET (≤1180px)
+       Minor spacing adjustments only; layout structure unchanged.
+    ========================================================= */
     @media (max-width: 1180px) {
       .nav {
         padding: 0 25px;
@@ -766,7 +770,22 @@
       }
     }
 
+    /* =========================================================
+       BREAKPOINT GROUP 2 — SMALL TABLET / LARGE PHONE (≤900px)
+       Navigation converts to the mobile drawer here. Everything
+       below this point belongs to the MOBILE LAYOUT SYSTEM: from
+       900px down, sections restructure (not just shrink) using
+       the same elements, text and images as the desktop layout.
+    ========================================================= */
     @media (max-width: 900px) {
+
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      /* ---- Nav / mobile drawer ---- */
       .nav {
         height: 72px;
       }
@@ -827,29 +846,141 @@
         border-bottom: 1px solid var(--line);
       }
 
+      /* ---- Hero ---- */
       .hero {
-        min-height: 440px;
+        min-height: 420px;
       }
 
+      /* ---- FAQ toolbar: desktop is a single row              ----
+         ---- (categories left, search right). Mobile flips the  ----
+         ---- structure: search sits on top as a full-width field,----
+         ---- categories become a single-row horizontally        ----
+         ---- scrollable chip strip underneath — a different     ----
+         ---- interaction pattern, not a squeezed copy.           ---- */
       .faq-toolbar {
+        display: flex;
         flex-direction: column;
         align-items: stretch;
+        gap: 16px;
       }
 
       .faq-search {
+        order: 1;
         width: 100%;
       }
 
+      .faq-categories {
+        order: 2;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+        margin: 0 -25px;
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+
+      .faq-categories::-webkit-scrollbar {
+        display: none;
+      }
+
+      .category-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+
+      /* ---- FAQ items: desktop is a plain bordered list.       ----
+         ---- Mobile turns each question into a standalone card   ----
+         ---- with its own border/radius so the list reads as a   ----
+         ---- stack of tappable cards instead of table-like rows. ---- */
+      .faq-list {
+        border-top: 0;
+      }
+
+      .faq-item {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        margin-bottom: 10px;
+        padding: 0 16px;
+        background: var(--white);
+      }
+
+      .faq-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .faq-answer-inner {
+        padding: 0 0 0 0;
+      }
+
+      /* ---- Visit section: desktop shows image beside content.----
+         ---- Mobile stacks them but puts the written content     ----
+         ---- first and the image last, via order — a genuinely   ----
+         ---- different reading flow, same image asset.           ---- */
       .visit {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
+      }
+
+      .visit-content {
+        order: 1;
+      }
+
+      .visit-image {
+        order: 2;
+        height: 300px;
+      }
+
+      /* ---- Footer: desktop is 4 equal columns in a row.        ----
+         ---- Mobile regroups into named areas — brand banner full----
+         ---- width on top, the two link lists side by side in the----
+         ---- middle, map/visit block full width at the bottom.   ---- */
+      .footer-main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "brand brand"
+          "links care"
+          "map   map";
+        gap: 30px 20px;
+        padding: 0 25px 45px;
+      }
+
+      .footer-col:nth-child(1) {
+        grid-area: brand;
+      }
+
+      .footer-col:nth-child(2) {
+        grid-area: links;
+      }
+
+      .footer-col:nth-child(3) {
+        grid-area: care;
+      }
+
+      .footer-col:nth-child(4) {
+        grid-area: map;
+      }
+
+      .footer-col p {
+        max-width: 100%;
       }
     }
 
+    /* =========================================================
+       BREAKPOINT GROUP 3 — PHONE (≤620px)
+       Fine-tunes type scale, spacing and card density for
+       narrow phone widths, on top of the mobile layout system
+       defined at 900px above. Nothing here reintroduces the
+       desktop structure — it only refines the same mobile layout.
+    ========================================================= */
     @media (max-width: 620px) {
       .announcement {
         font-size: 8px;
         letter-spacing: 1.5px;
+        padding: 9px 14px;
       }
 
       .nav {
@@ -866,7 +997,7 @@
       }
 
       .hero {
-        min-height: 400px;
+        min-height: 360px;
       }
 
       .hero::after {
@@ -874,33 +1005,32 @@
       }
 
       .hero h1 {
-        font-size: 47px;
+        font-size: 42px;
+      }
+
+      .hero-content {
+        padding: 45px 20px;
       }
 
       .intro {
-        padding: 75px 20px 55px;
+        padding: 60px 18px 45px;
       }
 
       .faq-wrapper {
-        padding-bottom: 75px;
+        padding: 0 18px 65px;
       }
 
-      .faq-categories {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+      .faq-toolbar {
+        margin-bottom: 40px;
       }
 
       .category-btn {
-        width: 100%;
+        padding: 9px 13px;
+        font-size: 7.5px;
       }
 
-      .faq-question {
-        font-size: 16px;
-        padding: 20px 2px;
-      }
-
-      .faq-answer-inner {
-        padding-right: 35px;
+      .section-heading h2 {
+        font-size: 25px;
       }
 
       .section-heading {
@@ -912,18 +1042,48 @@
         margin-top: 5px;
       }
 
+      .faq-question {
+        font-size: 15px;
+        padding: 18px 2px;
+        gap: 14px;
+      }
+
+      .faq-icon {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+      }
+
       .visit {
-        padding: 75px 20px;
+        padding: 60px 18px;
       }
 
       .visit-image {
-        height: 340px;
+        height: 220px;
+      }
+
+      .detail {
+        flex-wrap: wrap;
       }
 
       .footer-main {
         grid-template-columns: 1fr;
-        gap: 35px;
-        padding-bottom: 45px;
+        grid-template-areas:
+          "brand"
+          "links"
+          "care"
+          "map";
+        padding: 0 18px 35px;
+        gap: 30px;
+      }
+
+      .help-section {
+        padding: 65px 20px;
+      }
+
+      .search-close {
+        right: 20px;
+        top: 18px;
       }
     }
   </style>

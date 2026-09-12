@@ -5,38 +5,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Trending | THE JEWELICA</title>
+  <title>About The Jewelica | THE JEWELICA</title>
   <link rel="icon" type="image/png" href="images/LOGO png.png">
-
   <meta name="description"
-    content="Explore trending jewellery by THE JEWELICA, designed with luminous details and timeless elegance.">
-  <meta name="keywords" content="THE JEWELICA, Trending Jewellery, Jewellery, Rings">
-  <meta name="author" content="THE JEWELICA">
-
-  <meta property="og:title" content="Trending | THE JEWELICA">
-  <meta property="og:description" content="Discover the trending jewellery collection by THE JEWELICA.">
+    content="Discover The Jewelica — a refined jewellery house shaped by thoughtful design, craftsmanship, quality and timeless elegance.">
+  <meta name="keywords" content="The Jewelica, jewellery, gold jewellery, diamond jewellery, craftsmanship">
+  <meta property="og:title" content="About The Jewelica">
+  <meta property="og:description" content="Discover the philosophy, craftsmanship and experience behind The Jewelica.">
   <meta property="og:type" content="website">
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
-
     :root {
-      --ivory: #f7f4ed;
-      --cream: #eee8dc;
-      --beige: #d9cdbb;
-      --gold: #b49a68;
-      --gold-light: #d8c89e;
-      --espresso: #2b241e;
-      --charcoal: #171513;
-      --muted: #746d64;
+      --ivory: #f7f3eb;
+      --cream: #eee7db;
       --white: #fffdf9;
-      --line: rgba(43, 36, 30, .14);
+      --gold: #b79a68;
+      --gold-light: #d7c39b;
+      --espresso: #302820;
+      --charcoal: #211d19;
+      --brown: #65594d;
+      --muted: #81766a;
+      --line: rgba(48, 40, 32, .14);
+      --shadow: 0 22px 60px rgba(48, 40, 32, .10);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -48,10 +46,16 @@
     body {
       background: var(--ivory);
       color: var(--espresso);
-      font-family: "DM Sans", sans-serif;
-      line-height: 1.6;
+      font-family: var(--sans);
+      line-height: 1.7;
       overflow-x: hidden;
       max-width: 100%;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
     }
 
     a {
@@ -61,14 +65,12 @@
 
     button,
     input,
-    select {
+    textarea {
       font: inherit;
     }
 
-    img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
+    button {
+      cursor: pointer;
     }
 
     h1, h2, h3, h4 {
@@ -76,436 +78,425 @@
       word-break: break-word;
     }
 
-    .announcement {
-      background: var(--charcoal);
-      color: #eee7dc;
-      padding: 9px 15px;
-      text-align: center;
-      font-size: 9px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-    }
+    /* =========================
+       NAVIGATION
+    ========================== */
 
-    header {
+    .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(247, 244, 237, .96);
-      backdrop-filter: blur(15px);
+      background: rgba(255, 253, 249, .94);
       border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
     }
 
-    .nav {
-      width: min(1380px, 94%);
+    .nav-wrap {
+      max-width: 1380px;
       min-height: 82px;
       margin: auto;
+      padding: 0 28px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+      gap: 30px;
     }
 
     .brand {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 31px;
-      font-weight: 600;
-      letter-spacing: 5px;
+      flex-shrink: 0;
+      font-family: var(--serif);
+      font-size: 24px;
+      letter-spacing: 4px;
       white-space: nowrap;
     }
 
-    .brand span {
+    .brand small {
+      display: block;
+      margin-top: -5px;
+      font-family: var(--sans);
+      font-size: 7px;
+      letter-spacing: 4px;
+      text-align: center;
       color: var(--gold);
     }
 
-    .nav-links {
+    .main-nav {
+      margin-left: auto;
       display: flex;
       align-items: center;
       gap: 22px;
-      list-style: none;
     }
 
-    .nav-links a {
+    .main-nav a {
       position: relative;
-      padding: 9px 0;
-      font-size: 9px;
-      letter-spacing: 1.25px;
+      padding: 30px 0;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.7px;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
-    .nav-links a::after {
+    .main-nav a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: 2px;
-      width: 0;
+      right: 100%;
+      bottom: 23px;
       height: 1px;
       background: var(--gold);
-      transition: .3s;
+      transition: right .3s ease;
     }
 
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
+    .main-nav a:hover::after,
+    .main-nav a[aria-current="page"]::after {
+      right: 0;
     }
 
-    .nav-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .nav-btn {
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      background: transparent;
-      cursor: pointer;
-      position: relative;
-      transition: .3s ease;
-    }
-
-    .nav-btn:hover {
-      background: var(--espresso);
-      border-color: var(--espresso);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(43, 36, 30, .18);
-    }
-
-    .count {
-      position: absolute;
-      right: -3px;
-      top: -4px;
-      min-width: 17px;
-      height: 17px;
-      border-radius: 50%;
-      background: var(--gold);
-      color: white;
-      display: grid;
-      place-items: center;
-      font-size: 8px;
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"] {
+      color: var(--gold);
     }
 
     .menu-toggle {
       display: none;
-      border: 0;
+      margin-left: auto;
+      border: 1px solid var(--line);
+      border-radius: 999px;
       background: transparent;
-      font-size: 24px;
-      cursor: pointer;
+      padding: 9px 17px;
+      color: var(--espresso);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      transition: .3s ease;
     }
 
-    .hero {
-      min-height: 590px;
-      position: relative;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      background: var(--charcoal);
-    }
-
-    .hero-image {
-      position: absolute;
-      inset: 0;
-    }
-
-    .hero-image img {
-      height: 100%;
-      opacity: .6;
-      filter: saturate(.65);
-      transition: transform 1.2s ease;
-    }
-
-    .hero:hover .hero-image img {
-      transform: scale(1.025);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg,
-          rgba(23, 21, 19, .94),
-          rgba(23, 21, 19, .45),
-          rgba(23, 21, 19, .9));
-    }
-
-    .hero-content {
-      width: min(900px, 90%);
-      position: relative;
-      z-index: 2;
-      text-align: center;
+    .menu-toggle:hover {
+      background: var(--espresso);
+      border-color: var(--espresso);
       color: white;
-      padding: 100px 0;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .about-hero {
+      min-height: 690px;
+      display: grid;
+      grid-template-columns: 48% 52%;
+      background: var(--espresso);
+      color: white;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 90px clamp(35px, 8vw, 120px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 1px solid rgba(215, 195, 155, .22);
+      border-radius: 50%;
+      right: -170px;
+      top: 70px;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(215, 195, 155, .10);
+      border-radius: 50%;
+      right: -220px;
+      top: 15px;
     }
 
     .eyebrow {
       color: var(--gold-light);
       font-size: 10px;
+      font-weight: 600;
       letter-spacing: 4px;
       text-transform: uppercase;
-      margin-bottom: 20px;
     }
 
-    .hero h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-weight: 500;
-      font-size: clamp(40px, 13vw, 110px);
-      line-height: .88;
-      letter-spacing: 2px;
-      margin-bottom: 28px;
+    .hero-copy h1 {
+      max-width: 680px;
+      margin: 24px 0;
+      font-family: var(--serif);
+      font-size: clamp(40px, 11vw, 105px);
+      font-weight: 400;
+      line-height: .94;
+      letter-spacing: -3px;
     }
 
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      color: #ded7cd;
-      font-size: 14px;
+    .hero-copy p {
+      max-width: 520px;
+      color: #d9d0c4;
+      font-size: 15px;
     }
 
-    .hero-actions {
-      margin-top: 32px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
+    .hero-image {
+      min-height: 690px;
+      background: #ded4c5;
+      overflow: hidden;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 26px;
-      border: 1px solid rgba(255, 255, 255, .5);
+    .hero-image img {
+      height: 100%;
+      min-height: 690px;
+      transition: transform 1.2s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.025);
+    }
+
+    .outline-btn {
+      display: inline-flex;
+      width: max-content;
+      margin-top: 30px;
+      padding: 15px 28px;
+      border: 1px solid var(--gold-light);
       border-radius: 999px;
       color: white;
-      font-size: 9px;
-      letter-spacing: 1.9px;
+      font-size: 10px;
+      letter-spacing: 2.2px;
       text-transform: uppercase;
       transition: .35s ease;
     }
 
-    .btn:hover {
-      background: var(--gold-light);
-      border-color: var(--gold-light);
+    .outline-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
       color: var(--espresso);
       transform: translateY(-2px);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, .28);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, .3);
     }
+
+    /* =========================
+       GENERAL
+    ========================== */
 
     .section {
-      width: min(1380px, 92%);
+      max-width: 1240px;
       margin: auto;
-      padding: 100px 0;
+      padding: 110px 28px;
     }
 
-    .intro {
-      max-width: 800px;
+    .section-heading {
+      max-width: 780px;
+      margin: auto;
       text-align: center;
-      margin: auto;
     }
 
-    .intro .eyebrow {
+    .section-label {
       color: var(--gold);
-    }
-
-    .intro h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(38px, 8vw, 70px);
-      font-weight: 500;
-      line-height: .95;
-    }
-
-    .intro p {
-      margin-top: 22px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .category-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 9px;
-      margin-top: 38px;
-    }
-
-    .category-link {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 11px 18px;
-      font-size: 9px;
-      letter-spacing: 1.3px;
-      text-transform: uppercase;
-      transition: .3s ease;
-    }
-
-    .category-link:hover,
-    .category-link.active {
-      background: var(--espresso);
-      color: white;
-      border-color: var(--espresso);
-      transform: translateY(-1px);
-    }
-
-    .toolbar {
-      margin-top: 55px;
-      padding: 15px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .result-count {
-      color: var(--muted);
       font-size: 10px;
-      letter-spacing: 1.2px;
+      font-weight: 700;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
-    .controls {
-      display: flex;
-      gap: 9px;
-      max-width: 100%;
+    .section-heading h2 {
+      margin: 16px 0 22px;
+      font-family: var(--serif);
+      font-size: clamp(32px, 8vw, 66px);
+      font-weight: 400;
+      line-height: 1.05;
     }
 
-    .search-small {
-      border: 1px solid var(--line);
-      background: transparent;
-      padding: 9px 13px;
-      outline: none;
-      font-size: 10px;
-      width: 190px;
-      max-width: 100%;
+    .section-heading p {
+      color: var(--muted);
+      font-size: 15px;
     }
 
-    .sort {
-      border: 1px solid var(--line);
-      background: transparent;
-      padding: 9px 13px;
-      outline: none;
-      cursor: pointer;
-      color: var(--espresso);
-      font-size: 10px;
-    }
+    /* =========================
+       STORY
+    ========================== */
 
-    .products {
-      margin-top: 30px;
+    .story-layout {
+      margin-top: 75px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px 17px;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
     }
 
-    .product-card {
-      animation: fadeUp .5s ease both;
-      background: var(--white);
-      border: 1px solid var(--line);
-      padding: 12px 12px 16px;
-      transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-7px);
-      border-color: var(--gold);
-      box-shadow: 0 24px 45px rgba(43, 36, 30, .12);
-    }
-
-    .product-image {
+    .story-image {
       position: relative;
-      overflow: hidden;
-      aspect-ratio: 4/5;
-      background: #e3dbcf;
+      min-height: 580px;
+      padding: 20px;
     }
 
-    .product-image img {
-      height: 100%;
-      transition: transform .7s cubic-bezier(.2, .7, .2, 1);
-    }
-
-    .product-card:hover .product-image img {
-      transform: scale(1.06);
-    }
-
-    .product-image::after {
+    .story-image::before {
       content: "";
       position: absolute;
       inset: 0;
-      border: 1px solid rgba(255, 255, 255, 0);
-      transition: border-color .4s ease;
-      pointer-events: none;
+      border: 1px solid var(--gold);
+      opacity: .55;
     }
 
-    .product-card:hover .product-image::after {
-      border-color: rgba(180, 154, 104, .55);
+    .story-image img {
+      position: relative;
+      height: 540px;
+      background: #e4dbcd;
     }
 
-    .product-actions {
-      position: absolute;
-      right: 12px;
-      top: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      opacity: 0;
-      transform: translateX(10px);
-      transition: .3s ease;
+    .story-copy {
+      padding: 15px 0;
     }
 
-    .product-card:hover .product-actions {
-      opacity: 1;
-      transform: translateX(0);
+    .story-copy h3 {
+      margin: 14px 0 22px;
+      font-family: var(--serif);
+      font-size: clamp(28px, 6vw, 42px);
+      font-weight: 400;
+      line-height: 1.1;
     }
 
-    .icon-btn {
-      width: 38px;
-      height: 38px;
-      border: 1px solid rgba(43, 36, 30, .08);
+    .story-copy p {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .signature-line {
+      margin-top: 30px;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 26px;
+      font-style: italic;
+    }
+
+    /* =========================
+       PHILOSOPHY CARDS
+    ========================== */
+
+    .philosophy-section {
+      background: var(--cream);
+    }
+
+    .principles {
+      margin-top: 65px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line);
+    }
+
+    .principle {
+      min-height: 310px;
+      padding: 45px 35px;
+      background: rgba(255, 253, 249, .58);
+      border-right: 1px solid var(--line);
+      transition: .35s ease;
+    }
+
+    .principle:last-child {
+      border-right: 0;
+    }
+
+    .principle:hover {
+      background: var(--white);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .number {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gold);
       border-radius: 50%;
-      background: rgba(255, 253, 249, .96);
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, .1);
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 17px;
       transition: .3s ease;
+    }
+
+    .principle:hover .number {
+      background: var(--gold);
+      color: white;
+    }
+
+    .principle h3 {
+      margin: 32px 0 13px;
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+    }
+
+    .principle p {
+      color: var(--muted);
       font-size: 14px;
     }
 
-    .icon-btn:hover,
-    .icon-btn.selected {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: white;
-      transform: scale(1.08);
+    /* =========================
+       CRAFTSMANSHIP
+    ========================== */
+
+    .craft-layout {
+      margin-top: 70px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 55px;
     }
 
-    .product-info {
-      padding: 16px 3px 9px;
+    .craft-large img {
+      height: 570px;
+      background: #e1d8ca;
+    }
+
+    .craft-side {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .product-type {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 15px;
-      letter-spacing: .8px;
-      font-weight: 600;
+    .craft-side h3 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 6vw, 43px);
+      font-weight: 400;
+      line-height: 1.08;
+      margin: 14px 0 22px;
     }
 
-    .view-btn {
-      position: relative;
-      border: 0;
-      background: transparent;
-      padding-bottom: 4px;
-      cursor: pointer;
+    .craft-side p {
       color: var(--muted);
-      font-size: 9px;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      transition: color .3s ease;
+      font-size: 15px;
+      margin-bottom: 16px;
     }
 
-    .view-btn::after {
+    .gold-rule {
+      width: 65px;
+      height: 1px;
+      margin: 25px 0;
+      background: var(--gold);
+    }
+
+    .text-link {
+      position: relative;
+      display: inline-flex;
+      width: max-content;
+      margin-top: 18px;
+      padding-bottom: 7px;
+      color: var(--espresso);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .text-link::after {
       content: "";
       position: absolute;
       left: 0;
@@ -513,39 +504,164 @@
       width: 100%;
       height: 1px;
       background: var(--gold);
-      transform: scaleX(.4);
+      transform: scaleX(.45);
       transform-origin: left;
-      transition: transform .3s ease;
+      transition: transform .35s ease, background .35s ease;
     }
 
-    .view-btn:hover {
-      color: var(--espresso);
+    .text-link:hover {
+      color: var(--gold);
     }
 
-    .view-btn:hover::after {
+    .text-link:hover::after {
       transform: scaleX(1);
     }
 
-    .add-btn {
+    /* =========================
+       PROMISE
+    ========================== */
+
+    .promise {
+      position: relative;
+      padding: 120px 24px;
+      background: var(--charcoal);
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .promise::before,
+    .promise::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(215, 195, 155, .18);
+      border-radius: 50%;
+    }
+
+    .promise::before {
+      width: 500px;
+      height: 500px;
+      left: -290px;
+      top: -190px;
+    }
+
+    .promise::after {
+      width: 430px;
+      height: 430px;
+      right: -250px;
+      bottom: -250px;
+    }
+
+    .promise-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .promise h2 {
+      margin: 17px 0 20px;
+      font-family: var(--serif);
+      font-size: clamp(32px, 8vw, 68px);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .promise p {
+      color: #cec5b9;
+      font-size: 15px;
+    }
+
+    /* =========================
+       EXPERIENCE
+    ========================== */
+
+    .experience-grid {
+      margin-top: 65px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .experience-card {
+      padding: 38px 25px;
+      min-height: 250px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      transition: .35s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+      box-shadow: var(--shadow);
+    }
+
+    .experience-card span {
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 30px;
+    }
+
+    .experience-card h3 {
+      margin: 24px 0 10px;
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .experience-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta {
+      padding: 105px 24px;
+      background: #e7ddce;
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .cta h2 {
+      margin: 15px 0;
+      font-family: var(--serif);
+      font-size: clamp(32px, 8vw, 62px);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .cta p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .dark-btn {
       position: relative;
       overflow: hidden;
-      display: block;
-      width: 100%;
-      margin-top: 12px;
-      padding: 13px;
+      display: inline-flex;
+      margin-top: 28px;
+      padding: 16px 30px;
       border: 1px solid var(--espresso);
       border-radius: 999px;
       background: var(--espresso);
       color: white;
-      cursor: pointer;
-      font-size: 9px;
-      letter-spacing: 2px;
+      font-size: 10px;
+      letter-spacing: 2.2px;
       text-transform: uppercase;
       transition: color .35s ease, border-color .35s ease, box-shadow .35s ease;
       z-index: 0;
     }
 
-    .add-btn::before {
+    .dark-btn::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -556,366 +672,116 @@
       z-index: -1;
     }
 
-    .add-btn:hover {
+    .dark-btn:hover {
       color: var(--espresso);
       border-color: var(--gold-light);
-      box-shadow: 0 12px 28px rgba(180, 154, 104, .32);
+      box-shadow: 0 14px 30px rgba(183, 154, 104, .32);
     }
 
-    .add-btn:hover::before {
+    .dark-btn:hover::before {
       transform: scaleX(1);
     }
 
-    .editorial {
-      background: var(--cream);
-    }
-
-    .editorial-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 75px;
-    }
-
-    .editorial-image {
-      aspect-ratio: 1/1;
-      overflow: hidden;
-    }
-
-    .editorial-image img {
-      height: 100%;
-      transition: transform .8s ease;
-    }
-
-    .editorial-image:hover img {
-      transform: scale(1.04);
-    }
-
-    .editorial-copy h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(36px, 8vw, 70px);
-      font-weight: 500;
-      line-height: .94;
-      margin-bottom: 22px;
-    }
-
-    .gold-line {
-      width: 70px;
-      height: 1px;
-      background: var(--gold);
-      margin-bottom: 22px;
-    }
-
-    .editorial-copy p {
-      color: var(--muted);
-      max-width: 560px;
-      margin-bottom: 26px;
-    }
-
-    .outline-btn {
-      display: inline-block;
-      padding: 14px 25px;
-      border: 1px solid var(--espresso);
-      border-radius: 999px;
-      font-size: 9px;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      transition: .35s ease;
-    }
-
-    .outline-btn:hover {
-      background: var(--espresso);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(23, 21, 19, .2);
-    }
-
-    .diamond-note {
-      padding: 75px 0;
-      text-align: center;
-      background: var(--white);
-    }
-
-    .diamond-symbol {
-      width: 55px;
-      height: 55px;
-      border: 1px solid var(--gold);
-      transform: rotate(45deg);
-      margin: 0 auto 30px;
-      display: grid;
-      place-items: center;
-    }
-
-    .diamond-symbol span {
-      transform: rotate(-45deg);
-      font-family: "Cormorant Garamond", serif;
-      color: var(--gold);
-      font-size: 22px;
-    }
-
-    .diamond-note h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(30px, 8vw, 48px);
-      font-weight: 500;
-    }
-
-    .diamond-note p {
-      width: min(620px, 90%);
-      margin: 15px auto 25px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .cta {
-      background: var(--charcoal);
-      color: white;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(38px, 9vw, 76px);
-      font-weight: 500;
-      line-height: .95;
-    }
-
-    .cta p {
-      color: #cfc7bc;
-      max-width: 600px;
-      margin: 20px auto 30px;
-    }
-
-    .cta .outline-btn {
-      color: white;
-      border-color: #999187;
-    }
+    /* =========================
+       FOOTER
+    ========================== */
 
     footer {
-      background: #11100e;
-      color: #e8e0d5;
-      padding: 80px 0 25px;
-    }
-
-    .footer-wrap {
-      width: min(1380px, 92%);
-      margin: auto;
+      background: #27211c;
+      color: #eee5d9;
+      padding: 75px 28px 25px;
     }
 
     .footer-grid {
+      max-width: 1240px;
+      margin: auto;
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
-      gap: 50px;
-      padding-bottom: 55px;
+      grid-template-columns: 1.35fr 1fr 1fr 1.3fr;
+      gap: 45px;
     }
 
     .footer-brand {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(26px, 6vw, 38px);
-      letter-spacing: 5px;
-      margin-bottom: 18px;
-    }
-
-    .footer-brand span {
-      color: var(--gold-light);
-    }
-
-    .footer-text {
-      color: #aaa39a;
-      max-width: 310px;
-      font-size: 12px;
-    }
-
-    footer h4 {
-      color: white;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .footer-links {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-
-    .footer-links a {
-      color: #aaa39a;
-      font-size: 11px;
-      transition: .25s;
-    }
-
-    .footer-links a:hover {
-      color: var(--gold-light);
-    }
-
-    .visit p {
-      color: #aaa39a;
-      font-size: 11px;
-      margin-bottom: 7px;
-    }
-
-    .map {
-      height: 180px;
-      margin-top: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .1);
-      max-width: 100%;
-    }
-
-    .map iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      filter: grayscale(1) sepia(.12);
-    }
-
-    .copyright {
-      border-top: 1px solid rgba(255, 255, 255, .1);
-      padding-top: 22px;
-      color: #77736d;
-      text-align: center;
-      font-size: 9px;
-      letter-spacing: 1px;
-    }
-
-    .toast {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 2500;
-      padding: 14px 20px;
-      background: var(--espresso);
-      color: white;
-      font-size: 10px;
-      border-radius: 999px;
-      transform: translateY(100px);
-      opacity: 0;
-      transition: .35s;
-      max-width: calc(100% - 44px);
-    }
-
-    .toast.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .search-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 3000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      background: rgba(23, 21, 19, .97);
-      color: white;
-      padding: 30px;
-    }
-
-    .search-overlay.open {
-      display: flex;
-    }
-
-    .search-close {
-      position: fixed;
-      top: 24px;
-      right: 30px;
-      background: transparent;
-      border: 0;
-      color: white;
-      font-size: 31px;
-      cursor: pointer;
-    }
-
-    .search-box {
-      width: min(700px, 100%);
-    }
-
-    .search-box label {
-      color: var(--gold-light);
-      font-size: 10px;
+      font-family: var(--serif);
+      font-size: clamp(21px, 6vw, 25px);
       letter-spacing: 3px;
-      text-transform: uppercase;
     }
 
-    .search-input {
-      width: 100%;
-      margin-top: 15px;
-      padding: 13px 0;
-      border: 0;
-      border-bottom: 1px solid #777;
-      background: transparent;
-      color: white;
-      outline: none;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(24px, 8vw, 42px);
-    }
-
-    .search-results {
-      margin-top: 25px;
-      color: #cbc4ba;
+    .footer-description {
+      max-width: 300px;
+      margin-top: 18px;
+      color: #bdb2a4;
       font-size: 13px;
     }
 
-    .back-top {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      background: var(--white);
-      cursor: pointer;
-      display: none;
-      z-index: 500;
-      transition: .3s ease;
+    footer h4 {
+      margin-bottom: 18px;
+      color: var(--gold-light);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
-    .back-top:hover {
-      background: var(--gold);
-      color: white;
-      border-color: var(--gold);
-    }
-
-    .back-top.show {
+    footer a,
+    footer p {
       display: block;
+      margin: 8px 0;
+      color: #c6bbae;
+      font-size: 12px;
     }
 
-    .empty-state {
-      grid-column: 1/-1;
-      text-align: center;
-      padding: 70px 20px;
-      color: var(--muted);
-      display: none;
+    footer a:hover {
+      color: var(--gold-light);
     }
 
-    .empty-state h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 35px;
-      color: var(--espresso);
-      margin-bottom: 8px;
+    .map {
+      width: 100%;
+      max-width: 100%;
+      height: 175px;
+      margin-top: 15px;
+      border: 0;
+      filter: grayscale(1);
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
+    .copyright {
+      max-width: 1240px;
+      margin: 50px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, .13);
+      color: #938a80;
+      font-size: 10px;
+      letter-spacing: .5px;
+    }
+
+    /* =========================
+       REVEAL
+    ========================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 1120px) {
+      .main-nav {
+        gap: 14px;
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media(max-width:1150px) {
-      .nav-links {
-        gap: 13px;
+      .main-nav a {
+        font-size: 9px;
       }
 
-      .products {
-        grid-template-columns: repeat(3, 1fr);
+      .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .footer-grid {
@@ -923,166 +789,258 @@
       }
     }
 
-    @media(max-width:800px) {
-      .nav {
-        min-height: 70px;
+    /* =========================
+       MOBILE — a purpose-built layout for small screens
+       (same content/images, restructured presentation)
+    ========================== */
+
+    @media (max-width: 900px) {
+
+      /* ---- NAV: full-screen takeover panel instead of a dropdown ---- */
+      .nav-wrap {
+        min-height: 68px;
+        padding: 0 18px;
+        gap: 14px;
       }
 
       .brand {
-        font-size: 25px;
+        font-size: 18px;
+        letter-spacing: 2px;
       }
 
       .menu-toggle {
         display: block;
-        order: 3;
       }
 
-      .nav-links {
-        position: absolute;
-        top: 70px;
+      .main-nav {
+        display: none;
+        position: fixed;
+        top: 68px;
         left: 0;
         right: 0;
-        display: none;
+        bottom: 0;
+        margin: 0;
+        padding: 8px 26px 30px;
+        background: var(--charcoal);
+        border-bottom: 0;
+        box-shadow: none;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        padding: 17px 6%;
-        background: var(--ivory);
-        border-bottom: 1px solid var(--line);
+        overflow-y: auto;
+        z-index: 999;
       }
 
-      .nav-links.open {
+      .main-nav.open {
         display: flex;
       }
 
-      .nav-links a {
-        display: block;
-        padding: 11px 0;
+      .main-nav a {
+        padding: 17px 2px;
+        color: #eee5d9;
+        font-size: 12px;
+        letter-spacing: 2px;
+        border-bottom: 1px solid rgba(255, 255, 255, .09);
       }
 
-      .nav-actions {
-        margin-left: auto;
-      }
-
-      .nav-actions .nav-btn:nth-child(2) {
+      .main-nav a::after {
         display: none;
       }
 
-      .hero {
-        min-height: 460px;
+      .main-nav a:hover,
+      .main-nav a[aria-current="page"] {
+        color: var(--gold-light);
       }
 
-      .hero-content {
-        padding: 60px 0;
-      }
-
-      .section {
-        padding: 60px 0;
-      }
-
-      .products {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 22px 12px;
-      }
-
-      .editorial-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .toolbar {
-        align-items: flex-start;
+      /* ---- HERO: full-bleed image with copy overlapping the base ---- */
+      .about-hero {
+        display: flex;
         flex-direction: column;
+        min-height: unset;
       }
 
-      .controls {
-        width: 100%;
+      .hero-image {
+        order: 1;
+        min-height: 380px;
+        height: 54vh;
       }
 
-      .search-small {
-        flex: 1;
+      .hero-image img {
+        min-height: 380px;
+        height: 100%;
+      }
+
+      .hero-copy {
+        order: 2;
+        min-height: unset;
+        margin-top: -130px;
+        padding: 150px 24px 46px;
+        background: linear-gradient(180deg, rgba(33, 29, 25, 0) 0%, rgba(33, 29, 25, .82) 26%, rgba(33, 29, 25, .98) 100%);
+      }
+
+      .hero-copy::before,
+      .hero-copy::after {
+        display: none;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(38px, 12vw, 58px);
+        letter-spacing: -1.5px;
+      }
+
+      .hero-copy p {
+        font-size: 14px;
+      }
+
+      /* ---- STORY / CRAFT: single column, image tightened up ---- */
+      .story-layout,
+      .craft-layout {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .story-image {
+        min-height: unset;
+        padding: 0;
+      }
+
+      .story-image::before {
+        display: none;
+      }
+
+      .story-image img {
+        height: 300px;
+        border-radius: 3px;
+      }
+
+      .craft-large img {
+        height: 300px;
+        border-radius: 3px;
+      }
+
+      /* ---- PHILOSOPHY: horizontal swipe carousel, not a stacked list ---- */
+      .principles {
+        display: flex;
+        border: 0;
+        gap: 14px;
+        margin: 55px -20px 0;
+        padding: 4px 20px 12px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .principles::-webkit-scrollbar {
+        display: none;
+      }
+
+      .principle {
+        flex: 0 0 80%;
+        scroll-snap-align: start;
+        min-height: unset;
+        padding: 32px 26px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+      }
+
+      /* ---- EXPERIENCE: icon-left rows instead of stacked tiles ---- */
+      .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .experience-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        min-height: unset;
+        padding: 22px 20px;
+      }
+
+      .experience-card span {
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+
+      .experience-card h3 {
+        margin: 2px 0 6px;
+        font-size: 19px;
       }
     }
 
-    @media(max-width:480px) {
-      .announcement {
-        font-size: 8px;
-        letter-spacing: 1.5px;
-        padding: 8px 10px;
+    @media (max-width: 600px) {
+      .section {
+        padding: 60px 18px;
       }
 
-      .brand {
-        font-size: 19px;
-        letter-spacing: 2px;
+      .about-hero {
+        min-height: unset;
       }
 
-      .nav-btn {
-        width: 35px;
-        height: 35px;
+      .hero-image {
+        height: 46vh;
+        min-height: 300px;
       }
 
-      .hero {
-        min-height: 420px;
+      .hero-image img {
+        min-height: 300px;
       }
 
-      .hero h1 {
-        letter-spacing: 1px;
+      .hero-copy {
+        margin-top: -100px;
+        padding: 120px 20px 40px;
       }
 
-      .hero p {
-        font-size: 13px;
+      .hero-copy h1 {
+        letter-spacing: -1px;
       }
 
-      .btn {
-        padding: 12px 20px;
-        font-size: 8.5px;
+      .story-image img,
+      .craft-large img {
+        height: 260px;
       }
 
-      .products {
-        grid-template-columns: 1fr 1fr;
-        gap: 16px 10px;
-      }
-
-      .product-card {
-        padding: 8px 8px 12px;
-      }
-
-      .product-info {
-        display: block;
-      }
-
-      .view-btn {
-        margin-top: 8px;
-        display: inline-block;
+      .principle {
+        flex: 0 0 86%;
+        padding: 28px 22px;
       }
 
       .footer-grid {
         grid-template-columns: 1fr;
-        gap: 35px;
       }
 
-      .controls {
-        flex-direction: column;
+      .promise {
+        padding: 70px 20px;
       }
 
-      .search-small,
-      .sort {
-        width: 100%;
+      .cta {
+        padding: 60px 20px;
+      }
+
+      footer {
+        padding: 50px 18px 22px;
+      }
+
+      .experience-card {
+        padding: 20px 18px;
       }
     }
 
-    @media(max-width:360px) {
-      .section {
-        padding: 48px 0;
+    @media (max-width: 380px) {
+      .hero-copy {
+        padding: 110px 16px 34px;
       }
 
-      .products {
-        gap: 14px 8px;
+      .principle {
+        flex: 0 0 90%;
       }
 
-      .icon-btn {
-        width: 33px;
-        height: 33px;
+      .outline-btn,
+      .dark-btn {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>
@@ -1090,1684 +1048,128 @@
 
 <body>
 
-  <div class="announcement">
-    THE JEWELICA — REFINED BEAUTY, MADE TIMELESS
-  </div>
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
 
-  <header>
-    <nav class="nav" aria-label="Main navigation">
+  <header class="site-header">
+    <div class="nav-wrap">
 
-      <a href="index.html" class="brand">
-        THE <span>JEWELICA</span>
+      <a href="index.html" class="brand" aria-label="The Jewelica Home">
+        THE JEWELICA
+        <small>FINE JEWELLERY</small>
       </a>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="gold.html">Gold</a></li>
-        <li><a href="diamond.html">Diamonds</a></li>
-        <li><a href="collections.html">Collections</a></li>
-        <li><a href="stones.html">Choose Your Stone</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <div class="nav-actions">
-
-        <button class="nav-btn" id="searchBtn" aria-label="Open search">
-          ⌕
-        </button>
-
-        <button class="nav-btn" aria-label="Wishlist">
-          ♡
-          <span class="count" id="wishlistCount">0</span>
-        </button>
-
-        <button class="nav-btn" aria-label="Cart">
-          ♢
-          <span class="count" id="cartCount">0</span>
-        </button>
-
-      </div>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-        ☰
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        MENU
       </button>
 
-    </nav>
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gold.html">Gold</a>
+        <a href="diamond.html">Diamonds</a>
+        <a href="collections.html">Collections</a>
+        <a href="stones.html">Choose Your Stone</a>
+        <a href="services.html">Services</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+    </div>
   </header>
+
 
   <main>
 
-    <section class="hero">
+    <!-- =========================
+         HERO
+    ========================== -->
 
-      <div class="hero-image">
-        <img src="images/all diamond jewellery hero.png" alt="The Jewelica Trending Jewellery">
-      </div>
+    <section class="about-hero">
 
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-
-        <div class="eyebrow">
-          The Jewelica Trending Collection
-        </div>
+      <div class="hero-copy">
+        <span class="eyebrow">About The Jewelica</span>
 
         <h1>
-          TRENDINGS
+          Made with<br>
+          meaning.
         </h1>
 
         <p>
-          Discover the jewellery pieces currently capturing attention,
-          selected for their refined character, luminous details and timeless appeal.
+          The Jewelica is a modern jewellery experience built around
+          thoughtful design, refined craftsmanship and the quiet beauty
+          of pieces created to be treasured.
         </p>
 
-        <div class="hero-actions">
+        <a href="collections.html" class="outline-btn">
+          Explore Collections
+        </a>
+      </div>
 
-          <a href="#collection" class="btn">
-            Explore Trends
-          </a>
-
-          <a href="services.html" class="btn">
-            Request Consultation
-          </a>
-
-        </div>
-
+      <div class="hero-image">
+        <img src="images/about hero.png" alt="The Jewelica jewellery editorial placeholder">
       </div>
 
     </section>
 
 
-    <section class="section" id="collection">
+    <!-- =========================
+         OUR STORY
+    ========================== -->
 
-      <div class="intro">
+    <section class="section">
 
-        <div class="eyebrow">
-          Trending Jewellery
-        </div>
+      <div class="section-heading reveal">
+        <span class="section-label">Our Story</span>
 
         <h2>
-          The Pieces Everyone Is Watching
+          A language of elegance,
+          expressed in jewellery.
         </h2>
 
         <p>
-          Explore a considered selection of trending jewellery,
-          presented with the same refined styling and effortless elegance.
+          The Jewelica is imagined as a refined jewellery house where
+          classic forms meet a fresh, modern point of view.
         </p>
-
       </div>
 
 
-      <div class="category-links">
+      <div class="story-layout">
 
-        <a href="trending.html" class="category-link active">
-          Trending
-        </a>
-
-        <a href="shop.html" class="category-link">
-          Shop All
-        </a>
-
-        <a href="gold.html" class="category-link">
-          Gold
-        </a>
-
-        <a href="diamond.html" class="category-link">
-          Diamonds
-        </a>
-
-        <a href="collections.html" class="category-link">
-          Collections
-        </a>
-
-        <a href="stones.html" class="category-link">
-          Choose Your Stone
-        </a>
-
-      </div>
-
-
-      <div class="toolbar">
-
-        <div class="result-count" id="resultCount">
-          8 Pieces
+        <div class="story-image reveal">
+          <img src="images/about 2.png" alt="The Jewelica jewellery collection placeholder">
         </div>
 
-        <div class="controls">
 
-          <input id="productSearch" class="search-small" type="search" placeholder="Search this collection..."
-            aria-label="Search trending jewellery">
+        <div class="story-copy reveal">
 
-          <select id="sortProducts" class="sort" aria-label="Sort trending jewellery">
-
-            <option value="featured">
-              Sort: Featured
-            </option>
-
-            <option value="az">
-              Type A — Z
-            </option>
-
-            <option value="za">
-              Type Z — A
-            </option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-
-      <div class="products" id="productGrid">
-
-
-        <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (1).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-
-
-        <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (2).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-
-
-        <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (3).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-
-
-        <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (4).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-
-
-        <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (5).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-
-
-        <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (6).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-
-
-        <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (7).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-
-
-        <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (8).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (9).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (10).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (11).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (12).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (13).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (14).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (15).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (16).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (17).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (18).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (19).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (20).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (21).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (22).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (23).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (24).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (25).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (26).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (27).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (28).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (29).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (30).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (31).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (32).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (33).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (34).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (35).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (36).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (37).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (38).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending (39).png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-                <article class="product-card" data-type="ring">
-
-          <div class="product-image">
-
-            <img src="images/trending.png" alt="The Jewelica Ring">
-
-            <div class="product-actions">
-
-              <button class="icon-btn wishlist" aria-label="Add ring to wishlist">
-                ♡
-              </button>
-
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
-                ↗
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              Trending
-            </span>
-
-            <button class="view-btn" onclick="viewProduct()">
-              View Details
-            </button>
-
-          </div>
-
-          <button class="add-btn" onclick="addToCart('RING')">
-            Add To Cart
-          </button>
-
-        </article>
-
-        <div class="empty-state" id="emptyState">
+          <span class="section-label">The Jewelica Philosophy</span>
 
           <h3>
-            Nothing Found
+            Jewellery should feel
+            personal, not excessive.
           </h3>
 
           <p>
-            Try another search within the Trending collection.
+            We believe the most memorable jewellery is not simply noticed;
+            it becomes part of the person who wears it.
           </p>
+
+          <p>
+            Our design approach focuses on balance, proportion, texture
+            and details that feel considered from every angle.
+          </p>
+
+          <p>
+            From understated everyday pieces to expressive jewellery for
+            important occasions, The Jewelica is designed around the idea
+            that beauty can be both contemporary and enduring.
+          </p>
+
+          <div class="signature-line">
+            The Jewelica
+          </div>
 
         </div>
 
@@ -2776,37 +1178,122 @@
     </section>
 
 
-    <section class="editorial">
+    <!-- =========================
+         PHILOSOPHY
+    ========================== -->
 
-      <div class="section editorial-grid">
+    <section class="philosophy-section">
 
-        <div class="editorial-image">
+      <div class="section">
 
-          <img src="images/all diamond craftmanship.png" alt="The Jewelica Jewellery Craftsmanship">
-
-        </div>
-
-        <div class="editorial-copy">
-
-          <div class="eyebrow">
-            Crafted With Intention
-          </div>
-
-          <div class="gold-line"></div>
+        <div class="section-heading reveal">
+          <span class="section-label">Our Philosophy</span>
 
           <h2>
-            A Quiet Expression Of Brilliance
+            Three principles behind
+            every detail.
           </h2>
 
           <p>
-            Each trending piece is selected through proportion,
-            movement and light. The Jewelica approaches every design
-            with an emphasis on balance, refined detailing and a
-            silhouette that feels effortless from day to evening.
+            A simple design philosophy guides the way The Jewelica
+            presents jewellery and the experience surrounding it.
+          </p>
+        </div>
+
+
+        <div class="principles">
+
+          <article class="principle reveal">
+            <span class="number">01</span>
+
+            <h3>
+              Thoughtful Design
+            </h3>
+
+            <p>
+              Refined silhouettes, balanced proportions and carefully
+              considered details create jewellery that feels elegant
+              without being overworked.
+            </p>
+          </article>
+
+
+          <article class="principle reveal">
+            <span class="number">02</span>
+
+            <h3>
+              Considered Craft
+            </h3>
+
+            <p>
+              Every element matters. Texture, setting, finish and form
+              are approached with patience and precision to create a
+              beautifully resolved piece.
+            </p>
+          </article>
+
+
+          <article class="principle reveal">
+            <span class="number">03</span>
+
+            <h3>
+              Lasting Beauty
+            </h3>
+
+            <p>
+              We favour designs that can move naturally through different
+              moments of life rather than feeling limited to one occasion.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CRAFTSMANSHIP
+    ========================== -->
+
+    <section class="section">
+
+      <div class="craft-layout">
+
+        <div class="craft-large reveal">
+          <img src="images/about 3.png" alt="The Jewelica jewellery craftsmanship placeholder">
+        </div>
+
+
+        <div class="craft-side reveal">
+
+          <span class="section-label">
+            Craftsmanship
+          </span>
+
+          <h3>
+            Beauty lives
+            in the details.
+          </h3>
+
+          <div class="gold-rule"></div>
+
+          <p>
+            A jewellery piece is more than its overall silhouette.
+            The smallest details contribute to how it catches light,
+            how it feels in the hand and how naturally it becomes part
+            of an everyday collection.
           </p>
 
-          <a href="services.html" class="outline-btn">
-            Discover Our Services
+          <p>
+            The Jewelica celebrates this attention to detail through
+            considered materials, elegant finishing and jewellery
+            designed to be appreciated from every perspective.
+          </p>
+
+          <a href="services.html" class="text-link">
+            Explore Our Services
           </a>
 
         </div>
@@ -2816,47 +1303,128 @@
     </section>
 
 
-    <section class="diamond-note">
+    <!-- =========================
+         QUALITY PROMISE
+    ========================== -->
 
-      <div class="diamond-symbol">
-        <span>✦</span>
+    <section class="promise">
+
+      <div class="promise-inner reveal">
+
+        <span class="section-label">
+          The Jewelica Promise
+        </span>
+
+        <h2>
+          Quality that feels
+          as beautiful as the design.
+        </h2>
+
+        <p>
+          Our promise is simple: create a jewellery experience that is
+          clear, thoughtful and centred on pieces you can enjoy with
+          confidence.
+        </p>
+
       </div>
-
-      <h2>
-        Choose Your Stone
-      </h2>
-
-      <p>
-        Explore diamonds and other gemstones to discover the
-        colour, character and brilliance that speaks to you.
-      </p>
-
-      <a href="stones.html" class="outline-btn">
-        Explore Stones
-      </a>
 
     </section>
 
 
-    <section class="cta">
+    <!-- =========================
+         EXPERIENCE
+    ========================== -->
 
-      <div class="section">
+    <section class="section">
 
-        <div class="eyebrow">
-          Personal Consultation
-        </div>
+      <div class="section-heading reveal">
+
+        <span class="section-label">
+          The Experience
+        </span>
 
         <h2>
-          Find Your Signature Piece
+          More than jewellery.
         </h2>
 
         <p>
-          Explore the trending collection or connect with The Jewelica
-          for a personal jewellery consultation.
+          From discovery to consultation and care, every part of the
+          journey is designed to feel considered.
         </p>
 
-        <a href="contact.html" class="outline-btn">
-          Request Consultation
+      </div>
+
+
+      <div class="experience-grid">
+
+        <article class="experience-card reveal">
+          <span>01</span>
+          <h3>Discover</h3>
+          <p>
+            Explore gold, diamonds, gemstones and curated jewellery
+            through an elegant, uncomplicated experience.
+          </p>
+        </article>
+
+
+        <article class="experience-card reveal">
+          <span>02</span>
+          <h3>Choose</h3>
+          <p>
+            Discover jewellery categories, collections and gemstones
+            with clear information to help guide your selection.
+          </p>
+        </article>
+
+
+        <article class="experience-card reveal">
+          <span>03</span>
+          <h3>Consult</h3>
+          <p>
+            Request guidance for bespoke jewellery, bridal pieces,
+            diamonds, gemstones or thoughtful gifting.
+          </p>
+        </article>
+
+
+        <article class="experience-card reveal">
+          <span>04</span>
+          <h3>Care</h3>
+          <p>
+            Continue enjoying your jewellery with practical care,
+            cleaning, inspection and restoration guidance.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+      <div class="cta-inner reveal">
+
+        <span class="section-label">
+          Discover The Jewelica
+        </span>
+
+        <h2>
+          Find something
+          worth keeping.
+        </h2>
+
+        <p>
+          Explore our jewellery, discover your stone or speak with us
+          about creating something considered for a meaningful moment.
+        </p>
+
+        <a href="shop.html" class="dark-btn">
+          Explore Jewellery
         </a>
 
       </div>
@@ -2866,477 +1434,150 @@
   </main>
 
 
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
   <footer>
 
-    <div class="footer-wrap">
+    <div class="footer-grid">
 
-      <div class="footer-grid">
-
-
-        <div>
-
-          <div class="footer-brand">
-            THE <span>JEWELICA</span>
-          </div>
-
-          <p class="footer-text">
-            A refined jewellery destination where thoughtful design,
-            timeless materials and modern elegance meet.
-          </p>
-
+      <div>
+        <div class="footer-brand">
+          THE JEWELICA
         </div>
 
-
-        <div>
-
-          <h4>Quick Links</h4>
-
-          <ul class="footer-links">
-
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="gold.html">Gold</a></li>
-            <li><a href="diamond.html">Diamonds</a></li>
-            <li><a href="collections.html">Collections</a></li>
-            <li><a href="stones.html">Choose Your Stone</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="blogs.html">Blogs</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contact.html">Contact</a></li>
-
-          </ul>
-
-        </div>
+        <p class="footer-description">
+          Refined jewellery for meaningful moments, thoughtful gifting
+          and everyday elegance.
+        </p>
+      </div>
 
 
-        <div>
+      <div>
 
-          <h4>Customer Care</h4>
+        <h4>Quick Links</h4>
 
-          <ul class="footer-links">
-
-            <li><a href="care.html">Jewellery Care</a></li>
-            <li><a href="faq.html">FAQs</a></li>
-            <li><a href="contact.html">Shipping</a></li>
-            <li><a href="contact.html">Returns</a></li>
-            <li><a href="contact.html">Privacy Policy</a></li>
-            <li><a href="contact.html">Terms</a></li>
-
-          </ul>
-
-        </div>
-
-
-        <div class="visit">
-
-          <h4>Visit Us</h4>
-
-          <p>The Jewelica Lahore</p>
-          <p>Premium Jewellery District</p>
-          <p>+92 300 0000000</p>
-          <p>hello@thejewelica.com</p>
-          <p>Mon — Sat: 11:00 AM — 8:00 PM</p>
-
-          <div class="map">
-
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
-              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"></iframe>
-
-          </div>
-
-        </div>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gold.html">Gold</a>
+        <a href="diamond.html">Diamonds</a>
+        <a href="collections.html">Collections</a>
+        <a href="stones.html">Choose Your Stone</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
 
       </div>
 
 
-      <div class="copyright">
-        © 2026 THE JEWELICA. ALL RIGHTS RESERVED.
+      <div>
+
+        <h4>Customer Care</h4>
+
+        <a href="care.html">Jewellery Care</a>
+        <a href="faq.html">FAQs</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+
       </div>
 
+
+      <div>
+
+        <h4>Visit Us</h4>
+
+        <p>
+          The Jewelica Lahore<br>
+          Location details to be updated
+        </p>
+
+        <p>
+          Phone: +92 300 0000000<br>
+          Email: hello@thejewelica.example<br>
+          Mon–Sat: 11:00 AM–8:00 PM
+        </p>
+
+        <iframe class="map"
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786846326088!5m2!1sen!2s"
+          style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 THE JEWELICA. All Rights Reserved.
     </div>
 
   </footer>
 
 
-  <div class="toast" id="toast">
-    Added to your collection.
-  </div>
-
-
-  <div class="search-overlay" id="searchOverlay">
-
-    <button class="search-close" id="searchClose" aria-label="Close search">
-      ×
-    </button>
-
-    <div class="search-box">
-
-      <label for="searchInput">
-        Search The Jewelica
-      </label>
-
-      <input id="searchInput" class="search-input" type="search" placeholder="Search jewellery..." autocomplete="off">
-
-      <div class="search-results" id="searchResults">
-        Explore trending jewellery, categories and collections.
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <button class="back-top" id="backTop" aria-label="Back to top">
-    ↑
-  </button>
-
+  <!-- =========================
+       PAGE JAVASCRIPT
+  ========================== -->
 
   <script>
+    /* Mobile Navigation */
     const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+    const mainNav = document.getElementById("mainNav");
 
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-      menuToggle.textContent =
-        navLinks.classList.contains("open") ? "×" : "☰";
-    });
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mainNav.classList.toggle("open");
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.textContent = "☰";
-      });
-    });
-
-
-    let cart = JSON.parse(
-      localStorage.getItem("jewelicaCart") || "[]"
-    );
-
-    let wishlist = JSON.parse(
-      localStorage.getItem("jewelicaWishlist") || "[]"
-    );
-
-
-    function updateCounters() {
-
-      document.getElementById("cartCount").textContent =
-        cart.length;
-
-      document.getElementById("wishlistCount").textContent =
-        wishlist.length;
-
-    }
-
-
-    function showToast(message) {
-
-      const toast = document.getElementById("toast");
-
-      toast.textContent = message;
-      toast.classList.add("show");
-
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 2200);
-
-    }
-
-
-    function addToCart(type) {
-
-      cart.push({
-        type: type,
-        category: "Trending",
-        quantity: 1,
-        addedAt: new Date().toISOString()
-      });
-
-      localStorage.setItem(
-        "jewelicaCart",
-        JSON.stringify(cart)
+      menuToggle.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
       );
-
-      updateCounters();
-
-      showToast(type + " added to your cart.");
-
-    }
-
-
-    function viewProduct() {
-
-      window.location.href = "product.html";
-
-    }
-
-
-    document.querySelectorAll(".wishlist").forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        const type = "RING";
-
-        if (!wishlist.includes(type)) {
-
-          wishlist.push(type);
-
-          button.textContent = "♥";
-          button.classList.add("selected");
-
-          showToast("Added to your wishlist.");
-
-        } else {
-
-          wishlist =
-            wishlist.filter(item => item !== type);
-
-          button.textContent = "♡";
-          button.classList.remove("selected");
-
-          showToast("Removed from your wishlist.");
-
-        }
-
-        localStorage.setItem(
-          "jewelicaWishlist",
-          JSON.stringify(wishlist)
-        );
-
-        updateCounters();
-
-      });
-
     });
 
 
-    const productSearch =
-      document.getElementById("productSearch");
-
-    const productGrid =
-      document.getElementById("productGrid");
-
-    const resultCount =
-      document.getElementById("resultCount");
-
-    const emptyState =
-      document.getElementById("emptyState");
-
-
-    function filterProducts() {
-
-      const query =
-        productSearch.value.trim().toLowerCase();
-
-      const cards = [
-        ...productGrid.querySelectorAll(".product-card")
-      ];
-
-      let visible = 0;
-
-      cards.forEach(card => {
-
-        const type =
-          card.dataset.type.toLowerCase();
-
-        const matches =
-          !query || type.includes(query);
-
-        card.style.display =
-          matches ? "block" : "none";
-
-        if (matches) {
-          visible++;
-        }
-
+    /* Close mobile navigation after selecting a page */
+    document.querySelectorAll(".main-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
       });
-
-      resultCount.textContent =
-        visible + " Pieces";
-
-      emptyState.style.display =
-        visible === 0 ? "block" : "none";
-
-    }
+    });
 
 
-    productSearch.addEventListener(
-      "input",
-      filterProducts
+    /* Scroll Reveal */
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
     );
 
-
-    const sortProducts =
-      document.getElementById("sortProducts");
-
-    sortProducts.addEventListener("change", () => {
-
-      const cards = [
-        ...productGrid.querySelectorAll(".product-card")
-      ];
-
-      cards.sort((a, b) => {
-
-        const first = a.dataset.type;
-        const second = b.dataset.type;
-
-        if (sortProducts.value === "az") {
-          return first.localeCompare(second);
-        }
-
-        if (sortProducts.value === "za") {
-          return second.localeCompare(first);
-        }
-
-        return 0;
-
-      });
-
-      cards.forEach(card => {
-        productGrid.insertBefore(card, emptyState);
-      });
-
-      filterProducts();
-
+    revealItems.forEach(function (item) {
+      revealObserver.observe(item);
     });
 
 
-    const searchOverlay =
-      document.getElementById("searchOverlay");
-
-    const searchBtn =
-      document.getElementById("searchBtn");
-
-    const searchClose =
-      document.getElementById("searchClose");
-
-    const searchInput =
-      document.getElementById("searchInput");
-
-    const searchResults =
-      document.getElementById("searchResults");
-
-
-    searchBtn.addEventListener("click", () => {
-
-      searchOverlay.classList.add("open");
-
-      setTimeout(() => {
-        searchInput.focus();
-      }, 100);
-
-    });
-
-
-    searchClose.addEventListener("click", () => {
-
-      searchOverlay.classList.remove("open");
-      searchInput.value = "";
-
-    });
-
-
-    searchInput.addEventListener("input", () => {
-
-      const value =
-        searchInput.value.trim().toLowerCase();
-
-      if (!value) {
-
-        searchResults.textContent =
-          "Explore trending jewellery, categories and collections.";
-
-        return;
-
-      }
-
-      const matches = [
-
-        "Trending",
-        "Ring",
-        "Gold Jewellery",
-        "Gold Rings",
-        "Gold Earrings",
-        "Diamond Jewellery",
-        "Collections",
-        "Choose Your Stone",
-        "Services",
-        "Jewellery Care"
-
-      ].filter(item =>
-        item.toLowerCase().includes(value)
-      );
-
-
-      if (matches.length) {
-
-        searchResults.innerHTML =
-          matches.map(item => {
-            return `• ${item}`;
-          }).join("");
-
-      } else {
-
-        searchResults.textContent =
-          "No matching jewellery category found.";
-
-      }
-
-    });
-
-
-    document.addEventListener("keydown", event => {
-
+    /* Keyboard accessibility for mobile menu */
+    document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
-        searchOverlay.classList.remove("open");
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
       }
-
-      if (
-        (event.ctrlKey || event.metaKey) &&
-        event.key.toLowerCase() === "k"
-      ) {
-
-        event.preventDefault();
-
-        searchOverlay.classList.add("open");
-        searchInput.focus();
-
-      }
-
     });
-
-
-    const backTop =
-      document.getElementById("backTop");
-
-    window.addEventListener("scroll", () => {
-
-      if (window.scrollY > 500) {
-        backTop.classList.add("show");
-      } else {
-        backTop.classList.remove("show");
-      }
-
-    });
-
-
-    backTop.addEventListener("click", () => {
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    });
-
-
-    updateCounters();
   </script>
 
 </body>
 
 </html>
-tumhe iss ko mobile responsive bnana hy or iss tareeqe se k yh mobile me vilkul different layout de laptop ya bari screen me jo layout hy whi chota ho kr dikhta hy me chahta hun k inhi elements k sath mobile me ek naya layout ho lekin iss trah nhi k mujhe kuch or images add lkrni pare inhi images kp use kro or koi aisi condition lagao k jahan se mobile ki resolution start hoti hyn wahan se lyout dusri cxss pe depend kre css k groups bna do lekin ek hi file me hona chahiye seperate se css na bnana or proper ek kam kr k or different layout k sath moile me kaam kare or bilkul b khra na ho na overlap ho or na hi page se bahir jaye k mujhe zoom in ya out krna pare or na hi slide bilkul margin padding ok honi chahiye or color theme waghera or font sab same hi hona chahiye sirf humen layout mr change krna hy

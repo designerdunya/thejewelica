@@ -1,72 +1,38 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Diamond Men's Rings | THE JEWELICA</title>
-
   <link rel="icon" type="image/png" href="images/LOGO png.png">
-
   <meta name="description"
     content="Explore refined Diamond Men's Rings by THE JEWELICA, designed with luminous details and timeless elegance.">
-
   <meta name="keywords" content="THE JEWELICA, Diamond Men's Rings, Diamond Jewellery, Jewellery">
-
   <meta name="author" content="THE JEWELICA">
-
   <meta property="og:title" content="Diamond Men's Rings | THE JEWELICA">
-
   <meta property="og:description" content="Discover the Diamond Men's Rings collection by THE JEWELICA.">
-
   <meta property="og:type" content="website">
-
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
 
-
-
     :root {
-
-
       --ivory: #f7f4ed;
-
       --cream: #eee8dc;
-
       --beige: #d9cdbb;
-
       --gold: #b49a68;
-
       --gold-light: #d8c89e;
-
       --gold-deep: #8a7143;
-
       --espresso: #2b241e;
-
       --charcoal: #171513;
-
       --muted: #746d64;
-
       --white: #fffdf9;
-
       --line: rgba(43, 36, 30, .14);
-
       --page-width: 1380px;
-
       --page-gutter: clamp(16px, 3vw, 32px);
-
       --luxe-shadow: 0 22px 48px rgba(23, 21, 19, .12);
-
       --luxe-shadow-soft: 0 10px 26px rgba(23, 21, 19, .08);
-
     }
-
-
 
     * {
       margin: 0;
@@ -74,44 +40,27 @@
       box-sizing: border-box;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
 
-
-
     body {
-
-
       min-width: 320px;
-
       background: var(--ivory);
-
       color: var(--espresso);
-
       font-family: "DM Sans", sans-serif;
-
       line-height: 1.6;
-
-
       overflow-x: hidden;
-
     }
-
-
 
     body.menu-open {
       overflow: hidden;
     }
 
-
-
     a {
       color: inherit;
       text-decoration: none;
     }
-
 
     button,
     input,
@@ -119,11 +68,9 @@
       font: inherit;
     }
 
-
     button {
       color: inherit;
     }
-
 
     img {
       width: 100%;
@@ -131,421 +78,210 @@
       object-fit: cover;
     }
 
-
     [hidden] {
       display: none !important;
     }
 
-
     .announcement {
-
-
       background: var(--charcoal);
-
       color: #eee7dc;
-
       padding: 9px 15px;
-
       text-align: center;
-
       font-size: 9px;
-
       line-height: 1.4;
-
-
       letter-spacing: 2.5px;
-
       text-transform: uppercase;
-
     }
-
-
 
     header {
-
-
       position: sticky;
-
       top: 0;
-
       z-index: 1000;
-
       background: rgba(247, 244, 237, .96);
-
       backdrop-filter: blur(15px);
-
       -webkit-backdrop-filter: blur(15px);
-
       border-bottom: 1px solid var(--line);
-
     }
-
-
 
     .nav {
-
-
       width: min(var(--page-width), calc(100% - (var(--page-gutter) * 2)));
-
       min-height: 82px;
-
       margin: 0 auto;
-
       display: grid;
-
       grid-template-columns: auto minmax(0, 1fr) auto;
-
       align-items: center;
-
       gap: clamp(14px, 2vw, 28px);
-
       position: relative;
-
     }
-
-
 
     .brand {
-
-
       min-width: 0;
-
       font-family: "Cormorant Garamond", serif;
-
       font-size: clamp(22px, 2.2vw, 31px);
-
       font-weight: 600;
-
       letter-spacing: clamp(2px, .35vw, 5px);
-
       white-space: nowrap;
-
     }
-
-
 
     .brand span,
     .footer-brand span {
       color: var(--gold);
     }
 
-
-
     .nav-links {
-
-
       min-width: 0;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       gap: clamp(10px, 1.45vw, 22px);
-
       list-style: none;
-
-
     }
-
-
 
     .nav-links li {
       flex: 0 0 auto;
     }
 
-
-
     .nav-links a {
-
-
       position: relative;
-
       display: block;
-
       padding: 9px 0;
-
       font-size: 9px;
-
       letter-spacing: 1.1px;
-
       text-transform: uppercase;
-
       white-space: nowrap;
-
     }
-
-
 
     .nav-links a::after {
-
-
       content: "";
-
       position: absolute;
-
       left: 0;
-
       bottom: 2px;
-
       width: 0;
-
       height: 1px;
-
       background: var(--gold);
-
       transition: .3s;
-
     }
 
-
-
     .nav-links a:hover::after,
-
-
     .nav-links a.active::after {
       width: 100%;
     }
 
-
-
     .nav-actions {
-
-
       display: flex;
-
       align-items: center;
-
       justify-content: flex-end;
-
       gap: 7px;
-
       flex: 0 0 auto;
-
     }
-
-
 
     .nav-btn {
-
-
       width: 40px;
-
       height: 40px;
-
       flex: 0 0 40px;
-
       border: 1px solid var(--line);
-
       border-radius: 50%;
-
       background: transparent;
-
       cursor: pointer;
-
       position: relative;
-
       display: grid;
-
       place-items: center;
-
       transition: .3s;
-
       line-height: 1;
-
-
     }
-
-
 
     .nav-btn:hover {
       background: var(--espresso);
       color: white;
     }
 
-
-
     .count {
-
-
       position: absolute;
-
       right: -3px;
-
       top: -4px;
-
       min-width: 17px;
-
       height: 17px;
-
       padding: 0 4px;
-
       border-radius: 50%;
-
       background: var(--gold);
-
       color: white;
-
       display: grid;
-
       place-items: center;
-
       font-size: 8px;
-
       line-height: 1;
-
-
     }
-
-
 
     .menu-toggle {
-
-
       display: none;
-
       width: 40px;
-
       height: 40px;
-
       flex: 0 0 40px;
-
       border: 1px solid var(--line);
-
       border-radius: 50%;
-
       background: transparent;
-
       cursor: pointer;
-
       font-size: 20px;
-
       line-height: 1;
-
-
       place-items: center;
-
     }
-
-
 
     .hero {
-
-
       min-height: 590px;
-
       position: relative;
-
       display: grid;
-
       place-items: center;
-
       overflow: hidden;
-
       background: var(--charcoal);
-
     }
-
-
 
     .hero-image {
       position: absolute;
       inset: 0;
     }
 
-
     .hero-image img {
-
-
       height: 100%;
-
       opacity: .6;
-
       filter: saturate(.65);
-
       transition: transform 1.2s ease;
-
     }
-
 
     .hero:hover .hero-image img {
       transform: scale(1.025);
     }
 
-
-
     .hero-overlay {
-
-
       position: absolute;
-
       inset: 0;
-
       background: linear-gradient(90deg, rgba(23, 21, 19, .94), rgba(23, 21, 19, .45), rgba(23, 21, 19, .9));
-
     }
-
-
 
     .hero-content {
-
-
       width: min(900px, calc(100% - 40px));
-
       position: relative;
-
       z-index: 2;
-
       text-align: center;
-
       color: white;
-
       padding: 100px 0;
-
     }
-
-
 
     .eyebrow {
-
-
       color: var(--gold-light);
-
       font-size: 10px;
-
       line-height: 1.4;
-
-
       letter-spacing: 4px;
-
       text-transform: uppercase;
-
       margin-bottom: 20px;
-
     }
-
-
 
     .hero h1 {
-
-
       font-family: "Cormorant Garamond", serif;
-
       font-weight: 500;
-
       font-size: clamp(58px, 8vw, 110px);
-
       line-height: .88;
-
-
       letter-spacing: 2px;
-
       margin-bottom: 28px;
-
     }
-
-
 
     .hero p {
       max-width: 650px;
@@ -554,75 +290,39 @@
       font-size: 14px;
     }
 
-
-
     .hero-actions {
-
-
       margin-top: 32px;
-
       display: flex;
-
       justify-content: center;
-
       gap: 12px;
-
       flex-wrap: wrap;
-
     }
-
-
 
     .btn,
     .outline-btn {
-
-
       display: inline-block;
-
       padding: 13px 26px;
-
       border: 1px solid rgba(255, 255, 255, .5);
-
       border-radius: 2px;
-
       color: white;
-
       font-size: 9px;
-
       line-height: 1.4;
-
-
       letter-spacing: 1.7px;
-
       text-transform: uppercase;
-
       transition: .3s;
-
       cursor: pointer;
-
     }
-
-
 
     .btn:hover {
       background: white;
       color: var(--espresso);
     }
 
-
-
     .section {
-
-
       width: min(var(--page-width), calc(100% - (var(--page-gutter) * 2)));
-
       margin: 0 auto;
-
       padding: 100px 0;
-
     }
-
-
 
     .intro {
       max-width: 800px;
@@ -630,26 +330,16 @@
       margin: auto;
     }
 
-
     .intro .eyebrow {
       color: var(--gold);
     }
 
-
     .intro h2 {
-
-
       font-family: "Cormorant Garamond", serif;
-
       font-size: clamp(43px, 5vw, 70px);
-
       font-weight: 500;
-
       line-height: .95;
-
-
     }
-
 
     .intro p {
       margin-top: 22px;
@@ -657,100 +347,49 @@
       font-size: 14px;
     }
 
-
-
     .category-links {
-
-
       display: flex;
-
       flex-wrap: wrap;
-
       justify-content: center;
-
       gap: 9px;
-
       margin-top: 38px;
-
     }
-
-
 
     .category-link {
-
-
       border: 1px solid var(--line);
-
       border-radius: 2px;
-
       padding: 11px 16px;
-
       font-size: 9px;
-
       line-height: 1.4;
-
-
       letter-spacing: 1.3px;
-
       text-transform: uppercase;
-
       transition: .3s;
-
     }
-
-
 
     .category-link:hover,
     .category-link.active {
-
-
       background: var(--espresso);
-
       color: white;
-
       border-color: var(--espresso);
-
     }
-
-
 
     .toolbar {
-
-
       margin-top: 55px;
-
       padding: 15px 0;
-
       border-top: 1px solid var(--line);
-
       border-bottom: 1px solid var(--line);
-
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       gap: 20px;
-
     }
-
-
 
     .result-count {
-
-
       color: var(--muted);
-
       font-size: 10px;
-
       letter-spacing: 1.2px;
-
       text-transform: uppercase;
-
     }
-
-
 
     .controls {
       display: flex;
@@ -758,541 +397,279 @@
       min-width: 0;
     }
 
-
-
     .search-small,
     .sort {
-
-
       border: 1px solid var(--line);
-
       background: transparent;
-
       padding: 9px 13px;
-
       outline: none;
-
       font-size: 10px;
-
       min-height: 36px;
-
       transition: border-color .25s ease;
-
     }
-
-
 
     .search-small:focus,
     .sort:focus {
       border-color: var(--gold);
     }
 
-
-
     .search-small {
       width: 190px;
     }
-
 
     .sort {
       cursor: pointer;
       color: var(--espresso);
     }
 
-
-
-    /* =========================================================
-       PRODUCT GRID — LUXURY EDIT
-       Softer card lift, gilt-edged imagery, refined action
-       buttons and a considered, boutique-style call to action.
-    ========================================================= */
-
     .products {
-
-
       margin-top: 34px;
-
       display: grid;
-
       grid-template-columns: repeat(4, minmax(0, 1fr));
-
       gap: 40px 22px;
-
     }
-
-
 
     .product-card {
-
-
       min-width: 0;
-
       animation: fadeUp .6s cubic-bezier(.2, .7, .2, 1) both;
-
       transition: transform .5s cubic-bezier(.2, .7, .2, 1);
-
     }
-
-
 
     .product-card:hover {
       transform: translateY(-5px);
     }
 
-
-
     .product-image {
-
-
       position: relative;
-
       overflow: hidden;
-
       aspect-ratio: 4/5;
-
       background: #e3dbcf;
-
       box-shadow: var(--luxe-shadow-soft);
-
       transition: box-shadow .5s ease;
-
     }
-
-
 
     .product-image::after {
-
-
       content: "";
-
       position: absolute;
-
       inset: 0;
-
       box-shadow: inset 0 0 0 1px rgba(180, 154, 104, 0);
-
       transition: box-shadow .45s ease;
-
       pointer-events: none;
-
     }
-
-
 
     .product-card:hover .product-image {
       box-shadow: var(--luxe-shadow);
     }
 
-
     .product-card:hover .product-image::after {
       box-shadow: inset 0 0 0 1px rgba(180, 154, 104, .55);
     }
 
-
-
     .product-image img {
-
-
       height: 100%;
-
       transition: transform .8s cubic-bezier(.2, .7, .2, 1);
-
     }
-
-
 
     .product-card:hover .product-image img {
       transform: scale(1.06);
     }
 
-
-
     .product-badge {
-
-
       position: absolute;
-
       left: 14px;
-
       top: 14px;
-
       padding: 6px 12px;
-
       background: rgba(23, 21, 19, .82);
-
       backdrop-filter: blur(3px);
-
       color: var(--gold-light);
-
       font-size: 8px;
-
       letter-spacing: 1.8px;
-
       text-transform: uppercase;
-
       border: 1px solid rgba(216, 200, 158, .35);
-
     }
-
-
 
     .product-actions {
-
-
       position: absolute;
-
       right: 14px;
-
       top: 14px;
-
       display: flex;
-
       flex-direction: column;
-
       gap: 8px;
-
       opacity: 0;
-
       transform: translateX(10px);
-
       transition: .35s ease;
-
     }
-
-
 
     .product-card:hover .product-actions,
-
-
     .product-card:focus-within .product-actions {
-
-
       opacity: 1;
-
       transform: translateX(0);
-
     }
-
-
 
     .icon-btn {
-
-
       width: 38px;
-
       height: 38px;
-
       border: 1px solid rgba(180, 154, 104, .35);
-
       border-radius: 50%;
-
       background: rgba(255, 253, 249, .96);
-
       cursor: pointer;
-
       box-shadow: 0 6px 20px rgba(23, 21, 19, .1);
-
       transition: .3s cubic-bezier(.2, .7, .2, 1);
-
       font-size: 13px;
-
       display: grid;
-
       place-items: center;
-
     }
-
-
 
     .icon-btn:hover,
     .icon-btn.selected {
-
-
       background: var(--gold);
-
       border-color: var(--gold);
-
       color: white;
-
       transform: scale(1.06);
-
     }
-
-
 
     .product-info {
-
-
       padding: 18px 3px 0;
-
       display: flex;
-
       justify-content: space-between;
-
       align-items: flex-end;
-
       gap: 8px;
-
       border-top: 1px solid rgba(180, 154, 104, .22);
-
     }
-
-
 
     .product-type {
-
-
       padding-top: 14px;
-
       font-family: "Cormorant Garamond", serif;
-
       font-size: 17px;
-
       font-weight: 600;
-
       line-height: 1.2;
-
-
       letter-spacing: .4px;
-
       text-transform: uppercase;
-
       color: var(--espresso);
-
     }
-
-
 
     .view-btn {
-
-
       flex: 0 0 auto;
-
       margin-top: 14px;
-
       display: inline-flex;
-
       align-items: center;
-
       gap: 5px;
-
       border: 0;
-
       background: transparent;
-
       padding: 0 0 3px;
-
       cursor: pointer;
-
       color: var(--gold-deep);
-
       font-size: 9px;
-
       letter-spacing: 1.4px;
-
       text-transform: uppercase;
-
       white-space: nowrap;
-
       transition: color .25s ease;
-
     }
-
-
 
     .view-btn .arrow {
-
-
       display: inline-block;
-
       transition: transform .3s cubic-bezier(.2, .7, .2, 1);
-
     }
-
-
 
     .view-btn:hover {
       color: var(--espresso);
     }
 
-
     .view-btn:hover .arrow {
       transform: translateX(3px);
     }
 
-
-
     .add-btn {
-
-
       width: 100%;
-
       margin-top: 16px;
-
       padding: 15px;
-
       border: 1px solid var(--espresso);
-
       border-radius: 3px;
-
       background: transparent;
-
       color: var(--espresso);
-
       cursor: pointer;
-
       font-size: 9px;
-
       font-weight: 600;
-
       line-height: 1.4;
-
-
       letter-spacing: 2.2px;
-
       text-transform: uppercase;
-
       transition: .4s cubic-bezier(.2, .7, .2, 1);
-
       position: relative;
-
       overflow: hidden;
-
       z-index: 0;
-
     }
-
-
 
     .add-btn::before {
-
-
       content: "";
-
       position: absolute;
-
       inset: 0;
-
       background: linear-gradient(180deg, var(--espresso) 0%, #201b16 100%);
-
       transform: scaleY(0);
-
       transform-origin: bottom;
-
       transition: transform .45s cubic-bezier(.2, .7, .2, 1);
-
       z-index: -2;
-
     }
-
-
 
     .add-btn::after {
-
-
       content: "";
-
       position: absolute;
-
       inset: 0;
-
       background: linear-gradient(120deg, transparent, rgba(216, 200, 158, .5), transparent);
-
       transform: translateX(-130%);
-
       transition: transform .7s ease;
-
       z-index: -1;
-
     }
-
-
 
     .add-btn:hover {
-
-
       color: var(--white);
-
       border-color: var(--espresso);
-
       letter-spacing: 2.6px;
-
     }
-
-
 
     .add-btn:hover::before {
       transform: scaleY(1);
     }
 
-
     .add-btn:hover::after {
       transform: translateX(130%);
     }
-
 
     .add-btn:active {
       transform: scale(.98);
     }
 
-
-
     .editorial {
       background: var(--cream);
     }
 
-
-
     .editorial-grid {
-
-
       display: grid;
-
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-
       align-items: center;
-
       gap: clamp(35px, 5.5vw, 75px);
-
     }
-
-
 
     .editorial-image {
       aspect-ratio: 1/1;
       overflow: hidden;
     }
 
-
     .editorial-image img {
       height: 100%;
       transition: transform .8s ease;
     }
 
-
     .editorial-image:hover img {
       transform: scale(1.04);
     }
 
-
-
     .editorial-copy h2 {
-
-
       font-family: "Cormorant Garamond", serif;
-
       font-size: clamp(44px, 5vw, 70px);
-
       font-weight: 500;
-
       line-height: .94;
-
-
       margin-bottom: 22px;
-
     }
-
-
 
     .gold-line {
       width: 70px;
@@ -1301,139 +678,68 @@
       margin-bottom: 22px;
     }
 
-
-
     .editorial-copy p {
       color: var(--muted);
       max-width: 560px;
       margin-bottom: 26px;
     }
 
-
-
     .editorial-copy .outline-btn {
-
-
       color: var(--espresso);
-
       border-color: var(--espresso);
-
     }
-
-
 
     .editorial-copy .outline-btn:hover {
-
-
       background: var(--espresso);
-
       color: white;
-
     }
-
-
 
     .diamond-note {
-
-
       padding: 75px 20px;
-
       text-align: center;
-
       background: var(--white);
-
     }
-
-
 
     .diamond-symbol {
-
-
       width: 55px;
-
       height: 55px;
-
       border: 1px solid var(--gold);
-
       transform: rotate(45deg);
-
       margin: 0 auto 30px;
-
       display: grid;
-
       place-items: center;
-
     }
-
-
 
     .diamond-symbol span {
-
-
       transform: rotate(-45deg);
-
       font-family: "Cormorant Garamond", serif;
-
       color: var(--gold);
-
       font-size: 22px;
-
     }
-
-
 
     .diamond-note h2 {
-
-
       font-family: "Cormorant Garamond", serif;
-
       font-size: 48px;
-
       font-weight: 500;
-
       line-height: 1;
-
-
     }
-
-
 
     .diamond-note p {
-
-
       width: min(620px, 100%);
-
       margin: 15px auto 25px;
-
       color: var(--muted);
-
       font-size: 13px;
-
     }
-
-
 
     .diamond-note .outline-btn {
-
-
       color: var(--espresso);
-
       border-color: var(--espresso);
-
     }
-
-
 
     .diamond-note .outline-btn:hover {
-
-
       background: var(--espresso);
-
       color: white;
-
     }
-
-
 
     .cta {
       background: var(--charcoal);
@@ -1441,21 +747,12 @@
       text-align: center;
     }
 
-
     .cta h2 {
-
-
       font-family: "Cormorant Garamond", serif;
-
       font-size: clamp(45px, 6vw, 76px);
-
       font-weight: 500;
-
       line-height: .95;
-
-
     }
-
 
     .cta p {
       color: #cfc7bc;
@@ -1463,19 +760,15 @@
       margin: 20px auto 30px;
     }
 
-
     .cta .outline-btn {
       color: white;
       border-color: #999187;
     }
 
-
     .cta .outline-btn:hover {
       background: white;
       color: var(--espresso);
     }
-
-
 
     footer {
       background: #11100e;
@@ -1483,62 +776,33 @@
       padding: 80px 0 25px;
     }
 
-
-
     .footer-wrap {
-
-
       width: min(var(--page-width), calc(100% - (var(--page-gutter) * 2)));
-
       margin: 0 auto;
-
     }
-
-
 
     .footer-grid {
-
-
       display: grid;
-
       grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
-
       gap: 50px;
-
       padding-bottom: 55px;
-
     }
-
-
 
     .footer-grid>div {
       min-width: 0;
     }
 
-
-
     .footer-brand {
-
-
       font-family: "Cormorant Garamond", serif;
-
       font-size: 38px;
-
       line-height: 1;
-
-
       letter-spacing: 5px;
-
       margin-bottom: 18px;
-
     }
-
-
 
     .footer-brand span {
       color: var(--gold-light);
     }
-
 
     .footer-text {
       color: #aaa39a;
@@ -1546,27 +810,14 @@
       font-size: 12px;
     }
 
-
-
     footer h4 {
-
-
       color: white;
-
       font-size: 9px;
-
       line-height: 1.4;
-
-
       letter-spacing: 2px;
-
       text-transform: uppercase;
-
       margin-bottom: 20px;
-
     }
-
-
 
     .footer-links {
       list-style: none;
@@ -1574,19 +825,15 @@
       gap: 10px;
     }
 
-
     .footer-links a {
       color: #aaa39a;
       font-size: 11px;
       transition: .25s;
     }
 
-
     .footer-links a:hover {
       color: var(--gold-light);
     }
-
-
 
     .visit p {
       color: #aaa39a;
@@ -1595,201 +842,102 @@
       overflow-wrap: break-word;
     }
 
-
-
     .map {
-
-
       height: 180px;
-
       margin-top: 18px;
-
       overflow: hidden;
-
       border: 1px solid rgba(255, 255, 255, .1);
-
     }
-
-
 
     .map iframe {
-
-
       width: 100%;
-
       height: 100%;
-
       border: 0;
-
       filter: grayscale(1) sepia(.12);
-
     }
-
-
 
     .copyright {
-
-
       border-top: 1px solid rgba(255, 255, 255, .1);
-
       padding-top: 22px;
-
       color: #77736d;
-
       text-align: center;
-
       font-size: 9px;
-
       letter-spacing: 1px;
-
     }
-
-
 
     .toast {
-
-
       position: fixed;
-
       right: 22px;
-
       bottom: 22px;
-
       z-index: 2500;
-
       max-width: calc(100vw - 44px);
-
       padding: 14px 20px;
-
       background: var(--espresso);
-
       color: white;
-
       font-size: 10px;
-
       transform: translateY(100px);
-
       opacity: 0;
-
       transition: .35s;
-
       pointer-events: none;
-
     }
-
-
 
     .toast.show {
       transform: translateY(0);
       opacity: 1;
     }
 
-
-
     .search-overlay {
-
-
       position: fixed;
-
       inset: 0;
-
       z-index: 3000;
-
       display: none;
-
       align-items: center;
-
       justify-content: center;
-
       background: rgba(23, 21, 19, .97);
-
       color: white;
-
       padding: 30px;
-
     }
-
-
 
     .search-overlay.open {
       display: flex;
     }
 
-
-
     .search-close {
-
-
       position: fixed;
-
       top: 24px;
-
       right: 30px;
-
       width: 42px;
-
       height: 42px;
-
       background: transparent;
-
       border: 0;
-
       color: white;
-
       font-size: 31px;
-
       cursor: pointer;
-
     }
-
-
 
     .search-box {
       width: min(700px, 100%);
     }
 
-
     .search-box label {
-
-
       color: var(--gold-light);
-
       font-size: 10px;
-
       letter-spacing: 3px;
-
       text-transform: uppercase;
-
     }
-
-
 
     .search-input {
-
-
       width: 100%;
-
       margin-top: 15px;
-
       padding: 13px 0;
-
       border: 0;
-
       border-bottom: 1px solid #777;
-
       background: transparent;
-
       color: white;
-
       outline: none;
-
       font-family: "Cormorant Garamond", serif;
-
       font-size: 42px;
-
     }
-
-
 
     .search-results {
       margin-top: 25px;
@@ -1797,74 +945,38 @@
       font-size: 13px;
     }
 
-
-
     .back-top {
-
-
       position: fixed;
-
       right: 20px;
-
       bottom: 20px;
-
       width: 42px;
-
       height: 42px;
-
       border: 1px solid var(--line);
-
       background: var(--white);
-
       cursor: pointer;
-
       display: none;
-
       z-index: 500;
-
     }
-
-
 
     .back-top.show {
       display: block;
     }
 
-
-
     .empty-state {
-
-
       grid-column: 1/-1;
-
       text-align: center;
-
       padding: 70px 20px;
-
       color: var(--muted);
-
     }
-
-
 
     .empty-state h3 {
-
-
       font-family: "Cormorant Garamond", serif;
-
       font-size: 35px;
-
       color: var(--espresso);
-
       margin-bottom: 8px;
-
     }
 
-
-
     @keyframes fadeUp {
-
-
       from {
         opacity: 0;
         transform: translateY(18px);
@@ -1874,148 +986,94 @@
         opacity: 1;
         transform: translateY(0);
       }
-
     }
 
-
-
     /* Navigation is intentionally collapsed before the desktop nav can overflow.
-
        This keeps the navbar at one viewport width without requiring browser zoom-out. */
-
     @media (max-width:1200px) {
 
-
       .nav {
-
-
         grid-template-columns: auto 1fr auto;
-
         min-height: 72px;
-
       }
-
-
 
       .nav-links {
         display: none;
       }
 
-
-
       .menu-toggle {
-
-
         display: grid;
-
         grid-column: 3;
-
         grid-row: 1;
-
       }
-
-
 
       .nav-actions {
-
-
         grid-column: 2;
-
         grid-row: 1;
-
       }
-
-
-
 
       .nav-links.open {
-
-
         position: absolute;
-
         top: calc(100% + 1px);
-
         left: 0;
-
         right: 0;
-
         display: flex;
-
         flex-direction: column;
-
         align-items: stretch;
-
         gap: 0;
-
         padding: 14px var(--page-gutter) 18px;
-
         background: var(--ivory);
-
         border-bottom: 1px solid var(--line);
-
         box-shadow: 0 12px 25px rgba(0, 0, 0, .06);
-
       }
-
-
 
       .nav-links.open a {
-
-
         display: block;
-
         padding: 11px 0;
-
       }
-
-
 
       .nav-links.open a::after {
         bottom: 7px;
       }
 
-
-
       .products {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-
       .footer-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-
     }
 
-
-
+    /* =========================================================
+       MOBILE LAYOUT — everything from here down (<=800px) uses
+       an intentionally DIFFERENT structure than desktop, built
+       from the exact same elements/images (no new markup, no
+       new images). Desktop rules above stay untouched.
+    ========================================================= */
     @media (max-width:800px) {
-
 
       :root {
         --page-gutter: 20px;
       }
 
-
+      html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
 
       .nav {
         min-height: 68px;
         gap: 10px;
       }
 
-
-
       .brand {
         font-size: 25px;
       }
 
-
-
       .nav-actions {
         gap: 5px;
       }
-
 
       .nav-btn,
       .menu-toggle {
@@ -2024,84 +1082,131 @@
         flex-basis: 38px;
       }
 
-
-
+      /* ---- Hero: desktop overlay-on-image becomes a stacked
+         image-block + solid-panel block, left-aligned instead
+         of centered. Same image, same text, same buttons. ---- */
       .hero {
-        min-height: 510px;
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        place-items: normal;
       }
 
+      .hero-image {
+        position: relative;
+        inset: auto;
+        height: 280px;
+        width: 100%;
+      }
+
+      .hero-image img {
+        height: 100%;
+        opacity: 1;
+      }
+
+      .hero-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(23, 21, 19, .05) 40%, rgba(23, 21, 19, .75));
+      }
+
+      .hero-overlay {
+        display: none;
+      }
 
       .hero-content {
-        padding: 80px 0;
+        position: static;
+        z-index: auto;
+        width: 100%;
+        max-width: 100%;
+        text-align: left;
+        padding: 34px var(--page-gutter) 40px;
+        background: var(--charcoal);
       }
 
+      .eyebrow {
+        margin-bottom: 12px;
+      }
 
+      .hero h1 {
+        font-size: clamp(44px, 13vw, 64px);
+        margin-bottom: 16px;
+      }
+
+      .hero p {
+        margin: 0;
+        max-width: 100%;
+      }
+
+      .hero-actions {
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 26px;
+      }
+
+      .hero-actions .btn {
+        text-align: center;
+        border-radius: 30px;
+        padding: 14px 22px;
+      }
 
       .section {
-        padding: 70px 0;
+        padding: 60px 0;
       }
 
-
-
-      .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 28px 14px;
+      .intro {
+        text-align: left;
+        max-width: 100%;
       }
 
-
-
-      .editorial-grid {
-
-
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-
+      /* ---- Category pills: desktop wraps/centers them; mobile
+         turns them into a single swipeable strip. ---- */
+      .category-links {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin: 28px calc(var(--page-gutter) * -1) 0;
+        padding: 0 var(--page-gutter) 6px;
       }
 
-
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 34px 24px;
+      .category-links::-webkit-scrollbar {
+        display: none;
       }
 
-
-      .footer-text {
-        max-width: none;
+      .category-link {
+        flex: 0 0 auto;
+        border-radius: 22px;
+        padding: 10px 18px;
+        white-space: nowrap;
       }
 
-
-
+      /* ---- Toolbar: result count on its own line, search and
+         sort share one row instead of desktop's full-width
+         space-between bar. ---- */
       .toolbar {
-
-
+        margin-top: 36px;
         align-items: stretch;
-
         flex-direction: column;
-
+        gap: 12px;
       }
-
-
 
       .controls {
         width: 100%;
       }
-
 
       .search-small {
         flex: 1;
         min-width: 0;
       }
 
-
       .sort {
-        min-width: 150px;
+        min-width: 128px;
+        flex: 0 0 auto;
       }
-
-
-
-      /* Mobile-only: softer, more boutique button shapes */
 
       .btn,
       .outline-btn {
@@ -2109,237 +1214,240 @@
         padding: 14px 28px;
       }
 
-
-      .category-link {
-        border-radius: 22px;
-        padding: 10px 18px;
+      /* ---- Products: desktop's tile grid becomes a single
+         column of horizontal list-rows — image left, details
+         right. Same cards, same images, different structure. ---- */
+      .products {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-top: 26px;
       }
 
-
-
-      .add-btn {
-
-
-        border-radius: 30px;
-
-        padding: 16px;
-
-        box-shadow: 0 10px 22px rgba(23, 21, 19, .1);
-
-        letter-spacing: 2.4px;
-
+      .product-card {
+        display: grid;
+        grid-template-columns: clamp(104px, 30vw, 150px) minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        column-gap: 16px;
+        row-gap: 0;
+        align-items: start;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
       }
 
+      .product-card:hover {
+        transform: none;
+      }
 
+      .product-image {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        aspect-ratio: 1/1;
+        align-self: start;
+      }
 
-      .view-btn {
+      .product-badge {
+        left: 8px;
+        top: 8px;
+        padding: 4px 8px;
+        font-size: 7px;
+      }
 
-
-        margin-top: 14px;
-
-        display: inline-flex;
-
-        border: 1px solid rgba(180, 154, 104, .45);
-
-        border-radius: 20px;
-
-        padding: 8px 16px 8px 18px;
-
+      /* Hover-reveal actions don't work on touch: show them
+         inline, at rest, beside the details instead. */
+      .product-actions {
+        position: static;
+        opacity: 1;
+        transform: none;
+        flex-direction: row;
         gap: 6px;
-
+        margin-top: 10px;
       }
-
-
-
-      .view-btn:hover {
-        border-color: var(--espresso);
-      }
-
-
 
       .icon-btn {
-        box-shadow: 0 8px 20px rgba(23, 21, 19, .14);
+        width: 32px;
+        height: 32px;
+        font-size: 11px;
+        box-shadow: none;
+        border-color: var(--line);
       }
 
+      .product-info {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+        padding: 0;
+        border-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .product-type {
+        padding-top: 0;
+        font-size: 16px;
+      }
+
+      .view-btn {
+        margin-top: 8px;
+        display: inline-flex;
+        padding: 0 0 2px;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .add-btn {
+        grid-column: 2;
+        grid-row: 2;
+        width: auto;
+        align-self: end;
+        margin-top: 10px;
+        padding: 10px 18px;
+        border-radius: 30px;
+        font-size: 8px;
+      }
+
+      /* ---- Editorial: mobile reads copy first, image after,
+         reversing desktop's image-left / text-right order. ---- */
+      .editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .editorial-copy {
+        order: -1;
+      }
+
+      .editorial-image {
+        aspect-ratio: 16/11;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 34px 24px;
+      }
+
+      .footer-text {
+        max-width: none;
+      }
 
       .nav-btn {
         box-shadow: 0 4px 12px rgba(23, 21, 19, .08);
       }
-
-
     }
 
-
-
     @media (max-width:600px) {
-
 
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
-
-
     }
 
-
-
     @media (max-width:560px) {
-
 
       .announcement {
         font-size: 8px;
         letter-spacing: 1.5px;
       }
 
-
-
       .brand {
         font-size: 21px;
         letter-spacing: 3px;
       }
 
-
-
       .nav-btn,
       .menu-toggle {
-
-
         width: 35px;
-
         height: 35px;
-
         flex-basis: 35px;
-
       }
 
-
-
       /* Keep all three controls visible but compact; no horizontal navbar overflow. */
-
       .nav-actions {
         gap: 4px;
       }
-
 
       .nav-actions .nav-btn {
         display: grid;
       }
 
-
-
       .hero h1 {
         font-size: 52px;
       }
-
 
       .hero p {
         font-size: 13px;
       }
 
-
-
       .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px 10px;
+        gap: 14px;
       }
 
-
-
-      .product-info {
-
-
-        display: block;
-
+      .product-card {
+        grid-template-columns: clamp(92px, 32vw, 120px) minmax(0, 1fr);
+        column-gap: 12px;
       }
 
-
+      .product-type {
+        font-size: 14px;
+      }
 
       .view-btn {
-
-
-        margin-top: 10px;
-
-        display: inline-flex;
-
+        margin-top: 6px;
       }
-
-
 
       .add-btn {
-        margin-top: 12px;
+        margin-top: 8px;
+        padding: 9px 14px;
       }
-
-
 
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 35px;
       }
 
-
-
       .search-overlay {
         padding: 24px 20px;
       }
-
 
       .search-close {
         top: 16px;
         right: 16px;
       }
 
-
       .search-input {
         font-size: 30px;
       }
-
-
 
       .controls {
         flex-direction: column;
       }
 
-
       .search-small,
       .sort {
         width: 100%;
       }
-
-
     }
 
-
-
     @media (max-width:380px) {
-
 
       :root {
         --page-gutter: 14px;
       }
-
-
 
       .brand {
         font-size: 19px;
         letter-spacing: 2px;
       }
 
-
-
       .nav-btn,
       .menu-toggle {
-
-
         width: 33px;
-
         height: 33px;
-
         flex-basis: 33px;
-
       }
-
-
 
       .count {
         min-width: 15px;
@@ -2347,1190 +1455,653 @@
         font-size: 7px;
       }
 
-
-
       .hero h1 {
         font-size: 46px;
       }
-
 
       .hero-actions {
         flex-direction: column;
         align-items: stretch;
       }
 
-
       .hero-actions .btn {
         text-align: center;
       }
 
-
-
       .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px 8px;
+        gap: 12px;
       }
 
+      .product-card {
+        grid-template-columns: 84px minmax(0, 1fr);
+        column-gap: 10px;
+      }
 
       .product-type {
-        font-size: 14px;
+        font-size: 13px;
       }
-
-
 
       .add-btn {
-        padding: 14px 7px;
-        font-size: 8px;
+        padding: 9px 12px;
+        font-size: 7px;
         letter-spacing: 1.6px;
       }
-
-
     }
   </style>
-
 </head>
 
-
-
 <body>
-
   <div class="announcement">THE JEWELICA — REFINED BEAUTY, MADE TIMELESS</div>
 
-
   <header>
-
     <nav class="nav" aria-label="Main navigation">
-
       <a href="index.html" class="brand">THE <span>JEWELICA</span></a>
 
-
       <ul class="nav-links" id="navLinks">
-
         <li><a href="index.html">Home</a></li>
-
         <li><a href="shop.html">Shop</a></li>
-
         <li><a href="gold.html">Gold</a></li>
-
         <li><a href="diamond.html" class="active" aria-current="page">Diamonds</a></li>
-
         <li><a href="collections.html">Collections</a></li>
-
         <li><a href="stones.html">Choose Your Stone</a></li>
         <li><a href="trending.html">Trending Uniques</a></li>
-
         <li><a href="services.html">Services</a></li>
-
         <li><a href="about.html">About</a></li>
-
         <li><a href="contact.html">Contact</a></li>
-
       </ul>
 
-
       <div class="nav-actions">
-
         <button class="nav-btn" id="searchBtn" type="button" aria-label="Open search">⌕</button>
-
         <button class="nav-btn" id="wishlistBtn" type="button" aria-label="Wishlist">
-
           ♡ <span class="count" id="wishlistCount">0</span>
-
         </button>
-
         <button class="nav-btn" id="cartBtn" type="button" aria-label="Cart">
-
           ♢ <span class="count" id="cartCount">0</span>
-
         </button>
-
       </div>
-
 
       <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="navLinks"
         aria-expanded="false">☰</button>
-
     </nav>
-
   </header>
 
-
   <main>
-
     <section class="hero">
-
       <div class="hero-image">
-
         <img src="images/all diamond jewellery hero.png" alt="The Jewelica Diamond Men's Rings">
-
       </div>
-
       <div class="hero-overlay"></div>
-
       <div class="hero-content">
-
         <div class="eyebrow">The Jewelica Diamond Collection</div>
-
         <h1>Diamond<br>Men's Rings</h1>
-
         <p>Discover distinguished diamond men's rings designed to bring quiet brilliance and refined character to every
           occasion.</p>
-
         <div class="hero-actions">
-
           <a href="#collection" class="btn">Explore Men's Rings</a>
-
           <a href="services.html" class="btn">Request Consultation</a>
-
         </div>
-
       </div>
-
     </section>
-
 
     <section class="section" id="collection">
-
       <div class="intro">
-
         <div class="eyebrow">Diamond Rings</div>
-
         <h2>Strength, Framed Beautifully</h2>
-
         <p>Explore a considered selection of diamond rings, created around clean silhouettes, balanced proportions and
           enduring elegance.</p>
-
       </div>
-
 
       <div class="category-links">
-
         <a href="diamond-ring-men.html" class="category-link">All Diamonds</a>
-
         <a href="diamond-ring-men.html" class="category-link">Diamond Ladies Rings</a>
-
         <a href="diamond-ring-men.html" class="category-link active">Diamond Men's Rings</a>
-
         <a href="diamond-pendants-nose-pins.html" class="category-link">Diamond Nose Pins</a>
-
         <a href="stones.html" class="category-link">Choose Your Stone</a>
-
       </div>
-
 
       <div class="toolbar">
-
         <div class="result-count" id="resultCount">8 Pieces</div>
-
         <div class="controls">
-
           <input id="productSearch" class="search-small" type="search" placeholder="Search this collection..."
             aria-label="Search diamond men's rings">
-
           <select id="sortProducts" class="sort" aria-label="Sort diamond rings">
-
             <option value="featured">Sort: Featured</option>
-
             <option value="az">Type A — Z</option>
-
             <option value="za">Type Z — A</option>
-
           </select>
-
         </div>
-
       </div>
-
 
       <div class="products" id="productGrid">
-
-        <article class="product-card" data-type="Diamond Men's Ring" data-index="1">
-
+        <article class="product-card" data-type="Diamond Men's Ring" data-index="1" data-id="diamond-mens-ring-03">
           <div class="product-image">
-
             <img src="images/men dimaond ring (1).png" alt="The Jewelica Diamond Men's Ring 01" loading="lazy">
-
             <span class="product-badge">Signature</span>
-
             <div class="product-actions">
-
               <button class="icon-btn wishlist" type="button"
                 aria-label="Add Diamond Men's Ring 01 to wishlist">♡</button>
-
               <button class="icon-btn view-product" type="button"
                 aria-label="View Diamond Men's Ring 01 details">↗</button>
-
             </div>
-
           </div>
-
           <div class="product-info">
-
             <span class="product-type">Diamond Men's Ring</span>
-
             <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
-
           </div>
-
           <button class="add-btn add-cart" type="button">Add To Cart</button>
-
         </article>
 
-
-        <article class="product-card" data-type="Diamond Men's Ring" data-index="2">
-
+        <article class="product-card" data-type="Diamond Men's Ring" data-index="2" data-id="diamond-mens-ring-04">
           <div class="product-image">
-
             <img src="images/men dimaond ring (2).png" alt="The Jewelica Diamond Men's Ring 02" loading="lazy">
-
             <div class="product-actions">
-
               <button class="icon-btn wishlist" type="button"
                 aria-label="Add Diamond Men's Ring 02 to wishlist">♡</button>
-
               <button class="icon-btn view-product" type="button"
                 aria-label="View Diamond Men's Ring 02 details">↗</button>
-
             </div>
-
           </div>
-
           <div class="product-info">
-
             <span class="product-type">Diamond Men's Ring</span>
-
             <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
-
           </div>
-
           <button class="add-btn add-cart" type="button">Add To Cart</button>
-
         </article>
 
-
-        <article class="product-card" data-type="Diamond Men's Ring" data-index="3">
-
+        <article class="product-card" data-type="Diamond Men's Ring" data-index="3" data-id="diamond-mens-ring-05">
           <div class="product-image">
-
             <img src="images/men dimaond ring (3).png" alt="The Jewelica Diamond Men's Ring 03" loading="lazy">
-
             <div class="product-actions">
-
               <button class="icon-btn wishlist" type="button"
                 aria-label="Add Diamond Men's Ring 03 to wishlist">♡</button>
-
               <button class="icon-btn view-product" type="button"
                 aria-label="View Diamond Men's Ring 03 details">↗</button>
-
             </div>
-
           </div>
-
           <div class="product-info">
-
             <span class="product-type">Diamond Men's Ring</span>
-
             <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
-
           </div>
-
           <button class="add-btn add-cart" type="button">Add To Cart</button>
-
         </article>
 
-
-        <article class="product-card" data-type="Diamond Men's Ring" data-index="4">
-
+        <article class="product-card" data-type="Diamond Men's Ring" data-index="4" data-id="diamond-mens-ring-06">
           <div class="product-image">
-
             <img src="images/men dimaond ring (4).png" alt="The Jewelica Diamond Men's Ring 04" loading="lazy">
-
             <div class="product-actions">
-
               <button class="icon-btn wishlist" type="button"
                 aria-label="Add Diamond Men's Ring 04 to wishlist">♡</button>
-
               <button class="icon-btn view-product" type="button"
                 aria-label="View Diamond Men's Ring 04 details">↗</button>
-
             </div>
-
           </div>
-
           <div class="product-info">
-
             <span class="product-type">Diamond Men's Ring</span>
-
             <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
-
           </div>
-
           <button class="add-btn add-cart" type="button">Add To Cart</button>
-
         </article>
 
-
-        <article class="product-card" data-type="Diamond Men's Ring" data-index="5">
-
+        <article class="product-card" data-type="Diamond Men's Ring" data-index="5" data-id="diamond-mens-ring-07">
           <div class="product-image">
-
             <img src="images/men dimaond ring (5).png" alt="The Jewelica Diamond Men's Ring 05" loading="lazy">
-
             <div class="product-actions">
-
               <button class="icon-btn wishlist" type="button"
                 aria-label="Add Diamond Men's Ring 05 to wishlist">♡</button>
-
               <button class="icon-btn view-product" type="button"
                 aria-label="View Diamond Men's Ring 05 details">↗</button>
-
             </div>
-
           </div>
-
           <div class="product-info">
-
             <span class="product-type">Diamond Men's Ring</span>
-
             <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
-
           </div>
-
           <button class="add-btn add-cart" type="button">Add To Cart</button>
-
         </article>
 
-
-        <article class="product-card" data-type="Diamond Men's Ring" data-index="6">
-
+        <article class="product-card" data-type="Diamond Men's Ring" data-index="6" data-id="diamond-mens-ring-08">
           <div class="product-image">
-
             <img src="images/men dimaond ring (6).png" alt="The Jewelica Diamond Men's Ring 06" loading="lazy">
-
             <div class="product-actions">
-
               <button class="icon-btn wishlist" type="button"
                 aria-label="Add Diamond Men's Ring 06 to wishlist">♡</button>
-
               <button class="icon-btn view-product" type="button"
                 aria-label="View Diamond Men's Ring 06 details">↗</button>
-
             </div>
-
           </div>
-
           <div class="product-info">
-
             <span class="product-type">Diamond Men's Ring</span>
-
             <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
-
           </div>
-
           <button class="add-btn add-cart" type="button">Add To Cart</button>
-
         </article>
 
-
-        <article class="product-card" data-type="Diamond Men's Ring" data-index="7">
-
+        <article class="product-card" data-type="Diamond Men's Ring" data-index="7" data-id="diamond-mens-ring-02">
           <div class="product-image">
-
             <img src="images/men diamond ring (2).png" alt="The Jewelica Diamond Men's Ring 07" loading="lazy">
-
             <div class="product-actions">
-
               <button class="icon-btn wishlist" type="button"
                 aria-label="Add Diamond Men's Ring 07 to wishlist">♡</button>
-
               <button class="icon-btn view-product" type="button"
                 aria-label="View Diamond Men's Ring 07 details">↗</button>
-
             </div>
-
           </div>
-
           <div class="product-info">
-
             <span class="product-type">Diamond Men's Ring</span>
-
             <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
-
           </div>
-
           <button class="add-btn add-cart" type="button">Add To Cart</button>
-
         </article>
 
-
-        <article class="product-card" data-type="Diamond Men's Ring" data-index="8">
-
+        <article class="product-card" data-type="Diamond Men's Ring" data-index="8" data-id="diamond-mens-ring-01">
           <div class="product-image">
-
             <img src="images/men diamond ring.png" alt="The Jewelica Diamond Men's Ring 08" loading="lazy">
-
             <div class="product-actions">
-
               <button class="icon-btn wishlist" type="button"
                 aria-label="Add Diamond Men's Ring 08 to wishlist">♡</button>
-
               <button class="icon-btn view-product" type="button"
                 aria-label="View Diamond Men's Ring 08 details">↗</button>
-
             </div>
-
           </div>
-
           <div class="product-info">
-
             <span class="product-type">Diamond Men's Ring</span>
-
             <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
-
           </div>
-
           <button class="add-btn add-cart" type="button">Add To Cart</button>
-
         </article>
 
-
         <div class="empty-state" id="emptyState" hidden>
-
           <h3>Nothing Found</h3>
-
           <p>Try another search within the Diamond Men's Rings collection.</p>
-
         </div>
-
       </div>
-
     </section>
 
-
     <section class="editorial">
-
       <div class="section editorial-grid">
-
         <div class="editorial-image">
-
           <img src="images/all diamond craftmanship.png" alt="The Jewelica Diamond Men's Rings Craftsmanship"
             loading="lazy">
-
         </div>
-
         <div class="editorial-copy">
-
           <div class="eyebrow">Crafted With Intention</div>
-
           <div class="gold-line"></div>
-
           <h2>A Quiet Expression Of Brilliance</h2>
-
           <p>Men's rings express character through proportion, structure and light. The Jewelica approaches each design
             with an emphasis on balance, refined detailing and a silhouette that feels effortless from day to evening.
           </p>
-
           <a href="services.html" class="outline-btn">Discover Our Services</a>
-
         </div>
-
       </div>
-
     </section>
-
 
     <section class="diamond-note">
-
       <div class="diamond-symbol"><span>✦</span></div>
-
       <h2>Choose Your Stone</h2>
-
       <p>Explore diamonds and other gemstones to discover the colour, character and brilliance that speaks to you.</p>
-
       <a href="stones.html" class="outline-btn">Explore Stones</a>
-
     </section>
-
 
     <section class="cta">
-
       <div class="section">
-
         <div class="eyebrow">Personal Consultation</div>
-
         <h2>Find Your Signature Ring</h2>
-
         <p>Explore the collection or connect with The Jewelica for a personal jewellery consultation focused on finding
           your signature ring.</p>
-
         <a href="contact.html" class="outline-btn">Request Consultation</a>
-
       </div>
-
     </section>
-
   </main>
 
-
   <footer>
-
     <div class="footer-wrap">
-
       <div class="footer-grid">
-
         <div>
-
           <div class="footer-brand">THE <span>JEWELICA</span></div>
-
           <p class="footer-text">A refined jewellery destination where thoughtful design, timeless materials and modern
             elegance meet.</p>
-
         </div>
 
-
         <div>
-
           <h4>Quick Links</h4>
-
           <ul class="footer-links">
-
             <li><a href="index.html">Home</a></li>
-
             <li><a href="shop.html">Shop</a></li>
-
             <li><a href="gold.html">Gold</a></li>
-
             <li><a href="diamond-ring-men.html">Diamonds</a></li>
-
             <li><a href="collections.html">Collections</a></li>
-
             <li><a href="stones.html">Choose Your Stone</a></li>
-
             <li><a href="services.html">Services</a></li>
-
             <li><a href="about.html">About</a></li>
-
             <li><a href="blogs.html">Blogs</a></li>
-
             <li><a href="faq.html">FAQ</a></li>
-
             <li><a href="contact.html">Contact</a></li>
-
           </ul>
-
         </div>
-
 
         <div>
-
           <h4>Customer Care</h4>
-
           <ul class="footer-links">
-
             <li><a href="care.html">Jewellery Care</a></li>
-
             <li><a href="faq.html">FAQs</a></li>
-
             <li><a href="contact.html">Shipping</a></li>
-
             <li><a href="contact.html">Returns</a></li>
-
             <li><a href="contact.html">Privacy Policy</a></li>
-
             <li><a href="contact.html">Terms</a></li>
-
           </ul>
-
         </div>
-
 
         <div class="visit">
-
           <h4>Visit Us</h4>
-
           <p>The Jewelica Lahore</p>
-
           <p>Premium Jewellery District</p>
-
           <p>+92 300 0000000</p>
-
           <p>hello@thejewelica.com</p>
-
           <p>Mon — Sat: 11:00 AM — 8:00 PM</p>
-
           <div class="map">
-
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
               title="The Jewelica Lahore location map" allowfullscreen loading="lazy"
               referrerpolicy="strict-origin-when-cross-origin"></iframe>
-
           </div>
-
         </div>
-
       </div>
 
-
       <div class="copyright">© 2026 THE JEWELICA. ALL RIGHTS RESERVED.</div>
-
     </div>
-
   </footer>
-
 
   <div class="toast" id="toast" role="status" aria-live="polite">Added to your collection.</div>
 
-
   <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-labelledby="searchLabel">
-
     <button class="search-close" id="searchClose" type="button" aria-label="Close search">×</button>
-
     <div class="search-box">
-
       <label id="searchLabel" for="searchInput">Search The Jewelica</label>
-
       <input id="searchInput" class="search-input" type="search" placeholder="Search jewellery..." autocomplete="off">
-
       <div class="search-results" id="searchResults">Explore diamond jewellery, men's rings, categories and collections.
       </div>
-
     </div>
-
   </div>
-
 
   <button class="back-top" id="backTop" type="button" aria-label="Back to top">↑</button>
 
-
   <script>
-
     (() => {
-
       "use strict";
 
-
       const $ = (selector, parent = document) => parent.querySelector(selector);
-
       const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 
-
       const menuToggle = $("#menuToggle");
-
       const navLinks = $("#navLinks");
 
-
       function closeMenu() {
-
         if (!navLinks || !menuToggle) return;
-
         navLinks.classList.remove("open");
-
-
         menuToggle.textContent = "☰";
-
         menuToggle.setAttribute("aria-expanded", "false");
-
         menuToggle.setAttribute("aria-label", "Open menu");
-
         document.body.classList.remove("menu-open");
-
       }
-
-
 
       function toggleMenu() {
-
         if (!navLinks || !menuToggle) return;
-
         const isOpen = navLinks.classList.toggle("open");
-
         menuToggle.textContent = isOpen ? "×" : "☰";
-
         menuToggle.setAttribute("aria-expanded", String(isOpen));
-
         menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-
         document.body.classList.toggle("menu-open", isOpen);
-
       }
-
-
 
       menuToggle?.addEventListener("click", toggleMenu);
 
-
       $$(".nav-links a").forEach(link => {
-
         link.addEventListener("click", closeMenu);
-
-
       });
-
 
       window.addEventListener("resize", () => {
-
         if (window.innerWidth > 1200) closeMenu();
-
       });
-
 
       function readStorageArray(key) {
-
         try {
-
           const value = JSON.parse(localStorage.getItem(key) || "[]");
-
           return Array.isArray(value) ? value : [];
-
         } catch (error) {
-
           console.warn("Could not read " + key + " from localStorage.", error);
-
           return [];
-
         }
-
-
       }
-
-
 
       let cart = readStorageArray("jewelicaCart");
-
       let wishlist = readStorageArray("jewelicaWishlist");
 
-
       const cartCount = $("#cartCount");
-
       const wishlistCount = $("#wishlistCount");
-
       const toast = $("#toast");
 
-
       function updateCounters() {
-
         if (cartCount) cartCount.textContent = String(cart.length);
-
         if (wishlistCount) wishlistCount.textContent = String(wishlist.length);
-
       }
-
-
 
       let toastTimer;
-
       function showToast(message) {
-
         if (!toast) return;
-
         clearTimeout(toastTimer);
-
         toast.textContent = message;
-
         toast.classList.add("show");
-
         toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
-
       }
-
-
 
       function saveStorage(key, value) {
-
         try {
-
           localStorage.setItem(key, JSON.stringify(value));
-
         } catch (error) {
-
           console.warn("Could not save " + key + " to localStorage.", error);
-
         }
-
-
       }
-
-
 
       function addToCart(type, index) {
-
         cart.push({
-
           type,
-
           category: "Diamond Men's Rings",
-
           productIndex: index,
-
           quantity: 1,
-
           addedAt: new Date().toISOString()
-
         });
-
 
         saveStorage("jewelicaCart", cart);
-
         updateCounters();
-
         showToast(type + " added to your cart.");
-
       }
-
-
 
       $$(".add-cart").forEach(button => {
-
         button.addEventListener("click", () => {
-
-
           const card = button.closest(".product-card");
-
           if (!card) return;
-
           addToCart(card.dataset.type || "DIAMOND MEN'S RING", card.dataset.index || "");
-
         });
-
       });
-
 
       $$(".view-product").forEach(button => {
-
         button.addEventListener("click", () => {
-
-
-          window.location.href = "diamond-ring-men.html";
-
+          const card = button.closest(".product-card");
+          const id = card?.dataset.id;
+          window.location.href = id ? "product.html#" + id : "product.html";
         });
-
       });
-
 
       function syncWishlistButtons() {
-
         $$(".wishlist").forEach(button => {
-
           const card = button.closest(".product-card");
-
           const index = card?.dataset.index || "";
-
           const key = "DIAMOND MEN'S RING " + index;
-
           const selected = wishlist.includes(key);
-
           button.textContent = selected ? "♥" : "♡";
-
-
           button.classList.toggle("selected", selected);
-
-
           button.setAttribute("aria-pressed", String(selected));
-
-
         });
-
       }
-
-
 
       $$(".wishlist").forEach(button => {
-
         button.addEventListener("click", () => {
-
-
           const card = button.closest(".product-card");
-
           if (!card) return;
 
-
           const index = card.dataset.index || "";
-
           const type = "DIAMOND MEN'S RING " + index;
 
-
           if (!wishlist.includes(type)) {
-
             wishlist.push(type);
-
             showToast("Added to your wishlist.");
-
           } else {
-
             wishlist = wishlist.filter(item => item !== type);
-
             showToast("Removed from your wishlist.");
-
           }
 
-
-
           saveStorage("jewelicaWishlist", wishlist);
-
           updateCounters();
-
           syncWishlistButtons();
-
         });
-
       });
 
-
       const productSearch = $("#productSearch");
-
       const productGrid = $("#productGrid");
-
       const resultCount = $("#resultCount");
-
       const emptyState = $("#emptyState");
-
       const sortProducts = $("#sortProducts");
 
-
       function filterProducts() {
-
         if (!productGrid || !resultCount || !emptyState) return;
 
-
         const query = (productSearch?.value || "").trim().toLowerCase();
-
         const cards = $$(".product-card", productGrid);
-
         let visible = 0;
 
-
         cards.forEach(card => {
-
           const type = (card.dataset.type || "").toLowerCase();
-
           const index = (card.dataset.index || "").toLowerCase();
-
           const matches = !query || type.includes(query) || index.includes(query);
 
-
           card.hidden = !matches;
-
           if (matches) visible++;
-
         });
 
-
         resultCount.textContent = visible + (visible === 1 ? " Piece" : " Pieces");
-
         emptyState.hidden = visible !== 0;
-
       }
-
-
 
       productSearch?.addEventListener("input", filterProducts);
 
-
       sortProducts?.addEventListener("change", () => {
-
         if (!productGrid || !emptyState) return;
 
-
         const cards = $$(".product-card", productGrid);
-
         const mode = sortProducts.value;
 
-
         cards.sort((a, b) => {
-
           if (mode === "az") return (a.dataset.type || "").localeCompare(b.dataset.type || "");
-
           if (mode === "za") return (b.dataset.type || "").localeCompare(a.dataset.type || "");
-
           return Number(a.dataset.index || 0) - Number(b.dataset.index || 0);
-
         });
 
-
         cards.forEach(card => productGrid.insertBefore(card, emptyState));
-
         filterProducts();
-
       });
-
 
       const searchOverlay = $("#searchOverlay");
-
       const searchBtn = $("#searchBtn");
-
       const searchClose = $("#searchClose");
-
       const searchInput = $("#searchInput");
-
       const searchResults = $("#searchResults");
 
-
       function closeSearch() {
-
         searchOverlay?.classList.remove("open");
-
         document.body.classList.remove("menu-open");
-
         if (searchInput) searchInput.value = "";
-
         if (searchResults) {
-
           searchResults.textContent = "Explore diamond jewellery, men's rings, categories and collections.";
-
         }
-
-
       }
-
-
 
       function openSearch() {
-
         closeMenu();
-
         searchOverlay?.classList.add("open");
-
         document.body.classList.add("menu-open");
-
         window.setTimeout(() => searchInput?.focus(), 80);
-
       }
 
-
-
       searchBtn?.addEventListener("click", openSearch);
-
       searchClose?.addEventListener("click", closeSearch);
 
-
       searchOverlay?.addEventListener("click", event => {
-
         if (event.target === searchOverlay) closeSearch();
-
       });
-
 
       searchInput?.addEventListener("input", () => {
-
         const value = searchInput.value.trim().toLowerCase();
 
-
         if (!value) {
-
           searchResults.textContent = "Explore diamond jewellery, men's rings, categories and collections.";
-
           return;
-
         }
-
-
 
         const matches = [
-
           "Diamond Rings",
-
           "Diamond Men's Rings",
-
           "Diamond Nose Pins",
-
           "Gold Jewellery",
-
           "Gold Rings",
-
           "Gold Earrings",
-
           "Collections",
-
           "Choose Your Stone",
-
           "Services",
-
           "Jewellery Care"
-
         ].filter(item => item.toLowerCase().includes(value));
 
-
         if (matches.length) {
-
           searchResults.innerHTML = matches.map(item => "• " + item).join("<br>");
-
         } else {
-
           searchResults.textContent = "No matching jewellery category found.";
-
         }
-
-
       });
-
 
       document.addEventListener("keydown", event => {
-
         if (event.key === "Escape") {
-
           closeSearch();
-
           closeMenu();
-
         }
-
-
 
         if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
-
           event.preventDefault();
-
           openSearch();
-
         }
-
-
       });
-
 
       const backTop = $("#backTop");
 
-
       window.addEventListener("scroll", () => {
-
         backTop?.classList.toggle("show", window.scrollY > 500);
-
       }, { passive: true });
 
-
       backTop?.addEventListener("click", () => {
-
         window.scrollTo({ top: 0, behavior: "smooth" });
-
       });
-
 
       $("#cartBtn")?.addEventListener("click", () => {
-
         showToast(cart.length ? cart.length + " item(s) in your cart." : "Your cart is empty.");
-
       });
-
 
       $("#wishlistBtn")?.addEventListener("click", () => {
-
         showToast(wishlist.length ? wishlist.length + " item(s) in your wishlist." : "Your wishlist is empty.");
-
       });
 
-
       updateCounters();
-
       syncWishlistButtons();
-
       filterProducts();
-
     })();
-
   </script>
-
 </body>
-
 
 </html>

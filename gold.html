@@ -1303,36 +1303,82 @@
         display: grid;
       }
 
+      /* HERO — poster layout: image fills the section, copy floats over it */
       .gold-hero {
-        grid-template-columns: 1fr;
-      }
-
-      .gold-hero-content {
-        min-height: 460px;
+        display: block;
+        position: relative;
+        height: 580px;
+        overflow: hidden;
       }
 
       .gold-hero-image {
-        min-height: 420px;
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        min-height: 0;
       }
 
+      .hero-image-overlay {
+        background: linear-gradient(180deg, rgba(23, 20, 17, .1) 0%, rgba(23, 20, 17, .6) 55%, rgba(23, 20, 17, .96) 100%);
+      }
+
+      .gold-hero-content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        min-height: 0;
+        padding: 40px 8vw 46px;
+        justify-content: flex-end;
+        background: none;
+      }
+
+      /* CRAFTSMANSHIP — image behind, content floats as an overlapping card */
       .craft {
-        grid-template-columns: 1fr;
+        display: block;
+        position: relative;
+        min-height: 0;
       }
 
       .craft-image {
-        min-height: 380px;
+        min-height: 400px;
       }
 
+      .craft-content {
+        position: relative;
+        z-index: 2;
+        margin-top: -90px;
+        width: 88%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 46px 34px;
+        box-shadow: var(--shadow);
+      }
+
+      /* STONE FEATURE — images on top, copy overlapping below as a card */
       .stone-feature {
-        grid-template-columns: 1fr;
-      }
-
-      .stone-copy {
-        padding: 55px 8vw;
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: none;
+        background: transparent;
       }
 
       .stone-images {
-        min-height: 350px;
+        order: 1;
+        min-height: 340px;
+        background: #ded3c1;
+      }
+
+      .stone-copy {
+        order: 2;
+        position: relative;
+        z-index: 2;
+        margin-top: -60px;
+        width: 88%;
+        margin-left: auto;
+        margin-right: auto;
+        background: #ded3c1;
+        padding: 46px 34px;
+        box-shadow: var(--shadow);
       }
     }
 
@@ -1361,21 +1407,21 @@
         height: 34px;
       }
 
+      .gold-hero {
+        height: 480px;
+      }
+
       .gold-hero-content {
-        padding: 55px 7vw;
-        min-height: 420px;
+        padding: 28px 7vw 34px;
       }
 
       .gold-hero h1 {
-        font-size: 52px;
+        font-size: 46px;
       }
 
       .gold-hero p {
         font-size: 12.5px;
-      }
-
-      .gold-hero-image {
-        min-height: 300px;
+        margin-bottom: 26px;
       }
 
       .section {
@@ -1391,20 +1437,40 @@
         margin-top: 16px;
       }
 
+      /* CATEGORY GRID — horizontal snap-scroll carousel */
       .category-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: flex;
+        grid-template-columns: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 14px;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
       }
 
       .category-card,
       .category-card:nth-child(5),
       .category-card:nth-child(10) {
-        grid-column: span 1;
-        min-height: 250px;
+        grid-column: unset;
+        flex: 0 0 66%;
+        min-height: 280px;
+        scroll-snap-align: start;
       }
 
+      /* PRODUCT GRID — horizontal snap-scroll carousel */
       .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px 10px;
+        display: flex;
+        grid-template-columns: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .product-card {
+        flex: 0 0 56%;
+        scroll-snap-align: start;
       }
 
       .product-actions {
@@ -1435,34 +1501,46 @@
         width: 100%;
       }
 
+      /* COLLECTIONS — horizontal snap-scroll carousel */
       .collection-grid {
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        grid-template-columns: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 14px;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
       }
 
+      .collection-card,
       .collection-card:first-child {
-        grid-column: span 2;
-        min-height: 400px;
-      }
-
-      .collection-card {
-        min-height: 260px;
+        grid-column: unset;
+        grid-row: unset;
+        flex: 0 0 76%;
+        min-height: 340px;
+        scroll-snap-align: start;
       }
 
       .stone-images {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        min-height: 260px;
-      }
-
-      .stone-images img {
         min-height: 240px;
       }
 
+      .stone-images img {
+        min-height: 220px;
+      }
+
       .stone-copy {
-        padding: 45px 22px;
+        padding: 40px 22px;
+      }
+
+      .craft-image {
+        min-height: 320px;
       }
 
       .craft-content {
-        padding: 55px 6vw;
+        margin-top: -70px;
+        padding: 38px 24px;
       }
 
       .craft-points {
@@ -1473,10 +1551,30 @@
         padding: 60px 22px;
       }
 
+      /* FOOTER — brand & map stacked full width, link columns side by side */
       .footer-main {
-        grid-template-columns: 1fr;
-        gap: 34px;
-        padding: 60px 6vw 40px;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 18px;
+        padding: 55px 6vw 40px;
+      }
+
+      .footer-column:nth-child(1) {
+        grid-column: 1 / -1;
+        order: 1;
+        text-align: center;
+      }
+
+      .footer-column:nth-child(4) {
+        grid-column: 1 / -1;
+        order: 2;
+      }
+
+      .footer-column:nth-child(2) {
+        order: 3;
+      }
+
+      .footer-column:nth-child(3) {
+        order: 4;
       }
 
       .footer-bottom {
@@ -1490,42 +1588,59 @@
     }
 
     @media (max-width: 460px) {
-      .category-grid {
-        grid-template-columns: 1fr;
+      .gold-hero {
+        height: 420px;
+      }
+
+      .gold-hero h1 {
+        font-size: 38px;
       }
 
       .category-card,
       .category-card:nth-child(5),
       .category-card:nth-child(10) {
-        min-height: 280px;
+        flex: 0 0 78%;
+        min-height: 250px;
       }
 
-      .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .product-card {
+        flex: 0 0 70%;
       }
 
       .product-label {
         font-size: 12px;
       }
 
-      .collection-grid {
-        grid-template-columns: 1fr;
+      .collection-card,
+      .collection-card:first-child {
+        flex: 0 0 86%;
+        min-height: 300px;
       }
 
-      .collection-card:first-child {
-        grid-column: span 1;
+      .craft-content {
+        margin-top: -50px;
+        width: 92%;
+        padding: 30px 20px;
       }
 
       .stone-copy {
-        padding: 45px 20px;
+        width: 92%;
+        margin-top: -45px;
+        padding: 32px 20px;
       }
 
       .stone-images {
-        height: 220px;
+        height: 200px;
+        min-height: 200px;
       }
 
       .stone-images img {
-        min-height: 200px;
+        min-height: 180px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 14px;
       }
     }
   </style>
@@ -1841,7 +1956,9 @@
 
         <article class="product-card" data-type="ring" data-name="Ring">
           <div class="product-image">
-            <img src="images/ring (9).png" alt="The Jewelica Gold Ring">
+            <a class="product-link" href="product.html#ring-09">
+              <img src="images/ring (9).png" alt="The Jewelica Gold Ring">
+            </a>
             <div class="product-actions">
               <button class="round-action wishlist" aria-label="Add Ring to wishlist">♡</button>
               <button class="round-action add-cart" aria-label="Add Ring to cart">+</button>
@@ -1852,7 +1969,9 @@
 
         <article class="product-card" data-type="earring" data-name="Earrings">
           <div class="product-image">
-            <img src="images/earings (16).png" alt="The Jewelica Gold Earrings">
+            <a class="product-link" href="product.html#earing-16">
+              <img src="images/earings (16).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wishlist" aria-label="Add Earrings to wishlist">♡</button>
               <button class="round-action add-cart" aria-label="Add Earrings to cart">+</button>
@@ -1863,7 +1982,9 @@
 
         <article class="product-card" data-type="bracelet" data-name="Bracelet">
           <div class="product-image">
-            <img src="images/bracelet (12).png" alt="The Jewelica Gold Bracelet">
+            <a class="product-link" href="product.html#bracelet-11">
+              <img src="images/bracelet (12).png" alt="The Jewelica Gold Bracelet">
+            </a>
             <div class="product-actions">
               <button class="round-action wishlist" aria-label="Add Bracelet to wishlist">♡</button>
               <button class="round-action add-cart" aria-label="Add Bracelet to cart">+</button>
@@ -1874,7 +1995,9 @@
 
         <article class="product-card" data-type="necklace" data-name="Necklace">
           <div class="product-image">
-            <img src="images/necklace (12).png" alt="The Jewelica Gold Necklace">
+            <a class="product-link" href="product.html#necklace-12">
+              <img src="images/necklace (12).png" alt="The Jewelica Gold Necklace">
+            </a>
             <div class="product-actions">
               <button class="round-action wishlist" aria-label="Add Necklace to wishlist">♡</button>
               <button class="round-action add-cart" aria-label="Add Necklace to cart">+</button>
@@ -1885,7 +2008,9 @@
 
         <article class="product-card" data-type="pendant" data-name="Pendant">
           <div class="product-image">
-            <img src="images/pendant (12).png" alt="The Jewelica Gold Pendant">
+            <a class="product-link" href="product.html#pendant-37">
+              <img src="images/pendant (12).png" alt="The Jewelica Gold Pendant">
+            </a>
             <div class="product-actions">
               <button class="round-action wishlist" aria-label="Add Pendant to wishlist">♡</button>
               <button class="round-action add-cart" aria-label="Add Pendant to cart">+</button>
@@ -1896,7 +2021,9 @@
 
         <article class="product-card" data-type="ring" data-name="Ring">
           <div class="product-image">
-            <img src="images/ring (13).png" alt="The Jewelica Gold Ring">
+            <a class="product-link" href="product.html#ring-13">
+              <img src="images/ring (13).png" alt="The Jewelica Gold Ring">
+            </a>
             <div class="product-actions">
               <button class="round-action wishlist" aria-label="Add Ring to wishlist">♡</button>
               <button class="round-action add-cart" aria-label="Add Ring to cart">+</button>
@@ -1907,7 +2034,9 @@
 
         <article class="product-card" data-type="bracelet" data-name="Bracelet">
           <div class="product-image">
-            <img src="images/bracelet (13).png" alt="The Jewelica Gold Bracelet">
+            <a class="product-link" href="product.html#bracelet-12">
+              <img src="images/bracelet (13).png" alt="The Jewelica Gold Bracelet">
+            </a>
             <div class="product-actions">
               <button class="round-action wishlist" aria-label="Add Bracelet to wishlist">♡</button>
               <button class="round-action add-cart" aria-label="Add Bracelet to cart">+</button>
@@ -1918,7 +2047,9 @@
 
         <article class="product-card" data-type="earring" data-name="Earrings">
           <div class="product-image">
-            <img src="images/earings (17).png" alt="The Jewelica Gold Earrings">
+            <a class="product-link" href="product.html#earing-17">
+              <img src="images/earings (17).png" alt="The Jewelica Gold Earrings">
+            </a>
             <div class="product-actions">
               <button class="round-action wishlist" aria-label="Add Earrings to wishlist">♡</button>
               <button class="round-action add-cart" aria-label="Add Earrings to cart">+</button>
@@ -2451,6 +2582,7 @@
 
     document.querySelectorAll(".add-cart").forEach(button => {
       button.addEventListener("click", event => {
+        event.preventDefault();
         event.stopPropagation();
 
         const card = button.closest(".product-card");
@@ -2461,6 +2593,7 @@
 
     document.querySelectorAll(".wishlist").forEach(button => {
       button.addEventListener("click", event => {
+        event.preventDefault();
         event.stopPropagation();
 
         const card = button.closest(".product-card");

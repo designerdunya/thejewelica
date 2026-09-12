@@ -823,6 +823,9 @@
       }
     }
 
+    /* =====================================================
+       DESKTOP / TABLET FINE-TUNING
+    ===================================================== */
     @media (max-width: 1100px) {
       .nav-links {
         gap: 14px;
@@ -837,6 +840,12 @@
       }
     }
 
+    /* =====================================================
+       MOBILE LAYOUT — its own structure, not the desktop
+       grid shrunk down: slide-in drawer nav, a swipeable
+       product rail instead of a squeezed grid, single-
+       column footer. Same elements, images, colors, fonts.
+    ===================================================== */
     @media (max-width: 800px) {
       .nav {
         min-height: 70px;
@@ -844,43 +853,65 @@
 
       .brand {
         font-size: 25px;
+        order: 1;
+      }
+
+      .nav-actions {
+        order: 2;
+        margin-left: auto;
       }
 
       .menu-toggle {
         display: block;
         order: 3;
-      }
-
-      .nav-links {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 70px;
-        background: var(--ivory);
-        border-bottom: 1px solid var(--line);
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 20px 6%;
-        max-height: calc(100vh - 70px);
-        overflow-y: auto;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 13px 0;
-      }
-
-      .nav-actions {
-        margin-left: auto;
+        margin-left: 8px;
       }
 
       .nav-actions .nav-btn:nth-child(2) {
         display: none;
+      }
+
+      /* ---- slide-in drawer (replaces the dropdown-under-header) ---- */
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        left: auto;
+        width: min(320px, 86vw);
+        height: 100vh;
+        height: 100dvh;
+        max-height: none;
+        background: var(--charcoal);
+        border-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 90px 26px 40px;
+        overflow-y: auto;
+        box-shadow: -25px 0 60px rgba(0, 0, 0, .3);
+        transition: right .35s ease;
+        z-index: 1500;
+        gap: 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+        right: 0;
+      }
+
+      .nav-links a {
+        color: var(--ivory);
+        padding: 15px 2px;
+        border-bottom: 1px solid rgba(247, 243, 235, .12);
+      }
+
+      .nav-links a:hover::after,
+      .nav-links a.active::after {
+        display: none;
+      }
+
+      .nav-links a.active {
+        color: var(--gold-light);
       }
 
       .hero {
@@ -895,9 +926,30 @@
         padding: 65px 0;
       }
 
+      /* ---- product rail: horizontal swipe, not a squeezed grid ---- */
       .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 25px 12px;
+        display: flex;
+        grid-template-columns: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .products::-webkit-scrollbar {
+        display: none;
+      }
+
+      .product-card {
+        flex: 0 0 62%;
+        scroll-snap-align: start;
+      }
+
+      .product-actions {
+        opacity: 1;
+        transform: none;
       }
 
       .craft-grid {
@@ -914,8 +966,24 @@
         width: 100%;
       }
 
+      /* ---- footer: single centered column ---- */
       .footer-grid {
-        gap: 40px 30px;
+        grid-template-columns: 1fr;
+        gap: 34px;
+        text-align: center;
+      }
+
+      .footer-text {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      .footer-links {
+        justify-items: center;
+      }
+
+      .visit p {
+        text-align: center;
       }
     }
 
@@ -984,9 +1052,8 @@
         font-size: 8.5px;
       }
 
-      .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px 10px;
+      .product-card {
+        flex-basis: 74%;
       }
 
       .product-info {
@@ -1024,11 +1091,6 @@
         font-size: 32px;
       }
 
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
       .footer-brand {
         font-size: 28px;
       }
@@ -1049,9 +1111,8 @@
     }
 
     @media (max-width: 360px) {
-      .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px 8px;
+      .product-card {
+        flex-basis: 82%;
       }
 
       .hero h1 {
@@ -1154,647 +1215,647 @@
 
       <div class="products" id="productGrid">
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-26">
+          <a class="product-image" href="product.html#pendant-26">
             <img src="images/pendant (1).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-26" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-26">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-27">
+          <a class="product-image" href="product.html#pendant-27">
             <img src="images/pendant (2).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-27" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-27">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-36">
+          <a class="product-image" href="product.html#pendant-36">
             <img src="images/pendant (11).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-36" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-36">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-29">
+          <a class="product-image" href="product.html#pendant-29">
             <img src="images/pendant (4).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-29" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-29">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-30">
+          <a class="product-image" href="product.html#pendant-30">
             <img src="images/pendant (5).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-30" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-30">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-31">
+          <a class="product-image" href="product.html#pendant-31">
             <img src="images/pendant (6).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-31" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-31">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-32">
+          <a class="product-image" href="product.html#pendant-32">
             <img src="images/pendant (7).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-32" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-32">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-33">
+          <a class="product-image" href="product.html#pendant-33">
             <img src="images/pendant (8).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-33" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-33">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-34">
+          <a class="product-image" href="product.html#pendant-34">
             <img src="images/pendant (9).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-34" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-34">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-35">
+          <a class="product-image" href="product.html#pendant-35">
             <img src="images/pendant (10).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-35" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-35">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-37">
+          <a class="product-image" href="product.html#pendant-37">
             <img src="images/pendant (12).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-37" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-37">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-38">
+          <a class="product-image" href="product.html#pendant-38">
             <img src="images/pendant (13).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-38" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-38">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-39">
+          <a class="product-image" href="product.html#pendant-39">
             <img src="images/pendant (14).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-39" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-39">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-40">
+          <a class="product-image" href="product.html#pendant-40">
             <img src="images/pendant (15).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-40" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-40">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-41">
+          <a class="product-image" href="product.html#pendant-41">
             <img src="images/pendant (16).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-41" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-41">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-42">
+          <a class="product-image" href="product.html#pendant-42">
             <img src="images/pendant (17).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-42" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-42">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-43">
+          <a class="product-image" href="product.html#pendant-43">
             <img src="images/pendant (18).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-43" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-43">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-44">
+          <a class="product-image" href="product.html#pendant-44">
             <img src="images/pendant (19).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-44" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-44">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-45">
+          <a class="product-image" href="product.html#pendant-45">
             <img src="images/pendant.png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-45" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-45">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-25">
+          <a class="product-image" href="product.html#pendant-25">
             <img src="images/alphabet.png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-25" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-25">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-01">
+          <a class="product-image" href="product.html#pendant-01">
             <img src="images/alphabet (1).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-01" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-01">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-02">
+          <a class="product-image" href="product.html#pendant-02">
             <img src="images/alphabet (2).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-02" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-02">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-03">
+          <a class="product-image" href="product.html#pendant-03">
             <img src="images/alphabet (3).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-03" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-03">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-04">
+          <a class="product-image" href="product.html#pendant-04">
             <img src="images/alphabet (4).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-04" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-04">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-05">
+          <a class="product-image" href="product.html#pendant-05">
             <img src="images/alphabet (5).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-05" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-05">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-06">
+          <a class="product-image" href="product.html#pendant-06">
             <img src="images/alphabet (6).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-06" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-06">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-07">
+          <a class="product-image" href="product.html#pendant-07">
             <img src="images/alphabet (7).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-07" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-07">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-08">
+          <a class="product-image" href="product.html#pendant-08">
             <img src="images/alphabet (8).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-08" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-08">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
 
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-09">
+          <a class="product-image" href="product.html#pendant-09">
             <img src="images/alphabet (9).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-09" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-09">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-10">
+          <a class="product-image" href="product.html#pendant-10">
             <img src="images/alphabet (10).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-10" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-10">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-11">
+          <a class="product-image" href="product.html#pendant-11">
             <img src="images/alphabet (11).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-11" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-11">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-12">
+          <a class="product-image" href="product.html#pendant-12">
             <img src="images/alphabet (12).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-12" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-12">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-13">
+          <a class="product-image" href="product.html#pendant-13">
             <img src="images/alphabet (13).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-13" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-13">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-14">
+          <a class="product-image" href="product.html#pendant-14">
             <img src="images/alphabet (14).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-14" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-14">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-15">
+          <a class="product-image" href="product.html#pendant-15">
             <img src="images/alphabet (15).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-15" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-15">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-16">
+          <a class="product-image" href="product.html#pendant-16">
             <img src="images/alphabet (16).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-16" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-16">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-17">
+          <a class="product-image" href="product.html#pendant-17">
             <img src="images/alphabet (17).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-17" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-17">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-18">
+          <a class="product-image" href="product.html#pendant-18">
             <img src="images/alphabet (18).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-18" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-18">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-19">
+          <a class="product-image" href="product.html#pendant-19">
             <img src="images/alphabet (19).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-19" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-19">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-20">
+          <a class="product-image" href="product.html#pendant-20">
             <img src="images/alphabet (20).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-20" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-20">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-21">
+          <a class="product-image" href="product.html#pendant-21">
             <img src="images/alphabet (21).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-21" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-21">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-22">
+          <a class="product-image" href="product.html#pendant-22">
             <img src="images/alphabet (22).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-22" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-22">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-23">
+          <a class="product-image" href="product.html#pendant-23">
             <img src="images/alphabet (23).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-23" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-23">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
-        <article class="product-card" data-type="pendant">
-          <div class="product-image">
+        <article class="product-card" data-type="pendant" data-id="pendant-24">
+          <a class="product-image" href="product.html#pendant-24">
             <img src="images/alphabet (24).png" alt="The Jewelica Gold Pendant">
             <div class="product-actions">
-              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist">♡</button>
-              <button class="icon-btn" onclick="viewProduct()">↗</button>
+              <button class="icon-btn wishlist" aria-label="Add pendant to wishlist" onclick="event.preventDefault();event.stopPropagation();">♡</button>
+              <a class="icon-btn" href="product.html#pendant-24" aria-label="View pendant" style="display:grid;place-items:center;text-decoration:none;">↗</a>
             </div>
-          </div>
+          </a>
           <div class="product-info">
             <span class="product-type">PENDANT</span>
-            <button class="view-btn" onclick="viewProduct()">View Details</button>
+            <a class="view-btn" href="product.html#pendant-24">View Details</a>
           </div>
           <button class="add-btn" onclick="addToCart('PENDANT')">Add To Cart</button>
         </article>
@@ -1959,10 +2020,6 @@
       localStorage.setItem("jewelicaCart", JSON.stringify(cart));
       updateCounters();
       showToast(type + " added to your cart.");
-    }
-
-    function viewProduct() {
-      window.location.href = "product.html";
     }
 
     document.querySelectorAll(".wishlist").forEach(button => {

@@ -1004,6 +1004,15 @@
       }
     }
 
+    /* =====================================================
+       ============  MOBILE LAYOUT GROUP (<=480px) ==========
+       Same elements, same images — rearranged so nothing is
+       just a shrunken desktop row: nav becomes a full-width
+       dropdown sheet, toolbar and controls stack, product
+       grid narrows without ever squeezing content, and
+       footer columns become one readable stack.
+    ===================================================== */
+
     @media(max-width:480px) {
       .announcement {
         font-size: 8px;
@@ -1011,49 +1020,168 @@
         padding: 8px 10px;
       }
 
+      .nav {
+        width: calc(100% - 24px);
+      }
+
       .brand {
-        font-size: 19px;
-        letter-spacing: 2px;
+        font-size: 18px;
+        letter-spacing: 1.6px;
       }
 
       .nav-btn {
-        width: 35px;
-        height: 35px;
+        width: 34px;
+        height: 34px;
+      }
+
+      .nav-links {
+        top: 62px;
       }
 
       .hero {
-        min-height: 420px;
+        min-height: 400px;
+      }
+
+      .hero-content {
+        width: calc(100% - 32px);
+        padding: 46px 0;
+      }
+
+      .eyebrow {
+        font-size: 9px;
+        letter-spacing: 3px;
+        margin-bottom: 14px;
       }
 
       .hero h1 {
-        letter-spacing: 1px;
+        letter-spacing: 0px;
       }
 
       .hero p {
         font-size: 13px;
       }
 
+      .hero-actions {
+        margin-top: 24px;
+        flex-direction: column;
+        width: 100%;
+      }
+
       .btn {
-        padding: 12px 20px;
+        width: 100%;
+        text-align: center;
+        padding: 13px 20px;
         font-size: 8.5px;
       }
 
+      .section {
+        width: calc(100% - 32px);
+        padding: 48px 0;
+      }
+
+      .intro h2 {
+        font-size: 34px;
+      }
+
+      .category-links {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        margin-top: 28px;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+      }
+
+      .category-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .category-link {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+
+      .toolbar {
+        margin-top: 36px;
+      }
+
+      .controls {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .search-small,
+      .sort {
+        width: 100%;
+      }
+
+      /* single column: image on top full width, info and
+         add-button read cleanly beneath — never squeezed
+         two-up the way a plain resize would leave them */
       .products {
-        grid-template-columns: 1fr 1fr;
-        gap: 16px 10px;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 22px;
       }
 
       .product-card {
-        padding: 8px 8px 12px;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        padding: 10px;
+        gap: 12px;
+      }
+
+      .product-image {
+        flex: 0 0 110px;
+        width: 110px;
+        aspect-ratio: auto;
+        height: 110px;
+      }
+
+      .product-actions {
+        opacity: 1;
+        transform: none;
+        right: 6px;
+        top: 6px;
+        flex-direction: row;
+        gap: 5px;
+      }
+
+      .icon-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
       }
 
       .product-info {
-        display: block;
+        padding: 4px 0 0;
       }
 
-      .view-btn {
+      .product-type {
+        font-size: 14px;
+      }
+
+      .add-btn {
         margin-top: 8px;
-        display: inline-block;
+        padding: 10px;
+        font-size: 8px;
+      }
+
+      .editorial-copy h2 {
+        font-size: 32px;
+      }
+
+      .diamond-note {
+        padding: 56px 0;
+      }
+
+      .diamond-note h2 {
+        font-size: 30px;
+      }
+
+      .cta h2 {
+        font-size: 34px;
       }
 
       .footer-grid {
@@ -1061,28 +1189,36 @@
         gap: 35px;
       }
 
-      .controls {
-        flex-direction: column;
+      .footer-text {
+        max-width: 100%;
       }
 
-      .search-small,
-      .sort {
-        width: 100%;
+      .map {
+        height: 150px;
+      }
+
+      .back-top {
+        right: 14px;
+        bottom: 14px;
+        width: 38px;
+        height: 38px;
       }
     }
 
     @media(max-width:360px) {
       .section {
-        padding: 48px 0;
+        padding: 40px 0;
       }
 
-      .products {
-        gap: 14px 8px;
+      .product-image {
+        flex-basis: 92px;
+        width: 92px;
+        height: 92px;
       }
 
       .icon-btn {
-        width: 33px;
-        height: 33px;
+        width: 26px;
+        height: 26px;
       }
     }
   </style>
@@ -1264,7 +1400,7 @@
       <div class="products" id="productGrid">
 
 
-        <article class="product-card" data-type="ring">
+        <article class="product-card" data-type="ring" data-id="trending-01">
 
           <div class="product-image">
 
@@ -1276,7 +1412,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-01')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1287,23 +1423,23 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Silver drop earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-01')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
 
 
-        <article class="product-card" data-type="ring">
+        <article class="product-card" data-type="ring" data-id="trending-02">
 
           <div class="product-image">
 
@@ -1315,7 +1451,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-02')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1326,23 +1462,23 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Gold pendant necklace
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-02')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
 
 
-        <article class="product-card" data-type="ring">
+        <article class="product-card" data-type="ring" data-id="trending-03">
 
           <div class="product-image">
 
@@ -1354,7 +1490,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-03')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1365,23 +1501,23 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Stud earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-03')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
 
 
-        <article class="product-card" data-type="ring">
+        <article class="product-card" data-type="ring" data-id="trending-04">
 
           <div class="product-image">
 
@@ -1393,7 +1529,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-04')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1404,23 +1540,23 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Dangle earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-04')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
 
 
-        <article class="product-card" data-type="ring">
+        <article class="product-card" data-type="ring" data-id="trending-05">
 
           <div class="product-image">
 
@@ -1432,7 +1568,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-05')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1443,23 +1579,23 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Gold hoop earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-05')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
 
 
-        <article class="product-card" data-type="ring">
+        <article class="product-card" data-type="ring" data-id="trending-06">
 
           <div class="product-image">
 
@@ -1471,7 +1607,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-06')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1482,23 +1618,23 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Gold drop earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-06')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
 
 
-        <article class="product-card" data-type="ring">
+        <article class="product-card" data-type="ring" data-id="trending-07">
 
           <div class="product-image">
 
@@ -1510,7 +1646,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-07')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1521,23 +1657,23 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Engagement ring
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-07')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
 
 
-        <article class="product-card" data-type="ring">
+        <article class="product-card" data-type="ring" data-id="trending-08">
 
           <div class="product-image">
 
@@ -1549,7 +1685,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-08')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1560,21 +1696,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Pendant necklace
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-08')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-09">
 
           <div class="product-image">
 
@@ -1586,7 +1722,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-09')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1597,21 +1733,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Hexagon-shape hoop earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-09')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-10">
 
           <div class="product-image">
 
@@ -1623,7 +1759,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-10')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1634,21 +1770,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Gold ring
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-10')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-11">
 
           <div class="product-image">
 
@@ -1660,7 +1796,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-11')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1671,21 +1807,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Hoop earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-11')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-12">
 
           <div class="product-image">
 
@@ -1697,7 +1833,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-12')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1708,21 +1844,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Pendant necklace
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-12')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-13">
 
           <div class="product-image">
 
@@ -1734,7 +1870,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-13')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1745,21 +1881,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Engagement ring
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-13')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-14">
 
           <div class="product-image">
 
@@ -1771,7 +1907,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-14')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1782,21 +1918,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Pendant necklace
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-14')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-15">
 
           <div class="product-image">
 
@@ -1808,7 +1944,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-15')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1819,21 +1955,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Pendant necklace
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-15')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-16">
 
           <div class="product-image">
 
@@ -1845,7 +1981,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-16')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1856,21 +1992,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Stud earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-16')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-17">
 
           <div class="product-image">
 
@@ -1882,7 +2018,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-17')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1893,21 +2029,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Toi-et-moi style ring
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-17')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-18">
 
           <div class="product-image">
 
@@ -1919,7 +2055,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-18')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1930,21 +2066,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Stud earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-18')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-19">
 
           <div class="product-image">
 
@@ -1956,7 +2092,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-19')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -1967,21 +2103,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Gold hoop earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-19')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-20">
 
           <div class="product-image">
 
@@ -1993,7 +2129,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-20')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2004,21 +2140,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Solitaire pendant necklace
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-20')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-21">
 
           <div class="product-image">
 
@@ -2030,7 +2166,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-21')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2041,21 +2177,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              "Allah" pendant necklace
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-21')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-22">
 
           <div class="product-image">
 
@@ -2067,7 +2203,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-22')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2078,21 +2214,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Toi-et-moi ring
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-22')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-23">
 
           <div class="product-image">
 
@@ -2104,7 +2240,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-23')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2115,21 +2251,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Lever-back stud/drop earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-23')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-24">
 
           <div class="product-image">
 
@@ -2141,7 +2277,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-24')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2152,21 +2288,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Gold ring band
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-24')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-25">
 
           <div class="product-image">
 
@@ -2178,7 +2314,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-25')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2189,21 +2325,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Eternity band ring
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-25')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-26">
 
           <div class="product-image">
 
@@ -2215,7 +2351,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-26')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2226,21 +2362,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+             Dangle earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-26')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-27">
 
           <div class="product-image">
 
@@ -2252,7 +2388,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-27')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2263,21 +2399,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Stud earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-27')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-28">
 
           <div class="product-image">
 
@@ -2289,7 +2425,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-28')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2300,21 +2436,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Dangle earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-28')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-29">
 
           <div class="product-image">
 
@@ -2326,7 +2462,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-29')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2337,21 +2473,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Pendant necklaces
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-29')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-30">
 
           <div class="product-image">
 
@@ -2363,7 +2499,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-30')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2374,21 +2510,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Toi-et-moi style ring
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-30')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-31">
 
           <div class="product-image">
 
@@ -2400,7 +2536,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-31')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2411,21 +2547,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Clip/omega-back earring
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-31')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-32">
 
           <div class="product-image">
 
@@ -2437,7 +2573,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-32')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2448,21 +2584,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Stud earrings
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-32')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-33">
 
           <div class="product-image">
 
@@ -2474,7 +2610,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-33')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2485,21 +2621,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Bar pendant necklace
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-33')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-34">
 
           <div class="product-image">
 
@@ -2511,7 +2647,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-34')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2522,21 +2658,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Ring
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-34')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-35">
 
           <div class="product-image">
 
@@ -2548,7 +2684,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-35')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2559,21 +2695,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Ring
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-35')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-36">
 
           <div class="product-image">
 
@@ -2585,7 +2721,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-36')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2596,21 +2732,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Cuff bracelet
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-36')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-37">
 
           <div class="product-image">
 
@@ -2622,7 +2758,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-37')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2633,21 +2769,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Ring
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-37')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-38">
 
           <div class="product-image">
 
@@ -2659,7 +2795,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-38')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2670,21 +2806,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Bangle bracelet
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-38')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-39">
 
           <div class="product-image">
 
@@ -2696,7 +2832,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-39')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2707,21 +2843,21 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Solitaire engagement ring
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-39')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
         </article>
-                <article class="product-card" data-type="ring">
+                <article class="product-card" data-type="ring" data-id="trending-40">
 
           <div class="product-image">
 
@@ -2733,7 +2869,7 @@
                 ♡
               </button>
 
-              <button class="icon-btn" onclick="viewProduct()" aria-label="View ring details">
+              <button class="icon-btn" onclick="viewProduct('trending-40')" aria-label="View ring details">
                 ↗
               </button>
 
@@ -2744,16 +2880,16 @@
           <div class="product-info">
 
             <span class="product-type">
-              Trending
+              Pendant necklace
             </span>
 
-            <button class="view-btn" onclick="viewProduct()">
+            <button class="view-btn" onclick="viewProduct('trending-40')">
               View Details
             </button>
 
           </div>
 
-          <button class="add-btn" onclick="addToCart('RING')">
+          <button class="add-btn" onclick="addToCart('Trending')">
             Add To Cart
           </button>
 
@@ -2942,7 +3078,7 @@
 
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
-              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              loading="lazy" allowfullscreen=""
               referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
           </div>
@@ -3067,9 +3203,9 @@
     }
 
 
-    function viewProduct() {
+    function viewProduct(id) {
 
-      window.location.href = "product.html";
+      window.location.href = "product.html#" + id;
 
     }
 

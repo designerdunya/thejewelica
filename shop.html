@@ -1224,81 +1224,36 @@
       }
     }
 
-    @media(max-width:1000px) {
-      .main-nav {
-        display: none;
-        position: absolute;
-        top: 82px;
-        left: 0;
-        right: 0;
-        padding: 15px 25px 22px;
-        background: var(--paper);
-        border-bottom: 1px solid var(--line);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-      }
+    /* =========================================================
+       DESKTOP / TABLET GROUP ENDS ABOVE.
+       Everything below is the MOBILE LAYOUT GROUP — it re-uses
+       the SAME elements/images but re-arranges them (grid → list,
+       side-by-side → overlay banner, columns → dividers) for
+       phones. No new elements or images, only layout + sizing.
+       ========================================================= */
 
-      .main-nav.open {
-        display: flex;
-      }
+    @media (max-width: 860px) {
 
-      .main-nav>a {
-        padding: 12px 0;
-      }
-
-      .main-nav>a::after {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: block;
-        margin-left: auto;
-      }
-
-      .nav-actions {
-        margin-left: 0;
-      }
-
-      .shop-hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy {
-        min-height: 460px;
-      }
-
-      .hero-image,
-      .hero-image img {
-        min-height: 430px;
-        height: 430px;
-      }
-
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media(max-width:700px) {
+      /* ---- Nav: collapses into a slide-down menu ---- */
       .nav-wrap {
-        min-height: 74px;
-        padding: 0 17px;
+        min-height: 70px;
+        padding: 0 16px;
         gap: 10px;
       }
 
       .brand {
-        font-size: 19px;
-        letter-spacing: 2.5px;
+        font-size: 18px;
+        letter-spacing: 2.2px;
       }
 
       .brand small {
         font-size: 6px;
-        letter-spacing: 3px;
+        letter-spacing: 2.6px;
       }
 
       .nav-actions {
         gap: 6px;
+        margin-left: 0;
       }
 
       .icon-btn {
@@ -1306,13 +1261,88 @@
         height: 35px;
       }
 
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .main-nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 14px 22px 20px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .main-nav > a {
+        padding: 12px 0;
+      }
+
+      .main-nav > a::after {
+        display: none;
+      }
+
+      /* ---- Hero: side-by-side grid becomes a full-width image
+             banner with the copy overlaid as a caption at the
+             bottom (desktop keeps the two-column form) ---- */
+      .shop-hero {
+        display: block;
+        min-height: auto;
+        position: relative;
+      }
+
+      .hero-image,
+      .hero-image img {
+        min-height: 72vw;
+        height: 72vw;
+        max-height: 440px;
+      }
+
+      .hero-copy {
+        position: absolute;
+        inset: auto 0 0 0;
+        padding: 24px 20px 28px;
+        z-index: 2;
+        justify-content: flex-end;
+        background: linear-gradient(180deg, rgba(20, 17, 14, .1) 0%, rgba(20, 17, 14, .72) 45%, rgba(20, 17, 14, .95) 100%);
+      }
+
+      .hero-copy h1 {
+        font-size: 36px;
+        letter-spacing: -1px;
+        margin: 12px 0;
+      }
+
+      .hero-copy p {
+        font-size: 12.5px;
+        max-width: 100%;
+      }
+
+      /* ---- Shop heading / controls ---- */
+      .shop-section {
+        padding: 55px 18px 85px;
+      }
+
       .shop-heading {
         display: block;
       }
 
       .shop-heading h2 {
-        font-size: 38px;
-        margin-bottom: 12px;
+        font-size: 36px;
+        margin-bottom: 10px;
       }
 
       .controls {
@@ -1329,8 +1359,9 @@
       }
 
       .category-bar {
-        overflow-x: auto;
         flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         padding-bottom: 6px;
       }
 
@@ -1338,59 +1369,121 @@
         flex-shrink: 0;
       }
 
+      /* ---- Product grid: masonry grid becomes a compact
+             horizontal list — small square image left, info
+             right, same as every other card (no featured span) ---- */
       .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 28px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .product-card {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 14px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        padding: 10px;
+      }
+
+      .product-image {
+        width: 100px;
+        min-width: 100px;
+        aspect-ratio: 1/1;
       }
 
       .product-actions {
+        top: 6px;
+        right: 6px;
+        flex-direction: column;
+        gap: 5px;
         opacity: 1;
         transform: none;
       }
 
       .product-action {
-        width: 31px;
-        height: 31px;
+        width: 27px;
+        height: 27px;
+      }
+
+      .product-info {
+        flex: 1;
+        min-width: 0;
+        padding: 2px 2px 0;
       }
 
       .product-meta {
-        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
 
-      .details-btn {
-        margin-top: 8px;
-      }
-
+      /* ---- Quick view: side-by-side becomes stacked ---- */
       .quick-box {
         grid-template-columns: 1fr;
       }
 
       .quick-image,
       .quick-image img {
-        min-height: 300px;
-        height: 300px;
+        min-height: 280px;
+        height: 280px;
       }
 
       .quick-content {
-        padding: 30px 25px 35px;
+        padding: 28px 22px 32px;
       }
 
       .quick-content h2 {
-        font-size: 34px;
+        font-size: 32px;
+      }
+
+      /* ---- CTA ---- */
+      .shop-cta {
+        margin-left: 16px;
+        margin-right: 16px;
+        padding: 55px 22px;
+      }
+
+      /* ---- Footer: 4-column grid becomes a single list with
+             divider lines between blocks instead of columns ---- */
+      footer {
+        padding: 50px 20px 22px;
       }
 
       .footer-grid {
         grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .footer-grid > div {
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+      }
+
+      .footer-grid > div:first-child {
+        border-top: 1px solid rgba(255, 255, 255, .1);
+      }
+
+      .copyright {
+        text-align: center;
       }
     }
 
-    @media(max-width:440px) {
+    /* ---- Extra fine-tuning for small phones ---- */
+    @media (max-width: 420px) {
       .nav-actions .search-nav {
         display: none;
       }
 
-      .product-grid {
-        grid-template-columns: 1fr 1fr;
+      .hero-copy h1 {
+        font-size: 30px;
+      }
+
+      .product-image {
+        width: 84px;
+        min-width: 84px;
       }
 
       .product-type {
@@ -1400,16 +1493,6 @@
 
       .product-category {
         font-size: 8px;
-      }
-
-      .shop-section {
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-
-      .shop-cta {
-        margin-left: 15px;
-        margin-right: 15px;
       }
     }
   </style>

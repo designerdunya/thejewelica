@@ -490,6 +490,12 @@
             pointer-events: none;
         }
 
+        .product-image a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
         .product-image img {
             transition: transform .8s cubic-bezier(.16, 1, .3, 1);
         }
@@ -1280,6 +1286,32 @@
 
         @media(max-width:420px) {
 
+            .nav {
+                padding: 0 12px;
+                gap: 8px;
+            }
+
+            .logo {
+                font-size: 15px;
+                letter-spacing: .08em;
+            }
+
+            .logo span {
+                font-size: 5px;
+                letter-spacing: .16em;
+                margin-top: 3px;
+            }
+
+            .nav-actions {
+                gap: 4px;
+            }
+
+            .icon-btn,
+            .menu-toggle {
+                width: 33px;
+                height: 33px;
+            }
+
             .products {
                 gap: 20px 8px;
             }
@@ -1429,7 +1461,9 @@
 
                 <article class="product-card" data-type="classic">
                     <div class="product-image">
-                        <img src="images/bangles (1).png" alt="The Jewelica Gold Bangle">
+                        <a href="product.html#bangle-01" aria-label="View BANGLE details">
+                            <img src="images/bangles (1).png" alt="The Jewelica Gold Bangle">
+                        </a>
                         <div class="product-tools">
                             <button class="wishlist" data-id="gbl01" aria-label="Add bangle to wishlist">♡</button>
                             <button class="quick" data-id="gbl01" aria-label="View bangle details">⌕</button>
@@ -1450,7 +1484,9 @@
 
                 <article class="product-card" data-type="delicate">
                     <div class="product-image">
-                        <img src="images/bangles (2).png" alt="The Jewelica Gold Bangle">
+                        <a href="product.html#bangle-02" aria-label="View BANGLE details">
+                            <img src="images/bangles (2).png" alt="The Jewelica Gold Bangle">
+                        </a>
                         <div class="product-tools">
                             <button class="wishlist" data-id="gbl02" aria-label="Add bangle to wishlist">♡</button>
                             <button class="quick" data-id="gbl02" aria-label="View bangle details">⌕</button>
@@ -1471,7 +1507,9 @@
 
                 <article class="product-card" data-type="statement">
                     <div class="product-image">
-                        <img src="images/bangles (3).png" alt="The Jewelica Gold Bangle">
+                        <a href="product.html#bangle-03" aria-label="View BANGLE details">
+                            <img src="images/bangles (3).png" alt="The Jewelica Gold Bangle">
+                        </a>
                         <div class="product-tools">
                             <button class="wishlist" data-id="gbl03" aria-label="Add bangle to wishlist">♡</button>
                             <button class="quick" data-id="gbl03" aria-label="View bangle details">⌕</button>
@@ -1492,7 +1530,9 @@
 
                 <article class="product-card" data-type="textured">
                     <div class="product-image">
-                        <img src="images/bangles (4).png" alt="The Jewelica Gold Bangle">
+                        <a href="product.html#bangle-04" aria-label="View BANGLE details">
+                            <img src="images/bangles (4).png" alt="The Jewelica Gold Bangle">
+                        </a>
                         <div class="product-tools">
                             <button class="wishlist" data-id="gbl04" aria-label="Add bangle to wishlist">♡</button>
                             <button class="quick" data-id="gbl04" aria-label="View bangle details">⌕</button>
@@ -1513,7 +1553,9 @@
 
                 <article class="product-card" data-type="classic">
                     <div class="product-image">
-                        <img src="images/bangles (5).png" alt="The Jewelica Gold Bangle">
+                        <a href="product.html#bangle-05" aria-label="View BANGLE details">
+                            <img src="images/bangles (5).png" alt="The Jewelica Gold Bangle">
+                        </a>
                         <div class="product-tools">
                             <button class="wishlist" data-id="gbl05" aria-label="Add bangle to wishlist">♡</button>
                             <button class="quick" data-id="gbl05" aria-label="View bangle details">⌕</button>
@@ -1534,7 +1576,9 @@
 
                 <article class="product-card" data-type="delicate">
                     <div class="product-image">
-                        <img src="images/bangles (6).png" alt="The Jewelica Gold Bangle">
+                        <a href="product.html#bangle-06" aria-label="View BANGLE details">
+                            <img src="images/bangles (6).png" alt="The Jewelica Gold Bangle">
+                        </a>
                         <div class="product-tools">
                             <button class="wishlist" data-id="gbl06" aria-label="Add bangle to wishlist">♡</button>
                             <button class="quick" data-id="gbl06" aria-label="View bangle details">⌕</button>
@@ -1555,7 +1599,9 @@
 
                 <article class="product-card" data-type="statement">
                     <div class="product-image">
-                        <img src="images/bangles (7).png" alt="The Jewelica Gold Bangle">
+                        <a href="product.html#bangle-07" aria-label="View BANGLE details">
+                            <img src="images/bangles (7).png" alt="The Jewelica Gold Bangle">
+                        </a>
                         <div class="product-tools">
                             <button class="wishlist" data-id="gbl07" aria-label="Add bangle to wishlist">♡</button>
                             <button class="quick" data-id="gbl07" aria-label="View bangle details">⌕</button>
@@ -1576,7 +1622,9 @@
 
                 <article class="product-card" data-type="textured">
                     <div class="product-image">
-                        <img src="images/bangles (8).png" alt="The Jewelica Gold Bangle">
+                        <a href="product.html#bangle-08" aria-label="View BANGLE details">
+                            <img src="images/bangles (8).png" alt="The Jewelica Gold Bangle">
+                        </a>
                         <div class="product-tools">
                             <button class="wishlist" data-id="gbl08" aria-label="Add bangle to wishlist">♡</button>
                             <button class="quick" data-id="gbl08" aria-label="View bangle details">⌕</button>
@@ -1597,7 +1645,9 @@
 
                 <article class="product-card" data-type="classic">
                     <div class="product-image">
-                        <img src="images/bangles (9).png" alt="The Jewelica Gold Bangle">
+                        <a href="product.html#bangle-09" aria-label="View BANGLE details">
+                            <img src="images/bangles (9).png" alt="The Jewelica Gold Bangle">
+                        </a>
                         <div class="product-tools">
                             <button class="wishlist" data-id="gbl09" aria-label="Add bangle to wishlist">♡</button>
                             <button class="quick" data-id="gbl09" aria-label="View bangle details">⌕</button>
@@ -1618,7 +1668,9 @@
 
                 <article class="product-card" data-type="delicate">
                     <div class="product-image">
-                        <img src="images/bangles (10).png" alt="The Jewelica Gold Bangle">
+                        <a href="product.html#bangle-10" aria-label="View BANGLE details">
+                            <img src="images/bangles (10).png" alt="The Jewelica Gold Bangle">
+                        </a>
                         <div class="product-tools">
                             <button class="wishlist" data-id="gbl10" aria-label="Add bangle to wishlist">♡</button>
                             <button class="quick" data-id="gbl10" aria-label="View bangle details">⌕</button>
@@ -1639,7 +1691,9 @@
 
                 <article class="product-card" data-type="statement">
                     <div class="product-image">
-                        <img src="images/bangles (11).png" alt="The Jewelica Gold Bangle">
+                        <a href="product.html#bangle-11" aria-label="View BANGLE details">
+                            <img src="images/bangles (11).png" alt="The Jewelica Gold Bangle">
+                        </a>
                         <div class="product-tools">
                             <button class="wishlist" data-id="gbl11" aria-label="Add bangle to wishlist">♡</button>
                             <button class="quick" data-id="gbl11" aria-label="View bangle details">⌕</button>
@@ -1660,7 +1714,9 @@
 
                 <article class="product-card" data-type="textured">
                     <div class="product-image">
-                        <img src="images/bangles.png" alt="The Jewelica Gold Bangle">
+                        <a href="product.html#bangle-12" aria-label="View BANGLE details">
+                            <img src="images/bangles.png" alt="The Jewelica Gold Bangle">
+                        </a>
                         <div class="product-tools">
                             <button class="wishlist" data-id="gbl12" aria-label="Add bangle to wishlist">♡</button>
                             <button class="quick" data-id="gbl12" aria-label="View bangle details">⌕</button>
@@ -1882,67 +1938,74 @@
 
             gbl01: {
                 type: "BANGLE",
-                image: "images/"
+                image: "images/bangles (1).png",
+                target: "bangle-01"
             },
 
             gbl02: {
                 type: "BANGLE",
-                image: "images/bangles (1).png"
+                image: "images/bangles (2).png",
+                target: "bangle-02"
             },
 
             gbl03: {
                 type: "BANGLE",
-                image: "images/bangles (2).png"
+                image: "images/bangles (3).png",
+                target: "bangle-03"
             },
 
             gbl04: {
                 type: "BANGLE",
-                image: "images/bangles (3).png"
+                image: "images/bangles (4).png",
+                target: "bangle-04"
             },
 
             gbl05: {
                 type: "BANGLE",
-                image: "images/bangles (4).png"
+                image: "images/bangles (5).png",
+                target: "bangle-05"
             },
 
             gbl06: {
                 type: "BANGLE",
-                image: "images/bangles (5).png"
+                image: "images/bangles (6).png",
+                target: "bangle-06"
             },
 
             gbl07: {
                 type: "BANGLE",
-                image: "images/bangles (6).png"
+                image: "images/bangles (7).png",
+                target: "bangle-07"
             },
 
             gbl08: {
                 type: "BANGLE",
-                image: "images/bangles (7).png"
+                image: "images/bangles (8).png",
+                target: "bangle-08"
             },
 
             gbl09: {
                 type: "BANGLE",
-                image: "images/bangles (8).png"
+                image: "images/bangles (9).png",
+                target: "bangle-09"
             },
 
             gbl10: {
                 type: "BANGLE",
-                image: "images/bangles (9).png"
+                image: "images/bangles (10).png",
+                target: "bangle-10"
             },
 
             gbl11: {
                 type: "BANGLE",
-                image: "images/bangles (10).png"
+                image: "images/bangles (11).png",
+                target: "bangle-11"
             },
 
             gbl12: {
                 type: "BANGLE",
-                image: "images/bangles (11).png"
-            },
-
-                gbl13: {
-                type: "BANGLE",
-                image: "images/bangles.png"
+                image: "images/bangles.png",
+                target: "bangle-12"
             }
 
         };
@@ -2208,7 +2271,13 @@ REMOVE
 
             button.addEventListener("click", () => {
 
-                window.location.href = "product.html";
+                const product = productData[button.dataset.id];
+
+                const target = product && product.target
+                    ? "product.html#" + product.target
+                    : "product.html";
+
+                window.location.href = target;
 
             });
 

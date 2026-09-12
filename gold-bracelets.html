@@ -417,6 +417,12 @@
       box-shadow: 0 1px 3px rgba(48, 37, 30, .06);
     }
 
+    .product-image a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
     .product-image img {
       transition: transform .65s ease;
     }
@@ -878,6 +884,17 @@
       }
     }
 
+    /* ======================================================
+       RESPONSIVE LAYOUT GROUPS
+       Desktop/tablet rules above stay untouched (large-screen
+       layout). Every rule below this line only exists to give
+       mobile its OWN layout — same elements, same images, same
+       colors/fonts — arranged differently so nothing overlaps,
+       nothing overflows and nothing needs pinch-zoom.
+       ====================================================== */
+
+    /* ---------- GROUP 1: LARGE TABLET (<=1150px) ----------
+       Just density changes, desktop layout shape kept. */
     @media(max-width:1150px) {
       .nav-links {
         gap: 16px;
@@ -896,7 +913,13 @@
       }
     }
 
+    /* ---------- GROUP 2: TABLET / SMALL LAPTOP (<=900px) ----------
+       Nav switches to hamburger. Hero stops being a side-by-side
+       grid and becomes a single full-width visual with the text
+       laid over it near the bottom — a different composition
+       from the desktop split-screen hero, using the same image. */
     @media(max-width:900px) {
+
       .nav {
         gap: 12px;
       }
@@ -910,6 +933,8 @@
         top: 82px;
         left: 0;
         width: 100%;
+        max-height: calc(100vh - 82px);
+        overflow-y: auto;
         background: var(--ivory);
         border-bottom: 1px solid var(--line);
         display: none;
@@ -917,6 +942,7 @@
         align-items: stretch;
         gap: 0;
         padding: 10px 25px 20px;
+        box-shadow: 0 20px 40px rgba(48, 37, 30, .12);
       }
 
       .nav-links.open {
@@ -936,22 +962,42 @@
         place-items: center;
       }
 
+      /* Hero: overlay composition instead of the desktop grid */
       .hero {
-        grid-template-columns: 1fr;
+        display: block;
+        grid-template-columns: none;
+        min-height: 460px;
       }
 
       .hero-image {
-        min-height: 380px;
-        order: 1;
+        min-height: 460px;
+      }
+
+      .hero-image:after {
+        background: linear-gradient(180deg, rgba(33, 29, 26, .05) 40%, rgba(33, 29, 26, .92) 100%);
       }
 
       .hero-content {
-        padding: 60px 30px;
-        order: 2;
+        position: absolute;
+        inset: auto 0 0 0;
+        z-index: 2;
+        padding: 0 26px 36px;
+        max-width: 100%;
+        display: block;
+      }
+
+      .hero h1,
+      .hero p {
+        max-width: 100%;
       }
     }
 
+    /* ---------- GROUP 3: MOBILE (<=650px) ----------
+       This is the real mobile layout: filters, product grid and
+       cards are restructured (not just shrunk) so everything
+       stays inside the viewport with room to breathe. */
     @media(max-width:650px) {
+
       .nav {
         padding: 0 12px;
         gap: 8px;
@@ -989,61 +1035,118 @@
         font-size: 19px;
       }
 
+      .hero {
+        min-height: 400px;
+      }
+
       .hero-image {
-        min-height: 300px;
+        min-height: 400px;
       }
 
       .hero h1 {
-        font-size: 48px;
+        font-size: 46px;
       }
 
       .hero p {
         font-size: 13px;
+        margin: 16px 0 22px;
+      }
+
+      .hero-content .btn {
+        width: 100%;
       }
 
       .intro {
-        padding: 55px 20px 45px;
+        padding: 50px 20px 40px;
+      }
+
+      /* Toolbar: filters wrap in a compact chip row, sort sits
+         underneath full-width — stacked, never squeezed sideways */
+      .toolbar-wrap {
+        padding: 0 16px;
       }
 
       .toolbar {
-        align-items: flex-start;
+        align-items: stretch;
         flex-direction: column;
+        gap: 14px;
+      }
+
+      .filters {
+        gap: 6px;
+      }
+
+      .filter {
+        padding: 9px 14px;
       }
 
       .sort {
         width: 100%;
       }
 
+      /* Products: switch from a card GRID to a stacked LIST
+         layout — image on the left, details on the right, one
+         product per row. This is the distinct mobile layout,
+         built from the exact same markup and images. */
       .products {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 26px 12px;
-        padding-left: 16px;
-        padding-right: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 0 16px 60px;
       }
 
-      .toolbar-wrap {
-        padding: 0 16px;
+      .product-card {
+        display: grid;
+        grid-template-columns: 112px 1fr;
+        grid-template-areas:
+          "image info"
+          "image bottom";
+        column-gap: 14px;
+        row-gap: 6px;
+        align-items: start;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .product-image {
+        grid-area: image;
+        aspect-ratio: 4/5;
+      }
+
+      .product-tools {
+        opacity: 1;
+        transform: none;
+        top: 8px;
+        right: 8px;
+        gap: 6px;
+      }
+
+      .product-tools button {
+        width: 30px;
+        height: 30px;
       }
 
       .product-info {
+        grid-area: info;
+        padding: 0;
         flex-direction: column;
         align-items: flex-start;
         gap: 4px;
       }
 
       .product-bottom {
-        flex-direction: column;
+        grid-area: bottom;
+        flex-direction: row;
         gap: 8px;
+        margin-top: 10px;
       }
 
       .product-bottom button {
-        height: 40px;
-        width: 100%;
+        height: 38px;
       }
 
-      .product-tools {
-        opacity: 1;
-        transform: none;
+      .cta {
+        padding: 60px 20px;
       }
 
       .footer {
@@ -1052,7 +1155,7 @@
 
       .footer-grid {
         grid-template-columns: 1fr;
-        gap: 38px;
+        gap: 34px;
       }
 
       .search-overlay {
@@ -1064,7 +1167,11 @@
       }
     }
 
+    /* ---------- GROUP 4: SMALL PHONES (<=430px) ----------
+       Same list layout as Group 3, just tighter measurements so
+       nothing crowds or clips on narrow screens. */
     @media(max-width:430px) {
+
       .nav {
         min-height: 68px;
         padding-left: 10px;
@@ -1100,36 +1207,54 @@
         font-size: 18px;
       }
 
+      .hero {
+        min-height: 340px;
+      }
+
+      .hero-image {
+        min-height: 340px;
+      }
+
       .hero h1 {
-        font-size: 40px;
+        font-size: 38px;
       }
 
       .hero-content {
-        padding: 48px 22px;
+        padding: 0 18px 28px;
       }
 
       .btn {
-        width: 100%;
         padding: 0 18px;
-      }
-
-      .products {
-        grid-template-columns: 1fr 1fr;
-        gap: 22px 10px;
-        padding-left: 12px;
-        padding-right: 12px;
       }
 
       .toolbar-wrap {
         padding: 0 12px;
       }
 
+      .products {
+        padding: 0 12px 50px;
+      }
+
+      .product-card {
+        grid-template-columns: 88px 1fr;
+        column-gap: 10px;
+        padding: 14px 0;
+      }
+
       .product-type {
-        font-size: 9px;
+        font-size: 9.5px;
       }
 
       .product-category {
         font-size: 8px;
+      }
+
+      .product-bottom {
+        flex-direction: column;
+      }
+
+      .product-bottom button {
+        width: 100%;
       }
 
       .cart-panel {
@@ -1258,7 +1383,9 @@
 
         <article class="product-card" data-type="classic">
           <div class="product-image">
-            <img src="images/bracelet watch (1).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-watch-01" aria-label="View BRACELET details">
+              <img src="images/bracelet watch (1).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb01" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb01" aria-label="View bracelet details">⌕</button>
@@ -1276,7 +1403,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet watch (2).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-watch-02" aria-label="View BRACELET details">
+              <img src="images/bracelet watch (2).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb02" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb02" aria-label="View bracelet details">⌕</button>
@@ -1294,7 +1423,9 @@
 
         <article class="product-card" data-type="statement">
           <div class="product-image">
-            <img src="images/bracelet watch (3).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-watch-03" aria-label="View BRACELET details">
+              <img src="images/bracelet watch (3).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb03" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb03" aria-label="View bracelet details">⌕</button>
@@ -1312,7 +1443,9 @@
 
         <article class="product-card" data-type="classic">
           <div class="product-image">
-            <img src="images/bracelet watch (5).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-watch-04" aria-label="View BRACELET details">
+              <img src="images/bracelet watch (5).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb04" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb04" aria-label="View bracelet details">⌕</button>
@@ -1330,7 +1463,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet watch (6).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-watch-05" aria-label="View BRACELET details">
+              <img src="images/bracelet watch (6).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb05" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb05" aria-label="View bracelet details">⌕</button>
@@ -1348,7 +1483,9 @@
 
         <article class="product-card" data-type="statement">
           <div class="product-image">
-            <img src="images/bracelet watch.png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-watch-06" aria-label="View BRACELET details">
+              <img src="images/bracelet watch.png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb06" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb06" aria-label="View bracelet details">⌕</button>
@@ -1366,7 +1503,9 @@
 
         <article class="product-card" data-type="classic">
           <div class="product-image">
-            <img src="images/bracelet (1).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-01" aria-label="View BRACELET details">
+              <img src="images/bracelet (1).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb07" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb07" aria-label="View bracelet details">⌕</button>
@@ -1384,7 +1523,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (2).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-02" aria-label="View BRACELET details">
+              <img src="images/bracelet (2).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb08" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb08" aria-label="View bracelet details">⌕</button>
@@ -1402,7 +1543,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (3).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-03" aria-label="View BRACELET details">
+              <img src="images/bracelet (3).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb09" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb09" aria-label="View bracelet details">⌕</button>
@@ -1420,7 +1563,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (4).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-04" aria-label="View BRACELET details">
+              <img src="images/bracelet (4).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb10" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb10" aria-label="View bracelet details">⌕</button>
@@ -1438,7 +1583,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (5).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-05" aria-label="View BRACELET details">
+              <img src="images/bracelet (5).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb11" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb11" aria-label="View bracelet details">⌕</button>
@@ -1456,7 +1603,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (6).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-06" aria-label="View BRACELET details">
+              <img src="images/bracelet (6).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb12" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb12" aria-label="View bracelet details">⌕</button>
@@ -1474,7 +1623,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (7).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-07" aria-label="View BRACELET details">
+              <img src="images/bracelet (7).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb13" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb13" aria-label="View bracelet details">⌕</button>
@@ -1492,7 +1643,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (9).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-08" aria-label="View BRACELET details">
+              <img src="images/bracelet (9).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb14" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb14" aria-label="View bracelet details">⌕</button>
@@ -1510,7 +1663,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (10).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-09" aria-label="View BRACELET details">
+              <img src="images/bracelet (10).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb15" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb15" aria-label="View bracelet details">⌕</button>
@@ -1528,7 +1683,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (11).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-10" aria-label="View BRACELET details">
+              <img src="images/bracelet (11).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb16" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb16" aria-label="View bracelet details">⌕</button>
@@ -1546,7 +1703,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (12).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-11" aria-label="View BRACELET details">
+              <img src="images/bracelet (12).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb17" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb17" aria-label="View bracelet details">⌕</button>
@@ -1564,7 +1723,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (13).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-12" aria-label="View BRACELET details">
+              <img src="images/bracelet (13).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb18" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb18" aria-label="View bracelet details">⌕</button>
@@ -1582,7 +1743,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (14).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-13" aria-label="View BRACELET details">
+              <img src="images/bracelet (14).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb19" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb19" aria-label="View bracelet details">⌕</button>
@@ -1600,7 +1763,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (15).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-14" aria-label="View BRACELET details">
+              <img src="images/bracelet (15).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb20" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb20" aria-label="View bracelet details">⌕</button>
@@ -1618,7 +1783,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (16).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-15" aria-label="View BRACELET details">
+              <img src="images/bracelet (16).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb21" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb21" aria-label="View bracelet details">⌕</button>
@@ -1636,7 +1803,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet.png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-23" aria-label="View BRACELET details">
+              <img src="images/bracelet.png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb22" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb22" aria-label="View bracelet details">⌕</button>
@@ -1654,7 +1823,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (18).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-16" aria-label="View BRACELET details">
+              <img src="images/bracelet (18).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb23" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb23" aria-label="View bracelet details">⌕</button>
@@ -1672,7 +1843,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (19).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-17" aria-label="View BRACELET details">
+              <img src="images/bracelet (19).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb24" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb24" aria-label="View bracelet details">⌕</button>
@@ -1690,7 +1863,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (21).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-19" aria-label="View BRACELET details">
+              <img src="images/bracelet (21).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb25" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb25" aria-label="View bracelet details">⌕</button>
@@ -1708,7 +1883,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (22).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-20" aria-label="View BRACELET details">
+              <img src="images/bracelet (22).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb26" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb26" aria-label="View bracelet details">⌕</button>
@@ -1726,7 +1903,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (23).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-21" aria-label="View BRACELET details">
+              <img src="images/bracelet (23).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb27" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb27" aria-label="View bracelet details">⌕</button>
@@ -1744,7 +1923,9 @@
 
         <article class="product-card" data-type="delicate">
           <div class="product-image">
-            <img src="images/bracelet (25).png" alt="Gold Bracelet jewellery">
+            <a href="product.html#bracelet-22" aria-label="View BRACELET details">
+              <img src="images/bracelet (25).png" alt="Gold Bracelet jewellery">
+            </a>
             <div class="product-tools">
               <button class="wishlist" data-id="gb28" aria-label="Add bracelet to wishlist">♡</button>
               <button class="quick" data-id="gb28" aria-label="View bracelet details">⌕</button>
@@ -1917,34 +2098,34 @@
 
     const productData = {
 
-      gb01: { type: "BRACELET WATCH", image: "images/bracelet watch (1).png" },
-      gb02: { type: "BRACELET WATCH", image: "images/bracelet watch (2).png" },
-      gb03: { type: "BRACELET WATCH", image: "images/bracelet watch (3).png" },
-      gb04: { type: "BRACELET WATCH", image: "images/bracelet watch (5).png" },
-      gb05: { type: "BRACELET WATCH", image: "images/bracelet watch (6).png" },
-      gb06: { type: "BRACELET WATCH", image: "images/bracelet watch.png" },
-      gb07: { type: "BRACELET", image: "images/bracelet (1).png" },
-      gb08: { type: "BRACELET", image: "images/bracelet (2).png" },
-      gb09: { type: "BRACELET", image: "images/bracelet (3).png" },
-      gb10: { type: "BRACELET", image: "images/bracelet (4).png" },
-      gb11: { type: "BRACELET", image: "images/bracelet (5).png" },
-      gb12: { type: "BRACELET", image: "images/bracelet (6).png" },
-      gb13: { type: "BRACELET", image: "images/bracelet (7).png" },
-      gb14: { type: "BRACELET", image: "images/bracelet (9).png" },
-      gb15: { type: "BRACELET", image: "images/bracelet (10).png" },
-      gb16: { type: "BRACELET", image: "images/bracelet (11).png" },
-      gb17: { type: "BRACELET", image: "images/bracelet (12).png" },
-      gb18: { type: "BRACELET", image: "images/bracelet (13).png" },
-      gb19: { type: "BRACELET", image: "images/bracelet (14).png" },
-      gb20: { type: "BRACELET", image: "images/bracelet (15).png" },
-      gb21: { type: "BRACELET", image: "images/bracelet (16).png" },
-      gb22: { type: "BRACELET", image: "images/bracelet.png" },
-      gb23: { type: "BRACELET", image: "images/bracelet (18).png" },
-      gb24: { type: "BRACELET", image: "images/bracelet (19).png" },
-      gb25: { type: "BRACELET", image: "images/bracelet (21).png" },
-      gb26: { type: "BRACELET", image: "images/bracelet (22).png" },
-      gb27: { type: "BRACELET", image: "images/bracelet (23).png" },
-      gb28: { type: "BRACELET", image: "images/bracelet (25).png" }
+      gb01: { type: "BRACELET WATCH", image: "images/bracelet watch (1).png", target: "bracelet-watch-01" },
+      gb02: { type: "BRACELET WATCH", image: "images/bracelet watch (2).png", target: "bracelet-watch-02" },
+      gb03: { type: "BRACELET WATCH", image: "images/bracelet watch (3).png", target: "bracelet-watch-03" },
+      gb04: { type: "BRACELET WATCH", image: "images/bracelet watch (5).png", target: "bracelet-watch-04" },
+      gb05: { type: "BRACELET WATCH", image: "images/bracelet watch (6).png", target: "bracelet-watch-05" },
+      gb06: { type: "BRACELET WATCH", image: "images/bracelet watch.png", target: "bracelet-watch-06" },
+      gb07: { type: "BRACELET", image: "images/bracelet (1).png", target: "bracelet-01" },
+      gb08: { type: "BRACELET", image: "images/bracelet (2).png", target: "bracelet-02" },
+      gb09: { type: "BRACELET", image: "images/bracelet (3).png", target: "bracelet-03" },
+      gb10: { type: "BRACELET", image: "images/bracelet (4).png", target: "bracelet-04" },
+      gb11: { type: "BRACELET", image: "images/bracelet (5).png", target: "bracelet-05" },
+      gb12: { type: "BRACELET", image: "images/bracelet (6).png", target: "bracelet-06" },
+      gb13: { type: "BRACELET", image: "images/bracelet (7).png", target: "bracelet-07" },
+      gb14: { type: "BRACELET", image: "images/bracelet (9).png", target: "bracelet-08" },
+      gb15: { type: "BRACELET", image: "images/bracelet (10).png", target: "bracelet-09" },
+      gb16: { type: "BRACELET", image: "images/bracelet (11).png", target: "bracelet-10" },
+      gb17: { type: "BRACELET", image: "images/bracelet (12).png", target: "bracelet-11" },
+      gb18: { type: "BRACELET", image: "images/bracelet (13).png", target: "bracelet-12" },
+      gb19: { type: "BRACELET", image: "images/bracelet (14).png", target: "bracelet-13" },
+      gb20: { type: "BRACELET", image: "images/bracelet (15).png", target: "bracelet-14" },
+      gb21: { type: "BRACELET", image: "images/bracelet (16).png", target: "bracelet-15" },
+      gb22: { type: "BRACELET", image: "images/bracelet.png", target: "bracelet-23" },
+      gb23: { type: "BRACELET", image: "images/bracelet (18).png", target: "bracelet-16" },
+      gb24: { type: "BRACELET", image: "images/bracelet (19).png", target: "bracelet-17" },
+      gb25: { type: "BRACELET", image: "images/bracelet (21).png", target: "bracelet-19" },
+      gb26: { type: "BRACELET", image: "images/bracelet (22).png", target: "bracelet-20" },
+      gb27: { type: "BRACELET", image: "images/bracelet (23).png", target: "bracelet-21" },
+      gb28: { type: "BRACELET", image: "images/bracelet (25).png", target: "bracelet-22" }
 
     };
 
@@ -2137,7 +2318,15 @@
     $$(".quick").forEach(btn => {
 
       btn.addEventListener("click", () => {
-        window.location.href = "product.html";
+
+        const product = productData[btn.dataset.id];
+
+        const target = product && product.target
+          ? "product.html#" + product.target
+          : "product.html";
+
+        window.location.href = target;
+
       });
 
     });

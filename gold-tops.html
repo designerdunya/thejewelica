@@ -478,6 +478,12 @@
       transform: scale(1.045);
     }
 
+    .product-image-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
     .wish {
       position: absolute;
       top: 13px;
@@ -972,30 +978,135 @@
         visibility: visible;
       }
 
+      /* HERO — full-bleed poster layout, image behind, text overlaid at the base */
       .hero {
-        grid-template-columns: 1fr;
+        display: block;
+        position: relative;
+        min-height: 0;
+        height: 480px;
+        overflow: hidden;
       }
 
       .hero-image {
-        min-height: 380px;
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        min-height: 0;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(180deg, rgba(23, 21, 19, .08) 0%, rgba(23, 21, 19, .55) 55%, rgba(23, 21, 19, .95) 100%);
       }
 
       .hero-content {
-        padding: 60px 30px;
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        padding: 26px 28px 34px;
+        justify-content: flex-end;
       }
 
+      .hero h1 {
+        font-size: clamp(34px, 9vw, 58px);
+      }
+
+      .hero p {
+        font-size: 13px;
+        margin-bottom: 24px;
+      }
+
+      /* CATALOG TOOLBAR — horizontally scrolling filter chips */
+      .toolbar {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 10px;
+      }
+
+      .filter-group {
+        flex-wrap: nowrap;
+      }
+
+      .filter-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+
+      .product-count {
+        display: none;
+      }
+
+      .sort {
+        flex: 0 0 auto;
+        min-width: 150px;
+      }
+
+      /* PRODUCT GRID — becomes a horizontal snap-scroll carousel */
       .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 14px;
+        -webkit-overflow-scrolling: touch;
       }
 
+      .product-card {
+        flex: 0 0 62%;
+        scroll-snap-align: start;
+      }
+
+      /* CRAFTSMANSHIP — full-width image with a floating overlay content card */
       .craft {
-        grid-template-columns: 1fr;
+        display: block;
+        min-height: 0;
         margin-left: 18px;
         margin-right: 18px;
       }
 
       .craft-image {
-        min-height: 300px;
+        min-height: 320px;
+      }
+
+      .craft-content {
+        position: relative;
+        z-index: 2;
+        margin-top: -70px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 34px 26px;
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      /* FOOTER — brand + visit-us stacked full width, link columns side by side */
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 20px;
+      }
+
+      .footer-grid > div:nth-child(1) {
+        grid-column: 1 / -1;
+        order: 1;
+        text-align: center;
+      }
+
+      .footer-grid > div:nth-child(4) {
+        grid-column: 1 / -1;
+        order: 2;
+      }
+
+      .footer-grid > div:nth-child(2) {
+        order: 3;
+      }
+
+      .footer-grid > div:nth-child(3) {
+        order: 4;
       }
     }
 
@@ -1021,12 +1132,12 @@
         height: 34px;
       }
 
-      .hero-image {
-        min-height: 260px;
+      .hero {
+        height: 400px;
       }
 
       .hero-content {
-        padding: 45px 20px;
+        padding: 20px 20px 26px;
       }
 
       .hero h1 {
@@ -1034,12 +1145,12 @@
       }
 
       .hero p {
-        font-size: 12px;
-        margin-bottom: 26px;
+        font-size: 11.5px;
+        margin-bottom: 20px;
       }
 
       .intro {
-        padding: 60px 18px 45px;
+        padding: 45px 18px 34px;
       }
 
       .intro p {
@@ -1047,29 +1158,11 @@
       }
 
       .catalog {
-        padding: 16px 14px 65px;
+        padding: 16px 14px 60px;
       }
 
-      .toolbar {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .filter-group {
-        justify-content: center;
-      }
-
-      .product-count {
-        margin: 0;
-        text-align: center;
-      }
-
-      .sort {
-        width: 100%;
-      }
-
-      .product-grid {
-        gap: 24px 10px;
+      .product-card {
+        flex: 0 0 74%;
       }
 
       .product-info {
@@ -1089,12 +1182,18 @@
         text-align: center;
       }
 
+      .craft-image {
+        min-height: 250px;
+      }
+
       .craft-content {
-        padding: 40px 22px;
+        margin-top: -50px;
+        width: 92%;
+        padding: 26px 20px;
       }
 
       .craft-content h2 {
-        font-size: 30px;
+        font-size: 28px;
       }
 
       .craft .btn,
@@ -1103,12 +1202,12 @@
       }
 
       .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 14px;
       }
 
       footer {
-        padding: 50px 18px 22px;
+        padding: 50px 16px 22px;
       }
 
       .search-box input {
@@ -1341,7 +1440,9 @@
 
           <div class="product-image">
 
-            <img src="images/Gold tops (1).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-01" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (1).png" alt="The Jewelica Gold Tops">
+            </a>
 
             <button class="wish" data-id="gt01" aria-label="Add Gold Tops to wishlist">
               ♡
@@ -1377,7 +1478,9 @@
 
           <div class="product-image">
 
-            <img src="images/Gold tops (2).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-02" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (2).png" alt="The Jewelica Gold Tops">
+            </a>
 
             <button class="wish" data-id="gt02" aria-label="Add Gold Tops to wishlist">
               ♡
@@ -1413,7 +1516,9 @@
 
           <div class="product-image">
 
-            <img src="images/Gold tops (3).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-03" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (3).png" alt="The Jewelica Gold Tops">
+            </a>
 
             <button class="wish" data-id="gt03" aria-label="Add Gold Tops to wishlist">
               ♡
@@ -1449,7 +1554,9 @@
 
           <div class="product-image">
 
-            <img src="images/Gold tops (4).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-04" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (4).png" alt="The Jewelica Gold Tops">
+            </a>
 
             <button class="wish" data-id="gt04" aria-label="Add Gold Tops to wishlist">
               ♡
@@ -1485,7 +1592,9 @@
 
           <div class="product-image">
 
-            <img src="images/Gold tops (5).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-05" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (5).png" alt="The Jewelica Gold Tops">
+            </a>
 
             <button class="wish" data-id="gt05" aria-label="Add Gold Tops to wishlist">
               ♡
@@ -1521,7 +1630,9 @@
 
           <div class="product-image">
 
-            <img src="images/Gold tops (6).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-06" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (6).png" alt="The Jewelica Gold Tops">
+            </a>
 
             <button class="wish" data-id="gt06" aria-label="Add Gold Tops to wishlist">
               ♡
@@ -1557,7 +1668,9 @@
 
           <div class="product-image">
 
-            <img src="images/Gold tops (7).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-07" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (7).png" alt="The Jewelica Gold Tops">
+            </a>
 
             <button class="wish" data-id="gt07" aria-label="Add Gold Tops to wishlist">
               ♡
@@ -1593,9 +1706,48 @@
 
           <div class="product-image">
 
-            <img src="images/Gold tops (8).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-08" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (8).png" alt="The Jewelica Gold Tops">
+            </a>
 
             <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
+              ♡
+            </button>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-type">
+              TOPS
+            </span>
+
+            <div class="product-actions">
+
+              <button class="mini-btn view-btn" data-id="gt08">
+                VIEW
+              </button>
+
+              <button class="mini-btn cart-btn" data-id="gt08">
+                ADD
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+        <!-- PRODUCT 09 -->
+        <article class="product-card" data-category="everyday" data-type="tops">
+
+          <div class="product-image">
+
+            <a class="product-image-link" href="product.html#top-09" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (9).png" alt="The Jewelica Gold Tops">
+            </a>
+
+            <button class="wish" data-id="gt09" aria-label="Add Gold Tops to wishlist">
               ♡
             </button>
 
@@ -1622,14 +1774,17 @@
           </div>
 
         </article>
-        
+
+        <!-- PRODUCT 10 -->
         <article class="product-card" data-category="everyday" data-type="tops">
 
           <div class="product-image">
 
-            <img src="images/Gold tops (9).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-10" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (10).png" alt="The Jewelica Gold Tops">
+            </a>
 
-            <button class="wish" data-id="gt09" aria-label="Add Gold Tops to wishlist">
+            <button class="wish" data-id="gt10" aria-label="Add Gold Tops to wishlist">
               ♡
             </button>
 
@@ -1656,13 +1811,17 @@
           </div>
 
         </article>
+
+        <!-- PRODUCT 11 -->
         <article class="product-card" data-category="everyday" data-type="tops">
 
           <div class="product-image">
 
-            <img src="images/Gold tops (10).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-11" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (11).png" alt="The Jewelica Gold Tops">
+            </a>
 
-            <button class="wish" data-id="gt10" aria-label="Add Gold Tops to wishlist">
+            <button class="wish" data-id="gt11" aria-label="Add Gold Tops to wishlist">
               ♡
             </button>
 
@@ -1689,13 +1848,17 @@
           </div>
 
         </article>
+
+        <!-- PRODUCT 12 -->
         <article class="product-card" data-category="everyday" data-type="tops">
 
           <div class="product-image">
 
-            <img src="images/Gold tops (11).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-12" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (12).png" alt="The Jewelica Gold Tops">
+            </a>
 
-            <button class="wish" data-id="gt11" aria-label="Add Gold Tops to wishlist">
+            <button class="wish" data-id="gt12" aria-label="Add Gold Tops to wishlist">
               ♡
             </button>
 
@@ -1722,13 +1885,17 @@
           </div>
 
         </article>
+
+        <!-- PRODUCT 13 -->
         <article class="product-card" data-category="everyday" data-type="tops">
 
           <div class="product-image">
 
-            <img src="images/Gold tops (12).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-13" aria-label="View Gold Tops details">
+              <img src="images/Gold tops (13).png" alt="The Jewelica Gold Tops">
+            </a>
 
-            <button class="wish" data-id="gt12" aria-label="Add Gold Tops to wishlist">
+            <button class="wish" data-id="gt13" aria-label="Add Gold Tops to wishlist">
               ♡
             </button>
 
@@ -1755,13 +1922,17 @@
           </div>
 
         </article>
+
+        <!-- PRODUCT 14 -->
         <article class="product-card" data-category="everyday" data-type="tops">
 
           <div class="product-image">
 
-            <img src="images/Gold tops (13).png" alt="The Jewelica Gold Tops">
+            <a class="product-image-link" href="product.html#top-14" aria-label="View Gold Tops details">
+              <img src="images/Gold tops.png" alt="The Jewelica Gold Tops">
+            </a>
 
-            <button class="wish" data-id="gt13" aria-label="Add Gold Tops to wishlist">
+            <button class="wish" data-id="gt14" aria-label="Add Gold Tops to wishlist">
               ♡
             </button>
 
@@ -1780,39 +1951,6 @@
               </button>
 
               <button class="mini-btn cart-btn" data-id="gt14">
-                ADD
-              </button>
-
-            </div>
-
-          </div>
-
-        </article>
-        <article class="product-card" data-category="everyday" data-type="tops">
-
-          <div class="product-image">
-
-            <img src="images/Gold tops.png" alt="The Jewelica Gold Tops">
-
-            <button class="wish" data-id="gt14" aria-label="Add Gold Tops to wishlist">
-              ♡
-            </button>
-
-          </div>
-
-          <div class="product-info">
-
-            <span class="product-type">
-              TOPS
-            </span>
-
-            <div class="product-actions">
-
-              <button class="mini-btn view-btn" data-id="gt08">
-                VIEW
-              </button>
-
-              <button class="mini-btn cart-btn" data-id="gt08">
                 ADD
               </button>
 
@@ -2096,6 +2234,26 @@
         category: "everyday"
       }
     ];
+
+    /* Maps this page's internal product id to the matching
+       product entry (and image) inside product.html's catalog,
+       so every card jumps to the exact right product. */
+    const productPageMap = {
+      gt01: "top-01",
+      gt02: "top-02",
+      gt03: "top-03",
+      gt04: "top-04",
+      gt05: "top-05",
+      gt06: "top-06",
+      gt07: "top-07",
+      gt08: "top-08",
+      gt09: "top-09",
+      gt10: "top-10",
+      gt11: "top-11",
+      gt12: "top-12",
+      gt13: "top-13",
+      gt14: "top-14"
+    };
 
 
     let cart =
@@ -2559,8 +2717,11 @@
           );
 
 
+          const targetId =
+            productPageMap[id] || id;
+
           window.location.href =
-            "product.html";
+            "product.html#" + targetId;
 
         });
 
@@ -2672,8 +2833,11 @@
         })
       );
 
+      const targetId =
+        productPageMap[id] || id;
+
       window.location.href =
-        "product.html";
+        "product.html#" + targetId;
 
     }
 
