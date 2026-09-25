@@ -714,6 +714,105 @@
       display: none;
     }
 
+    /* =========================================================
+           AUTO-SLIDING PRODUCTS STRIP (below hero)
+        ========================================================= */
+
+    .sliding-products {
+      background: var(--ivory);
+      padding: 26px 0;
+      border-top: 1px solid rgba(23, 20, 17, .06);
+      border-bottom: 1px solid rgba(23, 20, 17, .06);
+    }
+
+    .sliding-products-viewport {
+      overflow-x: hidden;
+      overflow-y: visible;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 3%, #000 97%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0, #000 3%, #000 97%, transparent 100%);
+    }
+
+    .sliding-track {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      overflow-x: auto;
+      overflow-y: visible;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x proximity;
+      cursor: grab;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 34px 0;
+    }
+
+    .sliding-track::-webkit-scrollbar {
+      display: none;
+      height: 0;
+    }
+
+    .sliding-track.dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+    }
+
+    /* Exactly 4 products visible at a time on desktop */
+    .slide-item {
+      position: relative;
+      flex: 0 0 auto;
+      width: calc((100% - 36px) / 4);
+      max-width: 230px;
+      aspect-ratio: .82;
+      overflow: hidden;
+      background: #e4dbce;
+      scroll-snap-align: center;
+      user-select: none;
+      -webkit-user-drag: none;
+      transform-origin: center center;
+      will-change: transform;
+      transition: box-shadow .35s ease;
+      z-index: 1;
+    }
+
+    .slide-item img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      -webkit-user-drag: none;
+    }
+
+    .slide-item.slide-active {
+      z-index: 5;
+      box-shadow: 0 24px 50px rgba(23, 20, 17, .28);
+    }
+
+    .slide-item.slide-placeholder {
+      background:
+        linear-gradient(135deg, rgba(216, 195, 160, .45), rgba(73, 54, 40, .15)),
+        var(--ivory-2);
+    }
+
+    @media (max-width: 900px) {
+
+      .sliding-products {
+        padding: 18px 0;
+      }
+
+      .sliding-track {
+        gap: 8px;
+        padding: 26px 0;
+      }
+
+      /* Exactly 2 products visible at a time on mobile */
+      .slide-item {
+        width: calc((100% - 8px) / 2);
+        max-width: 200px;
+      }
+
+    }
+
     .intro {
       padding: 135px 8% 130px;
       background: var(--ivory);
@@ -3603,7 +3702,7 @@
                   </a>
 
                   <a href="diamond-pendants-nose-pins.html">
-                    Earrings 
+                    Earrings
                   </a>
 
                   <a href="diamond.html">
@@ -3845,7 +3944,6 @@
       </div>
     </section>
 
-
     <section class="intro reveal">
 
       <div class="intro-inner">
@@ -3872,6 +3970,68 @@
       </div>
 
     </section>
+
+
+     <section class="sliding-products" aria-label="Featured jewellery, auto-scrolling">
+
+      <div class="sliding-products-viewport">
+
+        <div class="sliding-track" id="slidingTrack">
+
+          <div class="slide-item"><img src="images/ring (12).png" alt="The Jewelica Product 1" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/ring (19).png" alt="The Jewelica Product 2" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/necklace (13).png" alt="The Jewelica Product 3" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/necklace (18).png" alt="The Jewelica Product 4" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/pendant (13).png" alt="The Jewelica Product 5" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/pendant (19).png"></div>
+          <div class="slide-item"><img src="images/alphabet (13).png" alt="The Jewelica Product 8" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/alphabet (19).png" alt="The Jewelica Product 9" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/Gold tops (12).png" alt="The Jewelica Product 10" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/Gold tops (4).png" alt="The Jewelica Product 11" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/bracelet (11).png" alt="The Jewelica Product 12" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/bracelet (18).png" alt="The Jewelica Product 13" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/diamond earring (4).png" alt="The Jewelica Product 14" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/diamond earring.png" alt="The Jewelica Product 15" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/men diamond ring (2).png" alt="The Jewelica Product 16" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/men diamond ring.png" alt="The Jewelica Product 17" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/trending (13).png" alt="The Jewelica Product 18" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/trending (18).png" alt="The Jewelica Product 19" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/trending (39).png" alt="The Jewelica Product 20" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/bangles (11).png" alt="The Jewelica Product 21" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/bangles (7).png" alt="The Jewelica Product 22" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/earings (13).png" alt="The Jewelica Product 23" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/earings (17).png" alt="The Jewelica Product 24" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+          <div class="slide-item"><img src="images/ladies diamond ring (2).png" alt="The Jewelica Product 25" loading="lazy" draggable="false"
+              onerror="this.style.display='none';this.parentElement.classList.add('slide-placeholder');"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
 
 
     <section class="section section-soft reveal">
@@ -4008,8 +4168,7 @@
 
         <a href="diamond-pendants-nose-pins.html" class="category-card">
 
-          <img src="images/diamond earring (1).png" alt="The Jewelica Diamond Pendants and Nose Pins"
-            loading="lazy">
+          <img src="images/diamond earring (1).png" alt="The Jewelica Diamond Pendants and Nose Pins" loading="lazy">
 
           <div class="category-label">
 
@@ -4102,7 +4261,7 @@
                 <img src="images/gold bar.png" alt="The Jewelica Gold Bar" loading="lazy">
               </div>
               <p class="bar-desc">
-                 A compact bar sized for everyday saving,
+                A compact bar sized for everyday saving,
                 sealed to protect its finish over time.
               </p>
             </div>
@@ -4112,7 +4271,7 @@
                 <img src="images/gold bar (2).png" alt="The Jewelica Gold Bar" loading="lazy">
               </div>
               <p class="bar-desc">
-               999.9 fine gold, cast and stamped with
+                999.9 fine gold, cast and stamped with
                 weight and purity for easy verification.
               </p>
             </div>
@@ -4206,7 +4365,7 @@
                 <img src="images/silver bar (5).png" alt="The Jewelica Silver Bar" loading="lazy">
               </div>
               <p class="bar-desc">
-                A premium  100g bar chosen by collectors
+                A premium 100g bar chosen by collectors
                 for its weight and finish.
               </p>
             </div>
@@ -4321,8 +4480,7 @@
               View Details
             </button>
 
-            <button class="mini-button" type="button"
-              onclick="addToCart('Trending','images/featured-necklace.jpg')">
+            <button class="mini-button" type="button" onclick="addToCart('Trending','images/featured-necklace.jpg')">
               Add To Cart
             </button>
 
@@ -4354,8 +4512,7 @@
               View Details
             </button>
 
-            <button class="mini-button" type="button"
-              onclick="addToCart('Trending','images/trending (18).png')">
+            <button class="mini-button" type="button" onclick="addToCart('Trending','images/trending (18).png')">
               Add To Cart
             </button>
 
@@ -4387,8 +4544,7 @@
               View Details
             </button>
 
-            <button class="mini-button" type="button"
-              onclick="addToCart('Trending','images/trending (15).png')">
+            <button class="mini-button" type="button" onclick="addToCart('Trending','images/trending (15).png')">
               Add To Cart
             </button>
 
@@ -4450,8 +4606,7 @@
               View Details
             </button>
 
-            <button class="mini-button" type="button"
-              onclick="addToCart('GOLD RING','images/ring (8).png')">
+            <button class="mini-button" type="button" onclick="addToCart('GOLD RING','images/ring (8).png')">
               Add To Cart
             </button>
 
@@ -4483,8 +4638,7 @@
               View Details
             </button>
 
-            <button class="mini-button" type="button"
-              onclick="addToCart('BRACELET','images/bracelet (10).png')">
+            <button class="mini-button" type="button" onclick="addToCart('BRACELET','images/bracelet (10).png')">
               Add To Cart
             </button>
 
@@ -4516,8 +4670,7 @@
               View Details
             </button>
 
-            <button class="mini-button" type="button"
-              onclick="addToCart('BANGLE','images/bangles (2).png')">
+            <button class="mini-button" type="button" onclick="addToCart('BANGLE','images/bangles (2).png')">
               Add To Cart
             </button>
 
@@ -4549,8 +4702,7 @@
               View Details
             </button>
 
-            <button class="mini-button" type="button"
-              onclick="addToCart('EARRINGS','images/earings (4).png')">
+            <button class="mini-button" type="button" onclick="addToCart('EARRINGS','images/earings (4).png')">
               Add To Cart
             </button>
 
@@ -4592,8 +4744,7 @@
         <article class="service-card featured">
 
           <img src="images/Bespoke Jewellery.png" alt="The Jewelica Bespoke Jewellery" loading="lazy"
-            class="service-bg-img"
-            onerror="this.style.display='none';">
+            class="service-bg-img" onerror="this.style.display='none';">
 
           <div class="service-tag">
             Our Flagship Service
@@ -6685,6 +6836,335 @@
 
     restoreWishlist();
 
+  </script>
+
+
+  <script>
+    /* =========================================================
+           AUTO-SLIDING PRODUCTS STRIP
+           - 25 products, seamless infinite loop (right to left)
+           - one step every 2 seconds
+           - freely draggable / swipeable in both directions
+           - pauses while the user is touching / dragging it,
+             resumes automatically once released
+        ========================================================= */
+
+    (function () {
+
+      const track = document.getElementById("slidingTrack");
+
+      if (!track) return;
+
+      const originalItems = Array.from(track.children);
+
+      const originalCount = originalItems.length;
+
+      if (originalCount === 0) return;
+
+      // Build 3 copies of the original set back to back, so the
+      // visitor can freely drag left or right and always finds a
+      // matching product on either side (true infinite feel).
+      const originalHTML = track.innerHTML;
+
+      track.innerHTML =
+        originalHTML + originalHTML + originalHTML;
+
+      const allItems = Array.from(track.children);
+
+
+      let itemWidth = 0;
+
+      let autoTimer = null;
+
+      let resumeTimer = null;
+
+      let isPointerDown = false;
+
+      let dragMoved = false;
+
+      let startX = 0;
+
+      let startScrollLeft = 0;
+
+
+      function measureItemWidth() {
+
+        if (!allItems.length) return 0;
+
+        const style = window.getComputedStyle(track);
+
+        const gap =
+          parseFloat(style.columnGap || style.gap || "0") || 0;
+
+        const rect = allItems[0].getBoundingClientRect();
+
+        return rect.width + gap;
+
+      }
+
+
+      function setWidth() {
+
+        return itemWidth * originalCount;
+
+      }
+
+
+      // Keeps the visible scroll position anchored inside the
+      // middle copy, so there is always a full copy of buffer
+      // space on the left and on the right to drag into.
+      function normalizeScrollPosition() {
+
+        if (itemWidth <= 0) return;
+
+        const middleSetStart = setWidth();
+
+        const middleSetEnd = setWidth() * 2;
+
+        if (track.scrollLeft >= middleSetEnd) {
+
+          track.scrollLeft -= setWidth();
+
+        } else if (track.scrollLeft < middleSetStart) {
+
+          track.scrollLeft += setWidth();
+
+        }
+
+      }
+
+
+      function initPosition() {
+
+        itemWidth = measureItemWidth();
+
+        if (itemWidth <= 0) return;
+
+        track.scrollLeft = setWidth();
+
+      }
+
+
+      function autoAdvance() {
+
+        if (isPointerDown) return;
+
+        if (itemWidth <= 0) itemWidth = measureItemWidth();
+
+        if (itemWidth <= 0) return;
+
+        track.scrollTo({
+
+          left: track.scrollLeft + itemWidth,
+
+          behavior: "smooth"
+
+        });
+
+      }
+
+
+      function startAuto() {
+
+        stopAuto();
+
+        autoTimer = setInterval(autoAdvance, 2000);
+
+      }
+
+
+      function stopAuto() {
+
+        if (autoTimer) {
+
+          clearInterval(autoTimer);
+
+          autoTimer = null;
+
+        }
+
+      }
+
+
+      function scheduleResume(delay) {
+
+        if (resumeTimer) clearTimeout(resumeTimer);
+
+        resumeTimer = setTimeout(startAuto, delay);
+
+      }
+
+
+      // Debounced scroll listener: whichever way the strip moved
+      // (auto step or manual drag), quietly snap the buffer back
+      // into range once scrolling settles, without any visible jump.
+      let scrollSettleTimer = null;
+
+      track.addEventListener("scroll", () => {
+
+        if (scrollSettleTimer) clearTimeout(scrollSettleTimer);
+
+        scrollSettleTimer = setTimeout(normalizeScrollPosition, 140);
+
+      }, { passive: true });
+
+
+      // ---- Manual drag (mouse / trackpad) ----
+
+      track.addEventListener("mousedown", (event) => {
+
+        isPointerDown = true;
+
+        dragMoved = false;
+
+        track.classList.add("dragging");
+
+        stopAuto();
+
+        if (resumeTimer) clearTimeout(resumeTimer);
+
+        startX = event.clientX;
+
+        startScrollLeft = track.scrollLeft;
+
+        event.preventDefault();
+
+      });
+
+
+      document.addEventListener("mousemove", (event) => {
+
+        if (!isPointerDown) return;
+
+        const delta = event.clientX - startX;
+
+        if (Math.abs(delta) > 3) dragMoved = true;
+
+        track.scrollLeft = startScrollLeft - delta;
+
+      });
+
+
+      function endMouseDrag() {
+
+        if (!isPointerDown) return;
+
+        isPointerDown = false;
+
+        track.classList.remove("dragging");
+
+        normalizeScrollPosition();
+
+        scheduleResume(dragMoved ? 1200 : 400);
+
+      }
+
+
+      document.addEventListener("mouseup", endMouseDrag);
+
+      track.addEventListener("mouseleave", () => {
+
+        if (isPointerDown) endMouseDrag();
+
+      });
+
+
+      // ---- Touch (finger) ----
+      // Native touch scrolling already moves the strip, we just
+      // pause the automatic slide while a finger is on it and
+      // resume once it is lifted, exactly like the user asked.
+
+      track.addEventListener("touchstart", () => {
+
+        stopAuto();
+
+        if (resumeTimer) clearTimeout(resumeTimer);
+
+      }, { passive: true });
+
+
+      track.addEventListener("touchend", () => {
+
+        normalizeScrollPosition();
+
+        scheduleResume(1200);
+
+      }, { passive: true });
+
+
+      track.addEventListener("touchcancel", () => {
+
+        scheduleResume(1200);
+
+      }, { passive: true });
+
+
+      window.addEventListener("resize", () => {
+
+        itemWidth = measureItemWidth();
+
+      });
+
+
+      // ---- Centre item "pop up" effect (YouTube-style) ----
+      // Continuously measures how close each product is to the
+      // horizontal centre of the strip and scales it up smoothly
+      // the closer it gets, shrinking back to normal as it moves
+      // toward the sides. Runs every frame so it stays perfectly
+      // in sync during both the automatic slide and manual drags.
+
+      function updateCenterScaling() {
+
+        if (itemWidth <= 0) return;
+
+        const trackRect = track.getBoundingClientRect();
+
+        const centerX = trackRect.left + trackRect.width / 2;
+
+        const falloff = itemWidth * 0.85;
+
+        allItems.forEach((item) => {
+
+          const rect = item.getBoundingClientRect();
+
+          const itemCenter = rect.left + rect.width / 2;
+
+          const distance = Math.abs(itemCenter - centerX);
+
+          const proximity = Math.max(0, 1 - distance / falloff);
+
+          const scale = 1 + proximity * 0.18;
+
+          item.style.transform =
+            scale > 1.001 ? `scale(${scale.toFixed(3)})` : "";
+
+          item.classList.toggle("slide-active", proximity > 0.6);
+
+        });
+
+      }
+
+
+      function scalingLoop() {
+
+        updateCenterScaling();
+
+        requestAnimationFrame(scalingLoop);
+
+      }
+
+
+      window.requestAnimationFrame(() => {
+
+        initPosition();
+
+        startAuto();
+
+        scalingLoop();
+
+      });
+
+    })();
   </script>
 
 </body>
