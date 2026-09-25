@@ -70,6 +70,30 @@
       --muted: #6c6154;
     }
 
+    /* ---------- SVG ICON SYSTEM ---------- */
+    .ico {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ornament {
+      display: block;
+      width: 120px;
+      height: 16px;
+      margin: 0 auto 24px;
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 1;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
     .topbar {
       height: 38px;
       background: var(--espresso);
@@ -77,11 +101,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 12px;
       font: 10px Arial, sans-serif;
       letter-spacing: 2.4px;
       text-transform: uppercase;
       text-align: center;
       padding: 0 12px;
+    }
+
+    .topbar svg {
+      width: 12px;
+      height: 12px;
+      color: var(--gold);
     }
 
     header {
@@ -165,6 +196,15 @@
       cursor: pointer;
       transition: .25s;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--espresso);
+    }
+
+    .icon-btn svg {
+      width: 17px;
+      height: 17px;
     }
 
     .icon-btn:hover {
@@ -199,6 +239,16 @@
       isolation: isolate;
       z-index: 0;
       transition: color .45s ease, border-color .45s ease, box-shadow .45s ease, transform .3s ease;
+    }
+
+    .btn svg {
+      width: 15px;
+      height: 15px;
+      transition: transform .35s ease;
+    }
+
+    .btn:hover svg {
+      transform: translateX(4px);
     }
 
     .btn:before {
@@ -317,9 +367,18 @@
       right: 30px;
       bottom: 30px;
       z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font: 9px Arial, sans-serif;
       letter-spacing: 3px;
       color: #eee4d5;
+    }
+
+    .hero-label svg {
+      width: 14px;
+      height: 14px;
+      color: var(--gold);
     }
 
     .intro {
@@ -375,6 +434,7 @@
     }
 
     .service-image {
+      position: relative;
       height: 270px;
       background: #d8ccbc;
       overflow: hidden;
@@ -386,6 +446,36 @@
 
     .service-image img {
       transition: transform .8s ease;
+    }
+
+    .service-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(250, 247, 240, .93);
+      border: 1px solid rgba(48, 40, 32, .12);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-dark);
+      box-shadow: 0 8px 20px rgba(48, 40, 32, .16);
+      transition: background .4s ease, color .4s ease;
+    }
+
+    .service-badge svg {
+      width: 21px;
+      height: 21px;
+      stroke-width: 1.4;
+    }
+
+    .service-card:hover .service-badge {
+      background: var(--espresso);
+      color: var(--gold);
     }
 
     .service-content {
@@ -427,9 +517,9 @@
       transition: letter-spacing .35s ease, color .35s ease, border-color .35s ease;
     }
 
-    .service-link:after {
-      content: "\2192";
-      display: inline-block;
+    .service-link svg {
+      width: 13px;
+      height: 13px;
       transition: transform .35s ease;
     }
 
@@ -439,7 +529,7 @@
       letter-spacing: 3px;
     }
 
-    .service-link:hover:after {
+    .service-link:hover svg {
       transform: translateX(5px);
     }
 
@@ -477,10 +567,21 @@
     }
 
     .process-item {
+      position: relative;
       min-width: 0;
       background: #e8dece;
       text-align: center;
       padding: 45px 25px;
+    }
+
+    .process-num {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      font: 10px Arial, sans-serif;
+      letter-spacing: 3px;
+      color: var(--gold-dark);
+      opacity: .7;
     }
 
     .process-icon {
@@ -493,7 +594,19 @@
       justify-content: center;
       margin: 0 auto 22px;
       color: var(--gold-dark);
-      font-size: 20px;
+      transition: background .4s ease, color .4s ease;
+    }
+
+    .process-icon svg {
+      width: 25px;
+      height: 25px;
+      stroke-width: 1.3;
+    }
+
+    .process-item:hover .process-icon {
+      background: var(--espresso);
+      color: var(--gold);
+      border-color: var(--espresso);
     }
 
     .process-item h3 {
@@ -576,14 +689,33 @@
     }
 
     .detail button span {
-      font-size: 20px;
-      font-weight: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--gold-dark);
       transition: .3s;
       flex-shrink: 0;
     }
 
+    .detail button span svg {
+      width: 13px;
+      height: 13px;
+      stroke-width: 1.8;
+    }
+
+    .detail button:hover span {
+      border-color: var(--gold);
+    }
+
     .detail.open button span {
       transform: rotate(45deg);
+      background: var(--espresso);
+      border-color: var(--espresso);
+      color: var(--gold);
     }
 
     .detail-content {
@@ -604,6 +736,11 @@
       color: white;
       padding: 100px 30px;
       text-align: center;
+    }
+
+    .care-banner .ornament {
+      margin-bottom: 26px;
+      stroke: var(--gold);
     }
 
     .care-banner h2 {
@@ -642,10 +779,20 @@
     }
 
     footer h3 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-size: 27px;
       font-weight: 400;
       letter-spacing: 4px;
       margin-bottom: 15px;
+    }
+
+    footer h3 svg {
+      width: 26px;
+      height: 26px;
+      color: #c9aa72;
+      stroke-width: 1.3;
     }
 
     footer h4 {
@@ -669,6 +816,50 @@
 
     footer a:hover {
       color: white
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      color: #aaa196;
+      font: 12px/1.9 Arial, sans-serif;
+    }
+
+    .contact-line svg {
+      width: 15px;
+      height: 15px;
+      margin-top: 5px;
+      color: #c9aa72;
+    }
+
+    footer .social {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    footer .social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .3s ease, color .3s ease, transform .25s ease;
+    }
+
+    footer .social a svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    footer .social a:hover {
+      border-color: #c9aa72;
+      color: #c9aa72;
+      transform: translateY(-2px);
     }
 
     .map {
@@ -723,7 +914,15 @@
     .search-top {
       display: flex;
       align-items: center;
+      gap: 14px;
       border-bottom: 1px solid rgba(255, 255, 255, .35);
+    }
+
+    .search-top>svg {
+      width: 26px;
+      height: 26px;
+      color: #c9aa72;
+      stroke-width: 1.3;
     }
 
     .search-top input {
@@ -738,18 +937,68 @@
     }
 
     .search-top button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
       background: none;
-      border: 0;
+      border: 1px solid rgba(255, 255, 255, .25);
+      border-radius: 50%;
       color: white;
-      font-size: 28px;
       cursor: pointer;
       flex-shrink: 0;
+      transition: border-color .3s ease, color .3s ease;
+    }
+
+    .search-top button svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .search-top button:hover {
+      border-color: #c9aa72;
+      color: #c9aa72;
     }
 
     .search-results {
       padding-top: 25px;
       font: 12px/2 Arial, sans-serif;
       color: #c9c0b5;
+    }
+
+    .search-hit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: #eee7dc;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      padding: 12px 0;
+      transition: color .3s ease;
+    }
+
+    .search-hit svg {
+      width: 16px;
+      height: 16px;
+      color: #c9aa72;
+      transition: transform .3s ease;
+    }
+
+    .search-hit:hover svg {
+      transform: translateX(4px);
+    }
+
+    .search-empty {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .search-empty svg {
+      width: 20px;
+      height: 20px;
+      color: #c9aa72;
     }
 
     .reveal {
@@ -804,6 +1053,12 @@
       .topbar {
         font-size: 8px;
         letter-spacing: 1.2px;
+        gap: 8px;
+      }
+
+      .topbar svg {
+        width: 10px;
+        height: 10px;
       }
 
       .nav {
@@ -827,7 +1082,7 @@
       }
 
       .menu-toggle {
-        display: block;
+        display: flex;
       }
 
       .navlinks {
@@ -938,6 +1193,18 @@
         height: auto;
       }
 
+      .service-badge {
+        top: 8px;
+        left: 8px;
+        width: 30px;
+        height: 30px;
+      }
+
+      .service-badge svg {
+        width: 15px;
+        height: 15px;
+      }
+
       .service-content {
         flex: 1;
         min-width: 0;
@@ -971,6 +1238,11 @@
       .service-link {
         font-size: 8.5px;
         letter-spacing: 1.8px;
+      }
+
+      .service-link svg {
+        width: 11px;
+        height: 11px;
       }
 
       /* ---- Process: 4-column grid becomes a horizontal
@@ -1083,6 +1355,11 @@
       .search-top input {
         font-size: 18px;
       }
+
+      .search-top>svg {
+        width: 22px;
+        height: 22px;
+      }
     }
 
     /* ---- Extra fine-tuning for small phones ---- */
@@ -1118,7 +1395,129 @@
 
 <body>
 
-  <div class="topbar">THE JEWELICA — PRIVATE SERVICE &amp; CONSIDERED CRAFT</div>
+  <!-- SVG ICON SPRITE -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <circle cx="10.8" cy="10.8" r="6.8"></circle>
+        <path d="M16 16l5 5"></path>
+      </symbol>
+
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="M6 6l12 12M18 6L6 18"></path>
+      </symbol>
+
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16M4 12h16M4 17h10"></path>
+      </symbol>
+
+      <symbol id="i-plus" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12h14"></path>
+      </symbol>
+
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M4 12h16M14 6l6 6-6 6"></path>
+      </symbol>
+
+      <symbol id="i-gem" viewBox="0 0 24 24">
+        <path d="M6.5 4h11l4 5.5L12 20.5 2.5 9.5l4-5.5z"></path>
+        <path d="M2.5 9.5h19M9 4L7 9.5l5 11M15 4l2 5.5-5 11"></path>
+      </symbol>
+
+      <symbol id="i-sparkle" viewBox="0 0 24 24">
+        <path d="M12 3l1.8 5.7 5.7 1.8-5.7 1.8L12 18l-1.8-5.7-5.7-1.8 5.7-1.8L12 3z"></path>
+        <path d="M19 16v4M17 18h4"></path>
+      </symbol>
+
+      <symbol id="i-gold" viewBox="0 0 24 24">
+        <path d="M7.5 6h9l4 5h-17l4-5z"></path>
+        <path d="M3.5 11h17v6.5h-17z"></path>
+        <path d="M9 14.2h6"></path>
+      </symbol>
+
+      <symbol id="i-crown" viewBox="0 0 24 24">
+        <path d="M3.5 18.5l-1-11 5.5 4.5L12 5l4 7 5.5-4.5-1 11h-17z"></path>
+        <path d="M4 21h16"></path>
+      </symbol>
+
+      <symbol id="i-pen" viewBox="0 0 24 24">
+        <path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19l-4 1z"></path>
+        <path d="M14.5 6.5l3 3"></path>
+      </symbol>
+
+      <symbol id="i-wrench" viewBox="0 0 24 24">
+        <path d="M14.7 6.3a4 4 0 0 0-5 5L3.5 17.5a2 2 0 0 0 3 3l6.2-6.2a4 4 0 0 0 5-5l-2.6 2.6-2.4-.6-.6-2.4 2.6-2.6z"></path>
+      </symbol>
+
+      <symbol id="i-scale" viewBox="0 0 24 24">
+        <path d="M12 4v16M7 20h10"></path>
+        <path d="M5 7h14"></path>
+        <path d="M5 7l-3 7a3 3 0 0 0 6 0L5 7zM19 7l-3 7a3 3 0 0 0 6 0l-3-7z"></path>
+      </symbol>
+
+      <symbol id="i-heart" viewBox="0 0 24 24">
+        <path d="M20.8 8.8c0 5.1-8.8 10.4-8.8 10.4S3.2 13.9 3.2 8.8A5 5 0 0 1 12 6a5 5 0 0 1 8.8 2.8z"></path>
+      </symbol>
+
+      <symbol id="i-chat" viewBox="0 0 24 24">
+        <path d="M4 5.5h16v10.5H10l-4.5 3.5V16H4V5.5z"></path>
+        <path d="M8 10h8M8 13h5"></path>
+      </symbol>
+
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="M5 12.5l4.5 4.5L19 7.5"></path>
+      </symbol>
+
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"></path>
+        <circle cx="12" cy="9.5" r="2.5"></circle>
+      </symbol>
+
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <path d="M5 4h3.5l1.7 4.3-2.2 1.4a11 11 0 0 0 5.3 5.3l1.4-2.2 4.3 1.7V18a2 2 0 0 1-2 2A14 14 0 0 1 3 6a2 2 0 0 1 2-2z"></path>
+      </symbol>
+
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5.5" width="18" height="13" rx="2"></rect>
+        <path d="M3.5 7l8.5 6 8.5-6"></path>
+      </symbol>
+
+      <symbol id="i-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M12 7v5l3.5 2"></path>
+      </symbol>
+
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+        <circle cx="12" cy="12" r="4"></circle>
+        <circle cx="17" cy="7" r=".6"></circle>
+      </symbol>
+
+      <symbol id="i-facebook" viewBox="0 0 24 24">
+        <path d="M14.5 21v-8h2.7l.5-3.3h-3.2V7.6c0-.9.4-1.6 1.7-1.6h1.6V3.2A19 19 0 0 0 15.4 3c-2.4 0-4 1.4-4 4.1v2.6H8.7V13h2.7v8h3.1z"></path>
+      </symbol>
+
+      <symbol id="i-whatsapp" viewBox="0 0 24 24">
+        <path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8L4 20z"></path>
+        <path d="M9.2 8.8c.3 2.6 2.3 4.6 5 5.2l1-1.2-1.8-1-.8.6a4 4 0 0 1-1.6-1.6l.6-.8-1-1.8-1.4.6z"></path>
+      </symbol>
+
+      <symbol id="i-ornament" viewBox="0 0 120 16">
+        <path d="M0 8h48M72 8h48"></path>
+        <path d="M60 1.5L66.5 8 60 14.5 53.5 8 60 1.5z"></path>
+        <path d="M60 5l3 3-3 3-3-3 3-3z"></path>
+      </symbol>
+
+    </defs>
+  </svg>
+
+
+  <div class="topbar">
+    <svg class="ico" aria-hidden="true"><use href="#i-sparkle"></use></svg>
+    THE JEWELICA — PRIVATE SERVICE &amp; CONSIDERED CRAFT
+    <svg class="ico" aria-hidden="true"><use href="#i-sparkle"></use></svg>
+  </div>
 
   <header>
     <nav class="nav" aria-label="Main navigation">
@@ -1142,8 +1541,12 @@
       </div>
 
       <div class="nav-actions">
-        <button class="icon-btn" id="searchBtn" aria-label="Open search">⌕</button>
-        <button class="icon-btn menu-toggle" id="menuBtn" aria-label="Open navigation">☰</button>
+        <button class="icon-btn" id="searchBtn" aria-label="Open search">
+          <svg class="ico" aria-hidden="true"><use href="#i-search"></use></svg>
+        </button>
+        <button class="icon-btn menu-toggle" id="menuBtn" aria-label="Open navigation">
+          <svg class="ico" aria-hidden="true"><use id="menuIcon" href="#i-menu"></use></svg>
+        </button>
       </div>
 
     </nav>
@@ -1164,17 +1567,25 @@
           individual needs, your pieces and your occasions.
         </p>
 
-        <a href="#services" class="btn btn-gold">Explore Our Services</a>
+        <a href="#services" class="btn btn-gold">
+          Explore Our Services
+          <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
       </div>
 
       <div class="hero-art">
         <img src="images/Made for you.png" alt="The Jewelica jewellery services">
-        <div class="hero-label">THE JEWELICA / SERVICES</div>
+        <div class="hero-label">
+          <svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg>
+          THE JEWELICA / SERVICES
+        </div>
       </div>
 
     </section>
 
     <section class="intro reveal">
+
+      <svg class="ornament" viewBox="0 0 120 16" aria-hidden="true"><use href="#i-ornament"></use></svg>
 
       <div class="eyebrow">A More Personal Approach</div>
 
@@ -1196,6 +1607,9 @@
 
         <div class="service-image">
           <img src="images/Bespoke Jewellery.png" alt="The Jewelica bespoke jewellery service">
+          <span class="service-badge" aria-hidden="true">
+            <svg class="ico"><use href="#i-pen"></use></svg>
+          </span>
         </div>
 
         <div class="service-content">
@@ -1209,7 +1623,10 @@
             design through a guided consultation process.
           </p>
 
-          <a href="contact.html" class="service-link">Request A Consultation</a>
+          <a href="contact.html" class="service-link">
+            Request A Consultation
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
         </div>
 
       </article>
@@ -1219,6 +1636,9 @@
 
         <div class="service-image">
           <img src="images/Jewellery Restoration.png" alt="The Jewelica jewellery restoration service">
+          <span class="service-badge" aria-hidden="true">
+            <svg class="ico"><use href="#i-wrench"></use></svg>
+          </span>
         </div>
 
         <div class="service-content">
@@ -1232,7 +1652,10 @@
             its condition and determining an appropriate care approach.
           </p>
 
-          <a href="contact.html" class="service-link">Discuss Restoration</a>
+          <a href="contact.html" class="service-link">
+            Discuss Restoration
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
         </div>
 
       </article>
@@ -1242,6 +1665,9 @@
 
         <div class="service-image">
           <img src="images/Gold Consultation.png" alt="The Jewelica gold consultation service">
+          <span class="service-badge" aria-hidden="true">
+            <svg class="ico"><use href="#i-gold"></use></svg>
+          </span>
         </div>
 
         <div class="service-content">
@@ -1255,7 +1681,10 @@
             personal collection.
           </p>
 
-          <a href="contact.html" class="service-link">Book A Consultation</a>
+          <a href="contact.html" class="service-link">
+            Book A Consultation
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
         </div>
 
       </article>
@@ -1265,6 +1694,9 @@
 
         <div class="service-image">
           <img src="images/Diamond Consultation.png" alt="The Jewelica diamond consultation service">
+          <span class="service-badge" aria-hidden="true">
+            <svg class="ico"><use href="#i-gem"></use></svg>
+          </span>
         </div>
 
         <div class="service-content">
@@ -1278,7 +1710,10 @@
             piece that feels right for you.
           </p>
 
-          <a href="contact.html" class="service-link">Explore Consultation</a>
+          <a href="contact.html" class="service-link">
+            Explore Consultation
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
         </div>
 
       </article>
@@ -1288,6 +1723,9 @@
 
         <div class="service-image">
           <img src="images/Bridal Consultation.png" alt="The Jewelica bridal jewellery consultation service">
+          <span class="service-badge" aria-hidden="true">
+            <svg class="ico"><use href="#i-crown"></use></svg>
+          </span>
         </div>
 
         <div class="service-content">
@@ -1300,7 +1738,10 @@
             ceremony, attire, preferences and desired overall aesthetic.
           </p>
 
-          <a href="contact.html" class="service-link">Plan Your Bridal Edit</a>
+          <a href="contact.html" class="service-link">
+            Plan Your Bridal Edit
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
         </div>
 
       </article>
@@ -1310,6 +1751,9 @@
 
         <div class="service-image">
           <img src="images/Jewellery Valuation.png" alt="The Jewelica jewellery valuation service">
+          <span class="service-badge" aria-hidden="true">
+            <svg class="ico"><use href="#i-scale"></use></svg>
+          </span>
         </div>
 
         <div class="service-content">
@@ -1323,7 +1767,10 @@
             service requested.
           </p>
 
-          <a href="contact.html" class="service-link">Enquire About Valuation</a>
+          <a href="contact.html" class="service-link">
+            Enquire About Valuation
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
         </div>
 
       </article>
@@ -1333,6 +1780,9 @@
 
         <div class="service-image">
           <img src="images/Jewellery Care Studio.png" alt="The Jewelica Jewellery Care Studio">
+          <span class="service-badge" aria-hidden="true">
+            <svg class="ico"><use href="#i-heart"></use></svg>
+          </span>
         </div>
 
         <div class="service-content">
@@ -1371,7 +1821,10 @@
       <div class="process-grid">
 
         <div class="process-item reveal">
-          <div class="process-icon">01</div>
+          <span class="process-num">01</span>
+          <div class="process-icon">
+            <svg class="ico" aria-hidden="true"><use href="#i-search"></use></svg>
+          </div>
           <h3>Discover</h3>
           <p>
             Tell us what you are looking for, what you already have
@@ -1380,7 +1833,10 @@
         </div>
 
         <div class="process-item reveal">
-          <div class="process-icon">02</div>
+          <span class="process-num">02</span>
+          <div class="process-icon">
+            <svg class="ico" aria-hidden="true"><use href="#i-chat"></use></svg>
+          </div>
           <h3>Discuss</h3>
           <p>
             Explore materials, styles, stones and possibilities with
@@ -1389,7 +1845,10 @@
         </div>
 
         <div class="process-item reveal">
-          <div class="process-icon">03</div>
+          <span class="process-num">03</span>
+          <div class="process-icon">
+            <svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg>
+          </div>
           <h3>Refine</h3>
           <p>
             Narrow the direction and details until the selection or
@@ -1398,7 +1857,10 @@
         </div>
 
         <div class="process-item reveal">
-          <div class="process-icon">04</div>
+          <span class="process-num">04</span>
+          <div class="process-icon">
+            <svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>
+          </div>
           <h3>Complete</h3>
           <p>
             Move forward with the selected service while keeping the
@@ -1441,7 +1903,7 @@
           <div class="detail">
             <button type="button">
               What can I bring to a consultation?
-              <span>+</span>
+              <span><svg class="ico" aria-hidden="true"><use href="#i-plus"></use></svg></span>
             </button>
             <div class="detail-content">
               <p>
@@ -1455,7 +1917,7 @@
           <div class="detail">
             <button type="button">
               Can I discuss a custom jewellery idea?
-              <span>+</span>
+              <span><svg class="ico" aria-hidden="true"><use href="#i-plus"></use></svg></span>
             </button>
             <div class="detail-content">
               <p>
@@ -1469,7 +1931,7 @@
           <div class="detail">
             <button type="button">
               Can existing jewellery be assessed for restoration?
-              <span>+</span>
+              <span><svg class="ico" aria-hidden="true"><use href="#i-plus"></use></svg></span>
             </button>
             <div class="detail-content">
               <p>
@@ -1483,7 +1945,7 @@
           <div class="detail">
             <button type="button">
               How do I request a consultation?
-              <span>+</span>
+              <span><svg class="ico" aria-hidden="true"><use href="#i-plus"></use></svg></span>
             </button>
             <div class="detail-content">
               <p>
@@ -1496,7 +1958,10 @@
 
         </div>
 
-        <a href="contact.html" class="btn btn-gold">Get In Touch</a>
+        <a href="contact.html" class="btn btn-gold">
+          Get In Touch
+          <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
 
       </div>
 
@@ -1504,6 +1969,8 @@
 
 
     <section class="care-banner">
+
+      <svg class="ornament" viewBox="0 0 120 16" aria-hidden="true"><use href="#i-ornament"></use></svg>
 
       <div class="eyebrow">The Jewellery Care Studio</div>
 
@@ -1514,7 +1981,10 @@
         restoration and everyday jewellery care.
       </p>
 
-      <a href="care.html" class="btn btn-gold">Explore Jewellery Care</a>
+      <a href="care.html" class="btn btn-gold">
+        Explore Jewellery Care
+        <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+      </a>
 
     </section>
 
@@ -1526,12 +1996,21 @@
     <div class="footer-grid">
 
       <div>
-        <h3>THE JEWELICA</h3>
+        <h3>
+          <svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg>
+          THE JEWELICA
+        </h3>
 
         <p>
           A contemporary jewellery house devoted to refined design,
           considered craftsmanship and timeless expression.
         </p>
+
+        <div class="social">
+          <a href="#" aria-label="Instagram"><svg class="ico" aria-hidden="true"><use href="#i-instagram"></use></svg></a>
+          <a href="#" aria-label="Facebook"><svg class="ico" aria-hidden="true"><use href="#i-facebook"></use></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"></use></svg></a>
+        </div>
       </div>
 
       <div>
@@ -1568,21 +2047,28 @@
       <div>
         <h4>Visit Us</h4>
 
-        <p>
-          The Jewelica Lahore<br>
-          Premium Jewellery District<br>
-          Lahore, Pakistan
-        </p>
+        <div class="contact-line">
+          <svg class="ico" aria-hidden="true"><use href="#i-pin"></use></svg>
+          <span>Shah Alam Market, Lahore</span>
+        </div>
 
-        <p style="margin-top:10px">
-          +92 300 0000000<br>
-          hello@thejewelica.com
-        </p>
+        <div class="contact-line">
+          <svg class="ico" aria-hidden="true"><use href="#i-phone"></use></svg>
+          <span>+92 325 6561246</span>
+        </div>
 
-        <p style="margin-top:10px">
-          Mon — Sat: 11:00 — 20:00<br>
-          Sunday: By Appointment
-        </p>
+        <div class="contact-line">
+          <svg class="ico" aria-hidden="true"><use href="#i-mail"></use></svg>
+          <span>hello@thejewelica.com</span>
+        </div>
+
+        <div class="contact-line">
+          <svg class="ico" aria-hidden="true"><use href="#i-clock"></use></svg>
+          <span>
+            Mon — Sat: 11:00 — 20:00<br>
+            Sunday: By Appointment
+          </span>
+        </div>
       </div>
 
     </div>
@@ -1609,8 +2095,11 @@
     <div class="search-box">
 
       <div class="search-top">
+        <svg class="ico" aria-hidden="true"><use href="#i-search"></use></svg>
         <input id="searchInput" type="search" placeholder="Search The Jewelica..." autocomplete="off">
-        <button id="closeSearch" aria-label="Close search">×</button>
+        <button id="closeSearch" aria-label="Close search">
+          <svg class="ico" aria-hidden="true"><use href="#i-close"></use></svg>
+        </button>
       </div>
 
       <div class="search-results" id="searchResults">
@@ -1623,19 +2112,25 @@
 
 
   <script>
+    const arrowIcon = '<svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>';
+    const searchIcon = '<svg class="ico" aria-hidden="true"><use href="#i-search"></use></svg>';
+
     const menuBtn = document.getElementById("menuBtn");
     const navLinks = document.getElementById("navLinks");
+    const menuIcon = document.getElementById("menuIcon");
+
+    function setMenu(isOpen) {
+      navLinks.classList.toggle("open", isOpen);
+      menuIcon.setAttribute("href", isOpen ? "#i-close" : "#i-menu");
+    }
 
     menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-      menuBtn.textContent =
-        navLinks.classList.contains("open") ? "×" : "☰";
+      setMenu(!navLinks.classList.contains("open"));
     });
 
     navLinks.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuBtn.textContent = "☰";
+        setMenu(false);
       });
     });
 
@@ -1720,14 +2215,14 @@
 
       if (!matches.length) {
         searchResults.innerHTML =
-          "<p>No matching destination found. Try Gold, Diamond, Bridal, Care or Services.</p>";
+          '<p class="search-empty">' + searchIcon + '<span>No matching destination found. Try Gold, Diamond, Bridal, Care or Services.</span></p>';
         return;
       }
 
       searchResults.innerHTML = matches
         .slice(0, 8)
         .map(item =>
-          `<a href="${item[1]}" style="display:block;color:#eee7dc;border-bottom:1px solid rgba(255,255,255,.1);padding:12px 0">${item[0]} →</a>`
+          `<a href="${item[1]}" class="search-hit"><span>${item[0]}</span>${arrowIcon}</a>`
         )
         .join("");
     });

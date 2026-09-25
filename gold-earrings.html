@@ -1500,6 +1500,46 @@
         bottom: 14px;
       }
     }
+  
+    /* Professional inline SVG icon system */
+    .svg-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      pointer-events: none;
+    }
+    .svg-fill {
+      fill: currentColor;
+      stroke: currentColor;
+    }
+    .btn-arrow {
+      width: 15px;
+      height: 15px;
+      margin-left: 9px;
+      display: inline-block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      pointer-events: none;
+    }
+    .nav-icon .svg-icon { width: 17px; height: 17px; }
+    .menu-toggle .svg-icon { width: 19px; height: 19px; }
+    .round-action .svg-icon { width: 16px; height: 16px; }
+    .close-search .svg-icon { width: 17px; height: 17px; }
+    .close-cart .svg-icon { width: 16px; height: 16px; }
+    .qty button .svg-icon { width: 12px; height: 12px; }
+    .back-top .svg-icon { width: 17px; height: 17px; }
+    .filter-btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; }
+    .mini-btn, .btn { gap: 7px; }
+
   </style>
 </head>
 
@@ -1517,7 +1557,7 @@
         <span>FINE JEWELLERY HOUSE</span>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
 
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -1528,6 +1568,7 @@
           <div class="dropdown-menu">
             <a href="gold.html">Gold Jewellery</a>
             <a href="gold-rings.html">Gold Rings</a>
+            <a href="gold-locket-sets.html">Gold Lockets</a>
             <a href="gold-bracelets.html">Gold Bracelets</a>
             <a href="gold-bangles.html">Gold Bangles</a>
             <a href="gold-earrings.html">Gold Earrings</a>
@@ -1536,7 +1577,8 @@
             <a href="gold-pendants.html">Gold Pendants</a>
             <a href="gold-chains.html">Gold Chains</a>
             <a href="gold-mens-rings.html">Gold Men's Rings</a>
-            <a href="gold.html">Gold Jewellery Sets</a>
+            <a href="gold-jewellery-sets.html">Gold Jewellery Sets</a>
+            <a href="gold-silver-bars.html">Gold &amp; Silver Bars</a>
           </div>
         </div>
 
@@ -1551,21 +1593,21 @@
         </div>
 
         <a href="collections.html">Collections</a>
-        <a href="stones.html">Your Stone</a>
-        <a href="trending.html">Trending Uniques</a>
+        <a href="stones.html">Stones</a>
+        <a href="trending.html">Trendings</a>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </div>
 
       <div class="nav-actions">
-        <button class="nav-icon" id="searchOpen" aria-label="Search">⌕</button>
+        <button class="nav-icon" id="searchOpen" aria-label="Search"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
         <button class="nav-icon" id="wishlistOpen" aria-label="Wishlist">
-          ♡
+          <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg>
           <span class="counter" id="wishCounter">0</span>
         </button>
         <button class="nav-icon" id="cartOpen" aria-label="Shopping cart">
-          ♧
+          <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg>
           <span class="counter" id="cartCounter">0</span>
         </button>
       </div>
@@ -1589,7 +1631,7 @@
             come together in a collection created for everyday beauty and
             enduring occasions.
           </p>
-          <a href="#collection" class="btn">Explore The Collection</a>
+          <a href="#collection" class="btn">Explore The Collection<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></a>
         </div>
       </div>
     </section>
@@ -1617,11 +1659,11 @@
       <div class="toolbar">
 
         <div class="filter-wrap">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="bands">Bands</button>
-          <button class="filter-btn" data-filter="signet">Signet</button>
-          <button class="filter-btn" data-filter="solitaire">Solitaire</button>
-          <button class="filter-btn" data-filter="classic">Classic</button>
+          <button class="filter-btn active" data-filter="all"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"></circle><path d="M12 5v14M5 12h14"></path></svg>All</button>
+          <button class="filter-btn" data-filter="bands"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="8" rx="4"></rect><path d="M8 8V6h8v2"></path></svg>Bands</button>
+          <button class="filter-btn" data-filter="signet"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h8l2 3-6 9-6-9 2-3Z"></path><path d="M9 7l3 3 3-3"></path></svg>Signet</button>
+          <button class="filter-btn" data-filter="solitaire"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 4 6-4 10-4-10 4-6Z"></path><path d="M8 10h8M10 7h4"></path></svg>Solitaire</button>
+          <button class="filter-btn" data-filter="classic"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="3"></circle></svg>Classic</button>
         </div>
 
         <select class="sort" id="sortProducts" aria-label="Sort jewellery">
@@ -1640,15 +1682,15 @@
               <img src="images/earings (1).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1659,15 +1701,15 @@
               <img src="images/earings (2).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1678,15 +1720,15 @@
               <img src="images/earings (3).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1697,15 +1739,15 @@
               <img src="images/earings (4).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1716,15 +1758,15 @@
               <img src="images/earings (5).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1735,15 +1777,15 @@
               <img src="images/earings (6).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1754,15 +1796,15 @@
               <img src="images/earings (7).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1773,15 +1815,15 @@
               <img src="images/earings (8).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1792,15 +1834,15 @@
               <img src="images/earings (9).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1811,15 +1853,15 @@
               <img src="images/earings (10).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1830,15 +1872,15 @@
               <img src="images/earings (11).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1849,15 +1891,15 @@
               <img src="images/earings (12).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1868,15 +1910,15 @@
               <img src="images/earings (13).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1887,15 +1929,15 @@
               <img src="images/earings (14).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1906,15 +1948,15 @@
               <img src="images/earings (15).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1925,15 +1967,15 @@
               <img src="images/earings (16).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1944,15 +1986,15 @@
               <img src="images/earings (17).png" alt="The Jewelica Gold Earrings">
             </a>
             <div class="product-actions">
-              <button class="round-action wish" aria-label="Add gold earrings to wishlist">♡</button>
-              <button class="round-action quick" aria-label="Quick view gold earrings">⌕</button>
+              <button class="round-action wish" aria-label="Add gold earrings to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg></button>
+              <button class="round-action quick" aria-label="Quick view gold earrings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">GOLD EARRINGS</span>
             <div class="product-buttons">
-              <button class="mini-btn add-cart">Add To Cart</button>
-              <button class="mini-btn details">View Details</button>
+              <button class="mini-btn add-cart">Add To Cart<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 8.5h11l1 11h-13l1-11Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg></button>
+              <button class="mini-btn details">View Details<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </article>
@@ -1975,7 +2017,7 @@
             understated everyday styles to distinctive statement pieces, the collection
             is designed to remain beautiful beyond the moment.
           </p>
-          <a href="services.html" class="btn">Discover Our Services</a>
+          <a href="services.html" class="btn">Discover Our Services<svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></a>
         </div>
       </div>
     </section>
@@ -2033,8 +2075,8 @@
 
         <h3 style="margin-top:28px;">Visit Us</h3>
         <p>The Jewelica Lahore</p>
-        <p>Placeholder Address, Lahore</p>
-        <p>+92 300 0000000</p>
+        <p>Shah Alam Market, Lahore</p>
+        <p><a href="https://wa.me/923256561246" target="_blank" rel="noopener">+92 325 6561246</a></p>
         <p>hello@thejewelica.example</p>
       </div>
 
@@ -2061,7 +2103,7 @@
       <div class="search-top">
         <input type="search" class="search-input" id="searchInput" placeholder="Search jewellery..." autocomplete="off"
           aria-label="Search jewellery">
-        <button class="close-search" id="searchClose" aria-label="Close search">×</button>
+        <button class="close-search" id="searchClose" aria-label="Close search"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
       </div>
       <div class="search-results" id="searchResults">
         Begin typing to search this collection.
@@ -2072,7 +2114,7 @@
   <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart">
     <div class="cart-head">
       <h2>Your Cart</h2>
-      <button class="close-cart" id="cartClose" aria-label="Close cart">×</button>
+      <button class="close-cart" id="cartClose" aria-label="Close cart"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
     </div>
 
     <div class="cart-items" id="cartItems">
@@ -2085,7 +2127,7 @@
   </aside>
 
   <div class="toast" id="toast">Added to your cart.</div>
-  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+  <button class="back-top" id="backTop" aria-label="Back to top"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 18V6"></path><path d="m7 11 5-5 5 5"></path></svg></button>
 
   <script>
     (() => {
@@ -2099,7 +2141,7 @@
 
       menuToggle.addEventListener("click", () => {
         navLinks.classList.toggle("open");
-        menuToggle.textContent = navLinks.classList.contains("open") ? "×" : "☰";
+        menuToggle.innerHTML = navLinks.classList.contains("open") ? '<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg>' : '<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>';
       });
 
       $$(".drop-btn").forEach(button => {
@@ -2115,7 +2157,7 @@
         link.addEventListener("click", () => {
           if (window.innerWidth <= 820) {
             navLinks.classList.remove("open");
-            menuToggle.textContent = "☰";
+            menuToggle.innerHTML = '<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>';
           }
         });
       });
@@ -2196,7 +2238,7 @@
           const exists = wishlist.some(item => item.image === img.getAttribute("src"));
 
           button.classList.toggle("active", exists);
-          button.textContent = exists ? "♥" : "♡";
+          button.innerHTML = exists ? `<svg class="svg-icon svg-fill" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg>` : `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 8.7c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.7 4.7 0 0 1 8 4c1.4 0 2.7.7 4 2 1.3-1.3 2.6-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z"></path></svg>`;
         });
       }
 
@@ -2265,9 +2307,9 @@
               <strong>${item.type}</strong>
 
               <div class="qty">
-                <button data-action="minus" data-index="${index}" aria-label="Decrease quantity">−</button>
+                <button data-action="minus" data-index="${index}" aria-label="Decrease quantity"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"></path></svg></button>
                 <span>${item.quantity}</span>
-                <button data-action="plus" data-index="${index}" aria-label="Increase quantity">+</button>
+                <button data-action="plus" data-index="${index}" aria-label="Increase quantity"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"></path></svg></button>
               </div>
 
               <button class="remove" data-action="remove" data-index="${index}">

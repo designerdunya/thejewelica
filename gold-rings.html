@@ -80,6 +80,22 @@
       object-fit: cover
     }
 
+    /* =========================
+       SVG ICON SYSTEM
+    ========================= */
+    .ico {
+      width: 18px;
+      height: 18px;
+      display: block;
+      flex-shrink: 0;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      pointer-events: none
+    }
+
     .announcement {
       background: var(--charcoal);
       color: #eee4d7;
@@ -150,6 +166,25 @@
       text-transform: uppercase;
       transition: color .25s;
       white-space: nowrap
+    }
+
+    .drop-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .drop-trigger .chev {
+      width: 11px;
+      height: 11px;
+      stroke-width: 1.8;
+      transition: transform .3s ease
+    }
+
+    .nav-links li:hover .drop-trigger .chev,
+    .nav-links li:focus-within .drop-trigger .chev,
+    .nav-links li.dropdown-open .drop-trigger .chev {
+      transform: rotate(180deg)
     }
 
     .nav-links a:hover,
@@ -229,6 +264,15 @@
     .nav-icon:hover {
       border-color: var(--gold);
       color: var(--gold)
+    }
+
+    .nav-icon.has-items .heart {
+      fill: currentColor
+    }
+
+    .menu-toggle .ico {
+      width: 20px;
+      height: 20px
     }
 
     .count {
@@ -343,6 +387,17 @@
       line-height: .95
     }
 
+    .ornament {
+      display: block;
+      width: 150px;
+      height: 14px;
+      margin: 28px auto 0;
+      color: var(--gold);
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1
+    }
+
     .intro p {
       max-width: 720px;
       margin: 25px auto 0;
@@ -383,13 +438,27 @@
       gap: 10px
     }
 
+    .search-box {
+      position: relative
+    }
+
+    .search-box .ico {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      width: 15px;
+      height: 15px;
+      transform: translateY(-50%);
+      color: var(--muted)
+    }
+
     .search-box input {
       width: 220px;
       max-width: 100%;
       height: 42px;
       border: 1px solid var(--line);
       background: transparent;
-      padding: 0 14px;
+      padding: 0 14px 0 38px;
       outline: none;
       color: var(--espresso);
       font-size: 12px
@@ -485,11 +554,20 @@
       box-shadow: 0 6px 18px rgba(0, 0, 0, .1)
     }
 
+    .tool-btn .ico {
+      width: 16px;
+      height: 16px
+    }
+
     .tool-btn:hover,
     .tool-btn.wished {
       color: white;
       background: var(--gold-dark);
       transform: scale(1.08)
+    }
+
+    .tool-btn.wished .ico {
+      fill: currentColor
     }
 
     .product-info {
@@ -541,7 +619,16 @@
       letter-spacing: 1.2px;
       text-transform: uppercase;
       border-radius: 3px 11px 3px 11px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
       transition: .3s, transform .3s, box-shadow .3s
+    }
+
+    .small-btn .ico {
+      width: 13px;
+      height: 13px
     }
 
     .small-btn:hover {
@@ -562,6 +649,72 @@
     .small-btn.primary:hover {
       background: var(--espresso);
       border-color: var(--espresso)
+    }
+
+    /* =========================
+       ASSURANCE STRIP
+    ========================= */
+    .assurance {
+      width: min(1380px, calc(100% - 60px));
+      min-width: 0;
+      margin: 0 auto 110px
+    }
+
+    .assurance-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .assurance-item {
+      padding: 40px 26px;
+      text-align: center;
+      border-right: 1px solid var(--line)
+    }
+
+    .assurance-item:last-child {
+      border-right: 0
+    }
+
+    .assurance-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(169, 135, 82, .45);
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--gold-dark);
+      transition: .35s ease
+    }
+
+    .assurance-icon .ico {
+      width: 26px;
+      height: 26px;
+      stroke-width: 1.2
+    }
+
+    .assurance-item:hover .assurance-icon {
+      background: var(--espresso);
+      border-color: var(--espresso);
+      color: var(--gold-light);
+      transform: translateY(-3px)
+    }
+
+    .assurance-item h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: .02em
+    }
+
+    .assurance-item p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.8
     }
 
     .cta {
@@ -622,8 +775,24 @@
       text-transform: uppercase;
       cursor: pointer;
       border-radius: 3px 16px 3px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       transition: color .35s ease, border-color .35s ease, transform .3s ease, box-shadow .3s ease;
       z-index: 0
+    }
+
+    .gold-button .ico,
+    .full-btn .ico {
+      width: 15px;
+      height: 15px;
+      stroke-width: 1.6;
+      transition: transform .35s ease
+    }
+
+    .gold-button:hover .ico,
+    .full-btn:hover .ico {
+      transform: translateX(4px)
     }
 
     .gold-button::before {
@@ -720,6 +889,26 @@
       line-height: 1.7
     }
 
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px
+    }
+
+    .contact-row .ico {
+      width: 15px;
+      height: 15px;
+      margin-top: 3px;
+      color: var(--gold-light);
+      stroke-width: 1.4
+    }
+
+    .contact-row span,
+    .contact-row a {
+      min-width: 0;
+      overflow-wrap: anywhere
+    }
+
     .map {
       margin-top: 20px;
       height: 190px;
@@ -783,7 +972,14 @@
 
     .search-top {
       display: flex;
-      gap: 15px
+      gap: 15px;
+      align-items: center
+    }
+
+    .search-top>.ico {
+      width: 22px;
+      height: 22px;
+      color: var(--gold-dark)
     }
 
     .search-top input {
@@ -801,10 +997,22 @@
 
     .close-search {
       width: 44px;
+      height: 44px;
       flex-shrink: 0;
       border: 1px solid var(--line);
       background: transparent;
-      cursor: pointer
+      color: var(--espresso);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: .25s
+    }
+
+    .close-search:hover,
+    .cart-close:hover {
+      background: var(--espresso);
+      border-color: var(--espresso);
+      color: white
     }
 
     .search-results {
@@ -821,7 +1029,23 @@
       border: 1px solid var(--line);
       cursor: pointer;
       font-size: 11px;
-      letter-spacing: 1px
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      transition: .25s
+    }
+
+    a.search-result:hover {
+      border-color: var(--gold);
+      color: var(--gold-dark)
+    }
+
+    .search-result .ico {
+      width: 15px;
+      height: 15px;
+      opacity: .6
     }
 
     .cart-overlay {
@@ -875,7 +1099,16 @@
       height: 35px;
       border: 1px solid var(--line);
       background: transparent;
-      cursor: pointer
+      color: var(--espresso);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: .25s
+    }
+
+    .cart-close .ico {
+      width: 16px;
+      height: 16px
     }
 
     .cart-items {
@@ -889,6 +1122,14 @@
       padding: 70px 20px;
       color: var(--muted);
       font-size: 12px
+    }
+
+    .empty-ico {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 16px;
+      color: var(--gold);
+      stroke-width: 1.1
     }
 
     .cart-item {
@@ -922,7 +1163,23 @@
       height: 25px;
       border: 1px solid var(--line);
       background: transparent;
-      cursor: pointer
+      color: var(--espresso);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: .25s
+    }
+
+    .quantity-controls button:hover {
+      background: var(--espresso);
+      border-color: var(--espresso);
+      color: white
+    }
+
+    .quantity-controls .ico {
+      width: 11px;
+      height: 11px;
+      stroke-width: 1.8
     }
 
     .remove-item {
@@ -931,7 +1188,19 @@
       cursor: pointer;
       color: var(--muted);
       font-size: 10px;
-      margin-top: 8px
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .remove-item:hover {
+      color: var(--espresso)
+    }
+
+    .remove-item .ico {
+      width: 11px;
+      height: 11px
     }
 
     .cart-footer {
@@ -978,9 +1247,19 @@
       padding: 13px 20px;
       font-size: 10px;
       letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       opacity: 0;
       visibility: hidden;
       transition: .3s
+    }
+
+    .toast .ico {
+      width: 14px;
+      height: 14px;
+      color: var(--gold-light);
+      stroke-width: 1.8
     }
 
     .toast.show {
@@ -1000,9 +1279,17 @@
       color: white;
       border: 0;
       cursor: pointer;
+      display: grid;
+      place-items: center;
       opacity: 0;
       visibility: hidden;
       transition: .25s
+    }
+
+    .back-top .ico {
+      width: 18px;
+      height: 18px;
+      stroke-width: 1.8
     }
 
     .back-top.show {
@@ -1085,6 +1372,15 @@
         justify-content: space-between
       }
 
+      .nav-links li:hover .drop-trigger .chev,
+      .nav-links li:focus-within .drop-trigger .chev {
+        transform: none
+      }
+
+      .nav-links li.dropdown-open .drop-trigger .chev {
+        transform: rotate(180deg)
+      }
+
       .dropdown {
         position: static;
         width: 100%;
@@ -1116,15 +1412,22 @@
         min-height: 280px;
         order: -1
       }
+
+      .assurance-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+
+      .assurance-item:nth-child(2n) {
+        border-right: 0
+      }
+
+      .assurance-item:nth-child(n+3) {
+        border-top: 1px solid var(--line)
+      }
     }
 
     /* ==================================================================
        GROUP 3 · MOBILE LAYOUT (<=768px)
-       A distinct mobile-only structure: full-screen nav menu, an
-       edge-anchored hero, list-style product cards instead of a grid,
-       an overlapping CTA card, and a centered single-column footer.
-       Same colors, same fonts, same images/text — only the arrangement
-       changes for small screens.
        ================================================================== */
     @media(max-width:768px) {
 
@@ -1154,8 +1457,7 @@
         height: 34px
       }
 
-      /* -- nav menu becomes a full-screen centered overlay instead of a
-            panel that pushes under the header -- */
+      /* -- nav menu becomes a full-screen centered overlay -- */
       .nav-links {
         position: fixed;
         inset: 0;
@@ -1203,8 +1505,7 @@
         text-align: center
       }
 
-      /* -- hero: copy anchors to the bottom-left of the image instead of
-            sitting centered in the middle of it -- */
+      /* -- hero -- */
       .category-hero {
         min-height: 62vw;
         max-height: 480px;
@@ -1230,10 +1531,14 @@
         margin: 18px 0
       }
 
-      /* -- intro copy reads as a left-aligned block, not a centered column -- */
+      /* -- intro -- */
       .intro {
         padding: 46px 20px 38px;
         text-align: left
+      }
+
+      .ornament {
+        margin-left: 0
       }
 
       .intro p {
@@ -1242,7 +1547,7 @@
         max-width: 100%
       }
 
-      /* -- toolbar: full-width stacked controls -- */
+      /* -- toolbar -- */
       .shop-area {
         width: min(100% - 24px, 600px);
         padding-bottom: 70px
@@ -1265,8 +1570,7 @@
         width: 100%
       }
 
-      /* -- products: swap the tile grid for a single-column list where
-            each card lays its image and details side by side -- */
+      /* -- products: single-column list, image and details side by side -- */
       .products {
         display: flex;
         flex-direction: column;
@@ -1300,6 +1604,22 @@
         font-size: 15px
       }
 
+      .product-tools {
+        top: 8px;
+        right: 8px;
+        gap: 5px
+      }
+
+      .tool-btn {
+        width: 30px;
+        height: 30px
+      }
+
+      .tool-btn .ico {
+        width: 14px;
+        height: 14px
+      }
+
       .card-actions {
         justify-content: flex-start;
         opacity: 1;
@@ -1313,8 +1633,25 @@
         padding: 9px 12px
       }
 
-      /* -- CTA: image on top, copy becomes an overlapping card instead
-            of a side-by-side column -- */
+      /* -- assurance -- */
+      .assurance {
+        width: min(100% - 24px, 600px);
+        margin-bottom: 60px
+      }
+
+      .assurance-item {
+        padding: 30px 14px
+      }
+
+      .assurance-item h3 {
+        font-size: 19px
+      }
+
+      .assurance-item p {
+        font-size: 10.5px
+      }
+
+      /* -- CTA: image on top, copy becomes an overlapping card -- */
       .cta {
         width: min(100% - 24px, 600px);
         grid-template-columns: 1fr;
@@ -1337,7 +1674,8 @@
       }
 
       .gold-button {
-        width: 100%
+        width: 100%;
+        justify-content: center
       }
 
       /* -- footer: single centered column, map moved to the top -- */
@@ -1370,6 +1708,11 @@
         text-align: center
       }
 
+      .contact-row {
+        justify-content: center;
+        text-align: left
+      }
+
       .footer-bottom {
         width: min(100% - 24px, 600px);
         flex-direction: column;
@@ -1389,12 +1732,16 @@
         padding: 24px 18px
       }
 
+      .search-top>.ico {
+        display: none
+      }
+
       .cart-drawer {
         width: 100%
       }
     }
 
-    /* ---------- GROUP 4 · SMALL PHONES (<=380px): fine tuning only ---------- */
+    /* ---------- GROUP 4 · SMALL PHONES (<=380px) ---------- */
     @media(max-width:380px) {
       .hero-content h1 {
         font-size: clamp(38px, 17vw, 58px)
@@ -1413,11 +1760,105 @@
         font-size: 17px;
         letter-spacing: 1.2px
       }
+
+      .assurance-grid {
+        grid-template-columns: 1fr
+      }
+
+      .assurance-item {
+        border-right: 0;
+        border-top: 1px solid var(--line)
+      }
+
+      .assurance-item:first-child {
+        border-top: 0
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- SVG ICON SPRITE (referenced everywhere with <use href="#i-name">) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6.5" />
+        <path d="M16 16l4.5 4.5" />
+      </symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24">
+        <path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z" />
+      </symbol>
+      <symbol id="i-bag" viewBox="0 0 24 24">
+        <path d="M6.5 8.5h11l1 12h-13l1-12Z" />
+        <path d="M9 9V6.5a3 3 0 0 1 6 0V9" />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16M4 12h16M4 17h10" />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24">
+        <path d="M12 19V5M6 11l6-6 6 6" />
+      </symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24">
+        <path d="M4 12h15M14 7l5 5-5 5" />
+      </symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6" />
+      </symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24">
+        <path d="M12 6v12M6 12h12" />
+      </symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24">
+        <path d="M6 12h12" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="M5 12.5l4.5 4.5L19 7.5" />
+      </symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24">
+        <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" />
+        <circle cx="12" cy="12" r="2.8" />
+      </symbol>
+      <symbol id="i-gem" viewBox="0 0 24 24">
+        <path d="M6.5 4h11L21 9l-9 11L3 9z" />
+        <path d="M3 9h18M9 4l3 5 3-5M9 9l3 11 3-11" />
+      </symbol>
+      <symbol id="i-ring" viewBox="0 0 24 24">
+        <circle cx="12" cy="15" r="6" />
+        <path d="M9.5 6.2L12 3l2.5 3.2L12 9.5z" />
+      </symbol>
+      <symbol id="i-craft" viewBox="0 0 24 24">
+        <path d="M11 3.5l1.9 5.6 5.6 1.9-5.6 1.9L11 18.5l-1.9-5.6L3.5 11l5.6-1.9z" />
+        <path d="M18.5 15.5v4M16.5 17.5h4" />
+      </symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24">
+        <path d="M4 5.5h16v11H10l-4.5 3.5v-3.5H4z" />
+        <path d="M8 9.5h8M8 12.5h5" />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+      </symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24">
+        <path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5z" />
+        <path d="M9.2 8.8c.3 2.6 2.4 4.8 5.1 5.4l1.2-1.4-2-1-.8.8a4 4 0 0 1-1.9-1.9l.8-.8-1-2z" />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5.5" width="18" height="13" rx="1.5" />
+        <path d="M3.5 7l8.5 6.5L20.5 7" />
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M12 21s6.5-5.6 6.5-11a6.5 6.5 0 0 0-13 0c0 5.4 6.5 11 6.5 11z" />
+        <circle cx="12" cy="10" r="2.4" />
+      </symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8.5" />
+        <path d="M12 7.5V12l3 2" />
+      </symbol>
+    </defs>
+  </svg>
+
   <div class="announcement">THE JEWELICA — A REFINED EXPRESSION OF FINE JEWELLERY</div>
   <header class="navbar">
     <div class="nav-inner">
@@ -1426,17 +1867,23 @@
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
-          <li class="dropdown-parent"><button class="drop-trigger" type="button">Gold <span>⌄</span></button>
+          <li class="dropdown-parent"><button class="drop-trigger" type="button">Gold <svg class="ico chev">
+                <use href="#i-chevron" />
+              </svg></button>
             <div class="dropdown">
               <a href="gold.html">Gold Jewellery</a><a href="gold-rings.html" class="active">Gold Rings</a><a
-                href="gold-bracelets.html">Gold Bracelets</a><a href="gold-bangles.html">Gold Bangles</a><a
+                href="gold-locket-sets.html">Gold Lockets</a>
+              <a href="gold-bracelets.html">Gold Bracelets</a><a href="gold-bangles.html">Gold Bangles</a><a
                 href="gold-earrings.html">Gold Earrings</a><a href="gold-necklace-sets.html">Gold Necklace Sets</a><a
                 href="gold-tops.html">Gold Tops</a><a href="gold-pendants.html">Gold Pendants</a><a
                 href="gold-chains.html">Gold Chains</a><a href="gold-mens-rings.html">Gold Men's Rings</a><a
-                href="gold.html">Gold Jewellery Sets</a><a href="stones.html">Choose Your Stone</a>
+                href="gold-jewellery-sets.html">Gold Jewellery Sets</a><a href="gold-silver-bars.html">Gold &amp; Silver
+                Bars</a><a href="stones.html">Choose Your Stone</a>
             </div>
           </li>
-          <li class="dropdown-parent"><button class="drop-trigger" type="button">Diamonds <span>⌄</span></button>
+          <li class="dropdown-parent"><button class="drop-trigger" type="button">Diamonds <svg class="ico chev">
+                <use href="#i-chevron" />
+              </svg></button>
             <div class="dropdown">
               <a href="diamond.html">Diamond Jewellery</a><a href="diamond-rings.html">Diamond Ladies Rings</a><a
                 href="diamond-ring-men.html">Diamond Men's Rings</a><a href="diamond-pendants-nose-pins.html">Diamond
@@ -1450,11 +1897,20 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-      <div class="nav-actions"><button class="nav-icon" id="searchBtn" aria-label="Search">⌕</button><button
-          class="nav-icon" id="wishlistBtn" aria-label="Wishlist">♡<span class="count"
-            id="wishlistCount">0</span></button><button class="nav-icon" id="cartBtn" aria-label="Shopping cart">♧<span
-            class="count" id="cartCount">0</span></button><button class="nav-icon menu-toggle" id="menuToggle"
-          aria-label="Open menu">☰</button></div>
+      <div class="nav-actions">
+        <button class="nav-icon" id="searchBtn" aria-label="Search"><svg class="ico">
+            <use href="#i-search" />
+          </svg></button>
+        <button class="nav-icon" id="wishlistBtn" aria-label="Wishlist"><svg class="ico heart">
+            <use href="#i-heart" />
+          </svg><span class="count" id="wishlistCount">0</span></button>
+        <button class="nav-icon" id="cartBtn" aria-label="Shopping cart"><svg class="ico">
+            <use href="#i-bag" />
+          </svg><span class="count" id="cartCount">0</span></button>
+        <button class="nav-icon menu-toggle" id="menuToggle" aria-label="Open menu"><svg class="ico">
+            <use href="#i-menu" />
+          </svg></button>
+      </div>
     </div>
   </header>
 
@@ -1473,6 +1929,11 @@
     <section class="intro">
       <div class="section-label">THE GOLD RING EDIT</div>
       <h2>Quietly<br>Exceptional</h2>
+      <svg class="ornament" viewBox="0 0 150 14" aria-hidden="true">
+        <path d="M0 7h60M90 7h60" />
+        <path d="M75 1l6 6-6 6-6-6z" />
+        <path d="M63 7h2M85 7h2" stroke-width="2" />
+      </svg>
       <p>Discover a refined selection of gold rings designed to bring warmth, character and understated luxury to every
         jewellery moment. From graceful everyday forms to distinctive statement silhouettes, each piece is presented
         with the simplicity that defines The Jewelica.</p>
@@ -1481,9 +1942,10 @@
       <div class="toolbar">
         <div class="result-count" id="resultCount">Showing 20 Gold Rings</div>
         <div class="toolbar-right">
-          <div class="search-box"><input type="search" id="productSearch" placeholder="Search rings..."
-              aria-label="Search gold rings"></div><select id="sortProducts" class="sort-select"
-            aria-label="Sort products">
+          <div class="search-box"><svg class="ico">
+              <use href="#i-search" />
+            </svg><input type="search" id="productSearch" placeholder="Search rings..." aria-label="Search gold rings">
+          </div><select id="sortProducts" class="sort-select" aria-label="Sort products">
             <option value="default">Sort: Featured</option>
             <option value="az">Category A–Z</option>
             <option value="za">Category Z–A</option>
@@ -1493,232 +1955,448 @@
       <div class="products" id="productsGrid">
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (1).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-01" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-01">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-01"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (2).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-02" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-02">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-02"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (3).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-03" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-03">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-03"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (4).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-04" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-04">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-04"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (5).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-05" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-05">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-05"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (6).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-06" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-06">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-06"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (7).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-07" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-07">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-07"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (8).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-08" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-08">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-08"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (9).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-09" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-09">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-09"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (10).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-10" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-10">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-10"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (11).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-11" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-11">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-11"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (12).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-12" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-12">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-12"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (13).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-13" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-13">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-13"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (14).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-14" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-14">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-14"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (15).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-15" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-15">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-15"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (16).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-16" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-16">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-16"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (17).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-17" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-17">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-17"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (18).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-18" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-18">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-18"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (19).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-19" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-19">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-19"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
         <article class="product-card" data-type="RING">
           <div class="product-media"><img src="images/ring (20).png" alt="The Jewelica gold ring jewellery">
-            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist">♡</button>
+            <div class="product-tools"><button class="tool-btn wishlist" aria-label="Add ring to wishlist"
+                aria-pressed="false"><svg class="ico">
+                  <use href="#i-heart" />
+                </svg></button><a class="tool-btn" href="product.html#ring-20" aria-label="View ring details"><svg
+                  class="ico">
+                  <use href="#i-search" />
+                </svg></a>
             </div>
           </div>
           <div class="product-info"><span class="product-type">RING</span><span class="product-sub">GOLD
               JEWELLERY</span>
-            <div class="card-actions"><button class="small-btn primary add-cart">Add to Cart</button><a
-                class="small-btn" href="product.html#ring-20">View Details</a></div>
+            <div class="card-actions"><button class="small-btn primary add-cart"><svg class="ico">
+                  <use href="#i-bag" />
+                </svg>Add to Cart</button><a class="small-btn" href="product.html#ring-20"><svg class="ico">
+                  <use href="#i-eye" />
+                </svg>View Details</a></div>
           </div>
         </article>
       </div>
     </section>
+
+    <section class="assurance" aria-label="Why choose THE JEWELICA">
+      <div class="assurance-grid">
+        <div class="assurance-item">
+          <div class="assurance-icon"><svg class="ico">
+              <use href="#i-gem" />
+            </svg></div>
+          <h3>Fine Gold Craft</h3>
+          <p>Warmth, character and understated luxury in every ring.</p>
+        </div>
+        <div class="assurance-item">
+          <div class="assurance-icon"><svg class="ico">
+              <use href="#i-craft" />
+            </svg></div>
+          <h3>Refined Proportions</h3>
+          <p>Quiet elegance shaped around timeless jewellery design.</p>
+        </div>
+        <div class="assurance-item">
+          <div class="assurance-icon"><svg class="ico">
+              <use href="#i-ring" />
+            </svg></div>
+          <h3>Everyday to Statement</h3>
+          <p>From graceful daily forms to distinctive statement silhouettes.</p>
+        </div>
+        <div class="assurance-item">
+          <div class="assurance-icon"><svg class="ico">
+              <use href="#i-chat" />
+            </svg></div>
+          <h3>Personal Consultation</h3>
+          <p>Speak with our jewellery team about your next piece.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="cta">
       <div class="cta-copy">
         <div class="section-label">THE JEWELICA</div>
         <h2>Find Your<br>Signature Ring</h2>
         <p>Explore more of The Jewelica's gold edit or speak with our jewellery team for a considered consultation
-          around your next piece.</p><a href="contact.html" class="gold-button">Request Consultation</a>
+          around your next piece.</p><a href="contact.html" class="gold-button">Request Consultation <svg class="ico">
+            <use href="#i-arrow-right" />
+          </svg></a>
       </div>
       <div class="cta-image"><img src="images/all gold jewellery section.png"
           alt="The Jewelica gold jewellery collection"></div>
@@ -1758,11 +2436,22 @@
           <li><a href="contact.html">Terms</a></li>
         </ul>
         <div class="footer-title" style="margin-top:30px;">Visit Us</div>
-        <p class="visit-line">The Jewelica Lahore</p>
-        <p class="visit-line">Lahore, Pakistan — Location Placeholder</p>
-        <p class="visit-line">+92 300 0000000</p>
-        <p class="visit-line">hello@thejewelica.example</p>
-        <p class="visit-line">Mon — Sat: 11:00 AM — 8:00 PM</p>
+        <p class="visit-line contact-row"><svg class="ico">
+            <use href="#i-pin" />
+          </svg><span>The Jewelica Lahore<br>Shah Alam Market, Lahore</span></p>
+        <p class="visit-line contact-row"><svg class="ico">
+            <use href="#i-phone" />
+          </svg><a href="tel:+923256561246" style="color:inherit;">+92 325 6561246</a></p>
+        <p class="visit-line contact-row"><svg class="ico">
+            <use href="#i-whatsapp" />
+          </svg><a href="https://wa.me/923256561246" target="_blank" rel="noopener" style="color:inherit;">WhatsApp: +92
+            325 6561246</a></p>
+        <p class="visit-line contact-row"><svg class="ico">
+            <use href="#i-mail" />
+          </svg><span>hello@thejewelica.example</span></p>
+        <p class="visit-line contact-row"><svg class="ico">
+            <use href="#i-clock" />
+          </svg><span>Mon — Sat: 11:00 AM — 8:00 PM</span></p>
       </div>
       <div class="footer-map-col">
         <div class="footer-title">Find The Jewelica</div>
@@ -1777,56 +2466,73 @@
   </footer>
   <div class="search-overlay" id="searchOverlay" aria-hidden="true">
     <div class="search-panel">
-      <div class="search-top"><input id="globalSearch" type="search" placeholder="Search The Jewelica..."
-          aria-label="Search The Jewelica"><button class="close-search" id="closeSearch"
-          aria-label="Close search">×</button></div>
+      <div class="search-top"><svg class="ico">
+          <use href="#i-search" />
+        </svg><input id="globalSearch" type="search" placeholder="Search The Jewelica..."
+          aria-label="Search The Jewelica"><button class="close-search" id="closeSearch" aria-label="Close search"><svg
+            class="ico">
+            <use href="#i-close" />
+          </svg></button></div>
       <div class="search-results" id="searchResults"></div>
     </div>
   </div>
   <div class="cart-overlay" id="cartOverlay" aria-hidden="true">
     <aside class="cart-drawer">
       <div class="cart-head">
-        <h3>Your Selection</h3><button class="cart-close" id="closeCart" aria-label="Close cart">×</button>
+        <h3>Your Selection</h3><button class="cart-close" id="closeCart" aria-label="Close cart"><svg class="ico">
+            <use href="#i-close" />
+          </svg></button>
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
         <p class="cart-note">Your selection is saved locally in this browser. Product details and consultation can be
           continued through The Jewelica.</p><a href="contact.html" class="full-btn"
-          style="display:block;text-align:center;">Request Consultation</a>
+          style="display:flex;align-items:center;justify-content:center;gap:12px;">Request Consultation <svg
+            class="ico">
+            <use href="#i-arrow-right" />
+          </svg></a>
       </div>
     </aside>
   </div>
-  <div class="toast" id="toast">Added to your selection</div><button class="back-top" id="backTop"
-    aria-label="Back to top">↑</button>
+  <div class="toast" id="toast"><svg class="ico">
+      <use href="#i-check" />
+    </svg><span>Added to your selection</span></div><button class="back-top" id="backTop" aria-label="Back to top"><svg
+      class="ico">
+      <use href="#i-arrow-up" />
+    </svg></button>
   <script>
+    /* SVG helper — builds an icon from the sprite at the top of the page */
+    const icon = (name, cls = "") => `<svg class="ico ${cls}"><use href="#i-${name}"/></svg>`;
+
     const navLinks = document.getElementById("navLinks"), menuToggle = document.getElementById("menuToggle");
-    menuToggle.addEventListener("click", () => { navLinks.classList.toggle("open"); menuToggle.textContent = navLinks.classList.contains("open") ? "×" : "☰" });
+    function setMenuIcon(open) { menuToggle.querySelector("use").setAttribute("href", open ? "#i-close" : "#i-menu") }
+    menuToggle.addEventListener("click", () => { navLinks.classList.toggle("open"); setMenuIcon(navLinks.classList.contains("open")) });
     document.querySelectorAll(".dropdown-parent > .drop-trigger").forEach(trigger => trigger.addEventListener("click", event => { if (window.innerWidth <= 1180) { event.preventDefault(); trigger.parentElement.classList.toggle("dropdown-open") } }));
-    document.querySelectorAll(".nav-links a").forEach(link => link.addEventListener("click", () => { if (window.innerWidth <= 1180) { navLinks.classList.remove("open"); menuToggle.textContent = "☰" } }));
+    document.querySelectorAll(".nav-links a").forEach(link => link.addEventListener("click", () => { if (window.innerWidth <= 1180) { navLinks.classList.remove("open"); setMenuIcon(false) } }));
     function getStorageArray(key) { try { const value = JSON.parse(localStorage.getItem(key)); return Array.isArray(value) ? value : [] } catch (e) { return [] } }
     function saveStorageArray(key, value) { localStorage.setItem(key, JSON.stringify(value)) }
     let cart = getStorageArray("theJewelicaCart"), wishlist = getStorageArray("theJewelicaWishlist");
-    function updateCounters() { document.getElementById("cartCount").textContent = cart.reduce((t, i) => t + Number(i.quantity || 1), 0); document.getElementById("wishlistCount").textContent = wishlist.length }
+    function updateCounters() { document.getElementById("cartCount").textContent = cart.reduce((t, i) => t + Number(i.quantity || 1), 0); document.getElementById("wishlistCount").textContent = wishlist.length; document.getElementById("wishlistBtn").classList.toggle("has-items", wishlist.length > 0) }
     function addToCart(card) { const image = card.querySelector("img"), type = card.dataset.type || "RING", imageSrc = image ? image.getAttribute("src") : "", existing = cart.find(i => i.image === imageSrc); if (existing) existing.quantity += 1; else cart.push({ id: "ring-" + Date.now() + "-" + Math.random().toString(36).slice(2, 7), type, image: imageSrc, quantity: 1 }); saveStorageArray("theJewelicaCart", cart); updateCounters(); renderCart(); showToast("Added to your selection") }
     function changeQuantity(id, amount) { const item = cart.find(e => e.id === id); if (!item) return; item.quantity += amount; if (item.quantity <= 0) cart = cart.filter(e => e.id !== id); saveStorageArray("theJewelicaCart", cart); updateCounters(); renderCart() }
     function removeCartItem(id) { cart = cart.filter(i => i.id !== id); saveStorageArray("theJewelicaCart", cart); updateCounters(); renderCart() }
-    function renderCart() { const c = document.getElementById("cartItems"); if (!cart.length) { c.innerHTML = '<div class="empty-cart">Your selection is currently empty.</div>'; return } c.innerHTML = cart.map(i => `<div class="cart-item"><img src="${escapeHTML(i.image)}" alt="The Jewelica ${escapeHTML(i.type)}"><div><div class="cart-item-title">${escapeHTML(i.type)}</div><div class="quantity-controls"><button type="button" onclick="changeQuantity('${i.id}',-1)">−</button><span>${i.quantity}</span><button type="button" onclick="changeQuantity('${i.id}',1)">+</button></div><button type="button" class="remove-item" onclick="removeCartItem('${i.id}')">REMOVE</button></div><div></div></div>`).join("") }
+    function renderCart() { const c = document.getElementById("cartItems"); if (!cart.length) { c.innerHTML = `<div class="empty-cart">${icon("bag", "empty-ico")}<p>Your selection is currently empty.</p></div>`; return } c.innerHTML = cart.map(i => `<div class="cart-item"><img src="${escapeHTML(i.image)}" alt="The Jewelica ${escapeHTML(i.type)}"><div><div class="cart-item-title">${escapeHTML(i.type)}</div><div class="quantity-controls"><button type="button" aria-label="Decrease quantity" onclick="changeQuantity('${i.id}',-1)">${icon("minus")}</button><span>${i.quantity}</span><button type="button" aria-label="Increase quantity" onclick="changeQuantity('${i.id}',1)">${icon("plus")}</button></div><button type="button" class="remove-item" onclick="removeCartItem('${i.id}')">${icon("close")} REMOVE</button></div><div></div></div>`).join("") }
     document.querySelectorAll(".add-cart").forEach(b => b.addEventListener("click", () => addToCart(b.closest(".product-card"))));
-    function toggleWishlist(card, button) { const image = card.querySelector("img"), imageSrc = image ? image.getAttribute("src") : "", type = card.dataset.type || "RING", index = wishlist.findIndex(i => i.image === imageSrc); if (index >= 0) { wishlist.splice(index, 1); button.classList.remove("wished"); button.textContent = "♡"; showToast("Removed from wishlist") } else { wishlist.push({ id: "wish-" + Date.now() + "-" + Math.random().toString(36).slice(2, 7), type, image: imageSrc }); button.classList.add("wished"); button.textContent = "♥"; showToast("Added to wishlist") } saveStorageArray("theJewelicaWishlist", wishlist); updateCounters() }
-    document.querySelectorAll(".wishlist").forEach(button => { const card = button.closest(".product-card"), image = card.querySelector("img"), src = image ? image.getAttribute("src") : ""; if (wishlist.some(i => i.image === src)) { button.classList.add("wished"); button.textContent = "♥" } button.addEventListener("click", () => toggleWishlist(card, button)) });
+    function toggleWishlist(card, button) { const image = card.querySelector("img"), imageSrc = image ? image.getAttribute("src") : "", type = card.dataset.type || "RING", index = wishlist.findIndex(i => i.image === imageSrc); if (index >= 0) { wishlist.splice(index, 1); button.classList.remove("wished"); button.setAttribute("aria-pressed", "false"); showToast("Removed from wishlist") } else { wishlist.push({ id: "wish-" + Date.now() + "-" + Math.random().toString(36).slice(2, 7), type, image: imageSrc }); button.classList.add("wished"); button.setAttribute("aria-pressed", "true"); showToast("Added to wishlist") } saveStorageArray("theJewelicaWishlist", wishlist); updateCounters() }
+    document.querySelectorAll(".wishlist").forEach(button => { const card = button.closest(".product-card"), image = card.querySelector("img"), src = image ? image.getAttribute("src") : ""; if (wishlist.some(i => i.image === src)) { button.classList.add("wished"); button.setAttribute("aria-pressed", "true") } button.addEventListener("click", () => toggleWishlist(card, button)) });
     const searchInput = document.getElementById("productSearch"), sortSelect = document.getElementById("sortProducts"), productsGrid = document.getElementById("productsGrid");
     function updateProducts() { const query = searchInput.value.trim().toLowerCase(), sort = sortSelect.value; let cards = Array.from(productsGrid.querySelectorAll(".product-card")); cards.forEach(card => { const type = card.dataset.type.toLowerCase(); card.style.display = !query || type.includes(query) || "gold rings".includes(query) ? "" : "none" }); if (sort === "az" || sort === "za") { cards.sort((a, b) => { const x = a.dataset.type.toLowerCase(), y = b.dataset.type.toLowerCase(); return sort === "az" ? x.localeCompare(y) : y.localeCompare(x) }); cards.forEach(c => productsGrid.appendChild(c)) } const visibleCount = cards.filter(c => c.style.display !== "none").length; document.getElementById("resultCount").textContent = `Showing ${visibleCount} Gold Ring${visibleCount === 1 ? "" : "s"}` }
     searchInput.addEventListener("input", updateProducts); sortSelect.addEventListener("change", updateProducts);
     const searchOverlay = document.getElementById("searchOverlay"), globalSearch = document.getElementById("globalSearch"), searchResults = document.getElementById("searchResults");
-    const searchPages = [["Gold Jewellery", "gold.html"], ["Gold Rings", "gold-rings.html"], ["Gold Bracelets", "gold-bracelets.html"], ["Gold Bangles", "gold-bangles.html"], ["Gold Earrings", "gold-earrings.html"], ["Gold Necklace Sets", "gold-necklace-sets.html"], ["Gold Tops", "gold-tops.html"], ["Gold Pendants", "gold-pendants.html"], ["Gold Chains", "gold-chains.html"], ["Gold Locket Sets", "gold-locket-sets.html"], ["Gold Men's Rings", "gold-mens-rings.html"], ["Gold Jewellery Sets", "gold.html"], ["Diamond Jewellery", "diamond.html"], ["Diamond Rings", "diamond-rings.html"], ["Diamond Men's Rings", "diamond-ring-men.html"], ["Diamond Earrings", "diamond-pendants-nose-pins.html"], ["Collections", "collections.html"], ["Choose Your Stone", "stones.html"], ["Our Services", "services.html"], ["Jewellery Care Studio", "care.html"], ["Jewellery Guides & Stories", "blogs.html"], ["Questions? We're Here To Help", "faq.html"], ["Contact The Jewelica", "contact.html"]];
+    const searchPages = [["Gold Jewellery", "gold.html"], ["Gold Rings", "gold-rings.html"], ["Gold Bracelets", "gold-bracelets.html"], ["Gold Lockets", "gold-locket-sets.html"], ["Gold Bangles", "gold-bangles.html"], ["Gold Earrings", "gold-earrings.html"], ["Gold Necklace Sets", "gold-necklace-sets.html"], ["Gold Tops", "gold-tops.html"], ["Gold Pendants", "gold-pendants.html"], ["Gold Chains", "gold-chains.html"], ["Gold Locket Sets", "gold-locket-sets.html"], ["Gold Men's Rings", "gold-mens-rings.html"], ["Gold Jewellery Sets", "gold-jewellery-sets.html"], ["Gold & Silver Bars", "gold-silver-bars.html"], ["Diamond Jewellery", "diamond.html"], ["Diamond Rings", "diamond-rings.html"], ["Diamond Men's Rings", "diamond-ring-men.html"], ["Diamond Earrings", "diamond-pendants-nose-pins.html"], ["Collections", "collections.html"], ["Choose Your Stone", "stones.html"], ["Our Services", "services.html"], ["Jewellery Care Studio", "care.html"], ["Jewellery Guides & Stories", "blogs.html"], ["Questions? We're Here To Help", "faq.html"], ["Contact The Jewelica", "contact.html"]];
     function openSearch() { searchOverlay.classList.add("open"); searchOverlay.setAttribute("aria-hidden", "false"); setTimeout(() => globalSearch.focus(), 100) }
     function closeSearch() { searchOverlay.classList.remove("open"); searchOverlay.setAttribute("aria-hidden", "true"); globalSearch.value = ""; renderSearchResults("") }
-    function renderSearchResults(query) { const clean = query.trim().toLowerCase(), results = searchPages.filter(i => !clean || i[0].toLowerCase().includes(clean)); searchResults.innerHTML = results.length ? results.map(i => `<a class="search-result" href="${i[1]}">${escapeHTML(i[0])}</a>`).join("") : '<div class="search-result">No matching The Jewelica pages found.</div>' }
+    function renderSearchResults(query) { const clean = query.trim().toLowerCase(), results = searchPages.filter(i => !clean || i[0].toLowerCase().includes(clean)); searchResults.innerHTML = results.length ? results.map(i => `<a class="search-result" href="${i[1]}">${escapeHTML(i[0])}${icon("arrow-right")}</a>`).join("") : '<div class="search-result">No matching The Jewelica pages found.</div>' }
     document.getElementById("searchBtn").addEventListener("click", openSearch); document.getElementById("closeSearch").addEventListener("click", closeSearch); globalSearch.addEventListener("input", e => renderSearchResults(e.target.value)); searchOverlay.addEventListener("click", e => { if (e.target === searchOverlay) closeSearch() });
     const cartOverlay = document.getElementById("cartOverlay"); function openCart() { renderCart(); cartOverlay.classList.add("open"); cartOverlay.setAttribute("aria-hidden", "false") } function closeCart() { cartOverlay.classList.remove("open"); cartOverlay.setAttribute("aria-hidden", "true") }
     document.getElementById("cartBtn").addEventListener("click", openCart); document.getElementById("closeCart").addEventListener("click", closeCart); cartOverlay.addEventListener("click", e => { if (e.target === cartOverlay) closeCart() }); document.getElementById("wishlistBtn").addEventListener("click", () => { const total = wishlist.length; showToast(total === 0 ? "Your wishlist is empty" : `${total} item${total === 1 ? "" : "s"} saved in wishlist`) });
-    document.addEventListener("keydown", e => { if (e.key === "Escape") { closeSearch(); closeCart(); if (window.innerWidth <= 1180) { navLinks.classList.remove("open"); menuToggle.textContent = "☰" } } });
-    let toastTimer; function showToast(message) { const toast = document.getElementById("toast"); toast.textContent = message; toast.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove("show"), 2200) }
+    document.addEventListener("keydown", e => { if (e.key === "Escape") { closeSearch(); closeCart(); if (window.innerWidth <= 1180) { navLinks.classList.remove("open"); setMenuIcon(false) } } });
+    let toastTimer; function showToast(message) { const toast = document.getElementById("toast"); toast.innerHTML = icon("check") + "<span></span>"; toast.querySelector("span").textContent = message; toast.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove("show"), 2200) }
     const backTop = document.getElementById("backTop"); window.addEventListener("scroll", () => backTop.classList.toggle("show", window.scrollY > 500)); backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
     document.querySelectorAll("img").forEach(img => img.addEventListener("error", () => { img.style.background = "linear-gradient(135deg,#e9e0d4,#d8c9b8)"; img.style.objectFit = "cover"; img.alt = img.alt || "The Jewelica jewellery image" }));
     function escapeHTML(value) { return String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;") }

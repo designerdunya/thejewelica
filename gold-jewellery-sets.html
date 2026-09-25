@@ -1,0 +1,2966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>Gold Jewellery Sets | THE JEWELICA</title>
+    <link rel="icon" type="image/png" href="images/LOGO png.png">
+    <meta name="description"
+        content="Explore the refined Gold Jewellery Sets collection by THE JEWELICA, featuring hair jewellery, brooches and occasion jewellery sets presented through a contemporary luxury jewellery experience.">
+    <meta name="keywords" content="THE JEWELICA, Gold Jewellery Sets, Hair Jewellery, Brooches, Jewellery Sets, Jewellery">
+    <meta property="og:title" content="Gold Jewellery Sets | THE JEWELICA">
+    <meta property="og:description" content="Discover refined hair jewellery, brooches and gold jewellery sets at THE JEWELICA.">
+    <meta property="og:type" content="website">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+        :root {
+            --ivory: #f7f3eb;
+            --cream: #eee6d8;
+            --champagne: #d7c39c;
+            --gold: #ad915c;
+            --gold-dark: #8d7549;
+            --gold-light: #e4cd9f;
+            --espresso: #30251e;
+            --charcoal: #211d1a;
+            --muted: #766b61;
+            --white: #fffdf9;
+            --line: rgba(48, 37, 30, .14);
+            --shadow: 0 24px 70px rgba(48, 37, 30, .12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--ivory);
+            color: var(--espresso);
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        img,
+        iframe,
+        svg,
+        video {
+            max-width: 100%;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* =========================
+   HEADER
+========================= */
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(247, 243, 235, .96);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            width: 100%;
+            max-width: 1440px;
+            min-width: 0;
+            min-height: 82px;
+            margin: auto;
+            padding: 0 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            flex-shrink: 0;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 30px;
+            font-weight: 600;
+            letter-spacing: .18em;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            display: block;
+            margin-top: 6px;
+            text-align: center;
+            font-family: "DM Sans", sans-serif;
+            font-size: 7px;
+            letter-spacing: .42em;
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: nowrap;
+            min-width: 0;
+            flex-shrink: 1;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 32px 0;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .13em;
+            white-space: nowrap;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 24px;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: .3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* ---- Gold / Diamonds dropdown ---- */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > .drop-btn {
+            position: relative;
+            padding: 32px 0;
+            border: 0;
+            background: none;
+            color: var(--espresso);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .dropdown > .drop-btn::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 24px;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: .3s ease;
+        }
+
+        .dropdown:hover > .drop-btn::after,
+        .dropdown > .drop-btn.active::after {
+            width: 100%;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 76px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            width: 520px;
+            max-width: 90vw;
+            background: var(--white);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: .25s ease;
+            z-index: 1500;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            padding: 10px 12px;
+            font-size: 9.5px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(48, 37, 30, .07);
+            transition: .25s;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--ivory);
+            color: var(--gold-dark);
+            padding-left: 16px;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            min-width: 0;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .icon-btn {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            border: 1px solid var(--line);
+            background: transparent;
+            color: var(--espresso);
+            display: grid;
+            place-items: center;
+            transition: .3s ease;
+        }
+
+        .icon-btn:hover {
+            background: var(--espresso);
+            color: var(--ivory);
+        }
+
+        .bag-icon {
+            width: 18px;
+            height: 18px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 8px;
+        }
+
+        /* =========================
+           PROFESSIONAL SVG ICON SYSTEM
+        ========================= */
+        .svg-icon {
+            width: 18px;
+            height: 18px;
+            display: block;
+            flex: 0 0 auto;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.55;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .svg-icon.icon-sm {
+            width: 15px;
+            height: 15px;
+        }
+
+        .svg-icon.icon-xs {
+            width: 13px;
+            height: 13px;
+        }
+
+        .icon-btn .svg-icon,
+        .menu-toggle .svg-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .product-tools .svg-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .product-bottom button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+        }
+
+        .product-bottom button .svg-icon {
+            width: 14px;
+            height: 14px;
+        }
+
+        .filter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .filter .svg-icon {
+            width: 13px;
+            height: 13px;
+        }
+
+        .btn {
+            gap: 10px;
+        }
+
+        .btn .svg-icon {
+            width: 15px;
+            height: 15px;
+        }
+
+        .back-top .svg-icon {
+            width: 17px;
+            height: 17px;
+        }
+
+        .search-close .svg-icon,
+        #cartClose .svg-icon {
+            width: 17px;
+            height: 17px;
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            border: 1px solid var(--line);
+            background: transparent;
+            font-size: 19px;
+        }
+
+        .menu-toggle svg {
+            width: 20px;
+            height: 20px;
+            display: block;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+        }
+
+        /* =========================
+   HERO
+========================= */
+
+        .hero {
+            position: relative;
+            min-height: 590px;
+            display: grid;
+            grid-template-columns: 1.08fr .92fr;
+            background: var(--charcoal);
+            color: var(--ivory);
+            overflow: hidden;
+        }
+
+        .hero-image {
+            min-height: 590px;
+            min-width: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                    rgba(33, 29, 26, 0) 45%,
+                    rgba(33, 29, 26, .78) 100%);
+        }
+
+        .hero-image img {
+            transition: transform 1.1s ease;
+        }
+
+        .hero:hover .hero-image img {
+            transform: scale(1.035);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 8vw 80px 70px;
+        }
+
+        .eyebrow {
+            margin-bottom: 17px;
+            color: var(--champagne);
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: .34em;
+        }
+
+        .hero h1 {
+            max-width: 620px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(44px, 7vw, 100px);
+            line-height: .88;
+            font-weight: 500;
+        }
+
+        .hero p {
+            max-width: 490px;
+            margin: 28px 0;
+            color: #d3cbc0;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* =========================
+   BUTTONS — refined luxury shape
+========================= */
+
+        .btn {
+            position: relative;
+            min-height: 50px;
+            padding: 0 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--champagne);
+            color: var(--ivory);
+            background: transparent;
+            font-size: 9.5px;
+            font-weight: 600;
+            letter-spacing: .24em;
+            border-radius: 2px 14px 2px 14px;
+            overflow: hidden;
+            transition: color .35s ease, border-color .35s ease, transform .3s ease, box-shadow .3s ease;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, var(--champagne), var(--gold));
+            transform: translateX(-101%);
+            transition: transform .45s cubic-bezier(.65, 0, .35, 1);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--espresso);
+            border-color: var(--champagne);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(173, 145, 92, .3);
+        }
+
+        .btn:hover::before {
+            transform: translateX(0);
+        }
+
+        .btn.dark {
+            border-color: var(--espresso);
+            background: var(--espresso);
+            color: var(--ivory);
+        }
+
+        .btn.dark::before {
+            background: linear-gradient(120deg, var(--gold), var(--gold-dark));
+        }
+
+        .btn.dark:hover {
+            color: var(--ivory);
+            border-color: var(--gold);
+            box-shadow: 0 14px 30px rgba(48, 37, 30, .3);
+        }
+
+        /* =========================
+   INTRO
+========================= */
+
+        .intro {
+            max-width: 800px;
+            margin: auto;
+            padding: 95px 25px 70px;
+            text-align: center;
+        }
+
+        .intro h2,
+        .section-heading h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(36px, 5vw, 66px);
+            font-weight: 500;
+            line-height: .95;
+        }
+
+        .intro p {
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.95;
+        }
+
+        /* =========================
+   TOOLBAR
+========================= */
+
+        .toolbar-wrap {
+            max-width: 1370px;
+            margin: 0 auto 36px;
+            padding: 0 25px;
+        }
+
+        .toolbar {
+            min-height: 70px;
+            padding: 15px 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .filter {
+            padding: 10px 18px;
+            border: 1px solid var(--line);
+            background: transparent;
+            color: var(--espresso);
+            font-size: 9px;
+            letter-spacing: .14em;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: .3s ease;
+        }
+
+        .filter:hover,
+        .filter.active {
+            background: var(--espresso);
+            color: var(--ivory);
+            border-color: var(--espresso);
+        }
+
+        .sort {
+            min-width: 165px;
+            max-width: 100%;
+            padding: 11px 13px;
+            border: 1px solid var(--line);
+            background: var(--ivory);
+            color: var(--espresso);
+            outline: none;
+            font-size: 9px;
+            letter-spacing: .08em;
+        }
+
+        /* =========================
+   PRODUCTS — luxury card treatment
+========================= */
+
+        .products {
+            max-width: 1370px;
+            margin: auto;
+            padding: 0 25px 95px;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 34px 20px;
+        }
+
+        .product-card {
+            min-width: 0;
+            animation: fadeUp .55s ease both;
+        }
+
+        .product-image {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background: linear-gradient(160deg, var(--cream), #f6efe1);
+            box-shadow: 0 18px 40px rgba(48, 37, 30, .1);
+            border: 1px solid rgba(173, 145, 92, .16);
+            border-radius: 3px 18px 3px 18px;
+            transition: box-shadow .4s ease, transform .4s ease;
+        }
+
+        .product-card:hover .product-image {
+            box-shadow: 0 26px 54px rgba(48, 37, 30, .18);
+            transform: translateY(-4px);
+        }
+
+        .product-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            box-shadow: inset 0 0 0 1px rgba(255, 253, 249, .5);
+            pointer-events: none;
+        }
+
+        .product-image a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .product-image img {
+            transition: transform .8s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.06);
+        }
+
+        .product-tools {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0;
+            transform: translateX(8px);
+            transition: .3s ease;
+        }
+
+        .product-card:hover .product-tools {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .product-tools button {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(48, 37, 30, .1);
+            background: rgba(255, 253, 249, .92);
+            backdrop-filter: blur(6px);
+            color: var(--espresso);
+            font-size: 13px;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 6px 16px rgba(48, 37, 30, .14);
+            transition: .3s ease;
+        }
+
+        .product-tools button:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: white;
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            min-height: 48px;
+            padding: 20px 4px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .product-type {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: .04em;
+        }
+
+        .product-category {
+            padding: 4px 10px;
+            border: 1px solid rgba(173, 145, 92, .35);
+            border-radius: 20px;
+            color: var(--gold-dark);
+            font-size: 7.5px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            white-space: nowrap;
+        }
+
+        .product-bottom {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .product-bottom button {
+            position: relative;
+            min-height: 44px;
+            flex: 1;
+            border: 1px solid var(--line);
+            background: transparent;
+            color: var(--espresso);
+            font-size: 8.5px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            border-radius: 3px 12px 3px 12px;
+            overflow: hidden;
+            isolation: isolate;
+            transition: color .35s ease, border-color .35s ease, transform .3s ease, box-shadow .3s ease;
+        }
+
+        .product-bottom button::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            transform: translateY(102%);
+            transition: transform .35s cubic-bezier(.65, 0, .35, 1);
+        }
+
+        .product-bottom button:first-child {
+            background: linear-gradient(120deg, var(--gold-dark), var(--gold), var(--champagne));
+            color: var(--white);
+            border-color: var(--gold-dark);
+            box-shadow: 0 10px 22px rgba(141, 117, 73, .28);
+        }
+
+        .product-bottom button:first-child::before {
+            background: var(--espresso);
+        }
+
+        .product-bottom button:last-child {
+            background: transparent;
+        }
+
+        .product-bottom button:last-child::before {
+            background: var(--espresso);
+        }
+
+        .product-bottom button:hover {
+            color: var(--ivory);
+            border-color: var(--espresso);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 26px rgba(48, 37, 30, .22);
+        }
+
+        .product-bottom button:hover::before {
+            transform: translateY(0);
+        }
+
+        /* =========================
+   EDITORIAL
+========================= */
+
+        .editorial {
+            max-width: 1370px;
+            margin: 0 auto 95px;
+            padding: 0 25px;
+        }
+
+        .editorial-box {
+            min-height: 390px;
+            min-width: 0;
+            background: var(--cream);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+        }
+
+        .editorial-image {
+            min-height: 390px;
+            min-width: 0;
+        }
+
+        .editorial-copy {
+            min-width: 0;
+            padding: 60px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .editorial-copy h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(34px, 4vw, 58px);
+            font-weight: 500;
+            line-height: .95;
+        }
+
+        .editorial-copy p {
+            max-width: 480px;
+            margin: 20px 0 27px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        /* =========================
+   CTA
+========================= */
+
+        .cta {
+            padding: 95px 25px;
+            text-align: center;
+            background: var(--cream);
+        }
+
+        .cta h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 500;
+            line-height: .95;
+        }
+
+        .cta p {
+            max-width: 590px;
+            margin: 20px auto 29px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* =========================
+   FOOTER
+========================= */
+
+        .footer {
+            padding: 75px 35px 30px;
+            background: var(--charcoal);
+            color: var(--ivory);
+            overflow: hidden;
+        }
+
+        .footer-grid {
+            max-width: 1370px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.45fr 1fr 1fr 1.5fr;
+            gap: 50px;
+        }
+
+        .footer-grid > div {
+            min-width: 0;
+        }
+
+        .footer h3 {
+            margin-bottom: 18px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 28px;
+            font-weight: 500;
+        }
+
+        .footer h4 {
+            margin-bottom: 20px;
+            color: var(--champagne);
+            font-size: 9px;
+            letter-spacing: .2em;
+        }
+
+        .footer p,
+        .footer a {
+            color: #bcb2a7;
+            font-size: 10px;
+            line-height: 1.9;
+        }
+
+        .footer a {
+            display: block;
+            margin: 7px 0;
+        }
+
+        .footer a:hover {
+            color: var(--champagne);
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+        }
+
+        .map {
+            width: 100%;
+            height: 190px;
+            margin-top: 13px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .12);
+        }
+
+        .map iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            border: 0;
+            filter: grayscale(1) contrast(.8);
+        }
+
+        .copyright {
+            max-width: 1370px;
+            margin: 50px auto 0;
+            padding-top: 22px;
+            border-top: 1px solid rgba(255, 255, 255, .12);
+            color: #898077;
+            text-align: center;
+            font-size: 8px;
+            letter-spacing: .14em;
+        }
+
+        /* =========================
+   SEARCH
+========================= */
+
+        .search-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            padding: 100px 8vw;
+            background: rgba(33, 29, 26, .98);
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s ease;
+        }
+
+        .search-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .search-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255, 255, 255, .2);
+            background: transparent;
+            color: white;
+            font-size: 20px;
+        }
+
+        .search-label {
+            color: var(--champagne);
+            font-size: 9px;
+            letter-spacing: .3em;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 100%;
+            margin-top: 25px;
+            padding: 18px 0;
+            border: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .3);
+            outline: none;
+            background: transparent;
+            color: white;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 40px;
+        }
+
+        .search-results {
+            margin-top: 30px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .search-results button {
+            padding: 10px 0;
+            border: 0;
+            background: none;
+            color: #c8beb3;
+            text-align: left;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 22px;
+        }
+
+        /* =========================
+   CART
+========================= */
+
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -440px;
+            z-index: 1900;
+            width: min(440px, 100%);
+            max-width: 100%;
+            height: 100%;
+            padding: 30px;
+            background: var(--white);
+            box-shadow: -20px 0 60px rgba(0, 0, 0, .15);
+            display: flex;
+            flex-direction: column;
+            transition: .4s ease;
+        }
+
+        .cart-panel.open {
+            right: 0;
+        }
+
+        .cart-head {
+            padding-bottom: 22px;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cart-head h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow: auto;
+            padding: 20px 0;
+        }
+
+        .empty {
+            height: 100%;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .cart-item {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--line);
+            display: grid;
+            grid-template-columns: 75px 1fr auto;
+            gap: 12px;
+        }
+
+        .cart-image {
+            width: 75px;
+            height: 90px;
+            background: var(--cream);
+        }
+
+        .cart-item strong {
+            display: block;
+            margin: 5px 0 13px;
+            font-size: 9px;
+            letter-spacing: .16em;
+        }
+
+        .qty {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qty button {
+            width: 25px;
+            height: 25px;
+            border: 1px solid var(--line);
+            background: transparent;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: var(--espresso);
+            transition: .25s ease;
+        }
+
+        .qty button:hover {
+            background: var(--espresso);
+            color: var(--ivory);
+            border-color: var(--espresso);
+        }
+
+        .qty span {
+            min-width: 18px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .remove {
+            border: 0;
+            background: none;
+            color: var(--muted);
+            font-size: 8px;
+        }
+
+        .cart-footer {
+            padding-top: 20px;
+            border-top: 1px solid var(--line);
+        }
+
+        .cart-note {
+            margin-bottom: 15px;
+            color: var(--muted);
+            font-size: 9px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+   TOAST + BACK TOP
+========================= */
+
+        .toast {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            z-index: 3000;
+            max-width: calc(100vw - 50px);
+            padding: 14px 20px;
+            background: var(--espresso);
+            color: var(--ivory);
+            font-size: 9px;
+            letter-spacing: .12em;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: .35s ease;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 900;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 0;
+            background: var(--gold);
+            color: white;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 10px 25px rgba(173, 145, 92, .4);
+            transition: .3s ease;
+        }
+
+        .back-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+   RESPONSIVE
+========================= */
+
+        .nav,
+        .hero,
+        .hero-content,
+        .hero-image,
+        .products,
+        .product-card,
+        .editorial-box,
+        .editorial-copy,
+        .editorial-image,
+        .footer-grid,
+        .toolbar,
+        .filters,
+        .cart-item {
+            min-width: 0;
+        }
+
+        /* ---- Desktop/laptop-only fix: keep all nav links on ONE line
+           (no wrap, no overlap) by shrinking gap/font slightly as the
+           window narrows. Mobile menu (<=900px) is untouched. ---- */
+        @media (min-width: 901px) and (max-width: 1440px) {
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-links a,
+            .dropdown > .drop-btn {
+                font-size: 9px;
+            }
+        }
+
+        @media (min-width: 901px) and (max-width: 1250px) {
+
+            .nav-links {
+                gap: 11px;
+            }
+
+            .nav-links a,
+            .dropdown > .drop-btn {
+                font-size: 8.3px;
+            }
+
+            .nav {
+                padding: 0 20px;
+            }
+        }
+
+        @media(max-width:1180px) {
+
+            .products {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:900px) {
+
+            .menu-toggle {
+                display: grid;
+                place-items: center;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 82px;
+                left: 0;
+                width: 100%;
+                padding: 12px 25px 22px;
+                background: var(--ivory);
+                border-bottom: 1px solid var(--line);
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 14px 0;
+            }
+
+            .nav-links a::after {
+                bottom: 6px;
+            }
+
+            /* dropdowns become tap-to-expand accordions on mobile */
+            .dropdown > .drop-btn {
+                width: 100%;
+                text-align: left;
+                padding: 14px 0;
+            }
+
+            .dropdown > .drop-btn::after {
+                bottom: 6px;
+            }
+
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                max-width: 100%;
+                transform: none;
+                box-shadow: none;
+                border: 0;
+                border-bottom: 1px solid var(--line);
+                display: none;
+                grid-template-columns: 1fr;
+                padding: 4px 0 10px 14px;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .dropdown.open .dropdown-menu {
+                display: grid;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: none;
+            }
+
+            .dropdown.open:hover .dropdown-menu {
+                display: grid;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                min-height: 380px;
+                order: 1;
+            }
+
+            .hero-content {
+                order: 2;
+                padding: 60px 30px;
+            }
+
+            .editorial-box {
+                grid-template-columns: 1fr;
+            }
+
+            .editorial-image {
+                min-height: 300px;
+            }
+
+            .editorial-copy {
+                padding: 50px 35px;
+            }
+        }
+
+        @media(max-width:650px) {
+
+            .nav {
+                min-height: 68px;
+                padding: 0 16px;
+                gap: 10px;
+            }
+
+            .nav-links {
+                top: 68px;
+            }
+
+            .logo {
+                font-size: 18px;
+                letter-spacing: .12em;
+            }
+
+            .logo span {
+                font-size: 5.5px;
+                letter-spacing: .26em;
+                margin-top: 4px;
+            }
+
+            .nav-actions {
+                gap: 5px;
+            }
+
+            .icon-btn,
+            .menu-toggle {
+                width: 36px;
+                height: 36px;
+            }
+
+            .nav-actions .search-btn {
+                display: none;
+            }
+
+            .hero-image {
+                min-height: 280px;
+            }
+
+            .hero-content {
+                padding: 45px 20px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 12px;
+                margin: 18px 0;
+                line-height: 1.8;
+            }
+
+            .intro {
+                padding: 60px 20px 45px;
+            }
+
+            .intro p {
+                font-size: 12px;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 14px;
+                min-height: auto;
+                padding: 14px 0;
+            }
+
+            .filters {
+                justify-content: center;
+            }
+
+            .sort {
+                width: 100%;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                padding: 0 14px 65px;
+                gap: 24px 12px;
+            }
+
+            .toolbar-wrap {
+                padding: 0 14px;
+            }
+
+            .product-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .product-bottom {
+                flex-direction: column;
+            }
+
+            .product-bottom button {
+                min-height: 40px;
+            }
+
+            .product-tools {
+                opacity: 1;
+                transform: none;
+            }
+
+            .product-tools button {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+
+            .editorial-copy {
+                padding: 40px 20px;
+            }
+
+            .editorial-copy p {
+                font-size: 11.5px;
+            }
+
+            .cta {
+                padding: 60px 18px;
+            }
+
+            .cta p {
+                font-size: 12px;
+            }
+
+            .footer {
+                padding: 50px 20px 22px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .search-overlay {
+                padding: 80px 18px;
+            }
+
+            .search-input {
+                font-size: 24px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .cart-panel {
+                padding: 22px;
+            }
+        }
+
+        @media(max-width:420px) {
+
+            .nav {
+                padding: 0 12px;
+                gap: 8px;
+            }
+
+            .logo {
+                font-size: 15px;
+                letter-spacing: .08em;
+            }
+
+            .logo span {
+                font-size: 5px;
+                letter-spacing: .16em;
+                margin-top: 3px;
+            }
+
+            .nav-actions {
+                gap: 4px;
+            }
+
+            .icon-btn,
+            .menu-toggle {
+                width: 33px;
+                height: 33px;
+            }
+
+            .products {
+                gap: 20px 8px;
+            }
+
+            .product-type {
+                font-size: 12.5px;
+            }
+
+            .product-category {
+                font-size: 7px;
+                padding: 3px 8px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .filter {
+                padding: 8px 13px;
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="nav" aria-label="Main navigation">
+
+            <a href="index.html" class="logo">
+                THE JEWELICA
+                <span>FINE JEWELLERY HOUSE</span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">HOME</a>
+                <a href="shop.html">SHOP</a>
+
+                <div class="dropdown" id="goldDropdown">
+                    <button class="drop-btn active" type="button">GOLD</button>
+                    <div class="dropdown-menu">
+                        <a href="gold.html">Gold Jewellery</a>
+                        <a href="gold-rings.html">Gold Rings</a>
+                        <a href="gold-locket-sets.html">Gold Lockets</a>
+                        <a href="gold-bracelets.html">Gold Bracelets</a>
+                        <a href="gold-bangles.html">Gold Bangles</a>
+                        <a href="gold-earrings.html">Gold Earrings</a>
+                        <a href="gold-necklace-sets.html">Gold Necklace Sets</a>
+                        <a href="gold-tops.html">Gold Tops</a>
+                        <a href="gold-pendants.html">Gold Pendants</a>
+                        <a href="gold-chains.html">Gold Chains</a>
+                        <a href="gold-mens-rings.html">Gold Men's Rings</a>
+                        <a href="gold-jewellery-sets.html" class="active">Gold Jewellery Sets</a>
+                        <a href="gold-silver-bars.html">Gold &amp; Silver Bars</a>
+                    </div>
+                </div>
+
+                <div class="dropdown" id="diamondDropdown">
+                    <button class="drop-btn" type="button">DIAMONDS</button>
+                    <div class="dropdown-menu">
+                        <a href="diamond.html">Diamond Jewellery</a>
+                        <a href="diamond-rings.html">Diamond Ladies Rings</a>
+                        <a href="diamond-ring-men.html">Diamond Men's Ring</a>
+                        <a href="diamond-pendants-nose-pins.html">Diamond Earrings</a>
+                    </div>
+                </div>
+
+                <a href="collections.html">COLLECTIONS</a>
+                <a href="stones.html">CHOOSE YOUR STONE</a>
+                <a href="trending.html">TRENDING UNIQUES</a>
+                <a href="services.html">SERVICES</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+
+            <div class="nav-actions">
+
+                <button class="icon-btn search-btn" id="searchBtn" aria-label="Open search">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg>
+                </button>
+
+                <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg>
+                    <span class="count" id="wishCount">0</span>
+                </button>
+
+                <button class="icon-btn" id="cartBtn" aria-label="Shopping bag">
+                    <svg class="bag-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M6.5 8.5h11l1 12h-13l1-12Z"
+                            fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linejoin="round"/>
+                        <path d="M9 9V6.5a3 3 0 0 1 6 0V9"
+                            fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round"/>
+                    </svg>
+                    <span class="count" id="cartCount">0</span>
+                </button>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                </button>
+
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-image">
+                <img src="images/all gold jewellery hero.png" alt="The Jewelica Gold Jewellery Sets">
+            </div>
+
+            <div class="hero-content">
+
+                <div class="eyebrow">THE JEWELICA / GOLD COLLECTION</div>
+
+                <h1>GOLD<br>JEWELLERY<br>SETS</h1>
+
+                <p>
+                    A timeless expression of gold, shaped through graceful hair jewellery,
+                    statement brooches and complete occasion sets designed to become part
+                    of your most memorable moments.
+                </p>
+
+                <div>
+                    <a href="#collection" class="btn"><span>EXPLORE THE COLLECTION</span><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13"/><path d="m13 7 5 5-5 5"/></svg></a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="intro">
+
+            <div class="eyebrow">THE GOLD JEWELLERY SET EDIT</div>
+
+            <h2>Timeless Gold.<br>Quietly Distinct.</h2>
+
+            <p>
+                Discover fifteen considered pieces presented through the distinctive
+                world of THE JEWELICA. Five hair jewellery designs, five brooches and
+                five complete jewellery sets, each keeping the beauty of gold at the
+                centre.
+            </p>
+
+        </section>
+
+        <section id="collection">
+
+            <div class="toolbar-wrap">
+
+                <div class="toolbar">
+
+                    <div class="filters">
+
+                        <button class="filter active" data-filter="all">
+                            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg> ALL
+                        </button>
+                        <button class="filter" data-filter="hair">
+                            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 19c2.8-4.5 2.2-9.4 5-13 1.1-1.4 2.5-2 4-2 1.1 0 2.2.3 3 .8"/><path d="M7 19c-1.5-.2-2.7-1-3.2-2.2-.6-1.5.2-3.1 1.7-3.7 1.1-.4 2.2-.1 3 .7"/><path d="M15 5c.5 2.3 1.7 3.9 3.8 5.1"/></svg> HAIR JEWELLERY
+                        </button>
+                        <button class="filter" data-filter="brooch">
+                            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 2 4.5 4.5 2-4.5 2L12 17l-2-4.5-4.5-2 4.5-2L12 4Z"/><path d="m18.5 16 .8 1.8 1.7.7-1.7.7-.8 1.8-.8-1.8-1.7-.7 1.7-.7.8-1.8Z"/></svg> BROOCHES
+                        </button>
+                        <button class="filter" data-filter="set">
+                            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="12" r="4.5"/><circle cx="15.5" cy="12" r="4.5"/><path d="M12 8.5v7"/></svg> JEWELLERY SETS
+                        </button>
+
+                    </div>
+
+                    <select class="sort" id="sortSelect" aria-label="Sort jewellery">
+                        <option value="default">SORT: FEATURED</option>
+                        <option value="az">NAME: A–Z</option>
+                        <option value="za">NAME: Z–A</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="products" id="products">
+
+                <!-- HAIR JEWELLERY -->
+
+                <article class="product-card" data-type="hair">
+                    <div class="product-image">
+                        <a href="product.html#hair-jewellery-01" aria-label="View Floral Cascade Hair Chain details">
+                            <img src="images/hair jewellery (1).png" alt="Floral Cascade Hair Chain">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="hj01" aria-label="Add Floral Cascade Hair Chain to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="hj01" aria-label="View Floral Cascade Hair Chain details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Floral Cascade Hair Chain</span>
+                        <span class="product-category">HAIR</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="hj01"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="hj01"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <article class="product-card" data-type="hair">
+                    <div class="product-image">
+                        <a href="product.html#hair-jewellery-02" aria-label="View Jhumka Bun Ornament details">
+                            <img src="images/hair jewellery (2).png" alt="Jhumka Bun Ornament">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="hj02" aria-label="Add Jhumka Bun Ornament to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="hj02" aria-label="View Jhumka Bun Ornament details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Jhumka Bun Ornament</span>
+                        <span class="product-category">HAIR</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="hj02"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="hj02"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <article class="product-card" data-type="hair">
+                    <div class="product-image">
+                        <a href="product.html#hair-jewellery-03" aria-label="View Kundan Braid Choti details">
+                            <img src="images/hair jewellery (3).png" alt="Kundan Braid Choti">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="hj03" aria-label="Add Kundan Braid Choti to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="hj03" aria-label="View Kundan Braid Choti details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Kundan Braid Choti</span>
+                        <span class="product-category">HAIR</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="hj03"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="hj03"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <article class="product-card" data-type="hair">
+                    <div class="product-image">
+                        <a href="product.html#hair-jewellery-04" aria-label="View Pearl Drape Hair Piece details">
+                            <img src="images/hair jewellery (4).png" alt="Pearl Drape Hair Piece">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="hj04" aria-label="Add Pearl Drape Hair Piece to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="hj04" aria-label="View Pearl Drape Hair Piece details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Pearl Drape Hair Piece</span>
+                        <span class="product-category">HAIR</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="hj04"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="hj04"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <article class="product-card" data-type="hair">
+                    <div class="product-image">
+                        <a href="product.html#hair-jewellery-05" aria-label="View Royal Bun Hairpin details">
+                            <img src="images/hair jewellery (5).png" alt="Royal Bun Hairpin">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="hj05" aria-label="Add Royal Bun Hairpin to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="hj05" aria-label="View Royal Bun Hairpin details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Royal Bun Hairpin</span>
+                        <span class="product-category">HAIR</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="hj05"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="hj05"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <!-- BROOCHES -->
+
+                <article class="product-card" data-type="brooch">
+                    <div class="product-image">
+                        <a href="product.html#brooch-01" aria-label="View Pearl Snowflake Brooch details">
+                            <img src="images/broaches (1).png" alt="Pearl Snowflake Brooch">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="br01" aria-label="Add Pearl Snowflake Brooch to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="br01" aria-label="View Pearl Snowflake Brooch details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Pearl Snowflake Brooch</span>
+                        <span class="product-category">BROOCH</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="br01"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="br01"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <article class="product-card" data-type="brooch">
+                    <div class="product-image">
+                        <a href="product.html#brooch-02" aria-label="View Opal Wreath Brooch details">
+                            <img src="images/broaches (2).png" alt="Opal Wreath Brooch">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="br02" aria-label="Add Opal Wreath Brooch to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="br02" aria-label="View Opal Wreath Brooch details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Opal Wreath Brooch</span>
+                        <span class="product-category">BROOCH</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="br02"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="br02"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <article class="product-card" data-type="brooch">
+                    <div class="product-image">
+                        <a href="product.html#brooch-03" aria-label="View Pearl Bow Wreath Brooch details">
+                            <img src="images/broaches (3).png" alt="Pearl Bow Wreath Brooch">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="br03" aria-label="Add Pearl Bow Wreath Brooch to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="br03" aria-label="View Pearl Bow Wreath Brooch details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Pearl Bow Wreath Brooch</span>
+                        <span class="product-category">BROOCH</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="br03"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="br03"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <article class="product-card" data-type="brooch">
+                    <div class="product-image">
+                        <a href="product.html#brooch-04" aria-label="View Crystal Butterfly Brooch details">
+                            <img src="images/broaches (4).png" alt="Crystal Butterfly Brooch">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="br04" aria-label="Add Crystal Butterfly Brooch to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="br04" aria-label="View Crystal Butterfly Brooch details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Crystal Butterfly Brooch</span>
+                        <span class="product-category">BROOCH</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="br04"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="br04"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <article class="product-card" data-type="brooch">
+                    <div class="product-image">
+                        <a href="product.html#brooch-05" aria-label="View Ruby Pearl Bow Brooch details">
+                            <img src="images/broaches.png" alt="Ruby Pearl Bow Brooch">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="br05" aria-label="Add Ruby Pearl Bow Brooch to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="br05" aria-label="View Ruby Pearl Bow Brooch details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Ruby Pearl Bow Brooch</span>
+                        <span class="product-category">BROOCH</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="br05"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="br05"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <!-- JEWELLERY SETS -->
+
+                <article class="product-card" data-type="set">
+                    <div class="product-image">
+                        <a href="product.html#jewellery-set-01" aria-label="View Emerald Pearl Necklace Set details">
+                            <img src="images/ocassion jewellery (2).png" alt="Emerald Pearl Necklace Set">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="js01" aria-label="Add Emerald Pearl Necklace Set to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="js01" aria-label="View Emerald Pearl Necklace Set details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Emerald Pearl Necklace Set</span>
+                        <span class="product-category">SET</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="js01"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="js01"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <article class="product-card" data-type="set">
+                    <div class="product-image">
+                        <a href="product.html#jewellery-set-02" aria-label="View Peacock Tikka Necklace Set details">
+                            <img src="images/ocassion jewellery (3).png" alt="Peacock Tikka Necklace Set">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="js02" aria-label="Add Peacock Tikka Necklace Set to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="js02" aria-label="View Peacock Tikka Necklace Set details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Peacock Tikka Necklace Set</span>
+                        <span class="product-category">SET</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="js02"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="js02"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <article class="product-card" data-type="set">
+                    <div class="product-image">
+                        <a href="product.html#jewellery-set-03" aria-label="View Ruby Sunburst Pendant Set details">
+                            <img src="images/ocassion jewellery (4).png" alt="Ruby Sunburst Pendant Set">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="js03" aria-label="Add Ruby Sunburst Pendant Set to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="js03" aria-label="View Ruby Sunburst Pendant Set details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Ruby Sunburst Pendant Set</span>
+                        <span class="product-category">SET</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="js03"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="js03"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <article class="product-card" data-type="set">
+                    <div class="product-image">
+                        <a href="product.html#jewellery-set-04" aria-label="View Bridal Ruby Kundan Set details">
+                            <img src="images/ocassion jewellery (5).png" alt="Bridal Ruby Kundan Set">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="js04" aria-label="Add Bridal Ruby Kundan Set to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="js04" aria-label="View Bridal Ruby Kundan Set details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Bridal Ruby Kundan Set</span>
+                        <span class="product-category">SET</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="js04"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="js04"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+
+                <article class="product-card" data-type="set">
+                    <div class="product-image">
+                        <a href="product.html#jewellery-set-05" aria-label="View Navratna Pearl Necklace Set details">
+                            <img src="images/ocassion jewellery.png" alt="Navratna Pearl Necklace Set">
+                        </a>
+                        <div class="product-tools">
+                            <button class="wishlist" data-id="js05" aria-label="Add Navratna Pearl Necklace Set to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10.1-8.4 10.1S3.6 13.7 3.6 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.4 2.4Z"/></svg></button>
+                            <button class="quick" data-id="js05" aria-label="View Navratna Pearl Necklace Set details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.2 4.2"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-type">Navratna Pearl Necklace Set</span>
+                        <span class="product-category">SET</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <button class="add-cart" data-id="js05"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><path d="M12 11v5M9.5 13.5h5"/></svg><span>ADD TO CART</span></button>
+                        <button class="quick" data-id="js05"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.2"/></svg><span>VIEW DETAILS</span></button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="editorial">
+
+            <div class="editorial-box">
+
+                <div class="editorial-image">
+                    <img src="images/all gold jewellery section.png" alt="The Jewelica Gold Jewellery Sets Collection">
+                </div>
+
+                <div class="editorial-copy">
+
+                    <div class="eyebrow">CRAFTED IN GOLD</div>
+
+                    <h2>The Art Of<br>Quiet Detail</h2>
+
+                    <p>
+                        A jewellery set can be beautifully understated or confidently
+                        expressive. Our gold edit celebrates both directions through
+                        considered forms, balanced silhouettes and details designed to
+                        remain timeless.
+                    </p>
+
+                    <a href="services.html" class="btn dark"><span>DISCOVER OUR SERVICES</span><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13"/><path d="m13 7 5 5-5 5"/></svg></a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="cta">
+
+            <div class="eyebrow">THE JEWELICA EXPERIENCE</div>
+
+            <h2>Discover Your<br>Expression Of Gold</h2>
+
+            <p>
+                Explore the wider Gold collection or speak with THE JEWELICA for a
+                considered jewellery consultation tailored to your preferences.
+            </p>
+
+            <a href="gold.html" class="btn dark"><span>EXPLORE GOLD JEWELLERY</span><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13"/><path d="m13 7 5 5-5 5"/></svg></a>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <h3>THE JEWELICA</h3>
+
+                <p>
+                    A contemporary jewellery house shaped around refined design,
+                    thoughtful craftsmanship and the enduring beauty of fine jewellery.
+                </p>
+
+            </div>
+
+            <div>
+
+                <h4>QUICK LINKS</h4>
+
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="gold.html">Gold</a>
+                <a href="diamond.html">Diamonds</a>
+                <a href="collections.html">Collections</a>
+                <a href="stones.html">Choose Your Stone</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+            <div>
+
+                <h4>CUSTOMER CARE</h4>
+
+                <a href="care.html">Jewellery Care</a>
+                <a href="faq.html">FAQs</a>
+                <a href="contact.html">Shipping</a>
+                <a href="contact.html">Returns</a>
+                <a href="contact.html">Privacy Policy</a>
+                <a href="contact.html">Terms</a>
+
+                <h4 style="margin-top:28px;">VISIT US</h4>
+
+                <p>
+                    The Jewelica Lahore<br>
+                    Shah Alam Market, Lahore
+                </p>
+
+                <p>
+                    <a href="https://wa.me/923256561246" target="_blank" rel="noopener">+92 325 6561246</a><br>
+                    hello@thejewelica.com
+                </p>
+
+                <p>
+                    Mon — Sat: 11:00 AM — 8:00 PM
+                </p>
+
+            </div>
+
+            <div>
+
+                <h4>THE JEWELICA LAHORE</h4>
+
+                <p>
+                    Shah Alam Market, Lahore
+                </p>
+
+                <div class="map">
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 THE JEWELICA. ALL RIGHTS RESERVED.
+        </div>
+
+    </footer>
+
+    <!-- SEARCH -->
+
+    <div class="search-overlay" id="searchOverlay">
+
+        <button class="search-close" id="searchClose" aria-label="Close search">
+            ×
+        </button>
+
+        <div class="search-label">SEARCH THE JEWELICA</div>
+
+        <input class="search-input" id="searchInput" type="search" placeholder="Search jewellery..." autocomplete="off"
+            aria-label="Search jewellery">
+
+        <div class="search-results" id="searchResults"></div>
+
+    </div>
+
+    <!-- CART -->
+
+    <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart">
+
+        <div class="cart-head">
+
+            <h2>Your Selection</h2>
+
+            <button class="icon-btn" id="cartClose" aria-label="Close cart">
+                ×
+            </button>
+
+        </div>
+
+        <div class="cart-items" id="cartItems">
+
+            <div class="empty">
+                Your selection is currently empty.
+            </div>
+
+        </div>
+
+        <div class="cart-footer">
+
+            <p class="cart-note">
+                Product details and final consultation information can be requested
+                through THE JEWELICA.
+            </p>
+
+            <a href="contact.html" class="btn dark" style="width:100%;">
+                REQUEST CONSULTATION
+            </a>
+
+        </div>
+
+    </aside>
+
+    <div class="toast" id="toast">
+        ADDED TO YOUR SELECTION
+    </div>
+
+    <button class="back-top" id="backTop" aria-label="Back to top">
+        ↑
+    </button>
+
+    <script>
+        const productData = {
+
+            hj01: {
+                type: "Floral Cascade Hair Chain",
+                image: "images/hair jewellery (1).png",
+                target: "hair-jewellery-01"
+            },
+
+            hj02: {
+                type: "Jhumka Bun Ornament",
+                image: "images/hair jewellery (2).png",
+                target: "hair-jewellery-02"
+            },
+
+            hj03: {
+                type: "Kundan Braid Choti",
+                image: "images/hair jewellery (3).png",
+                target: "hair-jewellery-03"
+            },
+
+            hj04: {
+                type: "Pearl Drape Hair Piece",
+                image: "images/hair jewellery (4).png",
+                target: "hair-jewellery-04"
+            },
+
+            hj05: {
+                type: "Royal Bun Hairpin",
+                image: "images/hair jewellery (5).png",
+                target: "hair-jewellery-05"
+            },
+
+            br01: {
+                type: "Pearl Snowflake Brooch",
+                image: "images/broaches (1).png",
+                target: "brooch-01"
+            },
+
+            br02: {
+                type: "Opal Wreath Brooch",
+                image: "images/broaches (2).png",
+                target: "brooch-02"
+            },
+
+            br03: {
+                type: "Pearl Bow Wreath Brooch",
+                image: "images/broaches (3).png",
+                target: "brooch-03"
+            },
+
+            br04: {
+                type: "Crystal Butterfly Brooch",
+                image: "images/broaches (4).png",
+                target: "brooch-04"
+            },
+
+            br05: {
+                type: "Ruby Pearl Bow Brooch",
+                image: "images/broaches.png",
+                target: "brooch-05"
+            },
+
+            js01: {
+                type: "Emerald Pearl Necklace Set",
+                image: "images/ocassion jewellery (2).png",
+                target: "jewellery-set-01"
+            },
+
+            js02: {
+                type: "Peacock Tikka Necklace Set",
+                image: "images/ocassion jewellery (3).png",
+                target: "jewellery-set-02"
+            },
+
+            js03: {
+                type: "Ruby Sunburst Pendant Set",
+                image: "images/ocassion jewellery (4).png",
+                target: "jewellery-set-03"
+            },
+
+            js04: {
+                type: "Bridal Ruby Kundan Set",
+                image: "images/ocassion jewellery (5).png",
+                target: "jewellery-set-04"
+            },
+
+            js05: {
+                type: "Navratna Pearl Necklace Set",
+                image: "images/ocassion jewellery.png",
+                target: "jewellery-set-05"
+            }
+
+        };
+
+        let cart = JSON.parse(localStorage.getItem("jewelicaCart") || "[]");
+
+        let wishlist =
+            JSON.parse(localStorage.getItem("jewelicaWishlist") || "[]");
+
+        const $ = selector => document.querySelector(selector);
+
+        const $$ = selector => [...document.querySelectorAll(selector)];
+
+
+        function saveState() {
+
+            localStorage.setItem(
+                "jewelicaCart",
+                JSON.stringify(cart)
+            );
+
+            localStorage.setItem(
+                "jewelicaWishlist",
+                JSON.stringify(wishlist)
+            );
+
+            updateCounters();
+
+        }
+
+
+        function updateCounters() {
+
+            const cartCount = $("#cartCount");
+            const wishCount = $("#wishCount");
+
+            if (cartCount) {
+                cartCount.textContent =
+                    cart.reduce((total, item) => total + item.qty, 0);
+            }
+
+            if (wishCount) {
+                wishCount.textContent = wishlist.length;
+            }
+
+        }
+
+
+        function showToast(message) {
+
+            const toast = $("#toast");
+
+            toast.textContent = message;
+
+            toast.classList.add("show");
+
+            clearTimeout(window.toastTimer);
+
+            window.toastTimer =
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 2200);
+
+        }
+
+
+        function addToCart(id) {
+
+            const product = productData[id];
+
+            if (!product) return;
+
+            const existing =
+                cart.find(item => item.id === id);
+
+            if (existing) {
+
+                existing.qty++;
+
+            } else {
+
+                cart.push({
+                    id: id,
+                    qty: 1,
+                    type: product.type,
+                    image: product.image
+                });
+
+            }
+
+            saveState();
+
+            renderCart();
+
+            showToast("ADDED TO YOUR SELECTION");
+
+        }
+
+
+        function toggleWishlist(id) {
+
+            if (wishlist.includes(id)) {
+
+                wishlist =
+                    wishlist.filter(item => item !== id);
+
+                showToast("REMOVED FROM WISHLIST");
+
+            } else {
+
+                wishlist.push(id);
+
+                showToast("ADDED TO WISHLIST");
+
+            }
+
+            saveState();
+
+        }
+
+
+        function renderCart() {
+
+            const container = $("#cartItems");
+
+            if (!cart.length) {
+
+                container.innerHTML =
+                    `
+<div class="empty">
+Your selection is currently empty.
+</div>
+`;
+
+                return;
+
+            }
+
+            container.innerHTML =
+                cart.map(item => `
+
+<div class="cart-item">
+
+<div class="cart-image">
+
+<img
+src="${item.image}"
+alt="The Jewelica ${item.type}">
+
+</div>
+
+<div>
+
+<strong>${item.type}</strong>
+
+<div class="qty">
+
+<button
+onclick="changeQty('${item.id}',-1)"
+aria-label="Decrease quantity">
+<svg class="svg-icon icon-xs" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>
+</button>
+
+<span>${item.qty}</span>
+
+<button
+onclick="changeQty('${item.id}',1)"
+aria-label="Increase quantity">
+<svg class="svg-icon icon-xs" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+</button>
+
+</div>
+
+</div>
+
+<button
+class="remove"
+onclick="removeItem('${item.id}')">
+REMOVE
+</button>
+
+</div>
+
+`).join("");
+
+        }
+
+
+        function changeQty(id, amount) {
+
+            const item =
+                cart.find(product => product.id === id);
+
+            if (!item) return;
+
+            item.qty += amount;
+
+            if (item.qty <= 0) {
+
+                cart =
+                    cart.filter(product => product.id !== id);
+
+            }
+
+            saveState();
+
+            renderCart();
+
+        }
+
+
+        function removeItem(id) {
+
+            cart =
+                cart.filter(item => item.id !== id);
+
+            saveState();
+
+            renderCart();
+
+            showToast("REMOVED FROM SELECTION");
+
+        }
+
+
+        function openCart() {
+
+            $("#cartPanel").classList.add("open");
+
+        }
+
+
+        function closeCart() {
+
+            $("#cartPanel").classList.remove("open");
+
+        }
+
+
+        $$(".add-cart").forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                addToCart(button.dataset.id);
+
+            });
+
+        });
+
+
+        $$(".wishlist").forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                toggleWishlist(button.dataset.id);
+
+            });
+
+        });
+
+
+        $$(".quick").forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                const product = productData[button.dataset.id];
+
+                const target = product && product.target
+                    ? "product.html#" + product.target
+                    : "product.html";
+
+                window.location.href = target;
+
+            });
+
+        });
+
+
+        /* FILTER */
+
+        $$(".filter").forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                $$(".filter").forEach(item => {
+                    item.classList.remove("active");
+                });
+
+                button.classList.add("active");
+
+                const selected =
+                    button.dataset.filter;
+
+                $$(".product-card").forEach(card => {
+
+                    const visible =
+                        selected === "all" ||
+                        card.dataset.type === selected;
+
+                    card.style.display =
+                        visible ? "block" : "none";
+
+                });
+
+            });
+
+        });
+
+
+        /* SORT */
+
+        $("#sortSelect").addEventListener("change", event => {
+
+            const container =
+                $("#products");
+
+            const cards =
+                $$(".product-card");
+
+            if (event.target.value === "az") {
+
+                cards.sort((a, b) =>
+                    a.querySelector(".product-type")
+                        .textContent
+                        .localeCompare(
+                            b.querySelector(".product-type")
+                                .textContent
+                        ));
+
+            }
+
+            if (event.target.value === "za") {
+
+                cards.sort((a, b) =>
+                    b.querySelector(".product-type")
+                        .textContent
+                        .localeCompare(
+                            a.querySelector(".product-type")
+                                .textContent
+                        ));
+
+            }
+
+            cards.forEach(card => {
+                container.appendChild(card);
+            });
+
+        });
+
+
+        /* CART */
+
+        $("#cartBtn").addEventListener("click", () => {
+
+            renderCart();
+
+            openCart();
+
+        });
+
+
+        $("#cartClose").addEventListener(
+            "click",
+            closeCart
+        );
+
+
+        /* MOBILE MENU */
+
+        $("#menuToggle").addEventListener("click", () => {
+
+            $("#navLinks")
+                .classList
+                .toggle("open");
+
+        });
+
+
+        /* GOLD / DIAMONDS DROPDOWN — tap to expand on mobile */
+
+        $$(".drop-btn").forEach(button => {
+
+            button.addEventListener("click", event => {
+
+                if (window.innerWidth <= 900) {
+
+                    event.preventDefault();
+
+                    const parent = button.parentElement;
+
+                    $$(".dropdown").forEach(other => {
+                        if (other !== parent) other.classList.remove("open");
+                    });
+
+                    parent.classList.toggle("open");
+
+                }
+
+            });
+
+        });
+
+
+        $$(".nav-links > a, .dropdown-menu a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                $("#navLinks")
+                    .classList
+                    .remove("open");
+
+            });
+
+        });
+
+
+        /* SEARCH */
+
+        const searchOverlay =
+            $("#searchOverlay");
+
+        const searchInput =
+            $("#searchInput");
+
+        const searchResults =
+            $("#searchResults");
+
+        const searchable = [
+
+            ["Gold Rings", "gold-rings.html"],
+            ["Gold Lockets", "gold-locket-sets.html"],
+            ["Gold Bracelets", "gold-bracelets.html"],
+            ["Gold Bars", "gold-silver-bars.html"],
+            ["Silver Bars", "gold-silver-bars.html"],
+            ["Gold & Silver Bars", "gold-silver-bars.html"],
+            ["Gold Earrings", "gold-earrings.html"],
+            ["Gold Necklace Sets", "gold-necklace-sets.html"],
+            ["Gold Tops", "gold-tops.html"],
+            ["Gold Pendants", "gold-pendants.html"],
+            ["Gold Chains", "gold-chains.html"],
+            ["Gold Locket Sets", "gold-locket-sets.html"],
+            ["Gold Men's Rings", "gold-mens-rings.html"],
+            ["Gold Jewellery Sets", "gold-jewellery-sets.html"],
+            ["Hair Jewellery", "gold-jewellery-sets.html"],
+            ["Brooches", "gold-jewellery-sets.html"],
+            ["Diamond Rings", "diamond-rings.html"],
+            ["Choose Your Stone", "stones.html"],
+            ["Collections", "collections.html"],
+            ["Services", "services.html"],
+            ["Jewellery Care", "care.html"]
+
+        ];
+
+
+        $("#searchBtn").addEventListener("click", () => {
+
+            searchOverlay.classList.add("open");
+
+            setTimeout(() => {
+                searchInput.focus();
+            }, 200);
+
+        });
+
+
+        $("#searchClose").addEventListener("click", () => {
+
+            searchOverlay.classList.remove("open");
+
+            searchInput.value = "";
+
+            searchResults.innerHTML = "";
+
+        });
+
+
+        searchInput.addEventListener("input", () => {
+
+            const query =
+                searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+            if (!query) {
+
+                searchResults.innerHTML = "";
+
+                return;
+
+            }
+
+            const results =
+                searchable.filter(item =>
+                    item[0]
+                        .toLowerCase()
+                        .includes(query)
+                );
+
+            if (!results.length) {
+
+                searchResults.innerHTML =
+                    "<p style='color:#aaa'>No matching jewellery found.</p>";
+
+                return;
+
+            }
+
+            searchResults.innerHTML =
+                results.map(item => `
+
+<button
+onclick="window.location.href='${item[1]}'">
+${item[0]}
+</button>
+
+`).join("");
+
+        });
+
+
+        /* WISHLIST */
+
+        $("#wishlistBtn").addEventListener("click", () => {
+
+            if (!wishlist.length) {
+
+                showToast("YOUR WISHLIST IS EMPTY");
+
+                return;
+
+            }
+
+            showToast(
+                wishlist.length +
+                " SAVED ITEM" +
+                (wishlist.length > 1 ? "S" : "")
+            );
+
+        });
+
+
+        /* ESCAPE */
+
+        document.addEventListener("keydown", event => {
+
+            if (event.key === "Escape") {
+
+                searchOverlay.classList.remove("open");
+
+                closeCart();
+
+            }
+
+        });
+
+
+        /* BACK TO TOP */
+
+        window.addEventListener("scroll", () => {
+
+            $("#backTop")
+                .classList
+                .toggle(
+                    "show",
+                    window.scrollY > 500
+                );
+
+        });
+
+
+        $("#backTop").addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+        /* INITIAL STATE */
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            updateCounters();
+
+            renderCart();
+
+        });
+    </script>
+
+</body>
+
+</html>

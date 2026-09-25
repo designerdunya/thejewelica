@@ -1810,14 +1810,17 @@
     }
 
     .bars-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
 
     .bar-item {
       display: flex;
       flex-direction: column;
+      flex: 0 0 calc(33.333% - 7px);
+      max-width: calc(33.333% - 7px);
     }
 
     .bar-image {
@@ -1864,14 +1867,53 @@
       line-height: 1.8;
     }
 
-    .bars-call-btn {
+    .bars-cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .bars-view-btn {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       background: linear-gradient(120deg, var(--gold-dark), var(--gold) 50%, var(--gold-light));
       background-size: 200% auto;
       background-position: 0% center;
       color: var(--white);
+      padding: 0 30px;
+      min-height: 52px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      box-shadow: 0 14px 34px rgba(181, 150, 91, .3);
+      transition: all .35s var(--ease);
+    }
+
+    .bars-view-btn:hover {
+      background-position: 100% center;
+      color: var(--espresso);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(181, 150, 91, .42);
+    }
+
+    .bars-view-btn span {
+      transition: transform .25s ease;
+    }
+
+    .bars-view-btn:hover span {
+      transform: translateX(5px);
+    }
+
+    .bars-call-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: transparent;
+      border: 1px solid rgba(23, 20, 17, .22);
+      color: var(--ink);
       padding: 0 28px;
       min-height: 50px;
       font-size: 9px;
@@ -1882,21 +1924,25 @@
     }
 
     .bars-call-btn:hover {
-      background-position: 100% center;
-      color: var(--espresso);
+      background: var(--ink);
+      color: var(--ivory);
+      border-color: var(--ink);
       transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(181, 150, 91, .35);
     }
 
     .bars-call-btn .call-icon {
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, .22);
+      background: rgba(23, 20, 17, .1);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 10px;
+    }
+
+    .bars-call-btn:hover .call-icon {
+      background: rgba(255, 255, 255, .18);
     }
 
     .blog-grid {
@@ -3116,6 +3162,11 @@
         flex-direction: row;
       }
 
+      .bar-item {
+        flex: 0 0 calc(33.333% - 6px);
+        max-width: calc(33.333% - 6px);
+      }
+
       .bars-cta {
         margin-top: 38px;
       }
@@ -3348,7 +3399,12 @@
       }
 
       .bars-grid {
-        gap: 12px;
+        gap: 8px;
+      }
+
+      .bar-item {
+        flex: 0 0 calc(33.333% - 6px);
+        max-width: calc(33.333% - 6px);
       }
 
       .bars-cta p {
@@ -3478,11 +3534,14 @@
                   <a href="gold-bracelets.html">Gold Bracelets</a>
                   <a href="gold-bangles.html">Gold Bangles</a>
                   <a href="gold-earrings.html">Gold Earrings</a>
+                  <a href="gold-locket-sets.html">Gold Lockets</a>
                   <a href="gold-necklace-sets.html">Gold Necklace Sets</a>
                   <a href="gold-tops.html">Gold Tops</a>
                   <a href="gold-pendants.html">Gold Pendants</a>
                   <a href="gold-chains.html">Gold Chains</a>
                   <a href="gold-mens-rings.html">Gold Men's Rings</a>
+                  <a href="gold-jewellery-sets.html">Gold Jewellery Sets</a>
+                  <a href="gold-silver-bars.html">Gold &amp; Silver Bars</a>
                   <a href="gold.html">Explore All Gold</a>
 
                 </div>
@@ -3647,6 +3706,8 @@
           <a href="gold-pendants.html">Gold Pendants</a>
           <a href="gold-chains.html">Gold Chains</a>
           <a href="gold-mens-rings.html">Gold Men's Rings</a>
+          <a href="gold-jewellery-sets.html">Gold Jewellery Sets</a>
+          <a href="gold-silver-bars.html">Gold &amp; Silver Bars</a>
 
         </div>
 
@@ -4020,10 +4081,9 @@
 
         </div>
 
-        <p class="section-description">
-          Certified gold and silver bars, weighed and sealed
-          for buyers who value purity as much as design.
-        </p>
+        <a href="gold-silver-bars.html" class="text-link">
+          View All Gold & Silver Bars →
+        </a>
 
       </div>
 
@@ -4042,8 +4102,8 @@
                 <img src="images/gold bar.png" alt="The Jewelica Gold Bar" loading="lazy">
               </div>
               <p class="bar-desc">
-                999.9 fine gold, cast and stamped with
-                weight and purity for easy verification.
+                 A compact bar sized for everyday saving,
+                sealed to protect its finish over time.
               </p>
             </div>
 
@@ -4052,8 +4112,38 @@
                 <img src="images/gold bar (2).png" alt="The Jewelica Gold Bar" loading="lazy">
               </div>
               <p class="bar-desc">
-                A compact bar sized for everyday saving,
-                sealed to protect its finish over time.
+               999.9 fine gold, cast and stamped with
+                weight and purity for easy verification.
+              </p>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-image">
+                <img src="images/gold bar (3).png" alt="The Jewelica Gold Bar" loading="lazy">
+              </div>
+              <p class="bar-desc">
+                A 1 Tola bar balancing value and
+                ease of resale for everyday investors.
+              </p>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-image">
+                <img src="images/gold bar (4).png" alt="The Jewelica Gold Bar" loading="lazy">
+              </div>
+              <p class="bar-desc">
+                1 Kg Individually sealed and serial numbered
+                for full traceability and trust.
+              </p>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-image">
+                <img src="images/gold bar (5).png" alt="The Jewelica Gold Bar" loading="lazy">
+              </div>
+              <p class="bar-desc">
+                A larger bar suited to long-term
+                holding and secure family savings.
               </p>
             </div>
 
@@ -4091,6 +4181,36 @@
               </p>
             </div>
 
+            <div class="bar-item">
+              <div class="bar-image">
+                <img src="images/silver bar (3).png" alt="The Jewelica Silver Bar" loading="lazy">
+              </div>
+              <p class="bar-desc">
+                A 10 Kg bar, easy to store
+                and simple to gift.
+              </p>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-image">
+                <img src="images/silver bar (4).png" alt="The Jewelica Silver Bar" loading="lazy">
+              </div>
+              <p class="bar-desc">
+                Sealed and stamped for purity, 1 KG bar ready
+                for verification at any time.
+              </p>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-image">
+                <img src="images/silver bar (5).png" alt="The Jewelica Silver Bar" loading="lazy">
+              </div>
+              <p class="bar-desc">
+                A premium  100g bar chosen by collectors
+                for its weight and finish.
+              </p>
+            </div>
+
           </div>
 
         </div>
@@ -4103,11 +4223,19 @@
           Message us directly and we'll get back to you the same day.
         </p>
 
-        <a href="https://wa.me/923000000000?text=Hi%2C%20I%27m%20interested%20in%20your%20gold%20%26%20silver%20bars."
-          class="bars-call-btn" target="_blank" rel="noopener">
-          <span class="call-icon">☎</span>
-          Call / WhatsApp Us
-        </a>
+        <div class="bars-cta-buttons">
+
+          <a href="gold-silver-bars.html" class="bars-view-btn">
+            View Gold &amp; Silver Bars <span>→</span>
+          </a>
+
+          <a href="https://wa.me/923256561246?text=Hi%2C%20I%27m%20interested%20in%20your%20gold%20%26%20silver%20bars."
+            class="bars-call-btn" target="_blank" rel="noopener">
+            <span class="call-icon">☎</span>
+            Call / WhatsApp Us
+          </a>
+
+        </div>
       </div>
 
     </section>
@@ -5305,7 +5433,7 @@
 
               <span>
                 The Jewelica Lahore<br>
-                Lahore, Pakistan
+                Shah Alam Market, Lahore
               </span>
 
             </div>
@@ -5317,7 +5445,7 @@
               </strong>
 
               <span>
-                +92 300 0000000
+                +92 325 6561246
               </span>
 
             </div>
@@ -5482,6 +5610,7 @@
           <li><a href="collections.html">Collections</a></li>
           <li><a href="stones.html">Choose Your Stone</a></li>
           <li><a href="trending.html">Trending Uniques</a></li>
+          <li><a href="gold-silver-bars.html">Gold &amp; Silver Bars</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="blogs.html">Blogs</a></li>
@@ -5526,11 +5655,11 @@
           </div>
 
           <div>
-            Lahore, Pakistan
+            Shah Alam Market, Lahore
           </div>
 
           <div>
-            +92 300 0000000
+            +92 325 6561246
           </div>
 
           <div>
@@ -5861,7 +5990,13 @@
       {
         name: "Gold Jewellery Sets",
         type: "Gold Jewellery",
-        url: "gold.html"
+        url: "gold-jewellery-sets.html"
+      },
+
+      {
+        name: "Gold & Silver Bars",
+        type: "Investment Grade",
+        url: "gold-silver-bars.html"
       },
 
       {

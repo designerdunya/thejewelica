@@ -225,9 +225,13 @@
       display: grid;
       place-items: center;
       text-align: center;
-      background:
-        linear-gradient(rgba(26, 20, 16, .48), rgba(26, 20, 16, .62)),
-        url("images/about hero.png") center/cover no-repeat;
+      background-color: var(--espresso);
+      background-image:
+        linear-gradient(180deg, rgba(43, 33, 27, .55) 0%, rgba(23, 20, 17, .8) 100%),
+        url("images/about hero.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       overflow: hidden;
     }
 
@@ -573,6 +577,15 @@
       letter-spacing: 1.3px;
     }
 
+    .detail a.whatsapp-link {
+      color: var(--espresso);
+      transition: .25s;
+    }
+
+    .detail a.whatsapp-link:hover {
+      color: var(--gold);
+    }
+
     footer {
       background: #15120f;
       color: #eee6da;
@@ -623,6 +636,15 @@
     .footer-links a:hover {
       color: var(--champagne);
       transform: translateX(3px);
+    }
+
+    .footer-col p a.whatsapp-link {
+      color: #bdb3a8;
+      transition: .2s;
+    }
+
+    .footer-col p a.whatsapp-link:hover {
+      color: var(--champagne);
     }
 
     .map {
@@ -750,6 +772,27 @@
     #backTop.show {
       opacity: 1;
       visibility: visible;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      left: 22px;
+      bottom: 22px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      z-index: 800;
+      box-shadow: 0 8px 22px rgba(23, 21, 19, .22);
+      transition: .3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.07);
     }
 
     /* =========================================================
@@ -1086,6 +1129,42 @@
         top: 18px;
       }
     }
+  
+/* ===== Professional SVG icon system ===== */
+.icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex: 0 0 auto;
+}
+.tool-btn .icon,
+.menu-btn .icon { width: 17px; height: 17px; }
+.search-close .icon { width: 19px; height: 19px; }
+.faq-icon .icon { width: 15px; height: 15px; transition: transform .3s ease; }
+.faq-item.open .faq-icon .icon { transform: rotate(45deg); }
+#backTop .icon { width: 17px; height: 17px; }
+.whatsapp-float .icon { width: 24px; height: 24px; }
+.svg-ornament {
+  width: 92px;
+  height: 28px;
+  margin: 0 auto 22px;
+  color: var(--champagne);
+  opacity: .9;
+}
+.svg-ornament::before, .svg-ornament::after { content:""; }
+.hero-ornament { margin-bottom: 20px; }
+.intro-ornament { color: var(--gold); margin-bottom: 20px; }
+.section-heading h2 { display:flex; align-items:center; gap:12px; }
+.section-heading h2 .section-icon { width:22px; height:22px; color:var(--gold); flex:0 0 auto; }
+.category-btn { display:inline-flex; align-items:center; gap:7px; }
+.category-btn .icon { width:13px; height:13px; }
+.gold-btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; }
+.gold-btn .icon { width:14px; height:14px; }
+.detail > span:first-child { display:inline-flex; align-items:center; gap:7px; }
+.detail > span:first-child .icon { width:13px; height:13px; }
+.footer-col h3 { display:flex; align-items:center; gap:8px; }
+.footer-col h3 .icon { width:13px; height:13px; }
+
   </style>
 </head>
 
@@ -1113,6 +1192,7 @@
           <div class="drop-menu">
             <a href="gold-rings.html">Gold Rings</a>
             <a href="gold-bracelets.html">Gold Bracelets</a>
+            <a href="gold-locket-sets.html">Gold Lockets</a>
             <a href="gold-bangles.html">Gold Bangles</a>
             <a href="gold-earrings.html">Gold Earrings</a>
             <a href="gold-necklace-sets.html">Gold Necklace Sets</a>
@@ -1143,8 +1223,8 @@
       </div>
 
       <div class="nav-tools">
-        <button class="tool-btn" id="searchBtn" aria-label="Open search">⌕</button>
-        <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <button class="tool-btn" id="searchBtn" aria-label="Open search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 5 5"/></svg></button>
+        <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       </div>
 
     </nav>
@@ -1154,6 +1234,7 @@
 
     <section class="hero">
       <div class="hero-content reveal">
+        <svg class="svg-ornament hero-ornament" viewBox="0 0 120 32" fill="none" stroke="currentColor" stroke-width="1"><path d="M8 16h32"/><path d="M80 16h32"/><path d="m52 16 8-8 8 8-8 8-8-8Z"/><circle cx="60" cy="16" r="3"/></svg>
         <div class="eyebrow">Questions? We're Here To Help</div>
         <h1>Find Your<br>Answers</h1>
         <p>
@@ -1164,6 +1245,7 @@
     </section>
 
     <section class="intro reveal">
+      <svg class="svg-ornament intro-ornament" viewBox="0 0 120 32" fill="none" stroke="currentColor" stroke-width="1"><path d="M8 16h35M77 16h35"/><path d="M60 6v20"/><path d="m54 16 6-6 6 6-6 6-6-6Z"/></svg>
       <div class="eyebrow">The Jewelica Help Centre</div>
       <h2>Questions? We're Here To Help</h2>
       <p>
@@ -1178,25 +1260,25 @@
       <div class="faq-toolbar reveal">
 
         <div class="faq-categories">
-          <button class="category-btn active" data-category="all">
+          <button class="category-btn active" data-category="all"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>
             All
           </button>
-          <button class="category-btn" data-category="shopping">
+          <button class="category-btn" data-category="shopping"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>
             Jewellery
           </button>
-          <button class="category-btn" data-category="gold">
+          <button class="category-btn" data-category="gold"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>
             Gold
           </button>
-          <button class="category-btn" data-category="diamond">
+          <button class="category-btn" data-category="diamond"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>
             Diamonds
           </button>
-          <button class="category-btn" data-category="stone">
+          <button class="category-btn" data-category="stone"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>
             Gemstones
           </button>
-          <button class="category-btn" data-category="service">
+          <button class="category-btn" data-category="service"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>
             Services
           </button>
-          <button class="category-btn" data-category="care">
+          <button class="category-btn" data-category="care"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>
             Care
           </button>
         </div>
@@ -1211,7 +1293,7 @@
         <section class="faq-section reveal" data-section="shopping">
 
           <div class="section-heading">
-            <h2>Jewellery & Selection</h2>
+            <h2><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Jewellery & Selection</h2>
             <span>Start Here</span>
           </div>
 
@@ -1221,7 +1303,7 @@
               data-search="how choose right jewellery jewellery selection choose piece">
               <button class="faq-question" aria-expanded="false">
                 <span>How do I choose the right jewellery?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1237,7 +1319,7 @@
             <div class="faq-item" data-category="shopping" data-search="jewellery consultation process selection help">
               <button class="faq-question" aria-expanded="false">
                 <span>What is the jewellery consultation process?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1253,7 +1335,7 @@
               data-search="custom jewellery request bespoke design custom design">
               <button class="faq-question" aria-expanded="false">
                 <span>Can I request a custom design?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1269,7 +1351,7 @@
               data-search="product availability jewellery available contact">
               <button class="faq-question" aria-expanded="false">
                 <span>How can I check jewellery availability?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1287,7 +1369,7 @@
         <section class="faq-section reveal" data-section="gold">
 
           <div class="section-heading">
-            <h2>Gold Jewellery</h2>
+            <h2><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Gold Jewellery</h2>
             <span>Gold Details</span>
           </div>
 
@@ -1296,7 +1378,7 @@
             <div class="faq-item" data-category="gold" data-search="gold purity options 18k 22k gold purity available">
               <button class="faq-question" aria-expanded="false">
                 <span>What gold purity options are available?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1312,7 +1394,7 @@
             <div class="faq-item" data-category="gold" data-search="gold jewellery colour yellow white rose gold">
               <button class="faq-question" aria-expanded="false">
                 <span>What gold colour should I choose?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1327,7 +1409,7 @@
             <div class="faq-item" data-category="gold" data-search="gold jewellery everyday wear durability">
               <button class="faq-question" aria-expanded="false">
                 <span>Is gold jewellery suitable for everyday wear?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1346,7 +1428,7 @@
         <section class="faq-section reveal" data-section="diamond">
 
           <div class="section-heading">
-            <h2>Diamond Jewellery</h2>
+            <h2><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Diamond Jewellery</h2>
             <span>Diamond Guidance</span>
           </div>
 
@@ -1356,7 +1438,7 @@
               data-search="diamond cut clarity colour carat choosing diamond">
               <button class="faq-question" aria-expanded="false">
                 <span>What should I consider when choosing a diamond?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1371,7 +1453,7 @@
             <div class="faq-item" data-category="diamond" data-search="diamond care cleaning jewellery">
               <button class="faq-question" aria-expanded="false">
                 <span>How should I care for my diamond jewellery?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1387,7 +1469,7 @@
               data-search="diamond jewellery inspection setting loose stones">
               <button class="faq-question" aria-expanded="false">
                 <span>Why should diamond jewellery be inspected periodically?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1406,7 +1488,7 @@
         <section class="faq-section reveal" data-section="stone">
 
           <div class="section-heading">
-            <h2>Gemstones</h2>
+            <h2><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Gemstones</h2>
             <span>Choose Your Stone</span>
           </div>
 
@@ -1416,7 +1498,7 @@
               data-search="how choose gemstone ruby emerald sapphire gemstone selection">
               <button class="faq-question" aria-expanded="false">
                 <span>How can I choose a gemstone?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1432,7 +1514,7 @@
               data-search="gemstone diamond ruby emerald sapphire amethyst aquamarine">
               <button class="faq-question" aria-expanded="false">
                 <span>Which gemstones can I explore?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1447,7 +1529,7 @@
             <div class="faq-item" data-category="stone" data-search="gemstone custom jewellery stone bespoke">
               <button class="faq-question" aria-expanded="false">
                 <span>Can I select a gemstone for a custom jewellery design?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1465,7 +1547,7 @@
         <section class="faq-section reveal" data-section="service">
 
           <div class="section-heading">
-            <h2>Our Services</h2>
+            <h2><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Our Services</h2>
             <span>Personal Guidance</span>
           </div>
 
@@ -1474,7 +1556,7 @@
             <div class="faq-item" data-category="service" data-search="bespoke jewellery service custom design">
               <button class="faq-question" aria-expanded="false">
                 <span>What is the bespoke jewellery service?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1491,7 +1573,7 @@
               data-search="jewellery restoration repair restoration service">
               <button class="faq-question" aria-expanded="false">
                 <span>Can jewellery be restored?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1506,7 +1588,7 @@
             <div class="faq-item" data-category="service" data-search="jewellery valuation valuation service">
               <button class="faq-question" aria-expanded="false">
                 <span>What is jewellery valuation?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1521,7 +1603,7 @@
             <div class="faq-item" data-category="service" data-search="bridal jewellery consultation wedding bridal">
               <button class="faq-question" aria-expanded="false">
                 <span>Can I request a bridal jewellery consultation?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1540,7 +1622,7 @@
         <section class="faq-section reveal" data-section="care">
 
           <div class="section-heading">
-            <h2>Jewellery Care</h2>
+            <h2><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Jewellery Care</h2>
             <span>Care Studio</span>
           </div>
 
@@ -1549,7 +1631,7 @@
             <div class="faq-item" data-category="care" data-search="jewellery cleaning clean jewellery care studio">
               <button class="faq-question" aria-expanded="false">
                 <span>How should I clean my jewellery?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1565,7 +1647,7 @@
               data-search="jewellery storage safe storage chains rings earrings">
               <button class="faq-question" aria-expanded="false">
                 <span>How should I store fine jewellery?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1579,7 +1661,7 @@
             <div class="faq-item" data-category="care" data-search="jewellery care perfume chemicals swimming shower">
               <button class="faq-question" aria-expanded="false">
                 <span>What should I avoid while wearing jewellery?</span>
-                <span class="faq-icon">+</span>
+                <span class="faq-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
@@ -1614,7 +1696,7 @@
           discussing a bespoke design or planning a visit, our team is
           ready to help you find the right direction.
         </p>
-        <a href="contact.html" class="gold-btn">Get In Touch</a>
+        <a href="contact.html" class="gold-btn">Get In Touch <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 14 5-5 5 5"/><path d="M12 9v10"/></svg></a>
       </div>
 
     </section>
@@ -1640,28 +1722,33 @@
         <div class="visit-details">
 
           <div class="detail">
-            <span>Location</span>
-            <span>Lahore, Pakistan</span>
+            <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Location</span>
+            <span>Shah Alam Market, Lahore</span>
           </div>
 
           <div class="detail">
-            <span>Phone</span>
-            <span>+92 300 0000000</span>
+            <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Phone</span>
+            <span>+92 325 6561246</span>
           </div>
 
           <div class="detail">
-            <span>Email</span>
+            <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>WhatsApp</span>
+            <a class="whatsapp-link" href="https://wa.me/923256561246" target="_blank" rel="noopener">0325 6561246</a>
+          </div>
+
+          <div class="detail">
+            <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Email</span>
             <span>hello@thejewelica.example</span>
           </div>
 
           <div class="detail">
-            <span>Hours</span>
+            <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Hours</span>
             <span>Mon – Sat / 11 AM – 8 PM</span>
           </div>
 
         </div>
 
-        <a href="contact.html" class="gold-btn">Contact The Jewelica</a>
+        <a href="contact.html" class="gold-btn">Contact The Jewelica <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 14 5-5 5 5"/><path d="M12 9v10"/></svg></a>
 
       </div>
 
@@ -1690,7 +1777,7 @@
 
       <div class="footer-col">
 
-        <h3>Quick Links</h3>
+        <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Quick Links</h3>
 
         <div class="footer-links">
           <a href="index.html">Home</a>
@@ -1710,7 +1797,7 @@
 
       <div class="footer-col">
 
-        <h3>Customer Care</h3>
+        <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Customer Care</h3>
 
         <div class="footer-links">
           <a href="care.html">Jewellery Care</a>
@@ -1723,12 +1810,13 @@
 
         <br>
 
-        <h3>Visit Us</h3>
+        <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>Visit Us</h3>
 
         <p>
           The Jewelica<br>
-          Lahore, Pakistan<br>
-          Phone: +92 300 0000000<br>
+          Shah Alam Market, Lahore<br>
+          Phone: +92 325 6561246<br>
+          WhatsApp: <a class="whatsapp-link" href="https://wa.me/923256561246" target="_blank" rel="noopener">0325 6561246</a><br>
           Email: hello@thejewelica.example
         </p>
 
@@ -1736,7 +1824,7 @@
 
       <div class="footer-col">
 
-        <h3>The Jewelica Lahore</h3>
+        <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7L12 3Z"/></svg>The Jewelica Lahore</h3>
         <iframe class="map"
           src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
           width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
@@ -1758,9 +1846,7 @@
 
   <div class="search-overlay" id="searchOverlay" aria-hidden="true">
 
-    <button class="search-close" id="searchClose" aria-label="Close search">
-      ×
-    </button>
+    <button class="search-close" id="searchClose" aria-label="Close search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
 
     <div class="search-panel">
 
@@ -1775,7 +1861,9 @@
 
   </div>
 
-  <button id="backTop" aria-label="Back to top">↑</button>
+  <a class="whatsapp-float" href="https://wa.me/923256561246" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.1 11.1a8.1 8.1 0 0 1-11.9 7L4 19l.9-4.1A8.1 8.1 0 1 1 20.1 11.1Z"/><path d="M8.5 8.2c.3-.4.7-.4 1-.1l1.2 1.4c.2.2.2.5 0 .8l-.6.7c.6 1.2 1.5 2.1 2.7 2.7l.7-.6c.2-.2.5-.2.8 0l1.4 1.2c.3.3.3.7-.1 1-.5.6-1.3.8-2 .5-2.9-1.1-5-3.2-6.1-6.1-.3-.7-.1-1.5.5-2Z"/></svg></a>
+
+  <button id="backTop" aria-label="Back to top"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 14 5-5 5 5"/><path d="M12 9v10"/></svg></button>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -1811,7 +1899,7 @@
           isOpen ? "true" : "false"
         );
 
-        menuBtn.textContent = isOpen ? "×" : "☰";
+        menuBtn.innerHTML = isOpen ? '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>' : '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
       });
 
       document.querySelectorAll(".drop-trigger").forEach(function (trigger) {
@@ -1848,7 +1936,7 @@
           if (window.innerWidth <= 900) {
             navLinks.classList.remove("open");
             menuBtn.setAttribute("aria-expanded", "false");
-            menuBtn.textContent = "☰";
+            menuBtn.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
           }
 
         });
@@ -2216,7 +2304,7 @@
             "false"
           );
 
-          menuBtn.textContent = "☰";
+          menuBtn.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
 
           document.querySelectorAll(".dropdown").forEach(function (dropdown) {
             dropdown.classList.remove("open");

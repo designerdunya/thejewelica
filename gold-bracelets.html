@@ -151,11 +151,90 @@
       width: 100%;
     }
 
+    .nav-gold-dropdown {
+      position: relative;
+    }
+
+    .nav-gold-dropdown>.gold-link {
+      display: block;
+    }
+
+    .gold-dropdown {
+      position: absolute;
+      top: calc(100% + 1px);
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      width: 310px;
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 22px;
+      background: var(--ivory);
+      border: 1px solid var(--line);
+      border-top: 2px solid var(--gold);
+      box-shadow: 0 18px 38px rgba(48, 37, 30, .14);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
+      z-index: 1300;
+    }
+
+    .nav-gold-dropdown:hover .gold-dropdown,
+    .nav-gold-dropdown:focus-within .gold-dropdown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .gold-dropdown a {
+      padding: 9px 0 !important;
+      font-size: 8px !important;
+      letter-spacing: 1px !important;
+      white-space: nowrap;
+    }
+
+    .gold-dropdown a:after {
+      bottom: 4px !important;
+    }
+
+
     .nav-actions {
       display: flex;
       align-items: center;
       gap: 9px;
       flex-shrink: 0;
+    }
+
+
+    .svg-icon,
+    .btn-arrow {
+      width: 18px;
+      height: 18px;
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    .btn-arrow {
+      margin-left: 9px;
+      width: 15px;
+      height: 15px;
+      transition: transform .3s ease;
+    }
+
+    .btn:hover .btn-arrow,
+    .product-bottom button:hover .btn-arrow {
+      transform: translateX(3px);
+    }
+
+    .icon-btn .svg-icon,
+    .menu-toggle .svg-icon,
+    .product-tools .svg-icon,
+    .search-close .svg-icon,
+    .back-top .svg-icon,
+    .qty .svg-icon {
+      pointer-events: none;
     }
 
     .icon-btn {
@@ -167,7 +246,7 @@
       display: grid;
       place-items: center;
       color: var(--espresso);
-      transition: .35s cubic-bezier(.4,0,.2,1);
+      transition: .35s cubic-bezier(.4, 0, .2, 1);
       flex-shrink: 0;
     }
 
@@ -293,7 +372,7 @@
       background: linear-gradient(120deg, var(--champagne), var(--gold-light));
       transform: scaleX(0);
       transform-origin: left;
-      transition: transform .45s cubic-bezier(.65,0,.35,1);
+      transition: transform .45s cubic-bezier(.65, 0, .35, 1);
       z-index: -1;
     }
 
@@ -456,7 +535,7 @@
       border: 1px solid var(--line);
       color: var(--espresso);
       box-shadow: 0 4px 14px rgba(48, 37, 30, .12);
-      transition: .3s cubic-bezier(.4,0,.2,1);
+      transition: .3s cubic-bezier(.4, 0, .2, 1);
     }
 
     .product-tools button:hover {
@@ -495,6 +574,9 @@
 
     .product-bottom button {
       flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       height: 42px;
       border-radius: 999px;
       border: 1px solid var(--espresso);
@@ -515,7 +597,7 @@
       inset: 0;
       transform: scaleX(0);
       transform-origin: left;
-      transition: transform .45s cubic-bezier(.65,0,.35,1);
+      transition: transform .45s cubic-bezier(.65, 0, .35, 1);
       z-index: -1;
     }
 
@@ -872,6 +954,31 @@
       visibility: visible;
     }
 
+    .whatsapp-float {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      z-index: 900;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #25D366;
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, .4);
+      transition: .3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px);
+    }
+
+    .whatsapp-float svg {
+      width: 24px;
+      height: 24px;
+    }
+
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -893,16 +1000,33 @@
        nothing overflows and nothing needs pinch-zoom.
        ====================================================== */
 
+    /* ---------- GROUP 0: DESKTOP NAV FIX (901px and up, no cap) ----------
+       .nav is capped at max-width:1440px, so its rendered width is
+       IDENTICAL on a 1440px viewport and a 1920px monitor — the
+       overlap between CONTACT/Bag isn't a "narrow laptop" issue, it
+       happens at every desktop width. This rule has no upper bound
+       so it always applies once past the mobile hamburger breakpoint
+       (<=900px, untouched). */
+    @media (min-width: 901px) {
+
+      .nav {
+        padding: 0 22px;
+        gap: 18px;
+      }
+
+      .nav-links {
+        gap: 10px;
+        font-size: 9px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+    }
+
     /* ---------- GROUP 1: LARGE TABLET (<=1150px) ----------
        Just density changes, desktop layout shape kept. */
     @media(max-width:1150px) {
-      .nav-links {
-        gap: 16px;
-      }
-
-      .nav {
-        padding: 0 20px;
-      }
 
       .products {
         grid-template-columns: repeat(3, 1fr);
@@ -951,6 +1075,34 @@
 
       .nav-links a {
         padding: 15px 0;
+      }
+
+      .nav-gold-dropdown {
+        width: 100%;
+      }
+
+      .gold-dropdown {
+        position: static;
+        transform: none;
+        width: 100%;
+        padding: 0 0 8px 14px;
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 0;
+        border: 0;
+        border-left: 1px solid var(--line);
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .nav-links.open .gold-dropdown {
+        display: grid;
+      }
+
+      .gold-dropdown a {
+        padding: 10px 0 !important;
       }
 
       .nav-links a:after {
@@ -1165,6 +1317,13 @@
       .search-input {
         font-size: 30px;
       }
+
+      .whatsapp-float {
+        width: 44px;
+        height: 44px;
+        left: 14px;
+        bottom: 14px;
+      }
     }
 
     /* ---------- GROUP 4: SMALL PHONES (<=430px) ----------
@@ -1283,8 +1442,35 @@
       <div class="nav-links" id="navLinks">
         <a href="index.html">HOME</a>
         <a href="shop.html">SHOP</a>
-        <a href="gold.html" class="active">GOLD</a>
-        <a href="diamond.html">DIAMONDS</a>
+
+        <div class="nav-gold-dropdown">
+          <a href="gold.html" class="active gold-link">GOLD</a>
+          <div class="gold-dropdown" aria-label="Gold jewellery pages">
+            <a href="gold-rings.html">Gold Rings</a>
+            <a href="gold-bracelets.html">Gold Bracelets</a>
+            <a href="gold-bangles.html">Gold Bangles</a>
+            <a href="gold-earrings.html">Gold Earrings</a>
+            <a href="gold-necklace-sets.html">Gold Necklace Sets</a>
+            <a href="gold-tops.html">Gold Tops</a>
+            <a href="gold-pendants.html">Gold Pendants</a>
+            <a href="gold-chains.html">Gold Chains</a>
+            <a href="gold-locket-sets.html">Gold Locket Sets</a>
+            <a href="gold-mens-rings.html">Gold Men's Rings</a>
+            <a href="gold-jewellery-sets.html">Gold Jewellery Sets</a>
+            <a href="gold-silver-bars.html">Gold &amp; Silver Bars</a>
+          </div>
+        </div>
+
+        <div class="nav-gold-dropdown">
+          <a href="diamond.html" class="gold-link">DIAMONDS</a>
+          <div class="gold-dropdown" aria-label="Diamond jewellery pages">
+            <a href="diamond-rings.html">Diamond Rings</a>
+            <a href="diamond-ring-men.html">Diamond Men's Rings</a>
+            <a href="diamond-pendants-nose-pins.html">Diamond Earrings</a>
+            <a href="diamond.html">Explore All Diamonds</a>
+          </div>
+        </div>
+
         <a href="collections.html">COLLECTIONS</a>
         <a href="stones.html">CHOOSE YOUR STONE</a>
         <a href="trending.html">TRENDING UNIQUES</a>
@@ -1295,19 +1481,35 @@
 
       <div class="nav-actions">
 
-        <button class="icon-btn search-btn" id="searchBtn" aria-label="Search">⌕</button>
+        <button class="icon-btn search-btn" id="searchBtn" aria-label="Search"><svg class="svg-icon" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-4-4"></path>
+          </svg></button>
 
         <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
-          ♡
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+            </path>
+          </svg>
           <span class="count" id="wishCount">0</span>
         </button>
 
         <button class="icon-btn" id="cartBtn" aria-label="Cart">
-          Bag
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+            <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+          </svg>
           <span class="count" id="cartCount">0</span>
         </button>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><svg class="svg-icon" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg></button>
 
       </div>
     </nav>
@@ -1333,7 +1535,12 @@
         </p>
 
         <div>
-          <a href="#collection" class="btn">EXPLORE THE COLLECTION</a>
+          <a href="#collection" class="btn">EXPLORE THE COLLECTION <svg class="btn-arrow" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M5 12h13"></path>
+              <path d="m13 6 6 6-6 6"></path>
+            </svg></a>
         </div>
 
       </div>
@@ -1387,8 +1594,20 @@
               <img src="images/bracelet watch (1).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb01" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb01" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb01" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb01" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1396,8 +1615,18 @@
             <span class="product-category">CLASSIC</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb01">ADD TO CART</button>
-            <button class="quick" data-id="gb01">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb01">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb01">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1407,8 +1636,20 @@
               <img src="images/bracelet watch (2).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb02" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb02" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb02" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb02" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1416,8 +1657,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb02">ADD TO CART</button>
-            <button class="quick" data-id="gb02">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb02">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb02">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1427,8 +1678,20 @@
               <img src="images/bracelet watch (3).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb03" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb03" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb03" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb03" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1436,8 +1699,18 @@
             <span class="product-category">STATEMENT</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb03">ADD TO CART</button>
-            <button class="quick" data-id="gb03">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb03">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb03">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1447,8 +1720,20 @@
               <img src="images/bracelet watch (5).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb04" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb04" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb04" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb04" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1456,8 +1741,18 @@
             <span class="product-category">CLASSIC</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb04">ADD TO CART</button>
-            <button class="quick" data-id="gb04">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb04">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb04">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1467,8 +1762,20 @@
               <img src="images/bracelet watch (6).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb05" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb05" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb05" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb05" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1476,8 +1783,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb05">ADD TO CART</button>
-            <button class="quick" data-id="gb05">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb05">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb05">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1487,8 +1804,20 @@
               <img src="images/bracelet watch.png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb06" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb06" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb06" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb06" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1496,8 +1825,18 @@
             <span class="product-category">STATEMENT</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb06">ADD TO CART</button>
-            <button class="quick" data-id="gb06">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb06">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb06">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1507,8 +1846,20 @@
               <img src="images/bracelet (1).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb07" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb07" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb07" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb07" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1516,8 +1867,18 @@
             <span class="product-category">CLASSIC</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb07">ADD TO CART</button>
-            <button class="quick" data-id="gb07">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb07">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb07">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1527,8 +1888,20 @@
               <img src="images/bracelet (2).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb08" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb08" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb08" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb08" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1536,8 +1909,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb08">ADD TO CART</button>
-            <button class="quick" data-id="gb08">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb08">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb08">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1547,8 +1930,20 @@
               <img src="images/bracelet (3).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb09" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb09" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb09" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb09" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1556,8 +1951,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb09">ADD TO CART</button>
-            <button class="quick" data-id="gb09">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb09">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb09">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1567,8 +1972,20 @@
               <img src="images/bracelet (4).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb10" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb10" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb10" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb10" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1576,8 +1993,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb10">ADD TO CART</button>
-            <button class="quick" data-id="gb10">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb10">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb10">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1587,8 +2014,20 @@
               <img src="images/bracelet (5).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb11" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb11" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb11" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb11" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1596,8 +2035,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb11">ADD TO CART</button>
-            <button class="quick" data-id="gb11">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb11">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb11">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1607,8 +2056,20 @@
               <img src="images/bracelet (6).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb12" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb12" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb12" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb12" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1616,8 +2077,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb12">ADD TO CART</button>
-            <button class="quick" data-id="gb12">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb12">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb12">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1627,8 +2098,20 @@
               <img src="images/bracelet (7).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb13" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb13" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb13" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb13" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1636,8 +2119,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb13">ADD TO CART</button>
-            <button class="quick" data-id="gb13">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb13">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb13">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1647,8 +2140,20 @@
               <img src="images/bracelet (9).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb14" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb14" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb14" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb14" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1656,8 +2161,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb14">ADD TO CART</button>
-            <button class="quick" data-id="gb14">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb14">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb14">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1667,8 +2182,20 @@
               <img src="images/bracelet (10).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb15" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb15" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb15" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb15" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1676,8 +2203,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb15">ADD TO CART</button>
-            <button class="quick" data-id="gb15">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb15">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb15">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1687,8 +2224,20 @@
               <img src="images/bracelet (11).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb16" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb16" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb16" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb16" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1696,8 +2245,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb16">ADD TO CART</button>
-            <button class="quick" data-id="gb16">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb16">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb16">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1707,8 +2266,20 @@
               <img src="images/bracelet (12).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb17" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb17" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb17" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb17" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1716,8 +2287,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb17">ADD TO CART</button>
-            <button class="quick" data-id="gb17">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb17">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb17">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1727,8 +2308,20 @@
               <img src="images/bracelet (13).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb18" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb18" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb18" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb18" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1736,8 +2329,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb18">ADD TO CART</button>
-            <button class="quick" data-id="gb18">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb18">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb18">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1747,8 +2350,20 @@
               <img src="images/bracelet (14).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb19" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb19" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb19" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb19" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1756,8 +2371,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb19">ADD TO CART</button>
-            <button class="quick" data-id="gb19">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb19">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb19">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1767,8 +2392,20 @@
               <img src="images/bracelet (15).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb20" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb20" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb20" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb20" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1776,8 +2413,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb20">ADD TO CART</button>
-            <button class="quick" data-id="gb20">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb20">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb20">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1787,8 +2434,20 @@
               <img src="images/bracelet (16).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb21" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb21" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb21" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb21" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1796,8 +2455,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb21">ADD TO CART</button>
-            <button class="quick" data-id="gb21">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb21">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb21">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1807,8 +2476,20 @@
               <img src="images/bracelet.png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb22" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb22" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb22" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb22" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1816,8 +2497,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb22">ADD TO CART</button>
-            <button class="quick" data-id="gb22">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb22">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb22">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1827,8 +2518,20 @@
               <img src="images/bracelet (18).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb23" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb23" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb23" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb23" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1836,8 +2539,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb23">ADD TO CART</button>
-            <button class="quick" data-id="gb23">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb23">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb23">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1847,8 +2560,20 @@
               <img src="images/bracelet (19).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb24" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb24" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb24" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb24" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1856,8 +2581,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb24">ADD TO CART</button>
-            <button class="quick" data-id="gb24">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb24">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb24">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1867,8 +2602,20 @@
               <img src="images/bracelet (21).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb25" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb25" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb25" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb25" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1876,8 +2623,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb25">ADD TO CART</button>
-            <button class="quick" data-id="gb25">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb25">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb25">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1887,8 +2644,20 @@
               <img src="images/bracelet (22).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb26" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb26" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb26" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb26" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1896,8 +2665,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb26">ADD TO CART</button>
-            <button class="quick" data-id="gb26">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb26">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb26">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1907,8 +2686,20 @@
               <img src="images/bracelet (23).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb27" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb27" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb27" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb27" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1916,8 +2707,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb27">ADD TO CART</button>
-            <button class="quick" data-id="gb27">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb27">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb27">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1927,8 +2728,20 @@
               <img src="images/bracelet (25).png" alt="Gold Bracelet jewellery">
             </a>
             <div class="product-tools">
-              <button class="wishlist" data-id="gb28" aria-label="Add bracelet to wishlist">♡</button>
-              <button class="quick" data-id="gb28" aria-label="View bracelet details">⌕</button>
+              <button class="wishlist" data-id="gb28" aria-label="Add bracelet to wishlist"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button>
+              <button class="quick" data-id="gb28" aria-label="View bracelet details"><svg class="svg-icon"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 5h5v5"></path>
+                  <path d="m19 5-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button>
             </div>
           </div>
           <div class="product-info">
@@ -1936,8 +2749,18 @@
             <span class="product-category">DELICATE</span>
           </div>
           <div class="product-bottom">
-            <button class="add-cart" data-id="gb28">ADD TO CART</button>
-            <button class="quick" data-id="gb28">VIEW DETAILS</button>
+            <button class="add-cart" data-id="gb28">ADD TO CART <svg class="svg-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+                <path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"></path>
+              </svg></button>
+            <button class="quick" data-id="gb28">VIEW DETAILS <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h13"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button>
           </div>
         </article>
 
@@ -1955,7 +2778,12 @@
         The Jewelica for a considered jewellery consultation.
       </p>
 
-      <a href="gold.html" class="btn dark">DISCOVER GOLD JEWELLERY</a>
+      <a href="gold.html" class="btn dark">DISCOVER GOLD JEWELLERY <svg class="btn-arrow" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+          aria-hidden="true">
+          <path d="M5 12h13"></path>
+          <path d="m13 6 6 6-6 6"></path>
+        </svg></a>
 
     </section>
 
@@ -2007,9 +2835,9 @@
 
         <h4 style="margin-top:28px">VISIT US</h4>
 
-        <p>The Jewelica Lahore<br>Pakistan</p>
+        <p>The Jewelica Lahore<br>Shah Alam Market, Lahore</p>
 
-        <p>+92 300 0000000<br>hello@thejewelica.com</p>
+        <p>+92 325 6561246<br>hello@thejewelica.com</p>
 
         <p>Mon — Sat: 11:00 AM — 8:00 PM</p>
 
@@ -2019,7 +2847,13 @@
 
         <h4>THE JEWELICA LAHORE</h4>
 
-        <p>Our future Lahore location will be updated here.</p>
+        <p>Shah Alam Market, Lahore.</p>
+
+        <p>
+          <a href="https://wa.me/923256561246" target="_blank" rel="noopener">
+            WhatsApp: 0325 6561246
+          </a>
+        </p>
 
         <div class="map">
 
@@ -2043,7 +2877,10 @@
 
   <div class="search-overlay" id="searchOverlay">
 
-    <button class="search-close" id="searchClose" aria-label="Close search">×</button>
+    <button class="search-close" id="searchClose" aria-label="Close search"><svg class="svg-icon" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12M18 6 6 18"></path>
+      </svg></button>
 
     <div class="search-title">SEARCH THE JEWELICA</div>
 
@@ -2059,7 +2896,10 @@
 
       <h2>Your Selection</h2>
 
-      <button class="icon-btn" id="cartClose" aria-label="Close cart">×</button>
+      <button class="icon-btn" id="cartClose" aria-label="Close cart"><svg class="svg-icon" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6 6 18"></path>
+        </svg></button>
 
     </div>
 
@@ -2075,7 +2915,7 @@
 
       <p class="cart-note">
         Product details and final consultation information can be requested
-        through The Jewelica.
+        through The Jewelica. Call or WhatsApp us at +92 325 6561246.
       </p>
 
       <a href="contact.html" class="btn dark" style="width:100%">
@@ -2091,8 +2931,20 @@
   </div>
 
   <button class="back-top" id="backTop" aria-label="Back to top">
-    ↑
+    <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5"></path>
+      <path d="m6 11 6-6 6 6"></path>
+    </svg>
   </button>
+
+  <a class="whatsapp-float" href="https://wa.me/923256561246" target="_blank" rel="noopener"
+    aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path
+        d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.48 1.29 4.94L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.83-3.05-.2-.31a8.2 8.2 0 0 1-1.26-4.37c0-4.55 3.71-8.26 8.27-8.26 2.21 0 4.28.86 5.84 2.42a8.2 8.2 0 0 1 2.42 5.85c0 4.55-3.71 8.23-8.27 8.23Zm4.52-6.17c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.13-.17.24-.64.8-.78.96-.14.17-.29.19-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.24-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29Z" />
+    </svg>
+  </a>
 
   <script>
 
@@ -2134,6 +2986,9 @@
 
     const $ = selector => document.querySelector(selector);
     const $$ = selector => [...document.querySelectorAll(selector)];
+
+    const ICON_HEART = `<svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"></path></svg>`;
+    const ICON_HEART_FILLED = `<svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"></path></svg>`;
 
     function saveState() {
 
@@ -2204,6 +3059,12 @@
 
       }
 
+      $$(".wishlist").forEach(button => {
+        const active = wishlist.includes(button.dataset.id);
+        button.innerHTML = active ? ICON_HEART_FILLED : ICON_HEART;
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+
       saveState();
     }
 
@@ -2237,7 +3098,7 @@
                 <button
                   onclick="changeQty('${item.id}',-1)"
                   aria-label="Decrease quantity">
-                  −
+                  <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12"></path></svg>
                 </button>
 
                 <span>${item.qty}</span>
@@ -2245,7 +3106,7 @@
                 <button
                   onclick="changeQty('${item.id}',1)"
                   aria-label="Increase quantity">
-                  +
+                  <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12M6 12h12"></path></svg>
                 </button>
 
               </div>
@@ -2396,7 +3257,9 @@
 
     $("#menuToggle").addEventListener("click", () => {
 
-      $("#navLinks").classList.toggle("open");
+      const isOpen = $("#navLinks").classList.toggle("open");
+      $("#menuToggle").innerHTML = isOpen ? `<svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>` : `${menu_svg}`;
+      $("#menuToggle").setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
 
     });
 
@@ -2415,6 +3278,7 @@
     const searchable = [
 
       ["Gold Rings", "gold-rings.html"],
+      ["Gold Lockets", "gold-locket-sets.html"],
       ["Gold Bracelets", "gold-bracelets.html"],
       ["Gold Bangles", "gold-bangles.html"],
       ["Gold Earrings", "gold-earrings.html"],
@@ -2424,9 +3288,11 @@
       ["Gold Chains", "gold-chains.html"],
       ["Gold Locket Sets", "gold-locket-sets.html"],
       ["Gold Men's Rings", "gold-mens-rings.html"],
-      ["Gold Jewellery Sets", "gold.html"],
+      ["Gold Jewellery Sets", "gold-jewellery-sets.html"],
+      ["Gold & Silver Bars", "gold-silver-bars.html"],
       ["Diamond Rings", "diamond-rings.html"],
       ["Diamond Men's Rings", "diamond-ring-men.html"],
+      ["Diamond Earrings", "diamond-pendants-nose-pins.html"],
       ["Choose Your Stone", "stones.html"],
       ["Collections", "collections.html"],
       ["Services", "services.html"],
@@ -2532,6 +3398,12 @@
 
       updateCounters();
       renderCart();
+
+      $$(".wishlist").forEach(button => {
+        const active = wishlist.includes(button.dataset.id);
+        button.innerHTML = active ? ICON_HEART_FILLED : ICON_HEART;
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+      });
 
     });
 

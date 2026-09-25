@@ -422,12 +422,6 @@
       border-color: var(--gold);
     }
 
-    /* =========================================================
-       PRODUCT GRID — LUXURY EDIT
-       Softer card lift, gilt-edged imagery, refined action
-       buttons and a considered, boutique-style call to action.
-    ========================================================= */
-
     .products {
       margin-top: 34px;
       display: grid;
@@ -848,6 +842,15 @@
       overflow-wrap: break-word;
     }
 
+    .whatsapp-link {
+      color: #aaa39a;
+      transition: .25s;
+    }
+
+    .whatsapp-link:hover {
+      color: var(--gold-light);
+    }
+
     .map {
       height: 180px;
       margin-top: 18px;
@@ -988,6 +991,27 @@
       margin-bottom: 8px;
     }
 
+    .whatsapp-float {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      box-shadow: 0 8px 22px rgba(23, 21, 19, .22);
+      z-index: 500;
+      transition: .3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.07);
+    }
+
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -1040,7 +1064,6 @@
         padding: 0;
       }
 
-      /* ---- NAV: full-screen dark takeover, matching site-wide pattern ---- */
       .nav-links {
         position: fixed;
         top: 70px;
@@ -1102,7 +1125,6 @@
         gap: 28px 14px;
       }
 
-      /* ---- FILTERS: single horizontal scroll row instead of wrapping pills ---- */
       .category-links {
         flex-wrap: nowrap;
         justify-content: flex-start;
@@ -1149,8 +1171,6 @@
         min-width: 0;
         width: auto;
       }
-
-      /* Mobile-only: softer, more boutique button shapes */
 
       .btn,
       .outline-btn {
@@ -1297,6 +1317,60 @@
         font-size: 14px;
       }
     }
+
+    .svg-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+      flex: 0 0 auto;
+      pointer-events: none;
+    }
+
+    .nav-btn .svg-icon {
+      width: 17px;
+      height: 17px;
+      margin: auto;
+    }
+
+    .menu-toggle .svg-icon {
+      width: 22px;
+      height: 22px;
+      margin: auto;
+    }
+
+    .icon-btn .svg-icon {
+      width: 17px;
+      height: 17px;
+      margin: auto;
+    }
+
+    .view-btn .svg-icon {
+      width: 13px;
+      height: 13px;
+      transition: transform .3s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .view-btn:hover .svg-icon {
+      transform: translateX(3px);
+    }
+
+    .diamond-symbol .svg-icon {
+      width: 25px;
+      height: 25px;
+      transform: rotate(-45deg);
+    }
+
+    .whatsapp-float .svg-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .back-top .svg-icon {
+      width: 18px;
+      height: 18px;
+      margin: auto;
+    }
+
   </style>
 </head>
 
@@ -1332,23 +1406,23 @@
       <div class="nav-actions">
 
         <button class="nav-btn" id="searchBtn" aria-label="Open search">
-          ⌕
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 5 5"/></svg>
         </button>
 
         <button class="nav-btn" aria-label="Wishlist">
-          ♡
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.3-8.8 10.3S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg>
           <span class="count" id="wishlistCount">0</span>
         </button>
 
         <button class="nav-btn" aria-label="Cart">
-          ♢
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2 11h10l2-8H6"/><circle cx="9" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg>
           <span class="count" id="cartCount">0</span>
         </button>
 
       </div>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-        ☰
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
 
     </nav>
@@ -1492,11 +1566,11 @@
             <div class="product-actions">
 
               <button class="icon-btn wishlist" aria-label="Add diamond rings to wishlist">
-                ♡
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.3-8.8 10.3S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg>
               </button>
 
               <button class="icon-btn" onclick="viewProduct('diamond-earing-05')" aria-label="View diamond rings details">
-                ↗
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>
               </button>
 
             </div>
@@ -1510,7 +1584,7 @@
             </span>
 
             <button class="view-btn" onclick="viewProduct('diamond-earing-05')">
-              View Details <span class="arrow">→</span>
+              View Details <svg class="svg-icon arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg>
             </button>
 
           </div>
@@ -1531,11 +1605,11 @@
             <div class="product-actions">
 
               <button class="icon-btn wishlist" aria-label="Add diamond rings to wishlist">
-                ♡
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.3-8.8 10.3S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg>
               </button>
 
               <button class="icon-btn" onclick="viewProduct('diamond-earing-01')" aria-label="View diamond rings details">
-                ↗
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>
               </button>
 
             </div>
@@ -1549,7 +1623,7 @@
             </span>
 
             <button class="view-btn" onclick="viewProduct('diamond-earing-01')">
-              View Details <span class="arrow">→</span>
+              View Details <svg class="svg-icon arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg>
             </button>
 
           </div>
@@ -1570,11 +1644,11 @@
             <div class="product-actions">
 
               <button class="icon-btn wishlist" aria-label="Add diamond rings to wishlist">
-                ♡
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.3-8.8 10.3S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg>
               </button>
 
               <button class="icon-btn" onclick="viewProduct('diamond-earing-02')" aria-label="View diamond rings details">
-                ↗
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>
               </button>
 
             </div>
@@ -1588,7 +1662,7 @@
             </span>
 
             <button class="view-btn" onclick="viewProduct('diamond-earing-02')">
-              View Details <span class="arrow">→</span>
+              View Details <svg class="svg-icon arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg>
             </button>
 
           </div>
@@ -1609,11 +1683,11 @@
             <div class="product-actions">
 
               <button class="icon-btn wishlist" aria-label="Add diamond rings to wishlist">
-                ♡
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.3-8.8 10.3S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg>
               </button>
 
               <button class="icon-btn" onclick="viewProduct('diamond-earing-03')" aria-label="View diamond rings details">
-                ↗
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>
               </button>
 
             </div>
@@ -1627,7 +1701,7 @@
             </span>
 
             <button class="view-btn" onclick="viewProduct('diamond-earing-03')">
-              View Details <span class="arrow">→</span>
+              View Details <svg class="svg-icon arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg>
             </button>
 
           </div>
@@ -1648,11 +1722,11 @@
             <div class="product-actions">
 
               <button class="icon-btn wishlist" aria-label="Add diamond rings to wishlist">
-                ♡
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.3-8.8 10.3S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg>
               </button>
 
               <button class="icon-btn" onclick="viewProduct('diamond-earing-04')" aria-label="View diamond rings details">
-                ↗
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>
               </button>
 
             </div>
@@ -1666,7 +1740,7 @@
             </span>
 
             <button class="view-btn" onclick="viewProduct('diamond-earing-04')">
-              View Details <span class="arrow">→</span>
+              View Details <svg class="svg-icon arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="m14 7 5 5-5 5"/></svg>
             </button>
 
           </div>
@@ -1738,7 +1812,7 @@
     <section class="diamond-note">
 
       <div class="diamond-symbol">
-        <span>✦</span>
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 7 10-7 10L5 12 12 2Z"/><path d="m5 12h14M12 2v20"/></svg>
       </div>
 
       <h2>
@@ -1852,8 +1926,9 @@
           <h4>Visit Us</h4>
 
           <p>The Jewelica Lahore</p>
-          <p>Premium Jewellery District</p>
-          <p>+92 300 0000000</p>
+          <p>Shah Alam Market, Lahore</p>
+          <p>+92 325 6561246</p>
+          <p><a class="whatsapp-link" href="https://wa.me/923256561246" target="_blank" rel="noopener">WhatsApp: 0325 6561246</a></p>
           <p>hello@thejewelica.com</p>
           <p>Mon — Sat: 11:00 AM — 8:00 PM</p>
 
@@ -1888,7 +1963,7 @@
   <div class="search-overlay" id="searchOverlay">
 
     <button class="search-close" id="searchClose" aria-label="Close search">
-      ×
+      <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
     </button>
 
     <div class="search-box">
@@ -1908,8 +1983,12 @@
   </div>
 
 
+  <a class="whatsapp-float" href="https://wa.me/923256561246" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/><path d="M8.7 8.1c.3-.3.6-.3.9-.1l1.1 1c.2.2.2.5.1.7l-.5.7c.8 1.3 1.8 2.2 3.1 2.9l.7-.5c.2-.1.5-.1.7.1l1 1.1c.2.2.2.6-.1.9-.5.6-1.2.8-1.9.6-3.2-.9-5.7-3.4-6.6-6.6-.2-.7 0-1.4.6-1.9Z"/></svg>
+  </a>
+
   <button class="back-top" id="backTop" aria-label="Back to top">
-    ↑
+    <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg>
   </button>
 
 
@@ -1919,14 +1998,17 @@
 
     menuToggle.addEventListener("click", () => {
       navLinks.classList.toggle("open");
-      menuToggle.textContent =
-        navLinks.classList.contains("open") ? "×" : "☰";
+      menuToggle.innerHTML =
+        navLinks.classList.contains("open")
+          ? '<svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>'
+          : '<svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
     });
 
     document.querySelectorAll(".nav-links a").forEach(link => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
-        menuToggle.textContent = "☰";
+        menuToggle.innerHTML =
+          '<svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
       });
     });
 

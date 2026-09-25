@@ -81,6 +81,24 @@
     }
 
     /* =========================
+       ICONS (SVG)
+    ========================= */
+
+    .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      line-height: 0;
+    }
+
+    .icon svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* =========================
        NAVIGATION
     ========================= */
 
@@ -195,9 +213,15 @@
       border: 1px solid var(--line);
       border-radius: 50%;
       background: transparent;
+      color: var(--espresso);
       cursor: pointer;
       font-size: 17px;
       transition: .3s ease;
+    }
+
+    .nav-icon .icon {
+      width: 16px;
+      height: 16px;
     }
 
     .nav-icon:hover {
@@ -234,6 +258,11 @@
       place-items: center;
     }
 
+    .mobile-toggle .icon {
+      width: 17px;
+      height: 17px;
+    }
+
     .mobile-toggle:hover {
       background: var(--espresso);
       color: white;
@@ -261,11 +290,20 @@
     }
 
     .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       margin-bottom: 20px;
       color: var(--champagne);
       font-size: 10px;
       letter-spacing: 4px;
       font-weight: 700;
+    }
+
+    .eyebrow .icon {
+      width: 10px;
+      height: 10px;
+      color: var(--gold);
     }
 
     .hero h1 {
@@ -354,6 +392,7 @@
     }
 
     .intro .eyebrow {
+      justify-content: center;
       color: var(--gold-dark);
     }
 
@@ -491,14 +530,28 @@
       z-index: 2;
       width: 38px;
       height: 38px;
+      display: grid;
+      place-items: center;
       border: 1px solid rgba(255, 255, 255, .7);
       border-radius: 50%;
       background: rgba(255, 255, 255, .88);
       backdrop-filter: blur(6px);
+      color: var(--espresso);
       cursor: pointer;
       font-size: 17px;
       box-shadow: 0 6px 16px rgba(36, 29, 24, .16);
       transition: .3s ease;
+    }
+
+    .wish .icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .wish .icon svg {
+      fill: none;
+      stroke: currentColor;
+      transition: fill .25s ease;
     }
 
     .wish:hover {
@@ -509,6 +562,10 @@
       background: var(--gold-dark);
       border-color: var(--gold-dark);
       color: white;
+    }
+
+    .wish.active .icon svg {
+      fill: currentColor;
     }
 
     .product-info {
@@ -727,11 +784,20 @@
       position: absolute;
       top: 30px;
       right: 35px;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
       border: 0;
       background: none;
       color: white;
       cursor: pointer;
       font-size: 30px;
+    }
+
+    .search-close .icon {
+      width: 22px;
+      height: 22px;
     }
 
     .search-box input {
@@ -800,10 +866,19 @@
     }
 
     .cart-close {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
       border: 0;
       background: none;
       cursor: pointer;
       font-size: 25px;
+    }
+
+    .cart-close .icon {
+      width: 18px;
+      height: 18px;
     }
 
     .cart-item {
@@ -822,7 +897,6 @@
     .cart-controls {
       display: flex;
       gap: 6px;
-      margin-top: 10px;
     }
 
     .cart-controls button {
@@ -873,18 +947,56 @@
       z-index: 900;
       width: 42px;
       height: 42px;
+      display: grid;
+      place-items: center;
       border: 1px solid var(--line);
       border-radius: 50%;
       background: var(--white);
+      color: var(--espresso);
       cursor: pointer;
       opacity: 0;
       pointer-events: none;
       transition: .3s;
     }
 
+    .back-top .icon {
+      width: 15px;
+      height: 15px;
+    }
+
     .back-top.show {
       opacity: 1;
       pointer-events: auto;
+    }
+
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    .whatsapp-float {
+      position: fixed;
+      left: 25px;
+      bottom: 25px;
+      z-index: 900;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      font-size: 26px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+      transition: transform .3s ease;
+    }
+
+    .whatsapp-float .icon {
+      width: 25px;
+      height: 25px;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
     }
 
     @keyframes fadeUp {
@@ -1096,6 +1208,11 @@
         text-align: center;
       }
 
+      .footer-grid > div:nth-child(1) .eyebrow,
+      .footer-grid > div:nth-child(1) h3 {
+        justify-content: center;
+      }
+
       .footer-grid > div:nth-child(4) {
         grid-column: 1 / -1;
         order: 2;
@@ -1217,6 +1334,14 @@
       .cart-panel {
         padding: 22px;
       }
+
+      .whatsapp-float {
+        left: 18px;
+        bottom: 18px;
+        width: 46px;
+        height: 46px;
+        font-size: 22px;
+      }
     }
   </style>
 </head>
@@ -1246,6 +1371,7 @@
 
             <a href="gold.html">GOLD JEWELLERY</a>
             <a href="gold-rings.html">GOLD RINGS</a>
+            <a href="gold-locket-sets.html">GOLD LOCKETS</a>
             <a href="gold-bracelets.html">GOLD BRACELETS</a>
             <a href="gold-bangles.html">GOLD BANGLES</a>
             <a href="gold-earrings.html">GOLD EARRINGS</a>
@@ -1254,7 +1380,8 @@
             <a href="gold-pendants.html">GOLD PENDANTS</a>
             <a href="gold-chains.html">GOLD CHAINS</a>
             <a href="gold-mens-rings.html">GOLD MEN'S RINGS</a>
-            <a href="gold.html">GOLD JEWELLERY SETS</a>
+            <a href="gold-jewellery-sets.html">GOLD JEWELLERY SETS</a>
+            <a href="gold-silver-bars.html">GOLD &amp; SILVER BARS</a>
 
           </div>
 
@@ -1287,23 +1414,31 @@
       <div class="nav-actions">
 
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
-          ☰
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </span>
         </button>
 
         <button class="nav-icon" id="searchBtn" aria-label="Search">
-          ⌕
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="20" y1="20" x2="15.3" y2="15.3"/></svg>
+          </span>
         </button>
 
         <button class="nav-icon" id="wishlistBtn" aria-label="Wishlist">
 
-          ♡
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z"/></svg>
+          </span>
           <span class="count" id="wishlistCount">0</span>
 
         </button>
 
         <button class="nav-icon" id="cartBtn" aria-label="Cart">
 
-          ♧
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8h11l-1 12h-9l-1-12z"/><path d="M9 8V6.3a3 3 0 0 1 6 0V8"/></svg>
+          </span>
           <span class="count" id="cartCount">0</span>
 
         </button>
@@ -1326,6 +1461,7 @@
       <div class="hero-content">
 
         <div class="eyebrow">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 3 9l9 13 9-13-9-7z"/></svg></span>
           THE JEWELICA • GOLD COLLECTION
         </div>
 
@@ -1363,6 +1499,7 @@
     <section class="intro">
 
       <div class="eyebrow">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 3 9l9 13 9-13-9-7z"/></svg></span>
         DELICATE GOLD • EVERYDAY ELEGANCE
       </div>
 
@@ -1445,7 +1582,7 @@
             </a>
 
             <button class="wish" data-id="gt01" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1483,7 +1620,7 @@
             </a>
 
             <button class="wish" data-id="gt02" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1521,7 +1658,7 @@
             </a>
 
             <button class="wish" data-id="gt03" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1559,7 +1696,7 @@
             </a>
 
             <button class="wish" data-id="gt04" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1597,7 +1734,7 @@
             </a>
 
             <button class="wish" data-id="gt05" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1635,7 +1772,7 @@
             </a>
 
             <button class="wish" data-id="gt06" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1673,7 +1810,7 @@
             </a>
 
             <button class="wish" data-id="gt07" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1711,7 +1848,7 @@
             </a>
 
             <button class="wish" data-id="gt08" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1748,7 +1885,7 @@
             </a>
 
             <button class="wish" data-id="gt09" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1785,7 +1922,7 @@
             </a>
 
             <button class="wish" data-id="gt10" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1822,7 +1959,7 @@
             </a>
 
             <button class="wish" data-id="gt11" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1859,7 +1996,7 @@
             </a>
 
             <button class="wish" data-id="gt12" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1896,7 +2033,7 @@
             </a>
 
             <button class="wish" data-id="gt13" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1933,7 +2070,7 @@
             </a>
 
             <button class="wish" data-id="gt14" aria-label="Add Gold Tops to wishlist">
-              ♡
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.9C.7 8 1.8 4.5 5.1 3.5c2-.6 4.1.2 5.2 2 1-1.8 3.1-2.6 5.2-2 3.3 1 4.4 4.5 2.6 8.1-2.5 4.5-9.6 8.9-9.6 8.9z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
 
           </div>
@@ -1980,6 +2117,7 @@
       <div class="craft-content">
 
         <div class="eyebrow">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 3 9l9 13 9-13-9-7z"/></svg></span>
           THE JEWELICA CRAFTSMANSHIP
         </div>
 
@@ -2072,11 +2210,11 @@
 
         <p>
           THE JEWELICA<br>
-          Lahore, Pakistan
+          Shah Alam Market, Lahore
         </p>
 
         <p style="margin-top:12px;">
-          +92 XXX XXXXXXX<br>
+          <a href="tel:+923256561246">+92 325 6561246</a><br>
           hello@thejewelica.com
         </p>
 
@@ -2108,7 +2246,7 @@
   <div class="search-overlay" id="searchOverlay">
 
     <button class="search-close" id="searchClose" aria-label="Close search">
-      ×
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></span>
     </button>
 
     <div class="search-box">
@@ -2135,7 +2273,7 @@
       <h2>Your Cart</h2>
 
       <button class="cart-close" id="cartClose" aria-label="Close cart">
-        ×
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></span>
       </button>
 
     </div>
@@ -2150,8 +2288,18 @@
   </div>
 
 
+  <a class="whatsapp-float" href="https://wa.me/923256561246" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <span class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 21c-1.5 0-2.9-.4-4.1-1l-4.4 1.1 1.2-4.3A8.9 8.9 0 1 1 12 21z"/>
+        <path d="M8.7 8.4c.2-.5.4-.5.6-.5h.5c.2 0 .4 0 .5.4.2.5.6 1.6.6 1.7.1.1.1.3 0 .4-.1.2-.1.3-.3.5-.1.2-.3.3-.1.6.2.4.9 1.4 1.9 2.3 1.3 1.1 2.4 1.5 2.7 1.6.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.2.4-.2.6-.1l1.6.8c.2.1.3.2.4.3 0 .2 0 .9-.3 1.4-.3.6-1.6 1.2-2.2 1.2-.6.1-1.3.1-4.2-1.1-3.5-1.5-5.6-5-5.8-5.3-.2-.3-1.3-1.7-1.3-3.2 0-1.5.8-2.3 1.1-2.6z"/>
+      </svg>
+    </span>
+  </a>
+
+
   <button class="back-top" id="backTop" aria-label="Back to top">
-    ↑
+    <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="6 11 12 5 18 11"/></svg></span>
   </button>
 
 
@@ -2354,7 +2502,6 @@
       if (wishlist.includes(id)) {
 
         button.classList.add("active");
-        button.textContent = "♥";
 
       }
 
@@ -2369,7 +2516,6 @@
             );
 
           button.classList.remove("active");
-          button.textContent = "♡";
 
           showToast("Removed from wishlist");
 
@@ -2378,7 +2524,6 @@
           wishlist.push(id);
 
           button.classList.add("active");
-          button.textContent = "♥";
 
           showToast("Added to wishlist");
 

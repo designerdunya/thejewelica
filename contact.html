@@ -215,6 +215,76 @@
       color: var(--ivory);
     }
 
+
+    /* =========================
+       PROFESSIONAL INLINE SVG ICONS
+    ========================= */
+
+    .svg-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .nav-action .svg-icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    .menu-btn .svg-icon {
+      width: 19px;
+      height: 19px;
+    }
+
+    .close-search .svg-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .arrow .svg-icon {
+      width: 11px;
+      height: 11px;
+      stroke-width: 1.8;
+      transition: transform .25s ease;
+    }
+
+    .nav-links li:hover .arrow .svg-icon,
+    .nav-links li.open .arrow .svg-icon {
+      transform: rotate(180deg);
+    }
+
+    .detail-label,
+    .visit-item strong {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .detail-label .svg-icon,
+    .visit-item strong .svg-icon {
+      width: 14px;
+      height: 14px;
+      stroke-width: 1.5;
+    }
+
+    .btn .svg-icon {
+      width: 15px;
+      height: 15px;
+      stroke-width: 1.7;
+    }
+
+    .back-top .svg-icon {
+      width: 18px;
+      height: 18px;
+      stroke-width: 1.7;
+    }
+
     .menu-btn {
       display: none;
     }
@@ -561,6 +631,10 @@
     }
 
     .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       border: 1px solid var(--espresso);
       background: var(--espresso);
       color: var(--ivory);
@@ -1188,7 +1262,7 @@
 
         <li class="has-dropdown">
           <a href="gold.html" class="dropdown-toggle">
-            GOLD <span class="arrow">⌄</span>
+            GOLD <span class="arrow"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></span>
           </a>
 
           <div class="dropdown">
@@ -1207,7 +1281,7 @@
 
         <li class="has-dropdown">
           <a href="diamond.html" class="dropdown-toggle">
-            DIAMONDS <span class="arrow">⌄</span>
+            DIAMONDS <span class="arrow"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></span>
           </a>
 
           <div class="dropdown">
@@ -1243,11 +1317,9 @@
       </ul>
 
       <div class="nav-actions">
-        <button class="nav-action" id="searchButton" aria-label="Open Search">⌕</button>
+        <button class="nav-action" id="searchButton" aria-label="Open Search"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="M16 16l5 5"></path></svg></button>
 
-        <button class="nav-action menu-btn" id="menuButton" aria-label="Open Menu" aria-expanded="false">
-          ☰
-        </button>
+        <button class="nav-action menu-btn" id="menuButton" aria-label="Open Menu" aria-expanded="false"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
       </div>
 
     </nav>
@@ -1262,7 +1334,7 @@
 
       <div class="search-top">
         <h2>Search The Jewelica</h2>
-        <button class="close-search" id="closeSearch" aria-label="Close Search">×</button>
+        <button class="close-search" id="closeSearch" aria-label="Close Search"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg></button>
       </div>
 
       <div class="search-input-wrap">
@@ -1330,23 +1402,23 @@
           <div class="contact-details">
 
             <div class="detail-item">
-              <div class="detail-label">VISIT</div>
+              <div class="detail-label"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10.2c0 5.2-8 10.3-8 10.3S4 15.4 4 10.2a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.4"></circle></svg><span>VISIT</span></div>
               <div class="detail-value">The Jewelica Lahore</div>
               <div class="detail-note">
-                A future showroom location for The Jewelica.
+                Shah Alam Market, Lahore.
               </div>
             </div>
 
             <div class="detail-item">
-              <div class="detail-label">CALL</div>
-              <div class="detail-value">+92 300 000 0000</div>
+              <div class="detail-label"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.7 3.5 9.5 3l2 4.7-2 1.6a14.4 14.4 0 0 0 5.2 5.2l1.6-2 4.7 2-.5 2.8a2 2 0 0 1-2.2 1.5C11 18 6 13 4.7 5.7A2 2 0 0 1 6.7 3.5Z"></path></svg><span>CALL</span></div>
+              <div class="detail-value">+92 325 6561246</div>
               <div class="detail-note">
-                Placeholder contact number.
+                Call or WhatsApp us anytime.
               </div>
             </div>
 
             <div class="detail-item">
-              <div class="detail-label">EMAIL</div>
+              <div class="detail-label"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"></rect><path d="m4.5 7 7.5 5.2L19.5 7"></path></svg><span>EMAIL</span></div>
               <div class="detail-value">hello@thejewelica.example</div>
               <div class="detail-note">
                 Placeholder email address.
@@ -1354,7 +1426,7 @@
             </div>
 
             <div class="detail-item">
-              <div class="detail-label">OPENING HOURS</div>
+              <div class="detail-label"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3.5 2"></path></svg><span>OPENING HOURS</span></div>
               <div class="detail-value">11:00 AM — 8:00 PM</div>
               <div class="detail-note">
                 Monday — Saturday · Sunday by appointment.
@@ -1500,19 +1572,19 @@
                 <strong>ADDRESS</strong>
                 <span>
                   The Jewelica Lahore,
-                  Lahore, Pakistan
+                  Shah Alam Market, Lahore, Pakistan
                 </span>
               </div>
 
               <div class="visit-item">
                 <strong>PHONE</strong>
                 <span>
-                  +92 300 000 0000
+                  +92 325 6561246
                 </span>
               </div>
 
               <div class="visit-item">
-                <strong>EMAIL</strong>
+                <strong><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"></rect><path d="m4.5 7 7.5 5.2L19.5 7"></path></svg><span>EMAIL</span></strong>
                 <span>
                   hello@thejewelica.example
                 </span>
@@ -1642,11 +1714,11 @@
 
           <div>
             The Jewelica Lahore<br>
-            Lahore, Pakistan
+            Shah Alam Market, Lahore, Pakistan
           </div>
 
           <div>
-            +92 300 000 0000<br>
+            +92 325 6561246<br>
             hello@thejewelica.example
           </div>
 
@@ -1680,9 +1752,7 @@
 
   </footer>
 
-  <button class="back-top" id="backTop" aria-label="Back to top">
-    ↑
-  </button>
+  <button class="back-top" id="backTop" aria-label="Back to top"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6"></path></svg></button>
 
   <script>
     /* ==========================================
@@ -1708,7 +1778,7 @@
             isOpen ? "true" : "false"
           );
 
-          menuButton.textContent = isOpen ? "×" : "☰";
+          menuButton.innerHTML = isOpen ? `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg>` : `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>`;
         });
       }
 
@@ -1767,7 +1837,7 @@
                 "false"
               );
 
-              menuButton.textContent = "☰";
+              menuButton.innerHTML = `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>`;
             }
 
           });
@@ -2020,7 +2090,7 @@
             navLinks.classList.remove("show");
 
             if (menuButton) {
-              menuButton.textContent = "☰";
+              menuButton.innerHTML = `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>`;
               menuButton.setAttribute(
                 "aria-expanded",
                 "false"
@@ -2315,7 +2385,7 @@
             navLinks.classList.remove("show");
 
             if (menuButton) {
-              menuButton.textContent = "☰";
+              menuButton.innerHTML = `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>`;
               menuButton.setAttribute(
                 "aria-expanded",
                 "false"

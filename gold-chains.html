@@ -627,6 +627,15 @@
       margin-bottom: 9px
     }
 
+    .visit p a {
+      color: #aaa298;
+      transition: .25s
+    }
+
+    .visit p a:hover {
+      color: var(--gold-light)
+    }
+
     .map {
       margin-top: 18px;
       height: 180px;
@@ -761,6 +770,31 @@
       display: block
     }
 
+    .whatsapp-float {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      z-index: 500;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #25D366;
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, .4);
+      transition: .3s ease
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px)
+    }
+
+    .whatsapp-float svg {
+      width: 24px;
+      height: 24px
+    }
+
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -773,13 +807,68 @@
       }
     }
 
-    /* ======================================================
-       RESPONSIVE LAYOUT GROUPS
-       Desktop/tablet rules above stay untouched. Everything
-       below only reshapes the mobile experience — same
-       elements, same images, same colors/fonts — so nothing
-       overlaps, nothing overflows and nothing needs zoom.
-       ====================================================== */
+    /* ---------- DROPDOWN NAV (Gold / Diamonds) ---------- */
+    .has-dropdown {
+      position: relative
+    }
+
+    .has-dropdown>a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .drop-caret {
+      display: inline-block;
+      font-size: 9px;
+      transition: transform .25s ease;
+      pointer-events: none
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 220px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 45px rgba(23, 21, 19, .14);
+      list-style: none;
+      padding: 10px 0;
+      margin-top: 4px;
+      display: none;
+      flex-direction: column;
+      z-index: 1001
+    }
+
+    .has-dropdown:hover .dropdown-menu,
+    .has-dropdown:focus-within .dropdown-menu {
+      display: flex
+    }
+
+    .has-dropdown:hover .drop-caret,
+    .has-dropdown:focus-within .drop-caret {
+      transform: rotate(180deg)
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 10.5px;
+      letter-spacing: 1.1px;
+      white-space: nowrap;
+      color: #40382f
+    }
+
+    .dropdown-menu li a:after {
+      display: none
+    }
+
+    .dropdown-menu li a:hover {
+      background: var(--cream);
+      color: var(--espresso)
+    }
 
     /* ---------- GROUP 1: LARGE TABLET (<=1100px) ---------- */
     @media(max-width:1100px) {
@@ -844,6 +933,38 @@
 
       .nav-actions .nav-btn:nth-child(2) {
         display: none
+      }
+
+      /* mobile: dropdowns become tap-to-expand accordions
+         since hover isn't available on touch */
+      .has-dropdown>a {
+        justify-content: space-between;
+        width: 100%
+      }
+
+      .dropdown-menu {
+        position: static;
+        transform: none;
+        display: none;
+        width: 100%;
+        border: 0;
+        box-shadow: none;
+        background: var(--cream);
+        margin-top: 0;
+        padding: 4px 0 4px 18px
+      }
+
+      .has-dropdown.open .dropdown-menu {
+        display: flex
+      }
+
+      .has-dropdown.open .drop-caret {
+        transform: rotate(180deg)
+      }
+
+      .dropdown-menu li a {
+        padding: 11px 0;
+        font-size: 11px
       }
 
       .hero {
@@ -1023,11 +1144,98 @@
         width: 40px;
         height: 40px
       }
+
+      .whatsapp-float {
+        width: 44px;
+        height: 44px;
+        left: 14px;
+        bottom: 14px
+      }
+    }
+
+    .svg-icon {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      vertical-align: middle;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      pointer-events: none;
+    }
+
+    .nav-btn .svg-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .menu-toggle .svg-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .icon-btn .svg-icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    .search-close .svg-icon,
+    .back-top .svg-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .add-btn,
+    .outline-btn,
+    .view-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .add-btn .svg-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .view-btn .svg-icon,
+    .outline-btn .svg-icon {
+      width: 15px;
+      height: 15px;
+    }
+
+    .menu-toggle .menu-close-icon {
+      display: none;
+    }
+
+    .menu-toggle.is-open .menu-icon {
+      display: none;
+    }
+
+    .menu-toggle.is-open .menu-close-icon {
+      display: inline-block;
+    }
+
+    .wishlist.is-active .svg-icon {
+      fill: currentColor;
     }
   </style>
 </head>
 
 <body>
+  <script>
+    // Defined immediately so it exists before any product image below can
+    // fire onerror (broken images can error out before the parser reaches
+    // the main script block at the end of the page).
+    function updateResultCount() {
+      const visible = [...document.querySelectorAll(".product-card")].filter(c => c.style.display !== "none").length;
+      const el = document.getElementById("resultCount");
+      if (el) el.textContent = visible + " Pieces";
+    }
+  </script>
   <div class="announcement">THE JEWELICA — REFINED BEAUTY, MADE TIMELESS</div>
   <header>
     <nav class="nav" aria-label="Main navigation">
@@ -1035,8 +1243,31 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="shop.html">Shop</a></li>
-        <li><a href="gold.html" class="active">Gold</a></li>
-        <li><a href="diamond.html">Diamonds</a></li>
+        <li class="has-dropdown">
+          <a href="gold.html" class="active">Gold <span class="drop-caret">⌄</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="gold-bangles.html">Gold Bangles</a></li>
+            <li><a href="gold-bracelets.html">Gold Bracelets</a></li>
+            <li><a href="gold-chains.html">Gold Chains</a></li>
+            <li><a href="gold-earrings.html">Gold Earrings</a></li>
+            <li><a href="gold-jewellery-sets.html">Gold Jewellery Sets</a></li>
+            <li><a href="gold-locket-sets.html">Gold Locket Sets</a></li>
+            <li><a href="gold-mens-rings.html">Gold Men's Rings</a></li>
+            <li><a href="gold-necklace-sets.html">Gold Necklace Sets</a></li>
+            <li><a href="gold-pendants.html">Gold Pendants</a></li>
+            <li><a href="gold-rings.html">Gold Rings</a></li>
+            <li><a href="gold-silver-bars.html">Gold &amp; Silver Bars</a></li>
+            <li><a href="gold-tops.html">Gold Tops</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="diamond.html">Diamonds <span class="drop-caret">⌄</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="diamond-pendants-nose-pins.html">Diamond Pendants &amp; Nose Pins</a></li>
+            <li><a href="diamond-ring-men.html">Diamond Rings (Men)</a></li>
+            <li><a href="diamond-rings.html">Diamond Rings</a></li>
+          </ul>
+        </li>
         <li><a href="collections.html">Collections</a></li>
         <li><a href="stones.html">Choose Your Stone</a></li>
         <li><a href="trending.html">Trending Uniques</a></li>
@@ -1045,11 +1276,27 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="nav-btn" id="searchBtn" aria-label="Open search">⌕</button>
-        <button class="nav-btn" aria-label="Wishlist">♡<span class="count" id="wishlistCount">0</span></button>
-        <button class="nav-btn" aria-label="Cart">♢<span class="count" id="cartCount">0</span></button>
+        <button class="nav-btn" id="searchBtn" aria-label="Open search"><svg class="svg-icon" viewBox="0 0 24 24"
+            aria-hidden="true" focusable="false">
+            <circle cx="11" cy="11" r="6.5"></circle>
+            <path d="m16 16 4.5 4.5"></path>
+          </svg></button>
+        <button class="nav-btn" aria-label="Wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+            focusable="false">
+            <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"></path>
+          </svg><span class="count" id="wishlistCount">0</span></button>
+        <button class="nav-btn" aria-label="Cart"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+            focusable="false">
+            <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+            <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+          </svg><span class="count" id="cartCount">0</span></button>
       </div>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><svg class="svg-icon menu-icon"
+          viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg><svg class="svg-icon menu-close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M6 6l12 12M18 6L6 18"></path>
+        </svg></button>
     </nav>
   </header>
 
@@ -1073,7 +1320,8 @@
           silhouettes to more expressive designs, each piece brings a distinctive golden finish to your collection.</p>
       </div>
       <div class="category-strip">
-        <a class="filter-btn" href="gold-rings.html">Gold Rings</a><a class="filter-btn" href="gold-bracelets.html">Gold
+        <a class="filter-btn" href="gold-rings.html">Gold Rings</a><a href="gold-locket-sets.html">Gold Lockets</a><a
+          class="filter-btn" href="gold-bracelets.html">Gold
           Bracelets</a><a class="filter-btn" href="gold-bangles.html">Gold Bangles</a><a class="filter-btn"
           href="gold-earrings.html">Gold Earrings</a><a class="filter-btn" href="gold-necklace-sets.html">Necklace
           Sets</a><a class="filter-btn" href="gold-tops.html">Gold Tops</a><a class="filter-btn"
@@ -1097,13 +1345,29 @@
               <img src="images/chain (1).png" alt="The Jewelica Gold Chain 1"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-1"
-                aria-label="Add gold chain 1 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(1)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-1"
+                aria-label="Add gold chain 1 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(1)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 1</span><button class="view-btn"
-              onclick="viewProduct(1)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 1')">Add To Cart</button>
+              onclick="viewProduct(1)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 1')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-2">
@@ -1112,13 +1376,29 @@
               <img src="images/chain (2).png" alt="The Jewelica Gold Chain 2"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-2"
-                aria-label="Add gold chain 2 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(2)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-2"
+                aria-label="Add gold chain 2 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(2)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 2</span><button class="view-btn"
-              onclick="viewProduct(2)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 2')">Add To Cart</button>
+              onclick="viewProduct(2)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 2')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-3">
@@ -1127,13 +1407,29 @@
               <img src="images/chain (3).png" alt="The Jewelica Gold Chain 3"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-3"
-                aria-label="Add gold chain 3 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(3)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-3"
+                aria-label="Add gold chain 3 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(3)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 3</span><button class="view-btn"
-              onclick="viewProduct(3)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 3')">Add To Cart</button>
+              onclick="viewProduct(3)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 3')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-4">
@@ -1142,13 +1438,29 @@
               <img src="images/chain (4).png" alt="The Jewelica Gold Chain 4"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-4"
-                aria-label="Add gold chain 4 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(4)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-4"
+                aria-label="Add gold chain 4 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(4)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 4</span><button class="view-btn"
-              onclick="viewProduct(4)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 4')">Add To Cart</button>
+              onclick="viewProduct(4)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 4')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-5">
@@ -1157,13 +1469,29 @@
               <img src="images/chain (5).png" alt="The Jewelica Gold Chain 5"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-5"
-                aria-label="Add gold chain 5 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(5)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-5"
+                aria-label="Add gold chain 5 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(5)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 5</span><button class="view-btn"
-              onclick="viewProduct(5)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 5')">Add To Cart</button>
+              onclick="viewProduct(5)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 5')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-6">
@@ -1172,13 +1500,29 @@
               <img src="images/chain (6).png" alt="The Jewelica Gold Chain 6"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-6"
-                aria-label="Add gold chain 6 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(6)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-6"
+                aria-label="Add gold chain 6 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(6)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 6</span><button class="view-btn"
-              onclick="viewProduct(6)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 6')">Add To Cart</button>
+              onclick="viewProduct(6)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 6')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-7">
@@ -1187,13 +1531,29 @@
               <img src="images/chain (7).png" alt="The Jewelica Gold Chain 7"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-7"
-                aria-label="Add gold chain 7 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(7)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-7"
+                aria-label="Add gold chain 7 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(7)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 7</span><button class="view-btn"
-              onclick="viewProduct(7)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 7')">Add To Cart</button>
+              onclick="viewProduct(7)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 7')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-8">
@@ -1202,13 +1562,29 @@
               <img src="images/chain (8).png" alt="The Jewelica Gold Chain 8"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-8"
-                aria-label="Add gold chain 8 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(8)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-8"
+                aria-label="Add gold chain 8 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(8)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 8</span><button class="view-btn"
-              onclick="viewProduct(8)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 8')">Add To Cart</button>
+              onclick="viewProduct(8)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 8')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-9">
@@ -1217,13 +1593,29 @@
               <img src="images/chain (9).png" alt="The Jewelica Gold Chain 9"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-9"
-                aria-label="Add gold chain 9 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(9)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-9"
+                aria-label="Add gold chain 9 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(9)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 9</span><button class="view-btn"
-              onclick="viewProduct(9)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 9')">Add To Cart</button>
+              onclick="viewProduct(9)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 9')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-10">
@@ -1232,13 +1624,29 @@
               <img src="images/chain (10).png" alt="The Jewelica Gold Chain 10"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-10"
-                aria-label="Add gold chain 10 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(10)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-10"
+                aria-label="Add gold chain 10 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(10)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 10</span><button class="view-btn"
-              onclick="viewProduct(10)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 10')">Add To Cart</button>
+              onclick="viewProduct(10)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 10')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-11">
@@ -1247,13 +1655,29 @@
               <img src="images/chain (11).png" alt="The Jewelica Gold Chain 11"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-11"
-                aria-label="Add gold chain 11 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(11)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-11"
+                aria-label="Add gold chain 11 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(11)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 11</span><button class="view-btn"
-              onclick="viewProduct(11)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 11')">Add To Cart</button>
+              onclick="viewProduct(11)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 11')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-12">
@@ -1262,13 +1686,29 @@
               <img src="images/chain (12).png" alt="The Jewelica Gold Chain 12"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-12"
-                aria-label="Add gold chain 12 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(12)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-12"
+                aria-label="Add gold chain 12 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(12)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 12</span><button class="view-btn"
-              onclick="viewProduct(12)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 12')">Add To Cart</button>
+              onclick="viewProduct(12)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 12')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-13">
@@ -1277,13 +1717,29 @@
               <img src="images/chain (13).png" alt="The Jewelica Gold Chain 13"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-13"
-                aria-label="Add gold chain 13 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(13)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-13"
+                aria-label="Add gold chain 13 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(13)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 13</span><button class="view-btn"
-              onclick="viewProduct(13)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 13')">Add To Cart</button>
+              onclick="viewProduct(13)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 13')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-14">
@@ -1292,13 +1748,29 @@
               <img src="images/chain (14).png" alt="The Jewelica Gold Chain 14"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-14"
-                aria-label="Add gold chain 14 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(14)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-14"
+                aria-label="Add gold chain 14 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(14)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 14</span><button class="view-btn"
-              onclick="viewProduct(14)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 14')">Add To Cart</button>
+              onclick="viewProduct(14)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 14')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-15">
@@ -1307,13 +1779,29 @@
               <img src="images/chain (15).png" alt="The Jewelica Gold Chain 15"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-15"
-                aria-label="Add gold chain 15 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(15)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-15"
+                aria-label="Add gold chain 15 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(15)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 15</span><button class="view-btn"
-              onclick="viewProduct(15)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 15')">Add To Cart</button>
+              onclick="viewProduct(15)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 15')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-16">
@@ -1322,13 +1810,29 @@
               <img src="images/chain (16).png" alt="The Jewelica Gold Chain 16"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-16"
-                aria-label="Add gold chain 16 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(16)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-16"
+                aria-label="Add gold chain 16 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(16)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 16</span><button class="view-btn"
-              onclick="viewProduct(16)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 16')">Add To Cart</button>
+              onclick="viewProduct(16)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 16')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
         <article class="product-card" data-type="chain" data-product="chain-17">
@@ -1337,13 +1841,29 @@
               <img src="images/chain (17).png" alt="The Jewelica Gold Chain 17"
                 onerror="this.closest('.product-card').style.display='none'; updateResultCount();">
             </a>
-            <div class="product-actions"><button class="icon-btn wishlist" data-product="CHAIN-17"
-                aria-label="Add gold chain 17 to wishlist">♡</button><button class="icon-btn"
-                onclick="viewProduct(17)">↗</button></div>
+            <div class="product-actions"><button type="button" class="icon-btn wishlist" data-product="CHAIN-17"
+                aria-label="Add gold chain 17 to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                  focusable="false">
+                  <path d="M20.8 8.7c0 5-8.8 10-8.8 10S3.2 13.7 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z">
+                  </path>
+                </svg></button><button class="icon-btn" onclick="viewProduct(17)"><svg class="svg-icon"
+                  viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M14 5h5v5"></path>
+                  <path d="M19 5l-8 8"></path>
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+                </svg></button></div>
           </div>
           <div class="product-info"><span class="product-type">CHAIN 17</span><button class="view-btn"
-              onclick="viewProduct(17)">View Details</button></div>
-          <button class="add-btn" onclick="addToCart('CHAIN 17')">Add To Cart</button>
+              onclick="viewProduct(17)">View Details <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"
+                focusable="false">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg></button></div>
+          <button class="add-btn" onclick="addToCart('CHAIN 17')">Add To Cart <svg class="svg-icon" viewBox="0 0 24 24"
+              aria-hidden="true" focusable="false">
+              <path d="M5 8.5h14l-1 12H6l-1-12Z"></path>
+              <path d="M9 9V6a3 3 0 0 1 6 0v3"></path>
+            </svg></button>
         </article>
 
       </div>
@@ -1411,8 +1931,9 @@
         <div class="visit">
           <h4>Visit Us</h4>
           <p>The Jewelica Lahore</p>
-          <p>Premium Jewellery District</p>
-          <p>+92 300 0000000</p>
+          <p>Shah Alam Market, Lahore</p>
+          <p>+92 325 6561246</p>
+          <p><a href="https://wa.me/923256561246" target="_blank" rel="noopener">WhatsApp: 0325 6561246</a></p>
           <p>hello@thejewelica.com</p>
           <p>Mon — Sat: 11:00 AM — 8:00 PM</p>
           <div class="map"><iframe
@@ -1426,24 +1947,52 @@
 
   <div class="toast" id="toast">Added to your collection.</div>
   <div class="search-overlay" id="searchOverlay"><button class="search-close" id="searchClose"
-      aria-label="Close search">×</button>
+      aria-label="Close search"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 6l12 12M18 6L6 18"></path>
+      </svg></button>
     <div class="search-box"><label for="searchInput">Search The Jewelica</label><input id="searchInput"
         class="search-input" type="search" placeholder="Search jewellery..." autocomplete="off">
       <div class="search-results" id="searchResults">Explore gold chains, jewellery categories and collections.</div>
     </div>
   </div>
-  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+  <button class="back-top" id="backTop" aria-label="Back to top"><svg class="svg-icon" viewBox="0 0 24 24"
+      aria-hidden="true" focusable="false">
+      <path d="M12 19V5"></path>
+      <path d="m6 11 6-6 6 6"></path>
+    </svg></button>
+  <a class="whatsapp-float" href="https://wa.me/923256561246" target="_blank" rel="noopener"
+    aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path
+        d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.48 1.29 4.94L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.83-3.05-.2-.31a8.2 8.2 0 0 1-1.26-4.37c0-4.55 3.71-8.26 8.27-8.26 2.21 0 4.28.86 5.84 2.42a8.2 8.2 0 0 1 2.42 5.85c0 4.55-3.71 8.23-8.27 8.23Zm4.52-6.17c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.13-.17.24-.64.8-.78.96-.14.17-.29.19-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.24-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29Z" />
+    </svg>
+  </a>
 
   <script>
     const menuToggle = document.getElementById("menuToggle"), navLinks = document.getElementById("navLinks");
-    menuToggle.addEventListener("click", () => { navLinks.classList.toggle("open"); menuToggle.textContent = navLinks.classList.contains("open") ? "×" : "☰" });
-    document.querySelectorAll(".nav-links a").forEach(link => link.addEventListener("click", () => { navLinks.classList.remove("open"); menuToggle.textContent = "☰" }));
+    menuToggle.addEventListener("click", () => { navLinks.classList.toggle("open"); const menuOpen = navLinks.classList.contains("open"); menuToggle.classList.toggle("is-open", menuOpen); menuToggle.setAttribute("aria-label", menuOpen ? "Close menu" : "Open menu") });
+    document.querySelectorAll(".nav-links > li > a").forEach(link => link.addEventListener("click", (e) => {
+      if (link.parentElement.classList.contains("has-dropdown") && window.innerWidth <= 800) return;
+      navLinks.classList.remove("open"); menuToggle.classList.remove("is-open"); menuToggle.setAttribute("aria-label", "Open menu")
+    }));
+
+    // Mobile: tap the Gold / Diamonds link to expand its submenu instead of
+    // navigating away, so shoppers can browse the sub-categories on touch.
+    document.querySelectorAll(".has-dropdown > a").forEach(link => {
+      link.addEventListener("click", (e) => {
+        if (window.innerWidth <= 800) {
+          e.preventDefault();
+          const parent = link.parentElement;
+          document.querySelectorAll(".has-dropdown").forEach(other => { if (other !== parent) other.classList.remove("open") });
+          parent.classList.toggle("open");
+        }
+      });
+    });
 
     let cart = JSON.parse(localStorage.getItem("jewelicaCart") || "[]");
     let wishlist = JSON.parse(localStorage.getItem("jewelicaWishlist") || "[]");
 
     function updateCounters() { document.getElementById("cartCount").textContent = cart.length; document.getElementById("wishlistCount").textContent = wishlist.length }
-    function updateResultCount() { const visible = [...document.querySelectorAll(".product-card")].filter(c => c.style.display !== "none").length; document.getElementById("resultCount").textContent = visible + " Pieces" }
     function showToast(message) { const toast = document.getElementById("toast"); toast.textContent = message; toast.classList.add("show"); setTimeout(() => toast.classList.remove("show"), 2200) }
     function addToCart(type) { cart.push({ type, category: "Gold Chains", quantity: 1, addedAt: new Date().toISOString() }); localStorage.setItem("jewelicaCart", JSON.stringify(cart)); updateCounters(); showToast(type + " added to your cart.") }
     function viewProduct(id) { const padded = String(id).padStart(2, "0"); window.location.href = "product.html#chain-" + padded }
@@ -1451,8 +2000,8 @@
     document.querySelectorAll(".wishlist").forEach(button => {
       button.addEventListener("click", () => {
         const type = button.dataset.product;
-        if (!wishlist.includes(type)) { wishlist.push(type); button.textContent = "♥"; showToast("Added to your wishlist.") }
-        else { wishlist = wishlist.filter(item => item !== type); button.textContent = "♡"; showToast("Removed from your wishlist.") }
+        if (!wishlist.includes(type)) { wishlist.push(type); button.classList.add("is-active"); showToast("Added to your wishlist.") }
+        else { wishlist = wishlist.filter(item => item !== type); button.classList.remove("is-active"); showToast("Removed from your wishlist.") }
         localStorage.setItem("jewelicaWishlist", JSON.stringify(wishlist)); updateCounters();
       });
     });

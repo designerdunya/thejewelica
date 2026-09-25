@@ -842,6 +842,15 @@
       overflow-wrap: break-word;
     }
 
+    .whatsapp-link {
+      color: #aaa39a;
+      transition: .25s;
+    }
+
+    .whatsapp-link:hover {
+      color: var(--gold-light);
+    }
+
     .map {
       height: 180px;
       margin-top: 18px;
@@ -960,6 +969,27 @@
 
     .back-top.show {
       display: block;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      box-shadow: 0 8px 22px rgba(23, 21, 19, .22);
+      z-index: 500;
+      transition: .3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.07);
     }
 
     .empty-state {
@@ -1487,10 +1517,53 @@
         letter-spacing: 1.6px;
       }
     }
+  
+    .svg-sprite { position:absolute; width:0; height:0; overflow:hidden; }
+    .svg-icon { width:1.05em; height:1.05em; display:block; fill:none; stroke:currentColor;
+      stroke-width:1.55; stroke-linecap:round; stroke-linejoin:round; }
+    .nav-btn .svg-icon { width:16px; height:16px; }
+    .menu-toggle .svg-icon { width:18px; height:18px; }
+    .icon-btn .svg-icon { width:15px; height:15px; }
+    .view-btn .svg-icon { width:13px; height:13px; }
+    .search-close .svg-icon { width:22px; height:22px; }
+    .back-top .svg-icon { width:17px; height:17px; }
+    .whatsapp-float .svg-icon { width:23px; height:23px; stroke-width:1.65; }
+    .intro-mark { width:34px; height:34px; margin:0 auto 18px; color:var(--gold); }
+    .intro-mark .svg-icon { width:100%; height:100%; stroke-width:1.15; }
+    .diamond-symbol { position:relative; }
+    .diamond-symbol .svg-icon { width:24px; height:24px; color:var(--gold); transform:rotate(-45deg); stroke-width:1.15; }
+    .eyebrow { display:flex; align-items:center; justify-content:center; gap:10px; }
+    .eyebrow::before,.eyebrow::after { content:""; width:22px; height:1px; background:currentColor; opacity:.55; }
+    .hero .eyebrow::before,.hero .eyebrow::after { background:var(--gold-light); }
+    .editorial-copy .eyebrow { justify-content:flex-start; }
+    .editorial-copy .eyebrow::before { display:none; }
+    @media (max-width:800px) {
+      .intro-mark { margin-left:0; }
+      .intro .eyebrow { justify-content:flex-start; }
+      .intro .eyebrow::before { display:none; }
+      .hero .eyebrow { justify-content:flex-start; }
+      .hero .eyebrow::before { display:none; }
+    }
+
   </style>
 </head>
 
 <body>
+
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24"><path d="M5 8.5h14l1 12H4l1-12Z"/><path d="M8.5 8.5V6a3.5 3.5 0 0 1 7 0v2.5"/></symbol>
+    <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path d="M6 18 18 6"/><path d="M8 6h10v10"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="icon-chevron-up" viewBox="0 0 24 24"><path d="m6 14 6-6 6 6"/></symbol>
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path d="M20 11.7a8.2 8.2 0 0 1-12.2 7.1L4 20l1.3-3.6A8.2 8.2 0 1 1 20 11.7Z"/><path d="M8.7 8.5c.2-.4.5-.5.8-.5h.6c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.5.6c.6 1.1 1.5 2 2.7 2.5l.6-.5c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.6v.6c0 .3-.1.6-.5.8-.5.3-1.2.3-1.8.1-2.1-.7-4.1-2.2-5.4-4.1-.7-1-1.1-2.1-.9-2.9.1-.2.2-.4.7-.9Z"/></symbol>
+    <symbol id="icon-diamond" viewBox="0 0 24 24"><path d="m3 8 4-5h10l4 5-9 13L3 8Z"/><path d="m3 8h18M7 3l5 18 5-18M3 8l9 4 9-4"/></symbol>
+    <symbol id="icon-sparkle" viewBox="0 0 24 24"><path d="M12 2.5 13.8 9l6.2 3-6.2 3L12 21.5 10.2 15 4 12l6.2-3L12 2.5Z"/></symbol>
+  </svg>
+
   <div class="announcement">THE JEWELICA — REFINED BEAUTY, MADE TIMELESS</div>
 
   <header>
@@ -1511,17 +1584,17 @@
       </ul>
 
       <div class="nav-actions">
-        <button class="nav-btn" id="searchBtn" type="button" aria-label="Open search">⌕</button>
+        <button class="nav-btn" id="searchBtn" type="button" aria-label="Open search"><svg class="svg-icon"><use href="#icon-search"></use></svg></button>
         <button class="nav-btn" id="wishlistBtn" type="button" aria-label="Wishlist">
-          ♡ <span class="count" id="wishlistCount">0</span>
+          <svg class="svg-icon"><use href="#icon-heart"></use></svg> <span class="count" id="wishlistCount">0</span>
         </button>
         <button class="nav-btn" id="cartBtn" type="button" aria-label="Cart">
-          ♢ <span class="count" id="cartCount">0</span>
+          <svg class="svg-icon"><use href="#icon-bag"></use></svg> <span class="count" id="cartCount">0</span>
         </button>
       </div>
 
       <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="navLinks"
-        aria-expanded="false">☰</button>
+        aria-expanded="false"><svg class="svg-icon"><use href="#icon-menu"></use></svg></button>
     </nav>
   </header>
 
@@ -1579,14 +1652,14 @@
             <span class="product-badge">Signature</span>
             <div class="product-actions">
               <button class="icon-btn wishlist" type="button"
-                aria-label="Add Diamond Men's Ring 01 to wishlist">♡</button>
+                aria-label="Add Diamond Men's Ring 01 to wishlist"><svg class="svg-icon"><use href="#icon-heart"></use></svg></button>
               <button class="icon-btn view-product" type="button"
-                aria-label="View Diamond Men's Ring 01 details">↗</button>
+                aria-label="View Diamond Men's Ring 01 details"><svg class="svg-icon"><use href="#icon-arrow-up-right"></use></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">Diamond Men's Ring</span>
-            <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
+            <button class="view-btn view-product" type="button">View Details <span class="arrow"><svg class="svg-icon"><use href="#icon-arrow-right"></use></svg></span></button>
           </div>
           <button class="add-btn add-cart" type="button">Add To Cart</button>
         </article>
@@ -1596,14 +1669,14 @@
             <img src="images/men dimaond ring (2).png" alt="The Jewelica Diamond Men's Ring 02" loading="lazy">
             <div class="product-actions">
               <button class="icon-btn wishlist" type="button"
-                aria-label="Add Diamond Men's Ring 02 to wishlist">♡</button>
+                aria-label="Add Diamond Men's Ring 02 to wishlist"><svg class="svg-icon"><use href="#icon-heart"></use></svg></button>
               <button class="icon-btn view-product" type="button"
-                aria-label="View Diamond Men's Ring 02 details">↗</button>
+                aria-label="View Diamond Men's Ring 02 details"><svg class="svg-icon"><use href="#icon-arrow-up-right"></use></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">Diamond Men's Ring</span>
-            <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
+            <button class="view-btn view-product" type="button">View Details <span class="arrow"><svg class="svg-icon"><use href="#icon-arrow-right"></use></svg></span></button>
           </div>
           <button class="add-btn add-cart" type="button">Add To Cart</button>
         </article>
@@ -1613,14 +1686,14 @@
             <img src="images/men dimaond ring (3).png" alt="The Jewelica Diamond Men's Ring 03" loading="lazy">
             <div class="product-actions">
               <button class="icon-btn wishlist" type="button"
-                aria-label="Add Diamond Men's Ring 03 to wishlist">♡</button>
+                aria-label="Add Diamond Men's Ring 03 to wishlist"><svg class="svg-icon"><use href="#icon-heart"></use></svg></button>
               <button class="icon-btn view-product" type="button"
-                aria-label="View Diamond Men's Ring 03 details">↗</button>
+                aria-label="View Diamond Men's Ring 03 details"><svg class="svg-icon"><use href="#icon-arrow-up-right"></use></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">Diamond Men's Ring</span>
-            <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
+            <button class="view-btn view-product" type="button">View Details <span class="arrow"><svg class="svg-icon"><use href="#icon-arrow-right"></use></svg></span></button>
           </div>
           <button class="add-btn add-cart" type="button">Add To Cart</button>
         </article>
@@ -1630,14 +1703,14 @@
             <img src="images/men dimaond ring (4).png" alt="The Jewelica Diamond Men's Ring 04" loading="lazy">
             <div class="product-actions">
               <button class="icon-btn wishlist" type="button"
-                aria-label="Add Diamond Men's Ring 04 to wishlist">♡</button>
+                aria-label="Add Diamond Men's Ring 04 to wishlist"><svg class="svg-icon"><use href="#icon-heart"></use></svg></button>
               <button class="icon-btn view-product" type="button"
-                aria-label="View Diamond Men's Ring 04 details">↗</button>
+                aria-label="View Diamond Men's Ring 04 details"><svg class="svg-icon"><use href="#icon-arrow-up-right"></use></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">Diamond Men's Ring</span>
-            <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
+            <button class="view-btn view-product" type="button">View Details <span class="arrow"><svg class="svg-icon"><use href="#icon-arrow-right"></use></svg></span></button>
           </div>
           <button class="add-btn add-cart" type="button">Add To Cart</button>
         </article>
@@ -1647,14 +1720,14 @@
             <img src="images/men dimaond ring (5).png" alt="The Jewelica Diamond Men's Ring 05" loading="lazy">
             <div class="product-actions">
               <button class="icon-btn wishlist" type="button"
-                aria-label="Add Diamond Men's Ring 05 to wishlist">♡</button>
+                aria-label="Add Diamond Men's Ring 05 to wishlist"><svg class="svg-icon"><use href="#icon-heart"></use></svg></button>
               <button class="icon-btn view-product" type="button"
-                aria-label="View Diamond Men's Ring 05 details">↗</button>
+                aria-label="View Diamond Men's Ring 05 details"><svg class="svg-icon"><use href="#icon-arrow-up-right"></use></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">Diamond Men's Ring</span>
-            <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
+            <button class="view-btn view-product" type="button">View Details <span class="arrow"><svg class="svg-icon"><use href="#icon-arrow-right"></use></svg></span></button>
           </div>
           <button class="add-btn add-cart" type="button">Add To Cart</button>
         </article>
@@ -1664,14 +1737,14 @@
             <img src="images/men dimaond ring (6).png" alt="The Jewelica Diamond Men's Ring 06" loading="lazy">
             <div class="product-actions">
               <button class="icon-btn wishlist" type="button"
-                aria-label="Add Diamond Men's Ring 06 to wishlist">♡</button>
+                aria-label="Add Diamond Men's Ring 06 to wishlist"><svg class="svg-icon"><use href="#icon-heart"></use></svg></button>
               <button class="icon-btn view-product" type="button"
-                aria-label="View Diamond Men's Ring 06 details">↗</button>
+                aria-label="View Diamond Men's Ring 06 details"><svg class="svg-icon"><use href="#icon-arrow-up-right"></use></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">Diamond Men's Ring</span>
-            <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
+            <button class="view-btn view-product" type="button">View Details <span class="arrow"><svg class="svg-icon"><use href="#icon-arrow-right"></use></svg></span></button>
           </div>
           <button class="add-btn add-cart" type="button">Add To Cart</button>
         </article>
@@ -1681,14 +1754,14 @@
             <img src="images/men diamond ring (2).png" alt="The Jewelica Diamond Men's Ring 07" loading="lazy">
             <div class="product-actions">
               <button class="icon-btn wishlist" type="button"
-                aria-label="Add Diamond Men's Ring 07 to wishlist">♡</button>
+                aria-label="Add Diamond Men's Ring 07 to wishlist"><svg class="svg-icon"><use href="#icon-heart"></use></svg></button>
               <button class="icon-btn view-product" type="button"
-                aria-label="View Diamond Men's Ring 07 details">↗</button>
+                aria-label="View Diamond Men's Ring 07 details"><svg class="svg-icon"><use href="#icon-arrow-up-right"></use></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">Diamond Men's Ring</span>
-            <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
+            <button class="view-btn view-product" type="button">View Details <span class="arrow"><svg class="svg-icon"><use href="#icon-arrow-right"></use></svg></span></button>
           </div>
           <button class="add-btn add-cart" type="button">Add To Cart</button>
         </article>
@@ -1698,14 +1771,14 @@
             <img src="images/men diamond ring.png" alt="The Jewelica Diamond Men's Ring 08" loading="lazy">
             <div class="product-actions">
               <button class="icon-btn wishlist" type="button"
-                aria-label="Add Diamond Men's Ring 08 to wishlist">♡</button>
+                aria-label="Add Diamond Men's Ring 08 to wishlist"><svg class="svg-icon"><use href="#icon-heart"></use></svg></button>
               <button class="icon-btn view-product" type="button"
-                aria-label="View Diamond Men's Ring 08 details">↗</button>
+                aria-label="View Diamond Men's Ring 08 details"><svg class="svg-icon"><use href="#icon-arrow-up-right"></use></svg></button>
             </div>
           </div>
           <div class="product-info">
             <span class="product-type">Diamond Men's Ring</span>
-            <button class="view-btn view-product" type="button">View Details <span class="arrow">→</span></button>
+            <button class="view-btn view-product" type="button">View Details <span class="arrow"><svg class="svg-icon"><use href="#icon-arrow-right"></use></svg></span></button>
           </div>
           <button class="add-btn add-cart" type="button">Add To Cart</button>
         </article>
@@ -1736,7 +1809,7 @@
     </section>
 
     <section class="diamond-note">
-      <div class="diamond-symbol"><span>✦</span></div>
+      <div class="diamond-symbol"><svg class="svg-icon" aria-hidden="true"><use href="#icon-diamond"></use></svg></div>
       <h2>Choose Your Stone</h2>
       <p>Explore diamonds and other gemstones to discover the colour, character and brilliance that speaks to you.</p>
       <a href="stones.html" class="outline-btn">Explore Stones</a>
@@ -1794,8 +1867,9 @@
         <div class="visit">
           <h4>Visit Us</h4>
           <p>The Jewelica Lahore</p>
-          <p>Premium Jewellery District</p>
-          <p>+92 300 0000000</p>
+          <p>Shah Alam Market, Lahore</p>
+          <p>+92 325 6561246</p>
+          <p><a class="whatsapp-link" href="https://wa.me/923256561246" target="_blank" rel="noopener">WhatsApp: 0325 6561246</a></p>
           <p>hello@thejewelica.com</p>
           <p>Mon — Sat: 11:00 AM — 8:00 PM</p>
           <div class="map">
@@ -1814,7 +1888,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite">Added to your collection.</div>
 
   <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-labelledby="searchLabel">
-    <button class="search-close" id="searchClose" type="button" aria-label="Close search">×</button>
+    <button class="search-close" id="searchClose" type="button" aria-label="Close search"><svg class="svg-icon"><use href="#icon-close"></use></svg></button>
     <div class="search-box">
       <label id="searchLabel" for="searchInput">Search The Jewelica</label>
       <input id="searchInput" class="search-input" type="search" placeholder="Search jewellery..." autocomplete="off">
@@ -1823,7 +1897,9 @@
     </div>
   </div>
 
-  <button class="back-top" id="backTop" type="button" aria-label="Back to top">↑</button>
+  <a class="whatsapp-float" href="https://wa.me/923256561246" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">✆</a>
+
+  <button class="back-top" id="backTop" type="button" aria-label="Back to top"><svg class="svg-icon"><use href="#icon-chevron-up"></use></svg></button>
 
   <script>
     (() => {

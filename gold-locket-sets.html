@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gold Lockets | THE JEWELICA</title>
+
+  <link rel="icon" type="image/png" href="images/LOGO png.png">
+
+  <meta name="description"
+    content="Discover refined gold lockets at THE JEWELICA, presented through an elegant luxury jewellery experience.">
+
+  <meta name="keywords" content="The Jewelica, gold lockets, gold locket sets, gold jewellery">
+
+  <meta property="og:title" content="Gold Lockets | THE JEWELICA">
+  <meta property="og:description" content="Explore the Gold Lockets collection at THE JEWELICA.">
+  <meta property="og:type" content="website">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+    :root {
+      --ivory: #f7f3eb;
+      --cream: #eee7da;
+      --champagne: #d8c39b;
+      --gold: #b49761;
+      --gold-light: #c9ac7a;
+      --espresso: #30251e;
+      --charcoal: #211d1a;
+      --muted: #74685e;
+      --line: rgba(48, 37, 30, .14);
+      --white: #fffdf9;
+      --shadow: 0 20px 60px rgba(48, 37, 30, .10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--espresso);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+      position: relative;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 243, 235, .96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      max-width: 1440px;
+      width: 100%;
+      margin: auto;
+      min-height: 82px;
+      padding: 0 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 31px;
+      letter-spacing: .18em;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .logo span {
+      display: block;
+      font-family: "DM Sans", sans-serif;
+      font-size: 8px;
+      letter-spacing: .42em;
+      text-align: center;
+      margin-top: -5px;
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 11px;
+      letter-spacing: .13em;
+      font-weight: 600;
+      min-width: 0;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 32px 0;
+      white-space: nowrap;
+    }
+
+    .nav-links a:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 25px;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: .3s;
+    }
+
+    .nav-links a:hover:after,
+    .nav-links a.active:after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-shrink: 0;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: transparent;
+      display: grid;
+      place-items: center;
+      color: var(--espresso);
+      transition: .35s cubic-bezier(.4,0,.2,1);
+      flex-shrink: 0;
+    }
+
+    .icon-btn:hover {
+      background: var(--espresso);
+      border-color: var(--espresso);
+      color: var(--ivory);
+      transform: translateY(-1px);
+    }
+
+    .count {
+      position: absolute;
+      margin: 22px 0 0 22px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: white;
+      font-size: 8px;
+      display: grid;
+      place-items: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: none;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .hero {
+      min-height: 570px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      background: var(--charcoal);
+      color: var(--ivory);
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: relative;
+      min-height: 570px;
+      overflow: hidden;
+    }
+
+    .hero-image:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 55%, rgba(33, 29, 26, .7));
+    }
+
+    .hero-image img {
+      transition: transform 1s;
+    }
+
+    .hero:hover .hero-image img {
+      transform: scale(1.025);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 100px 8vw 80px 70px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      max-width: 100%;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: .35em;
+      color: var(--champagne);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(44px, 7vw, 94px);
+      line-height: .88;
+      font-weight: 500;
+      max-width: 600px;
+    }
+
+    .hero p {
+      max-width: 490px;
+      color: #d5cdc1;
+      line-height: 1.8;
+      font-size: 14px;
+      margin: 28px 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 30px;
+      border: 1px solid var(--champagne);
+      border-radius: 999px;
+      color: var(--ivory);
+      background: transparent;
+      letter-spacing: .18em;
+      font-size: 10px;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: color .4s ease, border-color .4s ease;
+    }
+
+    .btn:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, var(--champagne), var(--gold-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .45s cubic-bezier(.65,0,.35,1);
+      z-index: -1;
+    }
+
+    .btn:hover {
+      color: var(--espresso);
+      border-color: var(--champagne);
+    }
+
+    .btn:hover:before {
+      transform: scaleX(1);
+    }
+
+    .btn.dark {
+      background: var(--espresso);
+      border-color: var(--espresso);
+      color: var(--ivory);
+    }
+
+    .btn.dark:before {
+      background: linear-gradient(120deg, var(--gold), var(--gold-light));
+    }
+
+    .btn.dark:hover {
+      color: var(--espresso);
+      border-color: var(--gold);
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 760px;
+      margin: auto;
+      padding: 90px 25px 65px;
+    }
+
+    .intro h2,
+    .section-head h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(36px, 5vw, 65px);
+      line-height: .95;
+      font-weight: 500;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+      margin-top: 22px;
+    }
+
+    .toolbar-wrap {
+      max-width: 1370px;
+      margin: 0 auto 35px;
+      padding: 0 25px;
+    }
+
+    .toolbar {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      padding: 10px 18px;
+      font-size: 9px;
+      letter-spacing: .15em;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .filter:hover,
+    .filter.active {
+      background: var(--espresso);
+      color: var(--ivory);
+      border-color: var(--espresso);
+    }
+
+    .sort {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--ivory);
+      padding: 11px 18px;
+      color: var(--espresso);
+      font-size: 10px;
+      outline: none;
+    }
+
+    .products {
+      max-width: 1370px;
+      margin: 0 auto;
+      padding: 0 25px 90px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 34px 22px;
+    }
+
+    .product-card {
+      position: relative;
+      animation: fadeUp .55s ease both;
+    }
+
+    .product-image {
+      position: relative;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      background: var(--cream);
+      border-radius: 3px;
+      box-shadow: 0 1px 3px rgba(48, 37, 30, .06);
+    }
+
+    .product-image a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .product-image img {
+      transition: transform .65s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.045);
+    }
+
+    .product-tools {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: .3s;
+    }
+
+    .product-card:hover .product-tools {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .product-tools button {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 253, 249, .95);
+      border: 1px solid var(--line);
+      color: var(--espresso);
+      box-shadow: 0 4px 14px rgba(48, 37, 30, .12);
+      transition: .3s cubic-bezier(.4,0,.2,1);
+    }
+
+    .product-tools button:hover {
+      background: var(--espresso);
+      border-color: var(--espresso);
+      color: var(--champagne);
+      transform: scale(1.08);
+    }
+
+    .product-info {
+      padding: 18px 2px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .product-type {
+      font-size: 10.5px;
+      letter-spacing: .2em;
+      font-weight: 600;
+    }
+
+    .product-category {
+      font-size: 9px;
+      color: var(--gold);
+      letter-spacing: .14em;
+      font-weight: 600;
+    }
+
+    .product-bottom {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .product-bottom button {
+      flex: 1;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid var(--espresso);
+      background: transparent;
+      color: var(--espresso);
+      font-size: 9px;
+      letter-spacing: .16em;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: color .4s ease, border-color .4s ease, box-shadow .4s ease;
+    }
+
+    .product-bottom button:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .45s cubic-bezier(.65,0,.35,1);
+      z-index: -1;
+    }
+
+    .product-bottom button:first-child {
+      background: var(--espresso);
+      color: var(--ivory);
+    }
+
+    .product-bottom button:first-child:before {
+      background: linear-gradient(120deg, var(--gold), var(--gold-light));
+    }
+
+    .product-bottom button:first-child:hover {
+      color: var(--espresso);
+      border-color: var(--gold-light);
+    }
+
+    .product-bottom button:first-child:hover:before {
+      transform: scaleX(1);
+    }
+
+    .product-bottom button:last-child:before {
+      background: var(--espresso);
+    }
+
+    .product-bottom button:last-child:hover {
+      color: var(--ivory);
+      border-color: var(--espresso);
+    }
+
+    .product-bottom button:last-child:hover:before {
+      transform: scaleX(1);
+    }
+
+    .cta {
+      background: var(--cream);
+      padding: 90px 25px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(36px, 5vw, 62px);
+      font-weight: 500;
+    }
+
+    .cta p {
+      max-width: 580px;
+      margin: 18px auto 28px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    .footer {
+      background: var(--charcoal);
+      color: var(--ivory);
+      padding: 75px 35px 30px;
+      overflow: hidden;
+    }
+
+    .footer-grid {
+      max-width: 1370px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+      gap: 50px;
+    }
+
+    .footer h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 27px;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .footer h4 {
+      font-size: 10px;
+      letter-spacing: .2em;
+      color: var(--champagne);
+      margin-bottom: 20px;
+    }
+
+    .footer p,
+    .footer a {
+      color: #bdb3a8;
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    .footer a {
+      display: block;
+      margin: 8px 0;
+    }
+
+    .footer a:hover {
+      color: var(--champagne);
+    }
+
+    .footer-brand p {
+      max-width: 290px;
+    }
+
+    .map {
+      height: 190px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .12);
+      margin-top: 12px;
+      max-width: 100%;
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(1) contrast(.8);
+    }
+
+    .copyright {
+      max-width: 1370px;
+      margin: 50px auto 0;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      text-align: center;
+      font-size: 9px;
+      color: #8f867d;
+      letter-spacing: .12em;
+    }
+
+    .search-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(33, 29, 26, .97);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s;
+      padding: 100px 8vw;
+      overflow-y: auto;
+    }
+
+    .search-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .search-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, .2);
+      color: white;
+      font-size: 20px;
+    }
+
+    .search-title {
+      color: var(--champagne);
+      font-size: 10px;
+      letter-spacing: .3em;
+    }
+
+    .search-input {
+      width: 100%;
+      margin-top: 25px;
+      padding: 20px 0;
+      background: none;
+      border: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .3);
+      color: white;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 48px;
+      outline: none;
+      max-width: 100%;
+    }
+
+    .search-results {
+      margin-top: 30px;
+      color: #c8beb3;
+      display: grid;
+      gap: 12px;
+    }
+
+    .search-results button {
+      text-align: left;
+      background: none;
+      border: 0;
+      color: #c8beb3;
+      padding: 10px 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 23px;
+    }
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -430px;
+      width: min(430px, 100%);
+      max-width: 100vw;
+      height: 100%;
+      z-index: 1900;
+      background: var(--white);
+      box-shadow: -20px 0 60px rgba(0, 0, 0, .15);
+      transition: .4s;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-panel.open {
+      right: 0;
+    }
+
+    .cart-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cart-head h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      font-weight: 500;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow: auto;
+      padding: 20px 0;
+    }
+
+    .empty {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 75px 1fr auto;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cart-item-img {
+      width: 75px;
+      height: 90px;
+      background: var(--cream);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .cart-item strong {
+      display: block;
+      font-size: 10px;
+      letter-spacing: .14em;
+      margin: 4px 0 12px;
+    }
+
+    .qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty button {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: none;
+      border: 1px solid var(--line);
+      transition: .3s;
+    }
+
+    .qty button:hover {
+      background: var(--espresso);
+      color: var(--ivory);
+      border-color: var(--espresso);
+    }
+
+    .qty span {
+      font-size: 11px;
+    }
+
+    .remove {
+      border: 0;
+      background: none;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .cart-footer {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+
+    .cart-note {
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .toast {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      z-index: 3000;
+      background: var(--espresso);
+      color: var(--ivory);
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-size: 10px;
+      letter-spacing: .1em;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: .35s;
+      max-width: calc(100vw - 50px);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .back-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 0;
+      color: white;
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s;
+      z-index: 900;
+      box-shadow: 0 6px 18px rgba(48, 37, 30, .25);
+    }
+
+    .back-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ======================================================
+       RESPONSIVE LAYOUT GROUPS
+       Desktop/tablet rules above stay untouched (large-screen
+       layout). Every rule below this line only exists to give
+       mobile its OWN layout — same elements, same images, same
+       colors/fonts — arranged differently so nothing overlaps,
+       nothing overflows and nothing needs pinch-zoom.
+       ====================================================== */
+
+    /* ---------- GROUP 1: LARGE TABLET (<=1150px) ----------
+       Just density changes, desktop layout shape kept. */
+    @media(max-width:1150px) {
+      .nav-links {
+        gap: 16px;
+      }
+
+      .nav {
+        padding: 0 20px;
+      }
+
+      .products {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ---------- GROUP 2: TABLET / SMALL LAPTOP (<=900px) ----------
+       Nav switches to hamburger. Hero stops being a side-by-side
+       grid and becomes a single full-width visual with the text
+       laid over it near the bottom — a different composition
+       from the desktop split-screen hero, using the same image. */
+    @media(max-width:900px) {
+
+      .nav {
+        gap: 12px;
+      }
+
+      .logo {
+        min-width: 0;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 82px;
+        left: 0;
+        width: 100%;
+        max-height: calc(100vh - 82px);
+        overflow-y: auto;
+        background: var(--ivory);
+        border-bottom: 1px solid var(--line);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 25px 20px;
+        box-shadow: 0 20px 40px rgba(48, 37, 30, .12);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 15px 0;
+      }
+
+      .nav-links a:after {
+        bottom: 8px;
+      }
+
+      .menu-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      /* Hero: overlay composition instead of the desktop grid */
+      .hero {
+        display: block;
+        grid-template-columns: none;
+        min-height: 460px;
+      }
+
+      .hero-image {
+        min-height: 460px;
+      }
+
+      .hero-image:after {
+        background: linear-gradient(180deg, rgba(33, 29, 26, .05) 40%, rgba(33, 29, 26, .92) 100%);
+      }
+
+      .hero-content {
+        position: absolute;
+        inset: auto 0 0 0;
+        z-index: 2;
+        padding: 0 26px 36px;
+        max-width: 100%;
+        display: block;
+      }
+
+      .hero h1,
+      .hero p {
+        max-width: 100%;
+      }
+    }
+
+    /* ---------- GROUP 3: MOBILE (<=650px) ----------
+       This is the real mobile layout: filters, product grid and
+       cards are restructured (not just shrunk) so everything
+       stays inside the viewport with room to breathe. */
+    @media(max-width:650px) {
+
+      .nav {
+        padding: 0 12px;
+        gap: 8px;
+      }
+
+      .logo {
+        font-size: 25px;
+        letter-spacing: .13em;
+        min-width: 0;
+      }
+
+      .logo span {
+        letter-spacing: .30em;
+        overflow: hidden;
+        text-overflow: clip;
+      }
+
+      .nav-actions {
+        gap: 6px;
+        margin-left: auto;
+      }
+
+      .nav-actions .search-btn {
+        display: none;
+      }
+
+      .icon-btn {
+        width: 38px;
+        height: 38px;
+      }
+
+      .menu-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 19px;
+      }
+
+      .hero {
+        min-height: 400px;
+      }
+
+      .hero-image {
+        min-height: 400px;
+      }
+
+      .hero h1 {
+        font-size: 46px;
+      }
+
+      .hero p {
+        font-size: 13px;
+        margin: 16px 0 22px;
+      }
+
+      .hero-content .btn {
+        width: 100%;
+      }
+
+      .intro {
+        padding: 50px 20px 40px;
+      }
+
+      /* Toolbar: filters wrap in a compact chip row, sort sits
+         underneath full-width — stacked, never squeezed sideways */
+      .toolbar-wrap {
+        padding: 0 16px;
+      }
+
+      .toolbar {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .filters {
+        gap: 6px;
+      }
+
+      .filter {
+        padding: 9px 14px;
+      }
+
+      .sort {
+        width: 100%;
+      }
+
+      /* Products: switch from a card GRID to a stacked LIST
+         layout — image on the left, details on the right, one
+         product per row. This is the distinct mobile layout,
+         built from the exact same markup and images. */
+      .products {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 0 16px 60px;
+      }
+
+      .product-card {
+        display: grid;
+        grid-template-columns: 112px 1fr;
+        grid-template-areas:
+          "image info"
+          "image bottom";
+        column-gap: 14px;
+        row-gap: 6px;
+        align-items: start;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .product-image {
+        grid-area: image;
+        aspect-ratio: 4/5;
+      }
+
+      .product-tools {
+        opacity: 1;
+        transform: none;
+        top: 8px;
+        right: 8px;
+        gap: 6px;
+      }
+
+      .product-tools button {
+        width: 30px;
+        height: 30px;
+      }
+
+      .product-info {
+        grid-area: info;
+        padding: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      .product-bottom {
+        grid-area: bottom;
+        flex-direction: row;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .product-bottom button {
+        height: 38px;
+      }
+
+      .cta {
+        padding: 60px 20px;
+      }
+
+      .footer {
+        padding: 55px 20px 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .search-overlay {
+        padding: 90px 22px;
+      }
+
+      .search-input {
+        font-size: 30px;
+      }
+    }
+
+    /* ---------- GROUP 4: SMALL PHONES (<=430px) ----------
+       Same list layout as Group 3, just tighter measurements so
+       nothing crowds or clips on narrow screens. */
+    @media(max-width:430px) {
+
+      .nav {
+        min-height: 68px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .nav-links {
+        top: 68px;
+      }
+
+      .logo {
+        font-size: 19px;
+        letter-spacing: .08em;
+      }
+
+      .logo span {
+        font-size: 6.5px;
+        letter-spacing: .22em;
+      }
+
+      .nav-actions {
+        gap: 4px;
+      }
+
+      .icon-btn {
+        width: 34px;
+        height: 34px;
+      }
+
+      .menu-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+      }
+
+      .hero {
+        min-height: 340px;
+      }
+
+      .hero-image {
+        min-height: 340px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-content {
+        padding: 0 18px 28px;
+      }
+
+      .btn {
+        padding: 0 18px;
+      }
+
+      .toolbar-wrap {
+        padding: 0 12px;
+      }
+
+      .products {
+        padding: 0 12px 50px;
+      }
+
+      .product-card {
+        grid-template-columns: 88px 1fr;
+        column-gap: 10px;
+        padding: 14px 0;
+      }
+
+      .product-type {
+        font-size: 9.5px;
+      }
+
+      .product-category {
+        font-size: 8px;
+      }
+
+      .product-bottom {
+        flex-direction: column;
+      }
+
+      .product-bottom button {
+        width: 100%;
+      }
+
+      .cart-panel {
+        padding: 22px 18px;
+      }
+
+      .toast {
+        left: 16px;
+        right: 16px;
+        text-align: center;
+      }
+    }
+  
+    .svg-icon { width: 18px; height: 18px; display: inline-block; vertical-align: middle; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-btn .svg-icon, .wishlist .svg-icon, .quick .svg-icon, .back-top .svg-icon, .mobile-toggle .svg-icon { pointer-events:none; }
+</style>
+</head>
+
+<body>
+
+  <header class="header">
+    <nav class="nav" aria-label="Main navigation">
+
+      <a href="index.html" class="logo">
+        THE JEWELICA
+        <span>FINE JEWELLERY HOUSE</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">HOME</a>
+        <a href="shop.html">SHOP</a>
+        <a href="gold.html" class="active">GOLD</a>
+        <a href="diamond.html">DIAMONDS</a>
+        <a href="collections.html">COLLECTIONS</a>
+        <a href="stones.html">CHOOSE YOUR STONE</a>
+        <a href="trending.html">TRENDING UNIQUES</a>
+        <a href="services.html">SERVICES</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+      </div>
+
+      <div class="nav-actions">
+
+        <button class="icon-btn search-btn" id="searchBtn" aria-label="Search"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button>
+
+        <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
+          ♡
+          <span class="count" id="wishCount">0</span>
+        </button>
+
+        <button class="icon-btn" id="cartBtn" aria-label="Cart">
+          <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z"></path><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5"></path></svg>
+          <span class="count" id="cartCount">0</span>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-image">
+        <img src="images/all gold jewellery hero.png" alt="The Jewelica Gold Lockets">
+      </div>
+
+      <div class="hero-content">
+
+        <div class="eyebrow">THE JEWELICA / GOLD COLLECTION</div>
+
+        <h1>GOLD<br>LOCKETS</h1>
+
+        <p>
+          Personal keepsakes shaped in gold. Discover an elegant selection of
+          lockets designed to hold what matters most, with the enduring
+          character of fine jewellery.
+        </p>
+
+        <div>
+          <a href="#collection" class="btn">EXPLORE THE COLLECTION</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="intro">
+
+      <div class="eyebrow">A REFINED GOLD EDIT</div>
+
+      <h2>Keepsakes Made<br>To Be Worn</h2>
+
+      <p>
+        Explore gold lockets shaped around clean lines, delicate details and
+        timeless jewellery proportions. Every piece in this edit is presented
+        simply, allowing the character of the jewellery to remain the focus.
+      </p>
+
+    </section>
+
+    <section id="collection">
+
+      <div class="toolbar-wrap">
+
+        <div class="toolbar">
+
+          <div class="filters">
+
+            <button class="filter active" data-filter="all">ALL</button>
+            <button class="filter" data-filter="classic">CLASSIC</button>
+            <button class="filter" data-filter="delicate">DELICATE</button>
+            <button class="filter" data-filter="statement">STATEMENT</button>
+
+          </div>
+
+          <select class="sort" id="sortSelect" aria-label="Sort jewellery">
+
+            <option value="default">SORT: FEATURED</option>
+            <option value="az">TYPE: A–Z</option>
+            <option value="za">TYPE: Z–A</option>
+
+          </select>
+
+        </div>
+      </div>
+
+      <div class="products" id="products">
+
+        <article class="product-card" data-type="classic">
+          <div class="product-image">
+            <a href="product.html#locket-01" aria-label="View LOCKET details">
+              <img src="images/lockets.png" alt="Gold Locket jewellery">
+            </a>
+            <div class="product-tools">
+              <button class="wishlist" data-id="gl01" aria-label="Add locket to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.1-8.8 10.1S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"></path></svg></button>
+              <button class="quick" data-id="gl01" aria-label="View locket details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-type">LOCKET</span>
+            <span class="product-category">CLASSIC</span>
+          </div>
+          <div class="product-bottom">
+            <button class="add-cart" data-id="gl01">ADD TO CART</button>
+            <button class="quick" data-id="gl01">VIEW DETAILS</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-type="delicate">
+          <div class="product-image">
+            <a href="product.html#locket-02" aria-label="View LOCKET details">
+              <img src="images/lockets (2).png" alt="Gold Locket jewellery">
+            </a>
+            <div class="product-tools">
+              <button class="wishlist" data-id="gl02" aria-label="Add locket to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.1-8.8 10.1S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"></path></svg></button>
+              <button class="quick" data-id="gl02" aria-label="View locket details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-type">LOCKET</span>
+            <span class="product-category">DELICATE</span>
+          </div>
+          <div class="product-bottom">
+            <button class="add-cart" data-id="gl02">ADD TO CART</button>
+            <button class="quick" data-id="gl02">VIEW DETAILS</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-type="statement">
+          <div class="product-image">
+            <a href="product.html#locket-03" aria-label="View LOCKET details">
+              <img src="images/lockets (3).png" alt="Gold Locket jewellery">
+            </a>
+            <div class="product-tools">
+              <button class="wishlist" data-id="gl03" aria-label="Add locket to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.1-8.8 10.1S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"></path></svg></button>
+              <button class="quick" data-id="gl03" aria-label="View locket details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-type">LOCKET</span>
+            <span class="product-category">STATEMENT</span>
+          </div>
+          <div class="product-bottom">
+            <button class="add-cart" data-id="gl03">ADD TO CART</button>
+            <button class="quick" data-id="gl03">VIEW DETAILS</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-type="classic">
+          <div class="product-image">
+            <a href="product.html#locket-04" aria-label="View LOCKET details">
+              <img src="images/lockets (4).png" alt="Gold Locket jewellery">
+            </a>
+            <div class="product-tools">
+              <button class="wishlist" data-id="gl04" aria-label="Add locket to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.1-8.8 10.1S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"></path></svg></button>
+              <button class="quick" data-id="gl04" aria-label="View locket details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-type">LOCKET</span>
+            <span class="product-category">CLASSIC</span>
+          </div>
+          <div class="product-bottom">
+            <button class="add-cart" data-id="gl04">ADD TO CART</button>
+            <button class="quick" data-id="gl04">VIEW DETAILS</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-type="delicate">
+          <div class="product-image">
+            <a href="product.html#locket-05" aria-label="View LOCKET details">
+              <img src="images/lockets (5).png" alt="Gold Locket jewellery">
+            </a>
+            <div class="product-tools">
+              <button class="wishlist" data-id="gl05" aria-label="Add locket to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.1-8.8 10.1S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"></path></svg></button>
+              <button class="quick" data-id="gl05" aria-label="View locket details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-type">LOCKET</span>
+            <span class="product-category">DELICATE</span>
+          </div>
+          <div class="product-bottom">
+            <button class="add-cart" data-id="gl05">ADD TO CART</button>
+            <button class="quick" data-id="gl05">VIEW DETAILS</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-type="statement">
+          <div class="product-image">
+            <a href="product.html#locket-06" aria-label="View LOCKET details">
+              <img src="images/lockets (6).png" alt="Gold Locket jewellery">
+            </a>
+            <div class="product-tools">
+              <button class="wishlist" data-id="gl06" aria-label="Add locket to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.1-8.8 10.1S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"></path></svg></button>
+              <button class="quick" data-id="gl06" aria-label="View locket details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-type">LOCKET</span>
+            <span class="product-category">STATEMENT</span>
+          </div>
+          <div class="product-bottom">
+            <button class="add-cart" data-id="gl06">ADD TO CART</button>
+            <button class="quick" data-id="gl06">VIEW DETAILS</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-type="classic">
+          <div class="product-image">
+            <a href="product.html#locket-07" aria-label="View LOCKET details">
+              <img src="images/lockets (7).png" alt="Gold Locket jewellery">
+            </a>
+            <div class="product-tools">
+              <button class="wishlist" data-id="gl07" aria-label="Add locket to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.1-8.8 10.1S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"></path></svg></button>
+              <button class="quick" data-id="gl07" aria-label="View locket details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-type">LOCKET</span>
+            <span class="product-category">CLASSIC</span>
+          </div>
+          <div class="product-bottom">
+            <button class="add-cart" data-id="gl07">ADD TO CART</button>
+            <button class="quick" data-id="gl07">VIEW DETAILS</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-type="delicate">
+          <div class="product-image">
+            <a href="product.html#locket-08" aria-label="View LOCKET details">
+              <img src="images/lockets (8).png" alt="Gold Locket jewellery">
+            </a>
+            <div class="product-tools">
+              <button class="wishlist" data-id="gl08" aria-label="Add locket to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.1-8.8 10.1S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"></path></svg></button>
+              <button class="quick" data-id="gl08" aria-label="View locket details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-type">LOCKET</span>
+            <span class="product-category">DELICATE</span>
+          </div>
+          <div class="product-bottom">
+            <button class="add-cart" data-id="gl08">ADD TO CART</button>
+            <button class="quick" data-id="gl08">VIEW DETAILS</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-type="delicate">
+          <div class="product-image">
+            <a href="product.html#locket-09" aria-label="View LOCKET details">
+              <img src="images/lockets (9).png" alt="Gold Locket jewellery">
+            </a>
+            <div class="product-tools">
+              <button class="wishlist" data-id="gl09" aria-label="Add locket to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.1-8.8 10.1S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"></path></svg></button>
+              <button class="quick" data-id="gl09" aria-label="View locket details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-type">LOCKET</span>
+            <span class="product-category">DELICATE</span>
+          </div>
+          <div class="product-bottom">
+            <button class="add-cart" data-id="gl09">ADD TO CART</button>
+            <button class="quick" data-id="gl09">VIEW DETAILS</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-type="statement">
+          <div class="product-image">
+            <a href="product.html#locket-10" aria-label="View LOCKET details">
+              <img src="images/lockets (10).png" alt="Gold Locket jewellery">
+            </a>
+            <div class="product-tools">
+              <button class="wishlist" data-id="gl10" aria-label="Add locket to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.1-8.8 10.1S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"></path></svg></button>
+              <button class="quick" data-id="gl10" aria-label="View locket details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-type">LOCKET</span>
+            <span class="product-category">STATEMENT</span>
+          </div>
+          <div class="product-bottom">
+            <button class="add-cart" data-id="gl10">ADD TO CART</button>
+            <button class="quick" data-id="gl10">VIEW DETAILS</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-type="classic">
+          <div class="product-image">
+            <a href="product.html#locket-11" aria-label="View LOCKET details">
+              <img src="images/lockets (11).png" alt="Gold Locket jewellery">
+            </a>
+            <div class="product-tools">
+              <button class="wishlist" data-id="gl11" aria-label="Add locket to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.1-8.8 10.1S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"></path></svg></button>
+              <button class="quick" data-id="gl11" aria-label="View locket details"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-type">LOCKET</span>
+            <span class="product-category">CLASSIC</span>
+          </div>
+          <div class="product-bottom">
+            <button class="add-cart" data-id="gl11">ADD TO CART</button>
+            <button class="quick" data-id="gl11">VIEW DETAILS</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="cta">
+
+      <div class="eyebrow">THE JEWELICA EXPERIENCE</div>
+
+      <h2>Find Your Everyday<br>Expression Of Gold</h2>
+
+      <p>
+        Explore more jewellery through the wider gold collection or speak with
+        The Jewelica for a considered jewellery consultation.
+      </p>
+
+      <a href="gold.html" class="btn dark">DISCOVER GOLD JEWELLERY</a>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <h3>THE JEWELICA</h3>
+
+        <p>
+          A contemporary jewellery house shaped around refined design,
+          thoughtful craftsmanship and the enduring beauty of fine jewellery.
+        </p>
+
+      </div>
+
+      <div>
+
+        <h4>QUICK LINKS</h4>
+
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gold.html">Gold</a>
+        <a href="diamond.html">Diamonds</a>
+        <a href="collections.html">Collections</a>
+        <a href="stones.html">Choose Your Stone</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+
+      </div>
+
+      <div>
+
+        <h4>CUSTOMER CARE</h4>
+
+        <a href="care.html">Jewellery Care</a>
+        <a href="faq.html">FAQs</a>
+        <a href="contact.html">Shipping</a>
+        <a href="contact.html">Returns</a>
+        <a href="contact.html">Privacy Policy</a>
+        <a href="contact.html">Terms</a>
+
+        <h4 style="margin-top:28px">VISIT US</h4>
+
+        <p>The Jewelica Lahore<br>Pakistan</p>
+
+        <p>+92 300 0000000<br>hello@thejewelica.com</p>
+
+        <p>Mon — Sat: 11:00 AM — 8:00 PM</p>
+
+      </div>
+
+      <div>
+
+        <h4>THE JEWELICA LAHORE</h4>
+
+        <p>Our future Lahore location will be updated here.</p>
+
+        <div class="map">
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3398.875362809667!2d74.31488127561406!3d31.58246557418563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM0JzU2LjkiTiA3NMKwMTknMDIuOCJF!5e0!3m2!1sen!2s!4v1786833740582!5m2!1sen!2s"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 THE JEWELICA. ALL RIGHTS RESERVED.
+    </div>
+
+  </footer>
+
+  <div class="search-overlay" id="searchOverlay">
+
+    <button class="search-close" id="searchClose" aria-label="Close search"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg></button>
+
+    <div class="search-title">SEARCH THE JEWELICA</div>
+
+    <input class="search-input" id="searchInput" type="search" placeholder="Search jewellery..." autocomplete="off">
+
+    <div class="search-results" id="searchResults"></div>
+
+  </div>
+
+  <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart">
+
+    <div class="cart-head">
+
+      <h2>Your Selection</h2>
+
+      <button class="icon-btn" id="cartClose" aria-label="Close cart"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg></button>
+
+    </div>
+
+    <div class="cart-items" id="cartItems">
+
+      <div class="empty">
+        Your selection is currently empty.
+      </div>
+
+    </div>
+
+    <div class="cart-footer">
+
+      <p class="cart-note">
+        Product details and final consultation information can be requested
+        through The Jewelica.
+      </p>
+
+      <a href="contact.html" class="btn dark" style="width:100%">
+        REQUEST CONSULTATION
+      </a>
+
+    </div>
+
+  </aside>
+
+  <div class="toast" id="toast">
+    ADDED TO YOUR SELECTION
+  </div>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    ↑
+  </button>
+
+  <script>
+
+    const productData = {
+
+      gl01: { type: "LOCKET", image: "images/lockets.png", target: "locket-01" },
+      gl02: { type: "LOCKET", image: "images/lockets (2).png", target: "locket-02" },
+      gl03: { type: "LOCKET", image: "images/lockets (3).png", target: "locket-03" },
+      gl04: { type: "LOCKET", image: "images/lockets (4).png", target: "locket-04" },
+      gl05: { type: "LOCKET", image: "images/lockets (5).png", target: "locket-05" },
+      gl06: { type: "LOCKET", image: "images/lockets (6).png", target: "locket-06" },
+      gl07: { type: "LOCKET", image: "images/lockets (7).png", target: "locket-07" },
+      gl08: { type: "LOCKET", image: "images/lockets (8).png", target: "locket-08" },
+      gl09: { type: "LOCKET", image: "images/lockets (9).png", target: "locket-09" },
+      gl10: { type: "LOCKET", image: "images/lockets (10).png", target: "locket-10" },
+      gl11: { type: "LOCKET", image: "images/lockets (11).png", target: "locket-11" }
+
+    };
+
+    let cart = JSON.parse(localStorage.getItem("jewelicaCart") || "[]");
+    let wishlist = JSON.parse(localStorage.getItem("jewelicaWishlist") || "[]");
+
+    const $ = selector => document.querySelector(selector);
+    const $$ = selector => [...document.querySelectorAll(selector)];
+
+    function saveState() {
+
+      localStorage.setItem("jewelicaCart", JSON.stringify(cart));
+      localStorage.setItem("jewelicaWishlist", JSON.stringify(wishlist));
+
+      updateCounters();
+    }
+
+    function updateCounters() {
+
+      $("#cartCount").textContent =
+        cart.reduce((sum, item) => sum + item.qty, 0);
+
+      $("#wishCount").textContent = wishlist.length;
+    }
+
+    function toast(message) {
+
+      const el = $("#toast");
+
+      el.textContent = message;
+      el.classList.add("show");
+
+      clearTimeout(window.toastTimer);
+
+      window.toastTimer =
+        setTimeout(() => el.classList.remove("show"), 2200);
+    }
+
+    function addToCart(id) {
+
+      const product = productData[id];
+
+      if (!product) {
+        return;
+      }
+
+      const existing = cart.find(item => item.id === id);
+
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({
+          id: id,
+          qty: 1,
+          type: product.type,
+          image: product.image
+        });
+      }
+
+      saveState();
+      renderCart();
+      toast("ADDED TO YOUR SELECTION");
+    }
+
+    function toggleWishlist(id) {
+
+      if (wishlist.includes(id)) {
+
+        wishlist = wishlist.filter(item => item !== id);
+        toast("REMOVED FROM WISHLIST");
+
+      } else {
+
+        wishlist.push(id);
+        toast("ADDED TO WISHLIST");
+
+      }
+
+      saveState();
+    }
+
+    function renderCart() {
+
+      const container = $("#cartItems");
+
+      if (!cart.length) {
+
+        container.innerHTML =
+          '<div class="empty">Your selection is currently empty.</div>';
+
+        return;
+      }
+
+      container.innerHTML =
+        cart.map(item => `
+
+          <div class="cart-item">
+
+            <div class="cart-item-img">
+              <img src="${item.image}" alt="The Jewelica ${item.type}">
+            </div>
+
+            <div>
+
+              <strong>${item.type}</strong>
+
+              <div class="qty">
+
+                <button
+                  onclick="changeQty('${item.id}',-1)"
+                  aria-label="Decrease quantity">
+                  −
+                </button>
+
+                <span>${item.qty}</span>
+
+                <button
+                  onclick="changeQty('${item.id}',1)"
+                  aria-label="Increase quantity">
+                  +
+                </button>
+
+              </div>
+
+            </div>
+
+            <button
+              class="remove"
+              onclick="removeItem('${item.id}')">
+              REMOVE
+            </button>
+
+          </div>
+
+        `).join("");
+    }
+
+    function changeQty(id, amount) {
+
+      const item = cart.find(x => x.id === id);
+
+      if (!item) {
+        return;
+      }
+
+      item.qty += amount;
+
+      if (item.qty <= 0) {
+        cart = cart.filter(x => x.id !== id);
+      }
+
+      saveState();
+      renderCart();
+    }
+
+    function removeItem(id) {
+
+      cart = cart.filter(item => item.id !== id);
+
+      saveState();
+      renderCart();
+
+      toast("REMOVED FROM SELECTION");
+    }
+
+    function openCart() {
+      $("#cartPanel").classList.add("open");
+    }
+
+    function closeCart() {
+      $("#cartPanel").classList.remove("open");
+    }
+
+    $$(".add-cart").forEach(btn => {
+
+      btn.addEventListener("click", () => {
+        addToCart(btn.dataset.id);
+      });
+
+    });
+
+    $$(".wishlist").forEach(btn => {
+
+      btn.addEventListener("click", () => {
+        toggleWishlist(btn.dataset.id);
+      });
+
+    });
+
+    $$(".quick").forEach(btn => {
+
+      btn.addEventListener("click", () => {
+
+        const product = productData[btn.dataset.id];
+
+        const target = product && product.target
+          ? "product.html#" + product.target
+          : "product.html";
+
+        window.location.href = target;
+
+      });
+
+    });
+
+    $$(".filter").forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        $$(".filter").forEach(
+          b => b.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        $$(".product-card").forEach(card => {
+
+          const show =
+            filter === "all" ||
+            card.dataset.type === filter;
+
+          card.style.display = show ? "block" : "none";
+
+        });
+
+      });
+
+    });
+
+    $("#sortSelect").addEventListener("change", e => {
+
+      const container = $("#products");
+      const cards = $$(".product-card");
+
+      cards.sort((a, b) => {
+
+        const aText =
+          a.querySelector(".product-type").textContent;
+
+        const bText =
+          b.querySelector(".product-type").textContent;
+
+        if (e.target.value === "az") {
+          return aText.localeCompare(bText);
+        }
+
+        if (e.target.value === "za") {
+          return bText.localeCompare(aText);
+        }
+
+        return 0;
+      });
+
+      cards.forEach(card => container.appendChild(card));
+
+    });
+
+    $("#cartBtn").addEventListener("click", () => {
+
+      renderCart();
+      openCart();
+
+    });
+
+    $("#cartClose").addEventListener("click", closeCart);
+
+    $("#menuToggle").addEventListener("click", () => {
+
+      $("#navLinks").classList.toggle("open");
+
+    });
+
+    $$(".nav-links a").forEach(link => {
+
+      link.addEventListener("click", () =>
+        $("#navLinks").classList.remove("open")
+      );
+
+    });
+
+    const searchOverlay = $("#searchOverlay");
+    const searchInput = $("#searchInput");
+    const searchResults = $("#searchResults");
+
+    const searchable = [
+
+      ["Gold Rings", "gold-rings.html"],
+      ["Gold Bracelets", "gold-bracelets.html"],
+      ["Gold Bangles", "gold-bangles.html"],
+      ["Gold Earrings", "gold-earrings.html"],
+      ["Gold Necklace Sets", "gold-necklace-sets.html"],
+      ["Gold Tops", "gold-tops.html"],
+      ["Gold Pendants", "gold-pendants.html"],
+      ["Gold Chains", "gold-chains.html"],
+      ["Gold Locket Sets", "gold-locket-sets.html"],
+      ["Gold Men's Rings", "gold-mens-rings.html"],
+      ["Gold Jewellery Sets", "gold.html"],
+      ["Diamond Rings", "diamond-rings.html"],
+      ["Diamond Men's Rings", "diamond-ring-men.html"],
+      ["Choose Your Stone", "stones.html"],
+      ["Collections", "collections.html"],
+      ["Services", "services.html"],
+      ["Jewellery Care", "care.html"]
+
+    ];
+
+    $("#searchBtn").addEventListener("click", () => {
+
+      searchOverlay.classList.add("open");
+
+      setTimeout(() => searchInput.focus(), 200);
+
+    });
+
+    $("#searchClose").addEventListener("click", () => {
+
+      searchOverlay.classList.remove("open");
+
+      searchInput.value = "";
+      searchResults.innerHTML = "";
+
+    });
+
+    searchInput.addEventListener("input", () => {
+
+      const query =
+        searchInput.value.trim().toLowerCase();
+
+      if (!query) {
+
+        searchResults.innerHTML = "";
+        return;
+
+      }
+
+      const results =
+        searchable.filter(
+          item => item[0].toLowerCase().includes(query)
+        );
+
+      searchResults.innerHTML =
+        results.length
+
+          ? results.map(item => `
+              <button
+                onclick="window.location.href='${item[1]}'">
+                ${item[0]}
+              </button>
+            `).join("")
+
+          : "<p>No matching jewellery found.</p>";
+
+    });
+
+    document.addEventListener("keydown", e => {
+
+      if (e.key === "Escape") {
+
+        searchOverlay.classList.remove("open");
+        closeCart();
+
+      }
+
+    });
+
+    $("#wishlistBtn").addEventListener("click", () => {
+
+      if (!wishlist.length) {
+
+        toast("YOUR WISHLIST IS EMPTY");
+        return;
+
+      }
+
+      toast(
+        wishlist.length +
+        " SAVED ITEM" +
+        (wishlist.length > 1 ? "S" : "")
+      );
+
+    });
+
+    window.addEventListener("scroll", () => {
+
+      $("#backTop").classList.toggle(
+        "show",
+        window.scrollY > 500
+      );
+
+    });
+
+    $("#backTop").addEventListener("click", () => {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      updateCounters();
+      renderCart();
+
+    });
+
+  </script>
+
+</body>
+
+</html>

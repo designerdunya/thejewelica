@@ -780,6 +780,15 @@
       margin-bottom: 7px;
     }
 
+    .whatsapp-link {
+      color: #aaa39a;
+      transition: .25s;
+    }
+
+    .whatsapp-link:hover {
+      color: var(--gold-light);
+    }
+
     .map {
       height: 180px;
       margin-top: 18px;
@@ -894,6 +903,27 @@
 
     .back-top.show {
       display: block;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      box-shadow: 0 8px 22px rgba(23, 21, 19, .22);
+      z-index: 500;
+      transition: .3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.07);
     }
 
     .empty-state {
@@ -1279,10 +1309,199 @@
         font-size: 8px;
       }
     }
+
+    /* Premium inline SVG icon system */
+    .svg-sprite {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden
+    }
+
+    .svg-icon {
+      width: 1.05em;
+      height: 1.05em;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round
+    }
+
+    .nav-btn .svg-icon {
+      width: 17px;
+      height: 17px;
+      margin: auto
+    }
+
+    .menu-toggle .svg-icon {
+      width: 23px;
+      height: 23px
+    }
+
+    .icon-btn .svg-icon {
+      width: 16px;
+      height: 16px;
+      margin: auto
+    }
+
+    .view-btn .svg-icon {
+      width: 13px;
+      height: 13px;
+      display: inline-block;
+      vertical-align: -2px;
+      margin-left: 6px;
+      transition: transform .3s
+    }
+
+    .view-btn:hover .svg-icon {
+      transform: translateX(3px)
+    }
+
+    .back-top .svg-icon {
+      width: 17px;
+      height: 17px;
+      margin: auto
+    }
+
+    .whatsapp-float .svg-icon {
+      width: 25px;
+      height: 25px
+    }
+
+    .search-close .svg-icon {
+      width: 22px;
+      height: 22px
+    }
+
+    .diamond-symbol {
+      position: relative
+    }
+
+    .diamond-symbol .svg-icon {
+      width: 24px;
+      height: 24px;
+      transform: rotate(-45deg);
+      stroke-width: 1.35
+    }
+
+    .section-mark {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 22px
+    }
+
+    .section-mark .svg-icon {
+      width: 34px;
+      height: 34px;
+      color: var(--gold);
+      stroke-width: 1.25
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+      opacity: .55
+    }
+
+    .hero .eyebrow::before,
+    .hero .eyebrow::after {
+      background: var(--gold-light)
+    }
+
+    .editorial-copy .gold-line {
+      position: relative
+    }
+
+    .editorial-copy .gold-line::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -4px;
+      width: 8px;
+      height: 8px;
+      border: 1px solid var(--gold);
+      transform: rotate(45deg);
+      background: var(--cream)
+    }
+
+    .category-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .category-link .svg-icon {
+      width: 13px;
+      height: 13px;
+      stroke-width: 1.35
+    }
+
+    @media(max-width:800px) {
+
+      .eyebrow::before,
+      .eyebrow::after {
+        width: 16px
+      }
+    }
   </style>
 </head>
 
 <body>
+
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-search" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="6.5" />
+      <path d="m16 16 5 5" />
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24">
+      <path d="M20.8 8.6c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.8 4.8 0 0 1 12 6.1a4.8 4.8 0 0 1 8.8 2.5Z" />
+    </symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24">
+      <path d="M5 8.5h14l-1 11H6l-1-11Z" />
+      <path d="M9 9V6.8a3 3 0 0 1 6 0V9" />
+    </symbol>
+    <symbol id="icon-arrow-up-right" viewBox="0 0 24 24">
+      <path d="M7 17 17 7M9 7h8v8" />
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+      <path d="M4 12h15M13 6l6 6-6 6" />
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="m6 6 12 12M18 6 6 18" />
+    </symbol>
+    <symbol id="icon-chevron-up" viewBox="0 0 24 24">
+      <path d="m6 15 6-6 6 6" />
+    </symbol>
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+      <path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.9L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z" />
+      <path
+        d="M8.8 8.3c.3-.4.6-.4.9-.1l1 1.6c.2.3.1.6-.1.8l-.5.5c.6 1.1 1.5 2 2.7 2.6l.5-.5c.2-.2.5-.3.8-.1l1.6 1c.3.2.3.6.1.9-.4.6-1 1-1.7 1-1.1-.1-2.9-1-4.4-2.5-1.5-1.5-2.4-3.3-2.5-4.4 0-.7.4-1.3 1-1.8Z" />
+    </symbol>
+    <symbol id="icon-diamond" viewBox="0 0 24 24">
+      <path d="m12 3 7 7-7 11L5 10l7-7Z" />
+      <path d="m5 10 7 2 7-2M12 3v9" />
+    </symbol>
+    <symbol id="icon-sparkle" viewBox="0 0 24 24">
+      <path
+        d="m12 2 1.7 6.3L20 10l-6.3 1.7L12 18l-1.7-6.3L4 10l6.3-1.7L12 2ZM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z" />
+    </symbol>
+  </svg>
+
 
   <div class="announcement">
     THE JEWELICA — REFINED BEAUTY, MADE TIMELESS
@@ -1312,25 +1531,27 @@
 
       <div class="nav-actions">
 
-        <button class="nav-btn" id="searchBtn" aria-label="Open search">
-          ⌕
-        </button>
+        <button class="nav-btn" id="searchBtn" aria-label="Open search"><svg class="svg-icon">
+            <use href="#icon-search"></use>
+          </svg></button>
 
-        <button class="nav-btn" aria-label="Wishlist">
-          ♡
+        <button class="nav-btn" aria-label="Wishlist"><svg class="svg-icon">
+            <use href="#icon-heart"></use>
+          </svg>
           <span class="count" id="wishlistCount">0</span>
         </button>
 
-        <button class="nav-btn" aria-label="Cart">
-          ♢
+        <button class="nav-btn" aria-label="Cart"><svg class="svg-icon">
+            <use href="#icon-bag"></use>
+          </svg>
           <span class="count" id="cartCount">0</span>
         </button>
 
       </div>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-        ☰
-      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><svg class="svg-icon">
+          <use href="#icon-menu"></use>
+        </svg></button>
 
     </nav>
 
@@ -1384,6 +1605,9 @@
     <section class="section" id="collection">
 
       <div class="intro">
+        <div class="section-mark" aria-hidden="true"><svg class="svg-icon">
+            <use href="#icon-diamond"></use>
+          </svg></div>
 
         <div class="eyebrow">
           Diamond Rings
@@ -1470,13 +1694,14 @@
 
             <div class="product-actions">
 
-              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist">
-                ♡
-              </button>
+              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist"><svg class="svg-icon">
+                  <use href="#icon-heart"></use>
+                </svg></button>
 
-              <button class="icon-btn" onclick="viewProduct('diamond-ring-01')" aria-label="View diamond ring details">
-                ↗
-              </button>
+              <button class="icon-btn" onclick="viewProduct('diamond-ring-01')"
+                aria-label="View diamond ring details"><svg class="svg-icon">
+                  <use href="#icon-arrow-up-right"></use>
+                </svg></button>
 
             </div>
 
@@ -1488,9 +1713,9 @@
               DIAMOND RING
             </span>
 
-            <button class="view-btn" onclick="viewProduct('diamond-ring-01')">
-              View Details
-            </button>
+            <button class="view-btn" onclick="viewProduct('diamond-ring-01')">View Details <svg class="svg-icon">
+                <use href="#icon-arrow-right"></use>
+              </svg></button>
 
           </div>
 
@@ -1509,13 +1734,14 @@
 
             <div class="product-actions">
 
-              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist">
-                ♡
-              </button>
+              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist"><svg class="svg-icon">
+                  <use href="#icon-heart"></use>
+                </svg></button>
 
-              <button class="icon-btn" onclick="viewProduct('diamond-ring-02')" aria-label="View diamond ring details">
-                ↗
-              </button>
+              <button class="icon-btn" onclick="viewProduct('diamond-ring-02')"
+                aria-label="View diamond ring details"><svg class="svg-icon">
+                  <use href="#icon-arrow-up-right"></use>
+                </svg></button>
 
             </div>
 
@@ -1527,9 +1753,9 @@
               DIAMOND RING
             </span>
 
-            <button class="view-btn" onclick="viewProduct('diamond-ring-02')">
-              View Details
-            </button>
+            <button class="view-btn" onclick="viewProduct('diamond-ring-02')">View Details <svg class="svg-icon">
+                <use href="#icon-arrow-right"></use>
+              </svg></button>
 
           </div>
 
@@ -1548,13 +1774,14 @@
 
             <div class="product-actions">
 
-              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist">
-                ♡
-              </button>
+              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist"><svg class="svg-icon">
+                  <use href="#icon-heart"></use>
+                </svg></button>
 
-              <button class="icon-btn" onclick="viewProduct('diamond-ring-03')" aria-label="View diamond ring details">
-                ↗
-              </button>
+              <button class="icon-btn" onclick="viewProduct('diamond-ring-03')"
+                aria-label="View diamond ring details"><svg class="svg-icon">
+                  <use href="#icon-arrow-up-right"></use>
+                </svg></button>
 
             </div>
 
@@ -1566,9 +1793,9 @@
               DIAMOND RING
             </span>
 
-            <button class="view-btn" onclick="viewProduct('diamond-ring-03')">
-              View Details
-            </button>
+            <button class="view-btn" onclick="viewProduct('diamond-ring-03')">View Details <svg class="svg-icon">
+                <use href="#icon-arrow-right"></use>
+              </svg></button>
 
           </div>
 
@@ -1587,13 +1814,14 @@
 
             <div class="product-actions">
 
-              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist">
-                ♡
-              </button>
+              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist"><svg class="svg-icon">
+                  <use href="#icon-heart"></use>
+                </svg></button>
 
-              <button class="icon-btn" onclick="viewProduct('diamond-ring-04')" aria-label="View diamond ring details">
-                ↗
-              </button>
+              <button class="icon-btn" onclick="viewProduct('diamond-ring-04')"
+                aria-label="View diamond ring details"><svg class="svg-icon">
+                  <use href="#icon-arrow-up-right"></use>
+                </svg></button>
 
             </div>
 
@@ -1605,9 +1833,9 @@
               DIAMOND RING
             </span>
 
-            <button class="view-btn" onclick="viewProduct('diamond-ring-04')">
-              View Details
-            </button>
+            <button class="view-btn" onclick="viewProduct('diamond-ring-04')">View Details <svg class="svg-icon">
+                <use href="#icon-arrow-right"></use>
+              </svg></button>
 
           </div>
 
@@ -1626,13 +1854,14 @@
 
             <div class="product-actions">
 
-              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist">
-                ♡
-              </button>
+              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist"><svg class="svg-icon">
+                  <use href="#icon-heart"></use>
+                </svg></button>
 
-              <button class="icon-btn" onclick="viewProduct('diamond-ring-05')" aria-label="View diamond ring details">
-                ↗
-              </button>
+              <button class="icon-btn" onclick="viewProduct('diamond-ring-05')"
+                aria-label="View diamond ring details"><svg class="svg-icon">
+                  <use href="#icon-arrow-up-right"></use>
+                </svg></button>
 
             </div>
 
@@ -1644,9 +1873,9 @@
               DIAMOND RING
             </span>
 
-            <button class="view-btn" onclick="viewProduct('diamond-ring-05')">
-              View Details
-            </button>
+            <button class="view-btn" onclick="viewProduct('diamond-ring-05')">View Details <svg class="svg-icon">
+                <use href="#icon-arrow-right"></use>
+              </svg></button>
 
           </div>
 
@@ -1665,13 +1894,14 @@
 
             <div class="product-actions">
 
-              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist">
-                ♡
-              </button>
+              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist"><svg class="svg-icon">
+                  <use href="#icon-heart"></use>
+                </svg></button>
 
-              <button class="icon-btn" onclick="viewProduct('diamond-ring-06')" aria-label="View diamond ring details">
-                ↗
-              </button>
+              <button class="icon-btn" onclick="viewProduct('diamond-ring-06')"
+                aria-label="View diamond ring details"><svg class="svg-icon">
+                  <use href="#icon-arrow-up-right"></use>
+                </svg></button>
 
             </div>
 
@@ -1683,9 +1913,9 @@
               DIAMOND RING
             </span>
 
-            <button class="view-btn" onclick="viewProduct('diamond-ring-06')">
-              View Details
-            </button>
+            <button class="view-btn" onclick="viewProduct('diamond-ring-06')">View Details <svg class="svg-icon">
+                <use href="#icon-arrow-right"></use>
+              </svg></button>
 
           </div>
 
@@ -1704,13 +1934,14 @@
 
             <div class="product-actions">
 
-              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist">
-                ♡
-              </button>
+              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist"><svg class="svg-icon">
+                  <use href="#icon-heart"></use>
+                </svg></button>
 
-              <button class="icon-btn" onclick="viewProduct('diamond-ring-07')" aria-label="View diamond ring details">
-                ↗
-              </button>
+              <button class="icon-btn" onclick="viewProduct('diamond-ring-07')"
+                aria-label="View diamond ring details"><svg class="svg-icon">
+                  <use href="#icon-arrow-up-right"></use>
+                </svg></button>
 
             </div>
 
@@ -1722,9 +1953,9 @@
               DIAMOND RING
             </span>
 
-            <button class="view-btn" onclick="viewProduct('diamond-ring-07')">
-              View Details
-            </button>
+            <button class="view-btn" onclick="viewProduct('diamond-ring-07')">View Details <svg class="svg-icon">
+                <use href="#icon-arrow-right"></use>
+              </svg></button>
 
           </div>
 
@@ -1743,13 +1974,14 @@
 
             <div class="product-actions">
 
-              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist">
-                ♡
-              </button>
+              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist"><svg class="svg-icon">
+                  <use href="#icon-heart"></use>
+                </svg></button>
 
-              <button class="icon-btn" onclick="viewProduct('diamond-ring-08')" aria-label="View diamond ring details">
-                ↗
-              </button>
+              <button class="icon-btn" onclick="viewProduct('diamond-ring-08')"
+                aria-label="View diamond ring details"><svg class="svg-icon">
+                  <use href="#icon-arrow-up-right"></use>
+                </svg></button>
 
             </div>
 
@@ -1761,9 +1993,9 @@
               DIAMOND RING
             </span>
 
-            <button class="view-btn" onclick="viewProduct('diamond-ring-08')">
-              View Details
-            </button>
+            <button class="view-btn" onclick="viewProduct('diamond-ring-08')">View Details <svg class="svg-icon">
+                <use href="#icon-arrow-right"></use>
+              </svg></button>
 
           </div>
 
@@ -1780,13 +2012,14 @@
 
             <div class="product-actions">
 
-              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist">
-                ♡
-              </button>
+              <button class="icon-btn wishlist" aria-label="Add diamond ring to wishlist"><svg class="svg-icon">
+                  <use href="#icon-heart"></use>
+                </svg></button>
 
-              <button class="icon-btn" onclick="viewProduct('diamond-ring-09')" aria-label="View diamond ring details">
-                ↗
-              </button>
+              <button class="icon-btn" onclick="viewProduct('diamond-ring-09')"
+                aria-label="View diamond ring details"><svg class="svg-icon">
+                  <use href="#icon-arrow-up-right"></use>
+                </svg></button>
 
             </div>
 
@@ -1798,9 +2031,9 @@
               DIAMOND RING
             </span>
 
-            <button class="view-btn" onclick="viewProduct('diamond-ring-09')">
-              View Details
-            </button>
+            <button class="view-btn" onclick="viewProduct('diamond-ring-09')">View Details <svg class="svg-icon">
+                <use href="#icon-arrow-right"></use>
+              </svg></button>
 
           </div>
 
@@ -1871,9 +2104,9 @@
 
     <section class="diamond-note">
 
-      <div class="diamond-symbol">
-        <span>✦</span>
-      </div>
+      <div class="diamond-symbol" aria-hidden="true"><svg class="svg-icon">
+          <use href="#icon-diamond"></use>
+        </svg></div>
 
       <h2>
         Choose Your Stone
@@ -1986,8 +2219,10 @@
           <h4>Visit Us</h4>
 
           <p>The Jewelica Lahore</p>
-          <p>Premium Jewellery District</p>
-          <p>+92 300 0000000</p>
+          <p>Shah Alam Market, Lahore</p>
+          <p>+92 325 6561246</p>
+          <p><a class="whatsapp-link" href="https://wa.me/923256561246" target="_blank" rel="noopener">WhatsApp: 0325
+              6561246</a></p>
           <p>hello@thejewelica.com</p>
           <p>Mon — Sat: 11:00 AM — 8:00 PM</p>
 
@@ -2021,9 +2256,9 @@
 
   <div class="search-overlay" id="searchOverlay">
 
-    <button class="search-close" id="searchClose" aria-label="Close search">
-      ×
-    </button>
+    <button class="search-close" id="searchClose" aria-label="Close search"><svg class="svg-icon">
+        <use href="#icon-close"></use>
+      </svg></button>
 
     <div class="search-box">
 
@@ -2042,9 +2277,14 @@
   </div>
 
 
-  <button class="back-top" id="backTop" aria-label="Back to top">
-    ↑
-  </button>
+  <a class="whatsapp-float" href="https://wa.me/923256561246" target="_blank" rel="noopener"
+    aria-label="Chat on WhatsApp"><svg class="svg-icon">
+      <use href="#icon-whatsapp"></use>
+    </svg></a>
+
+  <button class="back-top" id="backTop" aria-label="Back to top"><svg class="svg-icon">
+      <use href="#icon-chevron-up"></use>
+    </svg></button>
 
 
   <script>

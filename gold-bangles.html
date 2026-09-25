@@ -42,7 +42,8 @@
             scroll-behavior: smooth;
         }
 
-        html, body {
+        html,
+        body {
             max-width: 100%;
             overflow-x: hidden;
         }
@@ -136,6 +137,9 @@
             align-items: center;
             justify-content: center;
             gap: 25px;
+            flex-wrap: nowrap;
+            min-width: 0;
+            flex-shrink: 1;
         }
 
         .nav-links a {
@@ -163,13 +167,65 @@
             width: 100%;
         }
 
+        /* =========================
+   GOLD DROPDOWN
+========================= */
+
+        .nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            min-width: 232px;
+            padding: 10px 0;
+            background: var(--ivory);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: .28s ease;
+            z-index: 1200;
+        }
+
+        .nav-item:hover .dropdown,
+        .nav-item:focus-within .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 9px 20px !important;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: .13em;
+            white-space: nowrap;
+            transition: .25s ease;
+        }
+
+        .dropdown a::after {
+            display: none;
+        }
+
+        .dropdown a:hover {
+            background: var(--cream);
+            color: var(--gold-dark);
+        }
+
         .nav-actions {
             display: flex;
             align-items: center;
             justify-content: flex-end;
             gap: 8px;
             min-width: 0;
-            flex-shrink: 1;
+            flex-shrink: 0;
             white-space: nowrap;
         }
 
@@ -722,7 +778,7 @@
             gap: 50px;
         }
 
-        .footer-grid > div {
+        .footer-grid>div {
             min-width: 0;
         }
 
@@ -1016,6 +1072,33 @@
             visibility: visible;
         }
 
+        /* WHATSAPP FLOAT */
+
+        .whatsapp-float {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            z-index: 900;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: #25D366;
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, .4);
+            transition: .3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-float svg {
+            width: 24px;
+            height: 24px;
+        }
+
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -1025,6 +1108,169 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+   PROFESSIONAL INLINE SVG ICON SYSTEM
+========================= */
+        .icon-svg {
+            width: 18px;
+            height: 18px;
+            display: block;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex: none
+        }
+
+        .icon-svg.sm {
+            width: 15px;
+            height: 15px
+        }
+
+        .icon-svg.lg {
+            width: 22px;
+            height: 22px
+        }
+
+        .icon-svg.gold {
+            color: var(--gold)
+        }
+
+        .icon-btn .icon-svg {
+            width: 17px;
+            height: 17px
+        }
+
+        .product-tools .icon-svg {
+            width: 16px;
+            height: 16px
+        }
+
+        .product-bottom .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px
+        }
+
+        .svg-ornament {
+            width: 42px;
+            height: 42px;
+            margin: 0 auto 18px;
+            color: var(--gold);
+            opacity: .9
+        }
+
+        .svg-ornament svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.1;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .hero-content .svg-ornament {
+            margin: 0 0 22px;
+            width: 48px;
+            height: 48px;
+            color: var(--champagne)
+        }
+
+        .editorial-copy .svg-ornament {
+            margin: 0 0 20px 0;
+            width: 40px;
+            height: 40px
+        }
+
+        .cta .svg-ornament {
+            margin-bottom: 20px
+        }
+
+        .footer h4 {
+            display: flex;
+            align-items: center;
+            gap: 9px
+        }
+
+        .footer h4 .icon-svg {
+            width: 14px;
+            height: 14px
+        }
+
+        .icon-btn,
+        .menu-toggle,
+        .search-close,
+        .back-top {
+            display: grid;
+            place-items: center
+        }
+
+        .search-close .icon-svg,
+        .back-top .icon-svg {
+            width: 18px;
+            height: 18px
+        }
+
+        .product-tools button {
+            line-height: 0
+        }
+
+        .filter {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px
+        }
+
+        .filter .icon-svg {
+            width: 13px;
+            height: 13px
+        }
+
+        .sort-wrap {
+            position: relative;
+            display: flex;
+            align-items: center
+        }
+
+        .sort-wrap .icon-svg {
+            position: absolute;
+            right: 11px;
+            pointer-events: none;
+            width: 14px;
+            height: 14px
+        }
+
+        .sort {
+            appearance: none;
+            padding-right: 34px !important
+        }
+
+        .btn .icon-svg {
+            width: 15px;
+            height: 15px
+        }
+
+        @media(max-width:650px) {
+            .svg-ornament {
+                width: 34px;
+                height: 34px
+            }
+
+            .hero-content .svg-ornament {
+                width: 40px;
+                height: 40px
+            }
+
+            .footer h4 {
+                gap: 7px
             }
         }
 
@@ -1048,15 +1294,36 @@
             min-width: 0;
         }
 
-        @media(max-width:1180px) {
+        /* ---- Desktop/laptop-only fix: keep all nav links on ONE line
+           (no wrap, no overlap) by shrinking gap/font slightly as the
+           window narrows. Mobile menu (<=900px) is untouched. ---- */
+        @media (min-width: 901px) and (max-width: 1440px) {
 
             .nav-links {
-                gap: 15px;
+                gap: 16px;
+            }
+
+            .nav-links a {
+                font-size: 9px;
+            }
+        }
+
+        @media (min-width: 901px) and (max-width: 1250px) {
+
+            .nav-links {
+                gap: 11px;
+            }
+
+            .nav-links a {
+                font-size: 8.3px;
             }
 
             .nav {
                 padding: 0 20px;
             }
+        }
+
+        @media(max-width:1180px) {
 
             .products {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1079,6 +1346,8 @@
                 top: 82px;
                 left: 0;
                 width: 100%;
+                max-height: calc(100vh - 82px);
+                overflow-y: auto;
                 padding: 12px 25px 22px;
                 background: var(--ivory);
                 border-bottom: 1px solid var(--line);
@@ -1098,6 +1367,28 @@
 
             .nav-links a::after {
                 bottom: 6px;
+            }
+
+            .nav-item {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .dropdown {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                min-width: 0;
+                padding: 0 0 10px 14px;
+                background: transparent;
+                border: 0;
+                box-shadow: none;
+            }
+
+            .dropdown a {
+                padding: 10px 0 !important;
+                color: var(--muted);
             }
 
             .hero {
@@ -1137,6 +1428,7 @@
 
             .nav-links {
                 top: 68px;
+                max-height: calc(100vh - 68px);
             }
 
             .logo {
@@ -1282,6 +1574,13 @@
             .cart-panel {
                 padding: 22px;
             }
+
+            .whatsapp-float {
+                width: 44px;
+                height: 44px;
+                left: 14px;
+                bottom: 14px;
+            }
         }
 
         @media(max-width:420px) {
@@ -1350,8 +1649,35 @@
             <div class="nav-links" id="navLinks">
                 <a href="index.html">HOME</a>
                 <a href="shop.html">SHOP</a>
-                <a href="gold.html" class="active">GOLD</a>
-                <a href="diamond.html">DIAMONDS</a>
+
+                <div class="nav-item">
+                    <a href="gold.html" class="active">GOLD</a>
+                    <div class="dropdown">
+                        <a href="gold-jewellery-sets.html">GOLD JEWELLERY SETS</a>
+                        <a href="gold-rings.html">GOLD RINGS</a>
+                        <a href="gold-earrings.html">GOLD EARRINGS</a>
+                        <a href="gold-tops.html">GOLD TOPS</a>
+                        <a href="gold-bangles.html">GOLD BANGLES</a>
+                        <a href="gold-bracelets.html">GOLD BRACELETS</a>
+                        <a href="gold-chains.html">GOLD CHAINS</a>
+                        <a href="gold-pendants.html">GOLD PENDANTS</a>
+                        <a href="gold-necklace-sets.html">GOLD NECKLACE SETS</a>
+                        <a href="gold-locket-sets.html">GOLD LOCKET SETS</a>
+                        <a href="gold-mens-rings.html">GOLD MEN'S RINGS</a>
+                        <a href="gold-silver-bars.html">GOLD &amp; SILVER BARS</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <a href="diamond.html">DIAMONDS</a>
+                    <div class="dropdown">
+                        <a href="diamond-rings.html">DIAMOND RINGS</a>
+                        <a href="diamond-ring-men.html">DIAMOND MEN'S RINGS</a>
+                        <a href="diamond-pendants-nose-pins.html">DIAMOND EARRINGS</a>
+                        <a href="diamond.html">EXPLORE ALL DIAMONDS</a>
+                    </div>
+                </div>
+
                 <a href="collections.html">COLLECTIONS</a>
                 <a href="stones.html">CHOOSE YOUR STONE</a>
                 <a href="trending.html">TRENDING UNIQUES</a>
@@ -1362,26 +1688,33 @@
 
             <div class="nav-actions">
 
-                <button class="icon-btn search-btn" id="searchBtn" aria-label="Open search">⌕</button>
+                <button class="icon-btn search-btn" id="searchBtn" aria-label="Open search"><svg class="icon-svg"
+                        viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                        <path d="m16 16 5 5"></path>
+                    </svg></button>
 
-                <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
-                    ♡
-                    <span class="count" id="wishCount">0</span>
-                </button>
+                <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist"><svg class="icon-svg"
+                        viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                        </path>
+                    </svg><span class="count" id="wishCount">0</span></button>
 
                 <button class="icon-btn" id="cartBtn" aria-label="Shopping bag">
                     <svg class="bag-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M6.5 8.5h11l1 12h-13l1-12Z"
-                            fill="none" stroke="currentColor" stroke-width="1.5"
-                            stroke-linejoin="round"/>
-                        <path d="M9 9V6.5a3 3 0 0 1 6 0V9"
-                            fill="none" stroke="currentColor" stroke-width="1.5"
-                            stroke-linecap="round"/>
+                        <path d="M6.5 8.5h11l1 12h-13l1-12Z" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linejoin="round" />
+                        <path d="M9 9V6.5a3 3 0 0 1 6 0V9" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
                     </svg>
                     <span class="count" id="cartCount">0</span>
                 </button>
 
-                <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Open navigation"><svg class="icon-svg"
+                        viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg></button>
 
             </div>
 
@@ -1398,6 +1731,11 @@
 
             <div class="hero-content">
 
+                <div class="svg-ornament" aria-hidden="true"><svg viewBox="0 0 48 48">
+                        <circle cx="24" cy="24" r="17"></circle>
+                        <path d="M24 7v34M7 24h34M14 14l20 20M34 14 14 34"></path>
+                        <circle cx="24" cy="24" r="4"></circle>
+                    </svg></div>
                 <div class="eyebrow">THE JEWELICA / GOLD COLLECTION</div>
 
                 <h1>GOLD<br>BANGLES</h1>
@@ -1418,6 +1756,11 @@
 
         <section class="intro">
 
+            <div class="svg-ornament" aria-hidden="true"><svg viewBox="0 0 42 42">
+                    <path d="M21 4v34M4 21h34"></path>
+                    <circle cx="21" cy="21" r="8"></circle>
+                    <path d="m15 15 12 12M27 15 15 27"></path>
+                </svg></div>
             <div class="eyebrow">THE GOLD BANGLE EDIT</div>
 
             <h2>Timeless Gold.<br>Quietly Distinct.</h2>
@@ -1439,19 +1782,32 @@
 
                     <div class="filters">
 
-                        <button class="filter active" data-filter="all">ALL</button>
-                        <button class="filter" data-filter="classic">CLASSIC</button>
-                        <button class="filter" data-filter="delicate">DELICATE</button>
-                        <button class="filter" data-filter="statement">STATEMENT</button>
-                        <button class="filter" data-filter="textured">TEXTURED</button>
+                        <button class="filter active" data-filter="all"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M5 5h6v6H5zM13 5h6v6h-6zM5 13h6v6H5zM13 13h6v6h-6z"></path>
+                            </svg>ALL</button>
+                        <button class="filter" data-filter="classic"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="8"></circle>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>CLASSIC</button>
+                        <button class="filter" data-filter="delicate"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M12 3c4 5 7 7.8 7 11a7 7 0 0 1-14 0c0-3.2 3-6 7-11Z"></path>
+                            </svg>DELICATE</button>
+                        <button class="filter" data-filter="statement"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M12 3 15 9l6 .9-4.4 4.3 1 6.1-5.6-2.9-5.6 2.9 1-6.1L3 9.9 9 9l3-6Z"></path>
+                            </svg>STATEMENT</button>
+                        <button class="filter" data-filter="textured"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M5 5h14M5 9h14M5 13h14M5 17h14M5 21h14"></path>
+                            </svg>TEXTURED</button>
 
                     </div>
 
-                    <select class="sort" id="sortSelect" aria-label="Sort jewellery">
-                        <option value="default">SORT: FEATURED</option>
-                        <option value="az">TYPE: A–Z</option>
-                        <option value="za">TYPE: Z–A</option>
-                    </select>
+                    <div class="sort-wrap"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8 6h12M8 12h9M8 18h6M4 5v14M4 19l-2-2M4 19l2-2"></path>
+                        </svg><select class="sort" id="sortSelect" aria-label="Sort jewellery">
+                            <option value="default">SORT: FEATURED</option>
+                            <option value="az">TYPE: A–Z</option>
+                            <option value="za">TYPE: Z–A</option>
+                        </select></div>
 
                 </div>
 
@@ -1465,8 +1821,17 @@
                             <img src="images/bangles (1).png" alt="The Jewelica Gold Bangle">
                         </a>
                         <div class="product-tools">
-                            <button class="wishlist" data-id="gbl01" aria-label="Add bangle to wishlist">♡</button>
-                            <button class="quick" data-id="gbl01" aria-label="View bangle details">⌕</button>
+                            <button class="wishlist" data-id="gbl01" aria-label="Add bangle to wishlist"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                                    </path>
+                                </svg></button>
+                            <button class="quick btn-icon" data-id="gbl01" aria-label="View bangle details"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                    <path d="m16 16 5 5"></path>
+                                </svg></button>
                         </div>
                     </div>
 
@@ -1476,8 +1841,20 @@
                     </div>
 
                     <div class="product-bottom">
-                        <button class="add-cart" data-id="gbl01">ADD TO CART</button>
-                        <button class="quick" data-id="gbl01">VIEW DETAILS</button>
+                        <button class="add-cart btn-icon" data-id="gbl01"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg>ADD TO CART</button>
+                        <button class="quick btn-icon" data-id="gbl01"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg>VIEW DETAILS</button>
                     </div>
                 </article>
 
@@ -1488,8 +1865,17 @@
                             <img src="images/bangles (2).png" alt="The Jewelica Gold Bangle">
                         </a>
                         <div class="product-tools">
-                            <button class="wishlist" data-id="gbl02" aria-label="Add bangle to wishlist">♡</button>
-                            <button class="quick" data-id="gbl02" aria-label="View bangle details">⌕</button>
+                            <button class="wishlist" data-id="gbl02" aria-label="Add bangle to wishlist"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                                    </path>
+                                </svg></button>
+                            <button class="quick btn-icon" data-id="gbl02" aria-label="View bangle details"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                    <path d="m16 16 5 5"></path>
+                                </svg></button>
                         </div>
                     </div>
 
@@ -1499,8 +1885,14 @@
                     </div>
 
                     <div class="product-bottom">
-                        <button class="add-cart" data-id="gbl02">ADD TO CART</button>
-                        <button class="quick" data-id="gbl02">VIEW DETAILS</button>
+                        <button class="add-cart btn-icon" data-id="gbl02"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg>ADD TO CART</button>
+                        <button class="quick btn-icon" data-id="gbl02"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg>VIEW DETAILS</button>
                     </div>
                 </article>
 
@@ -1511,8 +1903,17 @@
                             <img src="images/bangles (3).png" alt="The Jewelica Gold Bangle">
                         </a>
                         <div class="product-tools">
-                            <button class="wishlist" data-id="gbl03" aria-label="Add bangle to wishlist">♡</button>
-                            <button class="quick" data-id="gbl03" aria-label="View bangle details">⌕</button>
+                            <button class="wishlist" data-id="gbl03" aria-label="Add bangle to wishlist"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                                    </path>
+                                </svg></button>
+                            <button class="quick btn-icon" data-id="gbl03" aria-label="View bangle details"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                    <path d="m16 16 5 5"></path>
+                                </svg></button>
                         </div>
                     </div>
 
@@ -1522,8 +1923,14 @@
                     </div>
 
                     <div class="product-bottom">
-                        <button class="add-cart" data-id="gbl03">ADD TO CART</button>
-                        <button class="quick" data-id="gbl03">VIEW DETAILS</button>
+                        <button class="add-cart btn-icon" data-id="gbl03"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg>ADD TO CART</button>
+                        <button class="quick btn-icon" data-id="gbl03"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg>VIEW DETAILS</button>
                     </div>
                 </article>
 
@@ -1534,8 +1941,17 @@
                             <img src="images/bangles (4).png" alt="The Jewelica Gold Bangle">
                         </a>
                         <div class="product-tools">
-                            <button class="wishlist" data-id="gbl04" aria-label="Add bangle to wishlist">♡</button>
-                            <button class="quick" data-id="gbl04" aria-label="View bangle details">⌕</button>
+                            <button class="wishlist" data-id="gbl04" aria-label="Add bangle to wishlist"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                                    </path>
+                                </svg></button>
+                            <button class="quick btn-icon" data-id="gbl04" aria-label="View bangle details"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                    <path d="m16 16 5 5"></path>
+                                </svg></button>
                         </div>
                     </div>
 
@@ -1545,8 +1961,14 @@
                     </div>
 
                     <div class="product-bottom">
-                        <button class="add-cart" data-id="gbl04">ADD TO CART</button>
-                        <button class="quick" data-id="gbl04">VIEW DETAILS</button>
+                        <button class="add-cart btn-icon" data-id="gbl04"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg>ADD TO CART</button>
+                        <button class="quick btn-icon" data-id="gbl04"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg>VIEW DETAILS</button>
                     </div>
                 </article>
 
@@ -1557,8 +1979,17 @@
                             <img src="images/bangles (5).png" alt="The Jewelica Gold Bangle">
                         </a>
                         <div class="product-tools">
-                            <button class="wishlist" data-id="gbl05" aria-label="Add bangle to wishlist">♡</button>
-                            <button class="quick" data-id="gbl05" aria-label="View bangle details">⌕</button>
+                            <button class="wishlist" data-id="gbl05" aria-label="Add bangle to wishlist"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                                    </path>
+                                </svg></button>
+                            <button class="quick btn-icon" data-id="gbl05" aria-label="View bangle details"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                    <path d="m16 16 5 5"></path>
+                                </svg></button>
                         </div>
                     </div>
 
@@ -1568,8 +1999,14 @@
                     </div>
 
                     <div class="product-bottom">
-                        <button class="add-cart" data-id="gbl05">ADD TO CART</button>
-                        <button class="quick" data-id="gbl05">VIEW DETAILS</button>
+                        <button class="add-cart btn-icon" data-id="gbl05"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg>ADD TO CART</button>
+                        <button class="quick btn-icon" data-id="gbl05"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg>VIEW DETAILS</button>
                     </div>
                 </article>
 
@@ -1580,8 +2017,17 @@
                             <img src="images/bangles (6).png" alt="The Jewelica Gold Bangle">
                         </a>
                         <div class="product-tools">
-                            <button class="wishlist" data-id="gbl06" aria-label="Add bangle to wishlist">♡</button>
-                            <button class="quick" data-id="gbl06" aria-label="View bangle details">⌕</button>
+                            <button class="wishlist" data-id="gbl06" aria-label="Add bangle to wishlist"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                                    </path>
+                                </svg></button>
+                            <button class="quick btn-icon" data-id="gbl06" aria-label="View bangle details"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                    <path d="m16 16 5 5"></path>
+                                </svg></button>
                         </div>
                     </div>
 
@@ -1591,8 +2037,14 @@
                     </div>
 
                     <div class="product-bottom">
-                        <button class="add-cart" data-id="gbl06">ADD TO CART</button>
-                        <button class="quick" data-id="gbl06">VIEW DETAILS</button>
+                        <button class="add-cart btn-icon" data-id="gbl06"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg>ADD TO CART</button>
+                        <button class="quick btn-icon" data-id="gbl06"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg>VIEW DETAILS</button>
                     </div>
                 </article>
 
@@ -1603,8 +2055,17 @@
                             <img src="images/bangles (7).png" alt="The Jewelica Gold Bangle">
                         </a>
                         <div class="product-tools">
-                            <button class="wishlist" data-id="gbl07" aria-label="Add bangle to wishlist">♡</button>
-                            <button class="quick" data-id="gbl07" aria-label="View bangle details">⌕</button>
+                            <button class="wishlist" data-id="gbl07" aria-label="Add bangle to wishlist"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                                    </path>
+                                </svg></button>
+                            <button class="quick btn-icon" data-id="gbl07" aria-label="View bangle details"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                    <path d="m16 16 5 5"></path>
+                                </svg></button>
                         </div>
                     </div>
 
@@ -1614,8 +2075,14 @@
                     </div>
 
                     <div class="product-bottom">
-                        <button class="add-cart" data-id="gbl07">ADD TO CART</button>
-                        <button class="quick" data-id="gbl07">VIEW DETAILS</button>
+                        <button class="add-cart btn-icon" data-id="gbl07"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg>ADD TO CART</button>
+                        <button class="quick btn-icon" data-id="gbl07"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg>VIEW DETAILS</button>
                     </div>
                 </article>
 
@@ -1626,8 +2093,17 @@
                             <img src="images/bangles (8).png" alt="The Jewelica Gold Bangle">
                         </a>
                         <div class="product-tools">
-                            <button class="wishlist" data-id="gbl08" aria-label="Add bangle to wishlist">♡</button>
-                            <button class="quick" data-id="gbl08" aria-label="View bangle details">⌕</button>
+                            <button class="wishlist" data-id="gbl08" aria-label="Add bangle to wishlist"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                                    </path>
+                                </svg></button>
+                            <button class="quick btn-icon" data-id="gbl08" aria-label="View bangle details"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                    <path d="m16 16 5 5"></path>
+                                </svg></button>
                         </div>
                     </div>
 
@@ -1637,8 +2113,14 @@
                     </div>
 
                     <div class="product-bottom">
-                        <button class="add-cart" data-id="gbl08">ADD TO CART</button>
-                        <button class="quick" data-id="gbl08">VIEW DETAILS</button>
+                        <button class="add-cart btn-icon" data-id="gbl08"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg>ADD TO CART</button>
+                        <button class="quick btn-icon" data-id="gbl08"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg>VIEW DETAILS</button>
                     </div>
                 </article>
 
@@ -1649,8 +2131,17 @@
                             <img src="images/bangles (9).png" alt="The Jewelica Gold Bangle">
                         </a>
                         <div class="product-tools">
-                            <button class="wishlist" data-id="gbl09" aria-label="Add bangle to wishlist">♡</button>
-                            <button class="quick" data-id="gbl09" aria-label="View bangle details">⌕</button>
+                            <button class="wishlist" data-id="gbl09" aria-label="Add bangle to wishlist"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                                    </path>
+                                </svg></button>
+                            <button class="quick btn-icon" data-id="gbl09" aria-label="View bangle details"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                    <path d="m16 16 5 5"></path>
+                                </svg></button>
                         </div>
                     </div>
 
@@ -1660,8 +2151,14 @@
                     </div>
 
                     <div class="product-bottom">
-                        <button class="add-cart" data-id="gbl09">ADD TO CART</button>
-                        <button class="quick" data-id="gbl09">VIEW DETAILS</button>
+                        <button class="add-cart btn-icon" data-id="gbl09"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg>ADD TO CART</button>
+                        <button class="quick btn-icon" data-id="gbl09"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg>VIEW DETAILS</button>
                     </div>
                 </article>
 
@@ -1672,8 +2169,17 @@
                             <img src="images/bangles (10).png" alt="The Jewelica Gold Bangle">
                         </a>
                         <div class="product-tools">
-                            <button class="wishlist" data-id="gbl10" aria-label="Add bangle to wishlist">♡</button>
-                            <button class="quick" data-id="gbl10" aria-label="View bangle details">⌕</button>
+                            <button class="wishlist" data-id="gbl10" aria-label="Add bangle to wishlist"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                                    </path>
+                                </svg></button>
+                            <button class="quick btn-icon" data-id="gbl10" aria-label="View bangle details"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                    <path d="m16 16 5 5"></path>
+                                </svg></button>
                         </div>
                     </div>
 
@@ -1683,8 +2189,14 @@
                     </div>
 
                     <div class="product-bottom">
-                        <button class="add-cart" data-id="gbl10">ADD TO CART</button>
-                        <button class="quick" data-id="gbl10">VIEW DETAILS</button>
+                        <button class="add-cart btn-icon" data-id="gbl10"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg>ADD TO CART</button>
+                        <button class="quick btn-icon" data-id="gbl10"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg>VIEW DETAILS</button>
                     </div>
                 </article>
 
@@ -1695,8 +2207,17 @@
                             <img src="images/bangles (11).png" alt="The Jewelica Gold Bangle">
                         </a>
                         <div class="product-tools">
-                            <button class="wishlist" data-id="gbl11" aria-label="Add bangle to wishlist">♡</button>
-                            <button class="quick" data-id="gbl11" aria-label="View bangle details">⌕</button>
+                            <button class="wishlist" data-id="gbl11" aria-label="Add bangle to wishlist"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                                    </path>
+                                </svg></button>
+                            <button class="quick btn-icon" data-id="gbl11" aria-label="View bangle details"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                    <path d="m16 16 5 5"></path>
+                                </svg></button>
                         </div>
                     </div>
 
@@ -1706,8 +2227,14 @@
                     </div>
 
                     <div class="product-bottom">
-                        <button class="add-cart" data-id="gbl11">ADD TO CART</button>
-                        <button class="quick" data-id="gbl11">VIEW DETAILS</button>
+                        <button class="add-cart btn-icon" data-id="gbl11"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg>ADD TO CART</button>
+                        <button class="quick btn-icon" data-id="gbl11"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg>VIEW DETAILS</button>
                     </div>
                 </article>
 
@@ -1718,8 +2245,17 @@
                             <img src="images/bangles.png" alt="The Jewelica Gold Bangle">
                         </a>
                         <div class="product-tools">
-                            <button class="wishlist" data-id="gbl12" aria-label="Add bangle to wishlist">♡</button>
-                            <button class="quick" data-id="gbl12" aria-label="View bangle details">⌕</button>
+                            <button class="wishlist" data-id="gbl12" aria-label="Add bangle to wishlist"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.8 8.7c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.7 4.7 0 0 1 8 4c1.5 0 2.9.7 4 2 1.1-1.3 2.5-2 4-2a4.7 4.7 0 0 1 4.8 4.7Z">
+                                    </path>
+                                </svg></button>
+                            <button class="quick btn-icon" data-id="gbl12" aria-label="View bangle details"><svg
+                                    class="icon-svg" viewBox="0 0 24 24">
+                                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                                    <path d="m16 16 5 5"></path>
+                                </svg></button>
                         </div>
                     </div>
 
@@ -1729,8 +2265,14 @@
                     </div>
 
                     <div class="product-bottom">
-                        <button class="add-cart" data-id="gbl12">ADD TO CART</button>
-                        <button class="quick" data-id="gbl12">VIEW DETAILS</button>
+                        <button class="add-cart btn-icon" data-id="gbl12"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M6.5 8.5h11l1 12h-13l1-12Z"></path>
+                                <path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path>
+                            </svg>ADD TO CART</button>
+                        <button class="quick btn-icon" data-id="gbl12"><svg class="icon-svg" viewBox="0 0 24 24">
+                                <path d="M3.5 12s3.1-5 8.5-5 8.5 5 8.5 5-3.1 5-8.5 5-8.5-5-8.5-5Z"></path>
+                                <circle cx="12" cy="12" r="2.2"></circle>
+                            </svg>VIEW DETAILS</button>
                     </div>
                 </article>
 
@@ -1747,6 +2289,10 @@
 
                 <div class="editorial-copy">
 
+                    <div class="svg-ornament" aria-hidden="true"><svg viewBox="0 0 40 40">
+                            <circle cx="20" cy="20" r="14"></circle>
+                            <path d="M20 6c-3 6-3 22 0 28M20 6c3 6 3 22 0 28M6 20h28"></path>
+                        </svg></div>
                     <div class="eyebrow">CRAFTED IN GOLD</div>
 
                     <h2>The Art Of<br>Quiet Detail</h2>
@@ -1767,6 +2313,9 @@
 
         <section class="cta">
 
+            <div class="svg-ornament" aria-hidden="true"><svg viewBox="0 0 42 42">
+                    <path d="M21 4 24 17l13 4-13 4-3 13-3-13-13-4 13-4 3-13Z"></path>
+                </svg></div>
             <div class="eyebrow">THE JEWELICA EXPERIENCE</div>
 
             <h2>Discover Your<br>Expression Of Gold</h2>
@@ -1799,11 +2348,15 @@
 
             <div>
 
-                <h4>QUICK LINKS</h4>
+                <h4><svg class="icon-svg" viewBox="0 0 24 24">
+                        <path d="M4 5h16M4 12h16M4 19h16"></path>
+                    </svg>QUICK LINKS</h4>
 
                 <a href="index.html">Home</a>
                 <a href="shop.html">Shop</a>
                 <a href="gold.html">Gold</a>
+                <a href="gold-jewellery-sets.html">Gold Jewellery Sets</a>
+                <a href="gold-silver-bars.html">Gold &amp; Silver Bars</a>
                 <a href="diamond.html">Diamonds</a>
                 <a href="collections.html">Collections</a>
                 <a href="stones.html">Choose Your Stone</a>
@@ -1817,7 +2370,10 @@
 
             <div>
 
-                <h4>CUSTOMER CARE</h4>
+                <h4><svg class="icon-svg" viewBox="0 0 24 24">
+                        <path d="M12 21s8-4 8-10V5l-8-3-8 3v6c0 6 8 10 8 10Z"></path>
+                        <path d="m8.5 12 2.2 2.2 4.8-5"></path>
+                    </svg>CUSTOMER CARE</h4>
 
                 <a href="care.html">Jewellery Care</a>
                 <a href="faq.html">FAQs</a>
@@ -1830,11 +2386,11 @@
 
                 <p>
                     The Jewelica Lahore<br>
-                    Pakistan
+                    Shah Alam Market, Lahore
                 </p>
 
                 <p>
-                    +92 300 0000000<br>
+                    +92 325 6561246<br>
                     hello@thejewelica.com
                 </p>
 
@@ -1849,7 +2405,13 @@
                 <h4>THE JEWELICA LAHORE</h4>
 
                 <p>
-                    Our future Lahore location will be updated here.
+                    Shah Alam Market, Lahore.
+                </p>
+
+                <p>
+                    <a href="https://wa.me/923256561246" target="_blank" rel="noopener">
+                        WhatsApp: 0325 6561246
+                    </a>
                 </p>
 
                 <div class="map">
@@ -1875,9 +2437,10 @@
 
     <div class="search-overlay" id="searchOverlay">
 
-        <button class="search-close" id="searchClose" aria-label="Close search">
-            ×
-        </button>
+        <button class="search-close" id="searchClose" aria-label="Close search"><svg class="icon-svg"
+                viewBox="0 0 24 24">
+                <path d="M5 5l14 14M19 5 5 19"></path>
+            </svg></button>
 
         <div class="search-label">SEARCH THE JEWELICA</div>
 
@@ -1896,9 +2459,9 @@
 
             <h2>Your Selection</h2>
 
-            <button class="icon-btn" id="cartClose" aria-label="Close cart">
-                ×
-            </button>
+            <button class="icon-btn" id="cartClose" aria-label="Close cart"><svg class="icon-svg" viewBox="0 0 24 24">
+                    <path d="M5 5l14 14M19 5 5 19"></path>
+                </svg></button>
 
         </div>
 
@@ -1914,7 +2477,7 @@
 
             <p class="cart-note">
                 Product details and final consultation information can be requested
-                through THE JEWELICA.
+                through THE JEWELICA. Call or WhatsApp us at +92 325 6561246.
             </p>
 
             <a href="contact.html" class="btn dark" style="width:100%;">
@@ -1929,9 +2492,17 @@
         ADDED TO YOUR SELECTION
     </div>
 
-    <button class="back-top" id="backTop" aria-label="Back to top">
-        ↑
-    </button>
+    <button class="back-top" id="backTop" aria-label="Back to top"><svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M12 19V5M6 11l6-6 6 6"></path>
+        </svg></button>
+
+    <a class="whatsapp-float" href="https://wa.me/923256561246" target="_blank" rel="noopener"
+        aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.48 1.29 4.94L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.83-3.05-.2-.31a8.2 8.2 0 0 1-1.26-4.37c0-4.55 3.71-8.26 8.27-8.26 2.21 0 4.28.86 5.84 2.42a8.2 8.2 0 0 1 2.42 5.85c0 4.55-3.71 8.23-8.27 8.23Zm4.52-6.17c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.13-.17.24-.64.8-.78.96-.14.17-.29.19-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.24-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29Z" />
+        </svg>
+    </a>
 
     <script>
         const productData = {
@@ -2163,19 +2734,11 @@ alt="The Jewelica ${item.type}">
 
 <div class="qty">
 
-<button
-onclick="changeQty('${item.id}',-1)"
-aria-label="Decrease quantity">
-−
-</button>
+<button onclick="changeQty('${item.id}',-1)" aria-label="Decrease quantity"><svg class="icon-svg sm" viewBox="0 0 24 24"><path d="M5 12h14"></path></svg></button>
 
 <span>${item.qty}</span>
 
-<button
-onclick="changeQty('${item.id}',1)"
-aria-label="Increase quantity">
-+
-</button>
+<button onclick="changeQty('${item.id}',1)" aria-label="Increase quantity"><svg class="icon-svg sm" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></button>
 
 </div>
 
@@ -2410,7 +2973,9 @@ REMOVE
 
         const searchable = [
 
+            ["Gold Jewellery Sets", "gold-jewellery-sets.html"],
             ["Gold Rings", "gold-rings.html"],
+            ["Gold Lockets", "gold-locket-sets.html"],
             ["Gold Bracelets", "gold-bracelets.html"],
             ["Gold Bangles", "gold-bangles.html"],
             ["Gold Earrings", "gold-earrings.html"],
@@ -2420,8 +2985,10 @@ REMOVE
             ["Gold Chains", "gold-chains.html"],
             ["Gold Locket Sets", "gold-locket-sets.html"],
             ["Gold Men's Rings", "gold-mens-rings.html"],
-            ["Gold Jewellery Sets", "gold.html"],
+            ["Gold & Silver Bars", "gold-silver-bars.html"],
             ["Diamond Rings", "diamond-rings.html"],
+            ["Diamond Men's Rings", "diamond-ring-men.html"],
+            ["Diamond Earrings", "diamond-pendants-nose-pins.html"],
             ["Choose Your Stone", "stones.html"],
             ["Collections", "collections.html"],
             ["Services", "services.html"],

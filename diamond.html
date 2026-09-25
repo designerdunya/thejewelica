@@ -187,7 +187,24 @@
 
     .drop-trigger span {
       margin-left: 4px;
-      font-size: 9px;
+      display: inline-flex;
+      vertical-align: middle;
+    }
+
+    .chevron-icon {
+      width: 13px;
+      height: 13px;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform var(--transition);
+    }
+
+    .dropdown.open .drop-trigger .chevron-icon {
+      transform: rotate(180deg);
     }
 
     .mega-menu {
@@ -974,6 +991,15 @@
       margin-bottom: 3px;
     }
 
+    .visit-info a.whatsapp-link {
+      color: rgba(255, 255, 255, .68);
+      transition: var(--transition);
+    }
+
+    .visit-info a.whatsapp-link:hover {
+      color: var(--gold-light);
+    }
+
     .map-wrap {
       height: 240px;
       overflow: hidden;
@@ -1114,6 +1140,14 @@
       border: 1px solid var(--border);
       background: transparent;
       cursor: pointer;
+      display: grid;
+      place-items: center;
+      color: var(--espresso);
+    }
+
+    .qty-controls button .ui-icon {
+      width: 12px;
+      height: 12px;
     }
 
     .remove-item {
@@ -1123,6 +1157,14 @@
       color: var(--muted);
       font-size: 9px;
       text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .remove-item .ui-icon {
+      width: 13px;
+      height: 13px;
     }
 
     .cart-footer {
@@ -1183,6 +1225,27 @@
       background: var(--gold);
       color: white;
       box-shadow: 0 10px 22px rgba(185, 154, 91, .35);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      left: 25px;
+      bottom: 25px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      z-index: 800;
+      box-shadow: 0 8px 22px rgba(23, 21, 19, .22);
+      transition: var(--transition);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.07);
     }
 
     /* =========================
@@ -1652,6 +1715,180 @@
         flex: 0 0 30px;
       }
     }
+  
+    /* =========================
+       PROFESSIONAL SVG ICONS
+    ========================== */
+    .ui-icon,
+    .btn-icon,
+    .section-icon,
+    .faq-icon-svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex: 0 0 auto;
+    }
+
+    .nav-icon .ui-icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    .close-search,
+    .cart-close {
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      color: var(--espresso);
+      transition: var(--transition);
+    }
+
+    .close-search:hover,
+    .cart-close:hover {
+      color: var(--gold);
+      transform: rotate(4deg);
+    }
+
+    .close-search .ui-icon,
+    .cart-close .ui-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .menu-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .hero-ornament,
+    .intro-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 0 auto 18px;
+      color: var(--champagne);
+    }
+
+    .hero-ornament::before,
+    .hero-ornament::after,
+    .intro-ornament::before,
+    .intro-ornament::after {
+      content: "";
+      width: 58px;
+      height: 1px;
+      background: currentColor;
+      opacity: .55;
+    }
+
+    .hero-ornament .section-icon,
+    .intro-ornament .section-icon {
+      width: 15px;
+      height: 15px;
+    }
+
+    .intro-ornament {
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .section-title-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title-row .section-icon {
+      width: 23px;
+      height: 23px;
+      color: var(--gold);
+    }
+
+    .category-overlay .category-arrow,
+    .btn .btn-icon {
+      margin-left: 9px;
+    }
+
+    .category-arrow {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      vertical-align: -3px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .product-tool .ui-icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    .mini-btn.add-cart::before {
+      content: none;
+    }
+
+    .mini-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+    }
+
+    .mini-btn .btn-icon {
+      width: 14px;
+      height: 14px;
+    }
+
+    .note-number {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .note-number .section-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-title .section-icon {
+      width: 14px;
+      height: 14px;
+    }
+
+    .whatsapp-float {
+      font-size: 0;
+    }
+
+    .whatsapp-float .ui-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .back-top {
+      display: grid;
+      place-items: center;
+    }
+
+    .back-top .ui-icon {
+      width: 17px;
+      height: 17px;
+    }
+
   </style>
 </head>
 
@@ -1677,7 +1914,7 @@
 
         <div class="dropdown">
           <button class="drop-trigger" type="button" aria-expanded="false">
-            Gold <span>⌄</span>
+            Gold <span aria-hidden="true"><svg class="chevron-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7 9 5 5 5-5"></path></svg></span>
           </button>
 
           <div class="mega-menu">
@@ -1686,6 +1923,7 @@
             <div class="mega-column">
               <a href="gold.html">Gold Collection</a>
               <a href="gold-rings.html">Gold Rings</a>
+              <a href="gold-locket-sets.html">Gold Lockets</a>
               <a href="gold-bracelets.html">Gold Bracelets</a>
               <a href="gold-bangles.html">Gold Bangles</a>
               <a href="gold-earrings.html">Gold Earrings</a>
@@ -1697,14 +1935,14 @@
               <a href="gold-pendants.html">Gold Pendants</a>
               <a href="gold-chains.html">Gold Chains</a>
               <a href="gold-mens-rings.html">Gold Men's Rings</a>
-              <a href="gold">Gold Jewellery Sets</a>
+              <a href="gold-jewellery-sets.html">Gold Jewellery Sets</a>
             </div>
           </div>
         </div>
 
         <div class="dropdown">
           <button class="drop-trigger" type="button" aria-expanded="false">
-            Diamonds <span>⌄</span>
+            Diamonds <span aria-hidden="true"><svg class="chevron-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7 9 5 5 5-5"></path></svg></span>
           </button>
 
           <div class="mega-menu">
@@ -1739,16 +1977,16 @@
       <div class="nav-actions">
 
         <button class="nav-icon" id="searchBtn" aria-label="Search">
-          ⌕
+          <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg>
         </button>
 
         <button class="nav-icon" id="wishlistBtn" aria-label="Wishlist">
-          ♡
+          <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.2S4 15.4 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.8-8 10.6-8 10.6Z"></path></svg>
           <span class="counter" id="wishlistCount">0</span>
         </button>
 
         <button class="nav-icon" id="cartBtn" aria-label="Shopping cart">
-          ◇
+          <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 7 7-7 11L5 10l7-7Z"></path><path d="M5 10h14M9 10l3-7 3 7"></path></svg>
           <span class="counter" id="cartCount">0</span>
         </button>
 
@@ -1772,7 +2010,7 @@
 
       <div class="search-top">
         <h2>Search The Jewelica</h2>
-        <button class="close-search" id="closeSearch" aria-label="Close search">×</button>
+        <button class="close-search" id="closeSearch" aria-label="Close search"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"></path></svg></button>
       </div>
 
       <input type="search" class="search-input" id="searchInput" placeholder="Search diamond jewellery..."
@@ -1795,6 +2033,7 @@
 
       <div class="hero-content reveal">
 
+        <div class="hero-ornament"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2 1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"></path></svg></div>
         <div class="eyebrow">THE JEWELICA / DIAMOND COLLECTION</div>
 
         <h1>Diamonds,<br>Refined.</h1>
@@ -1819,6 +2058,7 @@
 
     <section class="intro reveal">
 
+      <div class="intro-ornament"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 7 7-7 11L5 10l7-7Z"></path><path d="M5 10h14M9 10l3-7 3 7"></path></svg></div>
       <div class="eyebrow" style="color:var(--gold);">THE DIAMOND EDIT</div>
 
       <h2>Light, shaped<br>with intention.</h2>
@@ -1842,7 +2082,7 @@
 
         <div>
           <div class="eyebrow">DISCOVER THE COLLECTION</div>
-          <h2>Diamond Jewellery</h2>
+          <h2 class="section-title-row"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="3"></circle><path d="M8 6.5 10 3h4l2 3.5"></path></svg><span>Diamond Jewellery</span></h2>
         </div>
 
         <p>
@@ -1866,7 +2106,7 @@
             <h3>Diamond Rings</h3>
 
             <!-- ORIGINAL FILE UNCHANGED -->
-            <a href="diamond-rings.html">Explore Category</a>
+            <a href="diamond-rings.html">Explore Category <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></a>
 
           </div>
 
@@ -1884,7 +2124,7 @@
             <h3>Diamond Earrings</h3>
 
             <!-- CHANGED TO DIAMOND MEN'S RINGS FILE -->
-            <a href="diamond-pendants-nose-pins.html">Explore Category</a>
+            <a href="diamond-pendants-nose-pins.html">Explore Category <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></a>
 
           </div>
 
@@ -1902,7 +2142,7 @@
             <h3>Earrings</h3>
 
             <!-- CHANGED TO DIAMOND MEN'S RINGS FILE -->
-            <a href="diamond-pendants-nose-pins.html">Explore Category</a>
+            <a href="diamond-pendants-nose-pins.html">Explore Category <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></a>
 
           </div>
 
@@ -1922,7 +2162,7 @@
 
         <div>
           <div class="eyebrow">SELECTED FOR YOU</div>
-          <h2>Featured Diamonds</h2>
+          <h2 class="section-title-row"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 7 7-7 11L5 10l7-7Z"></path><path d="M5 10h14M9 10l3-7 3 7"></path></svg><span>Featured Diamonds</span></h2>
         </div>
 
         <p>
@@ -1963,7 +2203,7 @@
               <button class="product-tool wishlist-product"
                 data-id="diamond-ring-02"
                 aria-label="Add Diamond Ring to wishlist">
-                ♡
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.2S4 15.4 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.8-8 10.6-8 10.6Z"></path></svg>
               </button>
             </div>
 
@@ -1983,7 +2223,7 @@
               data-type="DIAMOND RING"
               data-category="Diamond Jewellery"
               data-image="images/ladies diamond ring (2).png">
-              Add To Cart
+              <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 7 7-7 11L5 10l7-7Z"></path><path d="M5 10h14M9 10l3-7 3 7"></path></svg>Add To Cart
             </button>
 
             <a href="product.html#diamond-ring-02"
@@ -2011,7 +2251,7 @@
               <button class="product-tool wishlist-product"
                 data-id="diamond-mens-ring-02"
                 aria-label="Add Diamond Ring to wishlist">
-                ♡
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.2S4 15.4 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.8-8 10.6-8 10.6Z"></path></svg>
               </button>
             </div>
 
@@ -2031,7 +2271,7 @@
               data-type="DIAMOND RING"
               data-category="Diamond Jewellery"
               data-image="images/men diamond ring (2).png">
-              Add To Cart
+              <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 7 7-7 11L5 10l7-7Z"></path><path d="M5 10h14M9 10l3-7 3 7"></path></svg>Add To Cart
             </button>
 
             <a href="product.html#diamond-mens-ring-02"
@@ -2059,7 +2299,7 @@
               <button class="product-tool wishlist-product"
                 data-id="diamond-earing-01"
                 aria-label="Add Diamond Earrings to wishlist">
-                ♡
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.2S4 15.4 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.8-8 10.6-8 10.6Z"></path></svg>
               </button>
             </div>
 
@@ -2079,7 +2319,7 @@
               data-type="DIAMOND EARRINGS"
               data-category="Diamond Jewellery"
               data-image="images/diamond earring (1).png">
-              Add To Cart
+              <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 7 7-7 11L5 10l7-7Z"></path><path d="M5 10h14M9 10l3-7 3 7"></path></svg>Add To Cart
             </button>
 
             <a href="product.html#diamond-earing-01"
@@ -2107,7 +2347,7 @@
               <button class="product-tool wishlist-product"
                 data-id="diamond-earing-02"
                 aria-label="Add Diamond Earrings to wishlist">
-                ♡
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.2S4 15.4 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.8-8 10.6-8 10.6Z"></path></svg>
               </button>
             </div>
 
@@ -2127,7 +2367,7 @@
               data-type="DIAMOND EARRINGS"
               data-category="Diamond Jewellery"
               data-image="images/diamond earring (2).png">
-              Add To Cart
+              <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 7 7-7 11L5 10l7-7Z"></path><path d="M5 10h14M9 10l3-7 3 7"></path></svg>Add To Cart
             </button>
 
             <a href="product.html#diamond-earing-02"
@@ -2155,7 +2395,7 @@
               <button class="product-tool wishlist-product"
                 data-id="diamond-mens-ring-01"
                 aria-label="Add Diamond Pendant to wishlist">
-                ♡
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.2S4 15.4 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.8-8 10.6-8 10.6Z"></path></svg>
               </button>
             </div>
 
@@ -2175,7 +2415,7 @@
               data-type="DIAMOND PENDANT"
               data-category="Diamond Jewellery"
               data-image="images/men diamond ring.png">
-              Add To Cart
+              <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 7 7-7 11L5 10l7-7Z"></path><path d="M5 10h14M9 10l3-7 3 7"></path></svg>Add To Cart
             </button>
 
             <a href="product.html#diamond-mens-ring-01"
@@ -2203,7 +2443,7 @@
               <button class="product-tool wishlist-product"
                 data-id="diamond-ring-04"
                 aria-label="Add Diamond Pendant to wishlist">
-                ♡
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.2S4 15.4 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.8-8 10.6-8 10.6Z"></path></svg>
               </button>
             </div>
 
@@ -2223,7 +2463,7 @@
               data-type="DIAMOND PENDANT"
               data-category="Diamond Jewellery"
               data-image="images/ladies diamond ring (4).png">
-              Add To Cart
+              <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 7 7-7 11L5 10l7-7Z"></path><path d="M5 10h14M9 10l3-7 3 7"></path></svg>Add To Cart
             </button>
 
             <a href="product.html#diamond-ring-04"
@@ -2251,7 +2491,7 @@
               <button class="product-tool wishlist-product"
                 data-id="diamond-ring-03"
                 aria-label="Add Diamond Nose Pin to wishlist">
-                ♡
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.2S4 15.4 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.8-8 10.6-8 10.6Z"></path></svg>
               </button>
             </div>
 
@@ -2271,7 +2511,7 @@
               data-type="NOSE PIN"
               data-category="Diamond Jewellery"
               data-image="images/ladies diamond ring (3).png">
-              Add To Cart
+              <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 7 7-7 11L5 10l7-7Z"></path><path d="M5 10h14M9 10l3-7 3 7"></path></svg>Add To Cart
             </button>
 
             <a href="product.html#diamond-ring-03"
@@ -2299,7 +2539,7 @@
               <button class="product-tool wishlist-product"
                 data-id="diamond-ring-06"
                 aria-label="Add Diamond Pendant to wishlist">
-                ♡
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.2S4 15.4 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.8-8 10.6-8 10.6Z"></path></svg>
               </button>
             </div>
 
@@ -2319,7 +2559,7 @@
               data-type="DIAMOND PENDANT"
               data-category="Diamond Jewellery"
               data-image="images/ladies diamond ring (6).png">
-              Add To Cart
+              <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 7 7-7 11L5 10l7-7Z"></path><path d="M5 10h14M9 10l3-7 3 7"></path></svg>Add To Cart
             </button>
 
             <a href="product.html#diamond-ring-06"
@@ -2398,7 +2638,7 @@
       <div class="note-grid">
 
         <article class="note reveal">
-          <div class="note-number">01</div>
+          <div class="note-number"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2 1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"></path></svg>01</div>
           <h3>Cut</h3>
           <p>
             The proportions and finish of a diamond influence how beautifully
@@ -2407,7 +2647,7 @@
         </article>
 
         <article class="note reveal">
-          <div class="note-number">02</div>
+          <div class="note-number"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2 1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"></path></svg>02</div>
           <h3>Clarity</h3>
           <p>
             Clarity describes the natural characteristics observed within
@@ -2416,7 +2656,7 @@
         </article>
 
         <article class="note reveal">
-          <div class="note-number">03</div>
+          <div class="note-number"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2 1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"></path></svg>03</div>
           <h3>Colour</h3>
           <p>
             Diamond colour ranges across subtle tones, contributing to the
@@ -2425,7 +2665,7 @@
         </article>
 
         <article class="note reveal">
-          <div class="note-number">04</div>
+          <div class="note-number"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2 1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"></path></svg>04</div>
           <h3>Carat</h3>
           <p>
             Carat refers to diamond weight and is considered alongside the
@@ -2559,7 +2799,7 @@
       <button class="cart-close"
         id="cartClose"
         aria-label="Close cart">
-        ×
+        <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"></path></svg>
       </button>
     </div>
 
@@ -2671,12 +2911,17 @@
 
           <div>
             <strong>Address</strong>
-            Lahore, Pakistan
+            Shah Alam Market, Lahore
           </div>
 
           <div>
             <strong>Phone</strong>
-            +92 300 0000000
+            +92 325 6561246
+          </div>
+
+          <div>
+            <strong>WhatsApp</strong>
+            <a class="whatsapp-link" href="https://wa.me/923256561246" target="_blank" rel="noopener">0325 6561246</a>
           </div>
 
           <div>
@@ -2695,9 +2940,7 @@
 
       <div>
 
-        <div class="footer-title">
-          The Jewelica Lahore
-        </div>
+        <div class="footer-title"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2 1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"></path></svg><span>The Jewelica Lahore</span></div>
 
         <div class="map-wrap">
 
@@ -2731,10 +2974,12 @@
 
   </footer>
 
+  <a class="whatsapp-float" href="https://wa.me/923256561246" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"></path><path d="M9 8.5c.3 1.7 2 3.7 3.8 4.5.7.3 1.2.2 1.6-.2l.6-.7"></path></svg></a>
+
   <button class="back-top"
     id="backTop"
     aria-label="Back to top">
-    ↑
+    <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5"></path><path d="m6 11 6-6 6 6"></path></svg>
   </button>
 
   <!-- =========================
@@ -2925,6 +3170,12 @@
         name: "Gold Jewellery",
         type: "Collection",
         url: "gold.html"
+      },
+
+      {
+        name: "Gold Jewellery Sets",
+        type: "Category",
+        url: "gold-jewellery-sets.html"
       },
 
       {
@@ -3278,7 +3529,7 @@
                   type="button"
                   onclick="changeQuantity('${item.id}', -1)"
                   aria-label="Decrease quantity">
-                  −
+                  <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"></path></svg>
                 </button>
 
                 <span>
@@ -3289,7 +3540,7 @@
                   type="button"
                   onclick="changeQuantity('${item.id}', 1)"
                   aria-label="Increase quantity">
-                  +
+                  <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
                 </button>
 
               </div>
@@ -3299,8 +3550,10 @@
             <button
               class="remove-item"
               type="button"
-              onclick="removeFromCart('${item.id}')">
-              Remove
+              onclick="removeFromCart('${item.id}')"
+              aria-label="Remove item">
+              <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 7h14M10 7V4h4v3M8 7l1 13h6l1-13"></path><path d="M10 11v5M14 11v5"></path></svg>
+              <span>Remove</span>
             </button>
 
           </div>
@@ -3412,14 +3665,14 @@
           });
 
 
-          button.textContent =
-            "Added ✓";
+          button.innerHTML =
+            '<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"></path></svg> Added';
 
 
           setTimeout(() => {
 
-            button.textContent =
-              "Add To Cart";
+            button.innerHTML =
+              '<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 7 7-7 11L5 10l7-7Z"></path><path d="M5 10h14M9 10l3-7 3 7"></path></svg> Add To Cart';
 
           }, 1200);
 
@@ -3470,7 +3723,7 @@
           "active"
         );
 
-        button.textContent = "♥";
+        button.innerHTML = '<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.2S4 15.4 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.8-8 10.6-8 10.6Z"></path></svg>';
 
       } else {
 
@@ -3483,7 +3736,7 @@
           "active"
         );
 
-        button.textContent = "♡";
+        button.innerHTML = '<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.2S4 15.4 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.8-8 10.6-8 10.6Z"></path></svg>';
 
       }
 
@@ -3509,7 +3762,7 @@
           "active"
         );
 
-        button.textContent = "♥";
+        button.innerHTML = '<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.2S4 15.4 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.8-8 10.6-8 10.6Z"></path></svg>';
 
       }
 

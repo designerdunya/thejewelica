@@ -89,6 +89,39 @@
       max-width: 100%;
     }
 
+    .icon {
+      display: block;
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      max-width: none;
+    }
+
+    .nav-dropdown button .icon {
+      width: 14px;
+      height: 14px;
+      transition: transform .25s ease;
+    }
+
+    .nav-dropdown:hover button .icon {
+      transform: rotate(180deg);
+    }
+
+    .mobile-nav .icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .education-item button .icon {
+      width: 17px;
+      height: 17px;
+      transition: transform .3s ease;
+    }
+
+    .education-item.open button .icon {
+      transform: rotate(45deg);
+    }
+
     input,
     select,
     textarea {
@@ -206,12 +239,13 @@
       gap: 6px;
     }
 
-    .nav-dropdown button span {
-      font-size: 9px;
+    .nav-dropdown button .icon {
+      width: 14px;
+      height: 14px;
       transition: transform .25s ease;
     }
 
-    .nav-dropdown:hover button span {
+    .nav-dropdown:hover button .icon {
       transform: rotate(180deg);
     }
 
@@ -823,13 +857,13 @@
       text-transform: uppercase;
     }
 
-    .education-item button span {
-      font-size: 17px;
-      font-weight: 300;
+    .education-item button .icon {
+      width: 17px;
+      height: 17px;
       transition: transform .3s ease;
     }
 
-    .education-item.open button span {
+    .education-item.open button .icon {
       transform: rotate(45deg);
     }
 
@@ -1777,11 +1811,12 @@
 
         <div class="nav-dropdown">
           <button type="button" aria-haspopup="true">
-            Gold <span>⌄</span>
+            Gold <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="dropdown-menu">
             <a href="gold.html">Gold Jewellery</a>
             <a href="gold-rings.html">Gold Rings</a>
+            <a href="gold-locket-sets.html">Gold Lockets</a>
             <a href="gold-bracelets.html">Gold Bracelets</a>
             <a href="gold-bangles.html">Gold Bangles</a>
             <a href="gold-earrings.html">Gold Earrings</a>
@@ -1796,7 +1831,7 @@
 
         <div class="nav-dropdown">
           <button type="button" aria-haspopup="true">
-            Diamonds <span>⌄</span>
+            Diamonds <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="dropdown-menu">
             <a href="diamond.html">Diamond Jewellery</a>
@@ -1818,26 +1853,26 @@
 
         <div class="action-wrap">
           <button class="nav-action" id="searchBtn" aria-label="Search">
-            ⌕
+            <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           </button>
         </div>
 
         <div class="action-wrap">
           <button class="nav-action" id="wishlistBtn" aria-label="Wishlist">
-            ♡
+            <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M20.8 8.8c0 5.2-8.8 10.2-8.8 10.2S3.2 14 3.2 8.8C3.2 5.9 5.2 4 7.8 4c1.5 0 2.9.7 4.2 2 1.3-1.3 2.7-2 4.2-2 2.6 0 4.6 1.9 4.6 4.8Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
           </button>
           <span class="counter" id="wishlistCounter">0</span>
         </div>
 
         <div class="action-wrap">
           <button class="nav-action" id="cartBtn" aria-label="Cart">
-            ◇
+            <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 5h2l1.6 9.2h9.9L20 8H7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.2" cy="18.2" r="1.1" fill="currentColor"/><circle cx="17.2" cy="18.2" r="1.1" fill="currentColor"/></svg>
           </button>
           <span class="counter" id="cartCounter">0</span>
         </div>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
-          ☰
+          <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         </button>
 
       </div>
@@ -1851,11 +1886,12 @@
     <a href="shop.html">Shop</a>
 
     <button type="button" id="mobileGoldToggle">
-      Gold Jewellery <span style="float:right;">+</span>
+      Gold Jewellery <span style="float:right;"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
     </button>
 
     <div class="mobile-submenu" id="mobileGoldMenu">
       <a href="gold.html">Gold Jewellery</a>
+      <a href="gold-locket-sets.html">Gold Lockets</a>
       <a href="gold-rings.html">Gold Rings</a>
       <a href="gold-bracelets.html">Gold Bracelets</a>
       <a href="gold-bangles.html">Gold Bangles</a>
@@ -1869,7 +1905,7 @@
     </div>
 
     <button type="button" id="mobileDiamondToggle">
-      Diamonds <span style="float:right;">+</span>
+      Diamonds <span style="float:right;"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
     </button>
 
     <div class="mobile-submenu" id="mobileDiamondMenu">
@@ -1892,7 +1928,7 @@
 
   <!-- SEARCH -->
   <div class="search-overlay" id="searchOverlay">
-    <button class="search-close" id="searchClose" aria-label="Close Search">×</button>
+    <button class="search-close" id="searchClose" aria-label="Close Search"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
 
     <div class="search-box">
       <div class="search-label">Explore The Jewelica</div>
@@ -1925,7 +1961,7 @@
 
         <a href="#stones" class="hero-button">
           Explore Stones
-          <span>→</span>
+          <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
 
         <div class="hero-orbit" aria-hidden="true">
@@ -2010,9 +2046,9 @@
               appeal, the diamond remains a timeless expression of light.
             </p>
 
-            <a class="stone-link" href="diamond.html">
+            <a class="stone-link" href="product.html#stone-01">
               Explore Diamond
-              <span>→</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
@@ -2030,9 +2066,9 @@
               and naturally dramatic presence.
             </p>
 
-            <a class="stone-link" href="shop.html">
+            <a class="stone-link" href="product.html#stone-02">
               Explore Ruby
-              <span>→</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
@@ -2050,9 +2086,9 @@
               sophisticated depth to jewellery compositions.
             </p>
 
-            <a class="stone-link" href="shop.html">
+            <a class="stone-link" href="product.html#stone-03">
               Explore Emerald
-              <span>→</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
@@ -2070,9 +2106,9 @@
               colour and enduring place in fine jewellery.
             </p>
 
-            <a class="stone-link" href="shop.html">
+            <a class="stone-link" href="product.html#stone-04">
               Explore Sapphire
-              <span>→</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
@@ -2090,9 +2126,9 @@
               amethyst brings a graceful sense of colour.
             </p>
 
-            <a class="stone-link" href="shop.html">
+            <a class="stone-link" href="product.html#stone-05">
               Explore Amethyst
-              <span>→</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
@@ -2110,9 +2146,9 @@
               light and tranquil quality to jewellery.
             </p>
 
-            <a class="stone-link" href="shop.html">
+            <a class="stone-link" href="product.html#stone-06">
               Explore Aquamarine
-              <span>→</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
@@ -2130,9 +2166,9 @@
               and broad spectrum of beautiful colour.
             </p>
 
-            <a class="stone-link" href="shop.html">
+            <a class="stone-link" href="product.html#stone-07">
               Explore Topaz
-              <span>→</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
@@ -2150,9 +2186,9 @@
               an expressive alternative to traditional gemstone palettes.
             </p>
 
-            <a class="stone-link" href="shop.html">
+            <a class="stone-link" href="product.html#stone-08">
               Explore Garnet
-              <span>→</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
@@ -2170,9 +2206,9 @@
               understated sophistication to fine jewellery.
             </p>
 
-            <a class="stone-link" href="shop.html">
+            <a class="stone-link" href="product.html#stone-09">
               Explore Pearl
-              <span>→</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
@@ -2190,9 +2226,9 @@
               distinctive visual movement.
             </p>
 
-            <a class="stone-link" href="shop.html">
+            <a class="stone-link" href="product.html#stone-10">
               Explore Opal
-              <span>→</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
@@ -2210,9 +2246,9 @@
               expressive choice for distinctive jewellery designs.
             </p>
 
-            <a class="stone-link" href="shop.html">
+            <a class="stone-link" href="product.html#stone-11">
               Explore Tourmaline
-              <span>→</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
@@ -2230,9 +2266,9 @@
               and distinctive presence.
             </p>
 
-            <a class="stone-link" href="shop.html">
+            <a class="stone-link" href="product.html#stone-12">
               Explore Tanzanite
-              <span>→</span>
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h13M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
@@ -2266,7 +2302,7 @@
             <div class="education-item">
               <button type="button">
                 Colour & Tone
-                <span>+</span>
+                <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
               </button>
               <div class="education-answer">
                 <p>
@@ -2280,7 +2316,7 @@
             <div class="education-item">
               <button type="button">
                 Clarity & Character
-                <span>+</span>
+                <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
               </button>
               <div class="education-answer">
                 <p>
@@ -2294,7 +2330,7 @@
             <div class="education-item">
               <button type="button">
                 Cut & Light
-                <span>+</span>
+                <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
               </button>
               <div class="education-answer">
                 <p>
@@ -2308,7 +2344,7 @@
             <div class="education-item">
               <button type="button">
                 Choosing For Jewellery
-                <span>+</span>
+                <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
               </button>
               <div class="education-answer">
                 <p>
@@ -2452,8 +2488,8 @@
 
         <div class="footer-contact">
           The Jewelica Lahore<br>
-          Lahore, Pakistan<br>
-          +92 300 0000000<br>
+          Shah Alam Market, Lahore<br>
+          +92 325 6561246<br>
           hello@thejewelica.example<br>
           Monday – Saturday<br>
           11:00 AM – 8:00 PM
@@ -2481,7 +2517,7 @@
 
     <div class="cart-head">
       <h3>Your Cart</h3>
-      <button class="cart-close" id="cartClose" aria-label="Close Cart">×</button>
+      <button class="cart-close" id="cartClose" aria-label="Close Cart"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     </div>
 
     <div class="cart-items" id="cartItems"></div>
@@ -2500,7 +2536,7 @@
 
   <!-- BACK TO TOP -->
   <button class="back-top" id="backTop" aria-label="Back to Top">
-    ↑
+    <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 19V5M7 10l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
 
   <script>
@@ -2558,18 +2594,18 @@
     const searchResults = document.getElementById("searchResults");
 
     const searchItems = [
-      { name: "Diamond", url: "diamond.html" },
-      { name: "Ruby", url: "shop.html" },
-      { name: "Emerald", url: "shop.html" },
-      { name: "Sapphire", url: "shop.html" },
-      { name: "Amethyst", url: "shop.html" },
-      { name: "Aquamarine", url: "shop.html" },
-      { name: "Topaz", url: "shop.html" },
-      { name: "Garnet", url: "shop.html" },
-      { name: "Pearl", url: "shop.html" },
-      { name: "Opal", url: "shop.html" },
-      { name: "Tourmaline", url: "shop.html" },
-      { name: "Tanzanite", url: "shop.html" },
+      { name: "Diamond", url: "product.html#stone-01" },
+      { name: "Ruby", url: "product.html#stone-02" },
+      { name: "Emerald", url: "product.html#stone-03" },
+      { name: "Sapphire", url: "product.html#stone-04" },
+      { name: "Amethyst", url: "product.html#stone-05" },
+      { name: "Aquamarine", url: "product.html#stone-06" },
+      { name: "Topaz", url: "product.html#stone-07" },
+      { name: "Garnet", url: "product.html#stone-08" },
+      { name: "Pearl", url: "product.html#stone-09" },
+      { name: "Opal", url: "product.html#stone-10" },
+      { name: "Tourmaline", url: "product.html#stone-11" },
+      { name: "Tanzanite", url: "product.html#stone-12" },
       { name: "Gold Jewellery", url: "gold.html" },
       { name: "Diamond Jewellery", url: "diamond.html" },
       { name: "Collections", url: "collections.html" },

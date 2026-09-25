@@ -75,6 +75,66 @@
       max-width: 100%;
     }
 
+    /* PROFESSIONAL INLINE SVG ICON SYSTEM */
+    .svg-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .nav-icon .svg-icon { width: 17px; height: 17px; }
+    .mobile-toggle .svg-icon { width: 23px; height: 23px; }
+    .wish .svg-icon { width: 17px; height: 17px; margin: auto; }
+    .wish.active .svg-icon { fill: currentColor; }
+    .mini-btn .svg-icon { width: 12px; height: 12px; display: inline-block; margin-right: 6px; vertical-align: -2px; }
+    .btn .svg-icon { width: 15px; height: 15px; margin-left: 9px; }
+    .search-close .svg-icon,
+    .cart-close .svg-icon { width: 20px; height: 20px; }
+    .back-top .svg-icon { width: 16px; height: 16px; }
+
+    .hero-ornament,
+    .section-ornament,
+    .cta-ornament {
+      position: absolute;
+      pointer-events: none;
+      color: var(--gold);
+      opacity: .72;
+    }
+
+    .hero-ornament {
+      width: 170px;
+      height: 170px;
+      right: 4%;
+      top: 8%;
+      opacity: .24;
+      z-index: 1;
+    }
+
+    .section-ornament,
+    .cta-ornament {
+      width: 76px;
+      height: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      position: relative;
+      display: block;
+      margin: 0 auto 24px;
+    }
+
+    .craft-mark {
+      width: 62px;
+      height: 62px;
+      display: block;
+      margin: 0 auto 22px;
+      color: var(--gold-dark);
+      opacity: .78;
+    }
+
     img {
       display: block;
       width: 100%;
@@ -1186,7 +1246,9 @@
 
       <a href="index.html" class="brand">THE JEWELICA</a>
 
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">☰</button>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+        <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
 
       <nav class="nav-links" id="navLinks">
 
@@ -1209,6 +1271,7 @@
             <a href="gold-locket-sets.html">GOLD LOCKET SETS</a>
             <a href="gold-mens-rings.html">GOLD MEN'S RINGS</a>
             <a href="gold-jewellery-sets.html">GOLD JEWELLERY SETS</a>
+            <a href="gold-silver-bars.html">GOLD &amp; SILVER BARS</a>
           </div>
         </div>
 
@@ -1217,6 +1280,7 @@
           <div class="dropdown-menu">
             <a href="diamond.html">DIAMOND JEWELLERY</a>
             <a href="diamond-rings.html">DIAMOND RINGS</a>
+            <a href="diamond-ring-men.html">DIAMOND MEN'S RINGS</a>
             <a href="diamond-earrings.html">DIAMOND EARRINGS</a>
             <a href="diamond-pendants-nose-pins.html">DIAMOND PENDANTS / NOSE PINS</a>
           </div>
@@ -1232,15 +1296,17 @@
       </nav>
 
       <div class="nav-actions">
-        <button class="nav-icon" id="searchBtn" aria-label="Search">⌕</button>
+        <button class="nav-icon" id="searchBtn" aria-label="Search">
+          <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+        </button>
 
         <button class="nav-icon" id="wishlistBtn" aria-label="Wishlist">
-          ♡
+          <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg>
           <span class="count" id="wishlistCount">0</span>
         </button>
 
         <button class="nav-icon" id="cartBtn" aria-label="Cart">
-          ♧
+          <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
           <span class="count" id="cartCount">0</span>
         </button>
       </div>
@@ -1265,7 +1331,9 @@
         </p>
 
         <div>
-          <a href="#collection" class="btn">EXPLORE THE COLLECTION</a>
+          <a href="#collection" class="btn">EXPLORE THE COLLECTION
+            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
       </div>
 
@@ -1322,13 +1390,13 @@
         <article class="product-card" data-category="classic" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (1).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-01" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-01" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-01">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-01">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-01"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-01"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
@@ -1337,13 +1405,13 @@
         <article class="product-card" data-category="occasion" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (2).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-02" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-02" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-02">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-02">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-02"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-02"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
@@ -1352,13 +1420,13 @@
         <article class="product-card" data-category="bridal" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (3).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-03" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-03" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-03">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-03">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-03"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-03"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
@@ -1367,13 +1435,13 @@
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (4).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-04" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-04" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-04">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-04">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-04"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-04"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
@@ -1382,13 +1450,13 @@
         <article class="product-card" data-category="classic" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (5).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-05" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-05" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-05">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-05">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-05"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-05"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
@@ -1397,13 +1465,13 @@
         <article class="product-card" data-category="occasion" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (6).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-06" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-06" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-06">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-06">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-06"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-06"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
@@ -1412,13 +1480,13 @@
         <article class="product-card" data-category="bridal" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (7).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-07" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-07" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-07">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-07">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-07"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-07"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
@@ -1427,169 +1495,169 @@
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (8).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-08" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-08" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-08">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-08">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-08"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-08"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (9).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-09" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-09" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-09">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-09">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-09"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-09"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (10).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-10" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-10" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-10">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-10">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-10"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-10"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (11).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-11" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-11" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-11">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-11">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-11"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-11"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (12).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-12" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-12" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-12">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-12">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-12"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-12"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (13).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-13" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-13" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-13">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-13">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-13"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-13"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (14).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-14" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-14" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-14">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-14">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-14"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-14"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (15).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-15" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-15" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-15">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-15">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-15"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-15"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (16).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-16" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-16" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-16">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-16">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-16"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-16"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (17).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-17" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-17" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-17">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-17">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-17"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-17"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (18).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-18" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-18" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-18">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-18">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-18"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-18"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (19).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-19" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-19" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-19">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-19">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-19"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-19"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
         <article class="product-card" data-category="everyday" data-type="necklace set">
           <div class="product-image">
             <img src="images/necklace (20).png" alt="The Jewelica Gold Necklace Set">
-            <button class="wish" data-id="necklace-20" aria-label="Add to wishlist">♡</button>
+            <button class="wish" data-id="necklace-20" aria-label="Add to wishlist"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg></button>
           </div>
           <div class="product-info">
             <span class="product-type">NECKLACE SET</span>
             <div class="product-actions">
-              <button class="mini-btn view-btn" data-id="necklace-20">VIEW</button>
-              <button class="mini-btn cart-btn" data-id="necklace-20">ADD</button>
+              <button class="mini-btn view-btn" data-id="necklace-20"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>VIEW</button>
+              <button class="mini-btn cart-btn" data-id="necklace-20"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L22 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>ADD</button>
             </div>
           </div>
         </article>
@@ -1599,6 +1667,17 @@
 
     <!-- CRAFTSMANSHIP -->
     <section class="cta">
+
+      <svg class="craft-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 7 52 18v28L32 57 12 46V18L32 7Z"/>
+        <path d="M32 7v50M12 18l20 11 20-11M12 46l20-11 20 11"/>
+        <circle cx="32" cy="29" r="4"/>
+      </svg>
+
+      <svg class="cta-ornament" viewBox="0 0 76 30" aria-hidden="true">
+        <path d="M2 15h20M54 15h20M25 15c7-14 19-14 26 0-7 14-19 14-26 0Z"/>
+        <circle cx="38" cy="15" r="2.5"/>
+      </svg>
 
       <div class="eyebrow" style="color:var(--gold-dark);">
         THE JEWELICA CRAFTSMANSHIP
@@ -1612,7 +1691,9 @@
         THE JEWELICA.
       </p>
 
-      <a href="gold.html" class="btn">EXPLORE GOLD JEWELLERY</a>
+      <a href="gold.html" class="btn">EXPLORE GOLD JEWELLERY
+        <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+      </a>
 
     </section>
 
@@ -1666,11 +1747,11 @@
 
         <p>
           THE JEWELICA<br>
-          Lahore, Pakistan
+          Shah Alam Market, Lahore
         </p>
 
         <p style="margin-top:12px;">
-          +92 XXX XXXXXXX<br>
+          <a href="https://wa.me/923256561246" target="_blank" rel="noopener">+92 325 6561246</a><br>
           hello@thejewelica.com
         </p>
 
@@ -1698,7 +1779,7 @@
   <div class="search-overlay" id="searchOverlay">
 
     <button class="search-close" id="searchClose" aria-label="Close search">
-      ×
+      <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
     </button>
 
     <div class="search-box">
@@ -1718,7 +1799,7 @@
 
     <div class="cart-head">
       <h2>Your Cart</h2>
-      <button class="cart-close" id="cartClose" aria-label="Close cart">×</button>
+      <button class="cart-close" id="cartClose" aria-label="Close cart"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
     </div>
 
     <div id="cartItems"></div>
@@ -1728,7 +1809,7 @@
 
   <div class="toast" id="toast">Added to your collection</div>
 
-  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+  <button class="back-top" id="backTop" aria-label="Back to top"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
 
 
   <script>
@@ -1794,6 +1875,11 @@
 
     mobileToggle.addEventListener("click", () => {
       navLinks.classList.toggle("open");
+      const isOpen = navLinks.classList.contains("open");
+      mobileToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+      mobileToggle.innerHTML = isOpen
+        ? '<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>'
+        : '<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
     });
 
     /* WISHLIST */
@@ -1803,7 +1889,7 @@
 
       if (wishlist.includes(id)) {
         button.classList.add("active");
-        button.textContent = "♥";
+        button.innerHTML = '<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg>';
       }
 
       button.addEventListener("click", () => {
@@ -1811,7 +1897,7 @@
         if (wishlist.includes(id)) {
           wishlist = wishlist.filter(item => item !== id);
           button.classList.remove("active");
-          button.textContent = "♡";
+          button.innerHTML = '<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5.3-8.8 10.2-8.8 10.2S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg>';
           showToast("Removed from wishlist");
         } else {
           wishlist.push(id);
