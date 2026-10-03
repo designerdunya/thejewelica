@@ -837,7 +837,14 @@
 
     @media (max-width: 900px) {
 
-      /* ---- NAV: full-screen takeover panel instead of a dropdown ---- */
+      /* ---- HEADER: backdrop-filter removed so the fixed menu isn't trapped inside the header ---- */
+      .site-header {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: var(--white);
+      }
+
+      /* ---- NAV: slide-in side panel from the right ---- */
       .nav-wrap {
         min-height: 68px;
         padding: 0 18px;
@@ -850,30 +857,38 @@
       }
 
       .menu-toggle {
-        display: block;
+        display: inline-flex;
       }
 
       .main-nav {
-        display: none;
+        display: flex;
         position: fixed;
         top: 68px;
-        left: 0;
         right: 0;
-        bottom: 0;
+        left: auto;
+        bottom: auto;
+        width: 80%;
+        max-width: 320px;
+        height: calc(100vh - 68px);
+        height: calc(100dvh - 68px);
         margin: 0;
         padding: 8px 26px 30px;
         background: var(--charcoal);
         border-bottom: 0;
-        box-shadow: none;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
         overflow-y: auto;
         z-index: 999;
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform .35s ease, visibility .35s ease;
       }
 
       .main-nav.open {
-        display: flex;
+        transform: translateX(0);
+        visibility: visible;
+        box-shadow: -20px 0 50px rgba(0, 0, 0, .35);
       }
 
       .main-nav a {

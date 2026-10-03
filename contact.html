@@ -31,15 +31,8 @@
       --sans: Arial, Helvetica, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--ivory);
@@ -49,32 +42,13 @@
       overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
+    /* HEADER */
 
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    .top-line {
-      height: 4px;
-      background: var(--gold);
-    }
+    .top-line { height: 4px; background: var(--gold); }
 
     header {
       position: sticky;
@@ -96,9 +70,7 @@
       gap: 30px;
     }
 
-    .brand {
-      flex-shrink: 0;
-    }
+    .brand { flex-shrink: 0; }
 
     .brand-main {
       font-family: var(--serif);
@@ -125,9 +97,7 @@
       flex: 1;
     }
 
-    .nav-links > li {
-      position: relative;
-    }
+    .nav-links > li { position: relative; }
 
     .nav-links > li > a {
       display: flex;
@@ -142,14 +112,9 @@
     }
 
     .nav-links > li > a:hover,
-    .nav-links > li > a.active {
-      color: var(--gold-dark);
-    }
+    .nav-links > li > a.active { color: var(--gold-dark); }
 
-    .arrow {
-      font-size: 8px;
-      transition: transform .25s ease;
-    }
+    .arrow { font-size: 8px; transition: transform .25s ease; }
 
     .dropdown {
       position: absolute;
@@ -183,20 +148,11 @@
       border-bottom: 1px solid rgba(43,33,27,.07);
     }
 
-    .dropdown a:last-child {
-      border-bottom: 0;
-    }
+    .dropdown a:last-child { border-bottom: 0; }
 
-    .dropdown a:hover {
-      background: var(--cream);
-      color: var(--gold-dark);
-    }
+    .dropdown a:hover { background: var(--cream); color: var(--gold-dark); }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
 
     .nav-action {
       width: 40px;
@@ -210,15 +166,9 @@
       transition: .25s ease;
     }
 
-    .nav-action:hover {
-      background: var(--espresso);
-      color: var(--ivory);
-    }
+    .nav-action:hover { background: var(--espresso); color: var(--ivory); }
 
-
-    /* =========================
-       PROFESSIONAL INLINE SVG ICONS
-    ========================= */
+    /* ICONS */
 
     .svg-icon {
       width: 18px;
@@ -232,20 +182,9 @@
       stroke-linejoin: round;
     }
 
-    .nav-action .svg-icon {
-      width: 17px;
-      height: 17px;
-    }
-
-    .menu-btn .svg-icon {
-      width: 19px;
-      height: 19px;
-    }
-
-    .close-search .svg-icon {
-      width: 20px;
-      height: 20px;
-    }
+    .nav-action .svg-icon { width: 17px; height: 17px; }
+    .menu-btn .svg-icon { width: 19px; height: 19px; }
+    .close-search .svg-icon { width: 20px; height: 20px; }
 
     .arrow .svg-icon {
       width: 11px;
@@ -255,9 +194,7 @@
     }
 
     .nav-links li:hover .arrow .svg-icon,
-    .nav-links li.open .arrow .svg-icon {
-      transform: rotate(180deg);
-    }
+    .nav-links li.open .arrow .svg-icon { transform: rotate(180deg); }
 
     .detail-label,
     .visit-item strong {
@@ -273,25 +210,12 @@
       stroke-width: 1.5;
     }
 
-    .btn .svg-icon {
-      width: 15px;
-      height: 15px;
-      stroke-width: 1.7;
-    }
+    .btn .svg-icon { width: 15px; height: 15px; stroke-width: 1.7; }
+    .back-top .svg-icon { width: 18px; height: 18px; stroke-width: 1.7; }
 
-    .back-top .svg-icon {
-      width: 18px;
-      height: 18px;
-      stroke-width: 1.7;
-    }
+    .menu-btn { display: none; }
 
-    .menu-btn {
-      display: none;
-    }
-
-    /* =========================
-       SEARCH
-    ========================= */
+    /* SEARCH */
 
     .search-overlay {
       position: fixed;
@@ -308,10 +232,7 @@
       transition: .3s ease;
     }
 
-    .search-overlay.show {
-      opacity: 1;
-      visibility: visible;
-    }
+    .search-overlay.show { opacity: 1; visibility: visible; }
 
     .search-box {
       width: min(760px, 100%);
@@ -327,11 +248,7 @@
       margin-bottom: 25px;
     }
 
-    .search-top h2 {
-      font-family: var(--serif);
-      font-size: 28px;
-      font-weight: 400;
-    }
+    .search-top h2 { font-family: var(--serif); font-size: 28px; font-weight: 400; }
 
     .close-search {
       border: 0;
@@ -340,10 +257,7 @@
       font-size: 24px;
     }
 
-    .search-input-wrap {
-      display: flex;
-      border-bottom: 1px solid var(--espresso);
-    }
+    .search-input-wrap { display: flex; border-bottom: 1px solid var(--espresso); }
 
     .search-input-wrap input {
       width: 100%;
@@ -354,11 +268,7 @@
       font-size: 15px;
     }
 
-    .search-results {
-      margin-top: 20px;
-      max-height: 350px;
-      overflow-y: auto;
-    }
+    .search-results { margin-top: 20px; max-height: 350px; overflow-y: auto; }
 
     .search-result {
       padding: 14px 4px;
@@ -368,15 +278,9 @@
       gap: 20px;
     }
 
-    .search-result span {
-      font-size: 10px;
-      letter-spacing: 1px;
-      color: var(--muted);
-    }
+    .search-result span { font-size: 10px; letter-spacing: 1px; color: var(--muted); }
 
-    /* =========================
-       HERO
-    ========================= */
+    /* HERO */
 
     .page-hero {
       min-height: 480px;
@@ -430,26 +334,13 @@
       line-height: 1.9;
     }
 
-    /* =========================
-       GENERAL
-    ========================= */
+    /* GENERAL */
 
-    .section {
-      max-width: 1240px;
-      margin: auto;
-      padding: 105px 30px;
-    }
+    .section { max-width: 1240px; margin: auto; padding: 105px 30px; }
 
-    .section-heading {
-      max-width: 700px;
-      margin-bottom: 55px;
-    }
+    .section-heading { max-width: 700px; margin-bottom: 55px; }
 
-    .section-heading.center {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
+    .section-heading.center { margin-left: auto; margin-right: auto; text-align: center; }
 
     .section-heading h2 {
       font-family: var(--serif);
@@ -459,27 +350,13 @@
       margin-bottom: 18px;
     }
 
-    .section-heading p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.9;
-    }
+    .section-heading p { color: var(--muted); font-size: 14px; line-height: 1.9; }
 
-    .gold-line {
-      width: 58px;
-      height: 1px;
-      background: var(--gold);
-      margin: 20px 0;
-    }
+    .gold-line { width: 58px; height: 1px; background: var(--gold); margin: 20px 0; }
 
-    .center .gold-line {
-      margin-left: auto;
-      margin-right: auto;
-    }
+    .center .gold-line { margin-left: auto; margin-right: auto; }
 
-    /* =========================
-       CONTACT INTRO
-    ========================= */
+    /* CONTACT INTRO */
 
     .contact-grid {
       display: grid;
@@ -488,9 +365,7 @@
       align-items: start;
     }
 
-    .contact-copy {
-      padding-right: 30px;
-    }
+    .contact-copy { padding-right: 30px; }
 
     .contact-copy h2 {
       font-family: var(--serif);
@@ -507,19 +382,11 @@
       margin-bottom: 35px;
     }
 
-    .contact-details {
-      display: grid;
-      gap: 20px;
-    }
+    .contact-details { display: grid; gap: 20px; }
 
-    .detail-item {
-      padding: 20px 0;
-      border-top: 1px solid var(--line);
-    }
+    .detail-item { padding: 20px 0; border-top: 1px solid var(--line); }
 
-    .detail-item:last-child {
-      border-bottom: 1px solid var(--line);
-    }
+    .detail-item:last-child { border-bottom: 1px solid var(--line); }
 
     .detail-label {
       font-size: 9px;
@@ -529,20 +396,11 @@
       margin-bottom: 5px;
     }
 
-    .detail-value {
-      font-family: var(--serif);
-      font-size: 20px;
-    }
+    .detail-value { font-family: var(--serif); font-size: 20px; }
 
-    .detail-note {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 3px;
-    }
+    .detail-note { font-size: 12px; color: var(--muted); margin-top: 3px; }
 
-    /* =========================
-       FORM
-    ========================= */
+    /* FORM */
 
     .form-card {
       background: var(--white);
@@ -551,34 +409,15 @@
       box-shadow: var(--shadow);
     }
 
-    .form-card h3 {
-      font-family: var(--serif);
-      font-size: 35px;
-      font-weight: 400;
-      margin-bottom: 8px;
-    }
+    .form-card h3 { font-family: var(--serif); font-size: 35px; font-weight: 400; margin-bottom: 8px; }
 
-    .form-card > p {
-      color: var(--muted);
-      font-size: 12px;
-      margin-bottom: 30px;
-    }
+    .form-card > p { color: var(--muted); font-size: 12px; margin-bottom: 30px; }
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
 
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    .field { display: flex; flex-direction: column; gap: 8px; }
 
-    .field.full {
-      grid-column: 1 / -1;
-    }
+    .field.full { grid-column: 1 / -1; }
 
     .field label {
       font-size: 9px;
@@ -598,9 +437,7 @@
       resize: vertical;
     }
 
-    .field textarea {
-      min-height: 145px;
-    }
+    .field textarea { min-height: 145px; }
 
     .field input:focus,
     .field textarea:focus {
@@ -609,26 +446,13 @@
     }
 
     .field.error input,
-    .field.error textarea {
-      border-color: #9a4b42;
-    }
+    .field.error textarea { border-color: #9a4b42; }
 
-    .error-text {
-      display: none;
-      font-size: 10px;
-      color: #9a4b42;
-    }
+    .error-text { display: none; font-size: 10px; color: #9a4b42; }
 
-    .field.error .error-text {
-      display: block;
-    }
+    .field.error .error-text { display: block; }
 
-    .submit-row {
-      margin-top: 25px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+    .submit-row { margin-top: 25px; display: flex; align-items: center; gap: 20px; }
 
     .btn {
       display: inline-flex;
@@ -647,35 +471,17 @@
       transition: .3s ease;
     }
 
-    .btn:hover {
-      background: var(--gold-dark);
-      border-color: var(--gold-dark);
-    }
+    .btn:hover { background: var(--gold-dark); border-color: var(--gold-dark); }
 
-    .form-status {
-      font-size: 11px;
-      color: var(--gold-dark);
-      display: none;
-    }
+    .form-status { font-size: 11px; color: var(--gold-dark); display: none; }
 
-    .form-status.show {
-      display: block;
-    }
+    .form-status.show { display: block; }
 
-    /* =========================
-       VISIT US
-    ========================= */
+    /* VISIT US */
 
-    .visit-section {
-      background: var(--espresso);
-      color: var(--ivory);
-    }
+    .visit-section { background: var(--espresso); color: var(--ivory); }
 
-    .visit-inner {
-      max-width: 1240px;
-      margin: auto;
-      padding: 100px 30px;
-    }
+    .visit-inner { max-width: 1240px; margin: auto; padding: 100px 30px; }
 
     .visit-grid {
       display: grid;
@@ -684,11 +490,7 @@
       align-items: stretch;
     }
 
-    .visit-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    .visit-copy { display: flex; flex-direction: column; justify-content: center; }
 
     .visit-copy h2 {
       font-family: var(--serif);
@@ -705,16 +507,9 @@
       margin-bottom: 35px;
     }
 
-    .visit-info {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
+    .visit-info { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 
-    .visit-item {
-      border-top: 1px solid rgba(247,243,235,.18);
-      padding-top: 18px;
-    }
+    .visit-item { border-top: 1px solid rgba(247,243,235,.18); padding-top: 18px; }
 
     .visit-item strong {
       display: block;
@@ -724,10 +519,7 @@
       margin-bottom: 7px;
     }
 
-    .visit-item span {
-      color: rgba(247,243,235,.82);
-      font-size: 13px;
-    }
+    .visit-item span { color: rgba(247,243,235,.82); font-size: 13px; }
 
     .map-wrap {
       min-height: 460px;
@@ -744,20 +536,11 @@
       filter: grayscale(1) sepia(.15);
     }
 
-    /* =========================
-       APPOINTMENT
-    ========================= */
+    /* APPOINTMENT */
 
-    .appointment {
-      background: var(--cream);
-    }
+    .appointment { background: var(--cream); }
 
-    .appointment-box {
-      max-width: 920px;
-      margin: auto;
-      text-align: center;
-      padding: 20px;
-    }
+    .appointment-box { max-width: 920px; margin: auto; text-align: center; padding: 20px; }
 
     .appointment-box h2 {
       font-family: var(--serif);
@@ -774,14 +557,9 @@
       line-height: 1.9;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
-    footer {
-      background: #141210;
-      color: var(--ivory);
-    }
+    footer { background: #141210; color: var(--ivory); }
 
     .footer-main {
       max-width: 1440px;
@@ -792,9 +570,7 @@
       gap: 55px;
     }
 
-    .footer-brand .brand-main {
-      color: var(--ivory);
-    }
+    .footer-brand .brand-main { color: var(--ivory); }
 
     .footer-brand p {
       margin-top: 25px;
@@ -812,32 +588,15 @@
       margin-bottom: 20px;
     }
 
-    .footer-links {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
+    .footer-links { list-style: none; display: grid; gap: 10px; }
 
-    .footer-links a {
-      color: rgba(247,243,235,.65);
-      font-size: 11px;
-      transition: .2s ease;
-    }
+    .footer-links a { color: rgba(247,243,235,.65); font-size: 11px; transition: .2s ease; }
 
-    .footer-links a:hover {
-      color: var(--champagne);
-    }
+    .footer-links a:hover { color: var(--champagne); }
 
-    .footer-visit {
-      display: grid;
-      gap: 13px;
-    }
+    .footer-visit { display: grid; gap: 13px; }
 
-    .footer-visit div {
-      color: rgba(247,243,235,.65);
-      font-size: 11px;
-      line-height: 1.7;
-    }
+    .footer-visit div { color: rgba(247,243,235,.65); font-size: 11px; line-height: 1.7; }
 
     .footer-map {
       height: 210px;
@@ -846,12 +605,7 @@
       margin-top: 5px;
     }
 
-    .footer-map iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      filter: grayscale(1) sepia(.15);
-    }
+    .footer-map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) sepia(.15); }
 
     .footer-bottom {
       max-width: 1440px;
@@ -866,9 +620,7 @@
       letter-spacing: 1px;
     }
 
-    /* =========================
-       BACK TO TOP
-    ========================= */
+    /* BACK TO TOP */
 
     .back-top {
       position: fixed;
@@ -887,57 +639,27 @@
       z-index: 800;
     }
 
-    .back-top.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
+    .back-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
 
-    /* =========================
-       REVEAL
-    ========================= */
+    /* REVEAL */
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity .7s ease, transform .7s ease; }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* =========================
-       RESPONSIVE
-    ========================= */
+    /* RESPONSIVE */
 
     @media (max-width: 1180px) {
-      .navbar {
-        padding: 0 25px;
-      }
-
-      .nav-links {
-        gap: 15px;
-      }
-
-      .nav-links > li > a {
-        font-size: 9px;
-      }
-
-      .footer-main {
-        grid-template-columns: 1fr 1fr;
-      }
+      .navbar { padding: 0 25px; }
+      .nav-links { gap: 15px; }
+      .nav-links > li > a { font-size: 9px; }
+      .footer-main { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 980px) {
-      .navbar {
-        min-height: 72px;
-      }
+      .navbar { min-height: 72px; }
 
-      .menu-btn {
-        display: grid;
-      }
+      .menu-btn { display: grid; }
 
       .nav-links {
         position: absolute;
@@ -954,9 +676,7 @@
         gap: 0;
       }
 
-      .nav-links.show {
-        display: flex;
-      }
+      .nav-links.show { display: flex; }
 
       .nav-links > li > a {
         padding: 15px 4px;
@@ -978,65 +698,42 @@
         padding: 7px 12px;
       }
 
-      .nav-links li.open .dropdown {
-        display: block;
-      }
+      .nav-links li.open .dropdown { display: block; }
 
       .contact-grid,
-      .visit-grid {
-        grid-template-columns: 1fr;
-      }
+      .visit-grid { grid-template-columns: 1fr; }
 
-      .contact-copy {
-        padding-right: 0;
-      }
+      .contact-copy { padding-right: 0; }
 
-      .map-wrap {
-        min-height: 400px;
-      }
+      .map-wrap { min-height: 400px; }
 
-      .map-wrap iframe {
-        min-height: 400px;
-      }
+      .map-wrap iframe { min-height: 400px; }
     }
 
-    /* =========================
-       MOBILE — a purpose-built layout for small screens
-       (same content/images, restructured presentation)
-    ========================== */
+    /* MOBILE */
 
     @media (max-width: 900px) {
 
-      /* ---- NAV: full-screen dark takeover, matching site-wide pattern ---- */
-      .navbar {
-        min-height: 66px;
-        padding: 0 18px;
-        gap: 12px;
-      }
+      .navbar { min-height: 66px; padding: 0 18px; gap: 12px; }
 
-      .brand-main {
-        font-size: 17px;
-        letter-spacing: 2px;
-      }
+      .brand-main { font-size: 17px; letter-spacing: 2px; }
 
-      .brand-sub {
-        font-size: 6px;
-        letter-spacing: 2px;
-      }
+      .brand-sub { font-size: 6px; letter-spacing: 2px; }
 
-      .nav-action {
-        width: 36px;
-        height: 36px;
-      }
+      .nav-action { width: 36px; height: 36px; }
 
+      /* FIXED: menu now gets a real height (before, top:66px + bottom:0 made it ~0px tall) */
       .nav-links {
         top: 66px;
-        bottom: 0;
+        bottom: auto;
+        height: calc(100vh - 66px);
+        height: calc(100dvh - 66px);
         background: var(--charcoal);
         border-bottom: 0;
         box-shadow: none;
         padding: 8px 24px 30px;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
 
       .nav-links > li > a {
@@ -1045,166 +742,84 @@
       }
 
       .nav-links > li > a:hover,
-      .nav-links > li > a.active {
-        color: var(--champagne);
-      }
+      .nav-links > li > a.active { color: var(--champagne); }
 
       .dropdown {
         background: rgba(255, 255, 255, .04);
         border-bottom: 1px solid rgba(255, 255, 255, .09);
       }
 
-      .dropdown a {
-        color: #d8cfc2;
-        border-bottom: 1px solid rgba(255, 255, 255, .06);
-      }
+      .dropdown a { color: #d8cfc2; border-bottom: 1px solid rgba(255, 255, 255, .06); }
 
-      .dropdown a:hover {
-        background: rgba(255, 255, 255, .06);
-        color: var(--champagne);
-      }
+      .dropdown a:hover { background: rgba(255, 255, 255, .06); color: var(--champagne); }
 
-      /* ---- HERO ---- */
-      .page-hero {
-        min-height: 400px;
-      }
+      .page-hero { min-height: 400px; }
 
-      .hero-content {
-        padding: 40px 22px;
-      }
+      .hero-content { padding: 40px 22px; }
 
-      .hero-content h1 {
-        font-size: clamp(38px, 12vw, 56px);
-      }
+      .hero-content h1 { font-size: clamp(38px, 12vw, 56px); }
 
-      .hero-content p {
-        font-size: 13px;
-      }
+      .hero-content p { font-size: 13px; }
 
-      .section {
-        padding: 70px 20px;
-      }
+      .section { padding: 70px 20px; }
 
-      /* ---- CONTACT DETAILS: compact 2-up tiles instead of a bordered vertical list ---- */
-      .contact-details {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
+      .contact-details { grid-template-columns: 1fr 1fr; gap: 12px; }
 
-      .detail-item {
-        border: 1px solid var(--line);
-        background: var(--white);
-        padding: 16px 14px;
-      }
+      .detail-item { border: 1px solid var(--line); background: var(--white); padding: 16px 14px; }
 
-      .detail-item:last-child {
-        border-bottom: 1px solid var(--line);
-      }
+      .detail-item:last-child { border-bottom: 1px solid var(--line); }
 
-      .detail-value {
-        font-size: 15px;
-        line-height: 1.3;
-        overflow-wrap: break-word;
-      }
+      .detail-value { font-size: 15px; line-height: 1.3; overflow-wrap: break-word; }
 
-      .form-card {
-        padding: 30px 22px;
-      }
+      .form-card { padding: 30px 22px; }
 
-      /* ---- VISIT: keep the 2-up tile layout rather than collapsing to one column ---- */
-      .visit-info {
-        grid-template-columns: 1fr 1fr;
-        gap: 18px;
-      }
+      .visit-info { grid-template-columns: 1fr 1fr; gap: 18px; }
 
-      .visit-item span {
-        overflow-wrap: break-word;
-      }
+      .visit-item span { overflow-wrap: break-word; }
 
       .map-wrap,
-      .map-wrap iframe {
-        min-height: 280px;
-      }
+      .map-wrap iframe { min-height: 280px; }
 
-      .footer-main {
-        gap: 36px;
-      }
+      .footer-main { gap: 36px; }
     }
 
     @media (max-width: 700px) {
-      .navbar {
-        padding: 0 16px;
-      }
+      .navbar { padding: 0 16px; }
 
-      .page-hero {
-        min-height: 360px;
-      }
+      .page-hero { min-height: 360px; }
 
-      .page-hero::after {
-        inset: 12px;
-      }
+      .page-hero::after { inset: 12px; }
 
-      .section {
-        padding: 60px 18px;
-      }
+      .section { padding: 60px 18px; }
 
-      .contact-details {
-        gap: 10px;
-      }
+      .contact-details { gap: 10px; }
 
-      .detail-item {
-        padding: 14px 12px;
-      }
+      .detail-item { padding: 14px 12px; }
 
-      .detail-value {
-        font-size: 14px;
-      }
+      .detail-value { font-size: 14px; }
 
-      .detail-note {
-        font-size: 11px;
-      }
+      .detail-note { font-size: 11px; }
 
-      .form-card {
-        padding: 26px 18px;
-      }
+      .form-card { padding: 26px 18px; }
 
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
+      .form-grid { grid-template-columns: 1fr; }
 
-      .field.full {
-        grid-column: auto;
-      }
+      .field.full { grid-column: auto; }
 
-      .submit-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
+      .submit-row { flex-direction: column; align-items: stretch; }
 
-      .btn {
-        width: 100%;
-      }
+      .btn { width: 100%; }
 
-      .visit-inner {
-        padding: 60px 18px;
-      }
+      .visit-inner { padding: 60px 18px; }
 
-      .visit-info {
-        gap: 14px;
-      }
+      .visit-info { gap: 14px; }
 
-      .visit-item strong {
-        font-size: 8px;
-      }
+      .visit-item strong { font-size: 8px; }
 
-      .visit-item span {
-        font-size: 12px;
-      }
+      .visit-item span { font-size: 12px; }
 
       .map-wrap,
-      .map-wrap iframe {
-        min-height: 250px;
-      }
+      .map-wrap iframe { min-height: 250px; }
 
       .footer-main {
         padding: 55px 20px 36px;
@@ -1212,16 +827,11 @@
         gap: 34px;
       }
 
-      .footer-bottom {
-        padding: 20px 20px;
-        flex-direction: column;
-      }
+      .footer-bottom { padding: 20px 20px; flex-direction: column; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
+      html { scroll-behavior: auto; }
 
       *,
       *::before,
@@ -1238,9 +848,7 @@
 
   <div class="top-line"></div>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- HEADER -->
 
   <header>
     <nav class="navbar" aria-label="Main Navigation">
@@ -1252,13 +860,9 @@
 
       <ul class="nav-links" id="navLinks">
 
-        <li>
-          <a href="index.html">HOME</a>
-        </li>
+        <li><a href="index.html">HOME</a></li>
 
-        <li>
-          <a href="shop.html">SHOP</a>
-        </li>
+        <li><a href="shop.html">SHOP</a></li>
 
         <li class="has-dropdown">
           <a href="gold.html" class="dropdown-toggle">
@@ -1291,28 +895,17 @@
           </div>
         </li>
 
-        <li>
-          <a href="collections.html">COLLECTIONS</a>
-        </li>
+        <li><a href="collections.html">COLLECTIONS</a></li>
 
-        <li>
-          <a href="stones.html">CHOOSE YOUR STONE</a>
-        </li>
-        <li>
-          <a href="trending.html">Trending Uniques</a>
-        </li>
+        <li><a href="stones.html">CHOOSE YOUR STONE</a></li>
 
-        <li>
-          <a href="services.html">SERVICES</a>
-        </li>
+        <li><a href="trending.html">Trending Uniques</a></li>
 
-        <li>
-          <a href="about.html">ABOUT</a>
-        </li>
+        <li><a href="services.html">SERVICES</a></li>
 
-        <li>
-          <a href="contact.html" class="active">CONTACT</a>
-        </li>
+        <li><a href="about.html">ABOUT</a></li>
+
+        <li><a href="contact.html" class="active">CONTACT</a></li>
 
       </ul>
 
@@ -1325,9 +918,7 @@
     </nav>
   </header>
 
-  <!-- =========================
-       SEARCH OVERLAY
-  ========================== -->
+  <!-- SEARCH OVERLAY -->
 
   <div class="search-overlay" id="searchOverlay" aria-hidden="true">
     <div class="search-box">
@@ -1356,9 +947,7 @@
     </div>
   </div>
 
-  <!-- =========================
-       HERO
-  ========================== -->
+  <!-- HERO -->
 
   <main>
 
@@ -1375,9 +964,7 @@
       </div>
     </section>
 
-    <!-- =========================
-         CONTACT SECTION
-    ========================= -->
+    <!-- CONTACT SECTION -->
 
     <section class="section">
 
@@ -1404,33 +991,25 @@
             <div class="detail-item">
               <div class="detail-label"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10.2c0 5.2-8 10.3-8 10.3S4 15.4 4 10.2a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.4"></circle></svg><span>VISIT</span></div>
               <div class="detail-value">The Jewelica Lahore</div>
-              <div class="detail-note">
-                Shah Alam Market, Lahore.
-              </div>
+              <div class="detail-note">Shah Alam Market, Lahore.</div>
             </div>
 
             <div class="detail-item">
               <div class="detail-label"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.7 3.5 9.5 3l2 4.7-2 1.6a14.4 14.4 0 0 0 5.2 5.2l1.6-2 4.7 2-.5 2.8a2 2 0 0 1-2.2 1.5C11 18 6 13 4.7 5.7A2 2 0 0 1 6.7 3.5Z"></path></svg><span>CALL</span></div>
               <div class="detail-value">+92 325 6561246</div>
-              <div class="detail-note">
-                Call or WhatsApp us anytime.
-              </div>
+              <div class="detail-note">Call or WhatsApp us anytime.</div>
             </div>
 
             <div class="detail-item">
               <div class="detail-label"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"></rect><path d="m4.5 7 7.5 5.2L19.5 7"></path></svg><span>EMAIL</span></div>
               <div class="detail-value">hello@thejewelica.example</div>
-              <div class="detail-note">
-                Placeholder email address.
-              </div>
+              <div class="detail-note">Placeholder email address.</div>
             </div>
 
             <div class="detail-item">
               <div class="detail-label"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3.5 2"></path></svg><span>OPENING HOURS</span></div>
               <div class="detail-value">11:00 AM — 8:00 PM</div>
-              <div class="detail-note">
-                Monday — Saturday · Sunday by appointment.
-              </div>
+              <div class="detail-note">Monday — Saturday · Sunday by appointment.</div>
             </div>
 
           </div>
@@ -1454,70 +1033,37 @@
 
               <div class="field">
                 <label for="firstName">First Name</label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  placeholder="Your first name"
-                  autocomplete="given-name"
-                >
+                <input type="text" id="firstName" name="firstName" placeholder="Your first name" autocomplete="given-name">
                 <span class="error-text">Please enter your first name.</span>
               </div>
 
               <div class="field">
                 <label for="lastName">Last Name</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  placeholder="Your last name"
-                  autocomplete="family-name"
-                >
+                <input type="text" id="lastName" name="lastName" placeholder="Your last name" autocomplete="family-name">
                 <span class="error-text">Please enter your last name.</span>
               </div>
 
               <div class="field">
                 <label for="phone">Phone</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder="+92"
-                  autocomplete="tel"
-                >
+                <input type="tel" id="phone" name="phone" placeholder="+92" autocomplete="tel">
                 <span class="error-text">Please enter your phone number.</span>
               </div>
 
               <div class="field">
                 <label for="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="you@example.com"
-                  autocomplete="email"
-                >
+                <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
                 <span class="error-text">Please enter a valid email address.</span>
               </div>
 
               <div class="field full">
                 <label for="subject">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  placeholder="How can we help?"
-                >
+                <input type="text" id="subject" name="subject" placeholder="How can we help?">
                 <span class="error-text">Please enter a subject.</span>
               </div>
 
               <div class="field full">
                 <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Tell us about your jewellery enquiry..."
-                ></textarea>
+                <textarea id="message" name="message" placeholder="Tell us about your jewellery enquiry..."></textarea>
                 <span class="error-text">Please enter your message.</span>
               </div>
 
@@ -1525,9 +1071,7 @@
 
             <div class="submit-row">
 
-              <button type="submit" class="btn">
-                SEND ENQUIRY
-              </button>
+              <button type="submit" class="btn">SEND ENQUIRY</button>
 
               <div class="form-status" id="formStatus" role="status">
                 Thank you. Your enquiry has been prepared successfully.
@@ -1543,9 +1087,7 @@
 
     </section>
 
-    <!-- =========================
-         VISIT US
-    ========================== -->
+    <!-- VISIT US -->
 
     <section class="visit-section">
 
@@ -1570,32 +1112,22 @@
 
               <div class="visit-item">
                 <strong>ADDRESS</strong>
-                <span>
-                  The Jewelica Lahore,
-                  Shah Alam Market, Lahore, Pakistan
-                </span>
+                <span>The Jewelica Lahore, Shah Alam Market, Lahore, Pakistan</span>
               </div>
 
               <div class="visit-item">
                 <strong>PHONE</strong>
-                <span>
-                  +92 325 6561246
-                </span>
+                <span>+92 325 6561246</span>
               </div>
 
               <div class="visit-item">
                 <strong><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"></rect><path d="m4.5 7 7.5 5.2L19.5 7"></path></svg><span>EMAIL</span></strong>
-                <span>
-                  hello@thejewelica.example
-                </span>
+                <span>hello@thejewelica.example</span>
               </div>
 
               <div class="visit-item">
                 <strong>HOURS</strong>
-                <span>
-                  Monday — Saturday<br>
-                  11:00 AM — 8:00 PM
-                </span>
+                <span>Monday — Saturday<br>11:00 AM — 8:00 PM</span>
               </div>
 
             </div>
@@ -1619,9 +1151,7 @@
 
     </section>
 
-    <!-- =========================
-         APPOINTMENT CTA
-    ========================== -->
+    <!-- APPOINTMENT CTA -->
 
     <section class="section appointment">
 
@@ -1639,9 +1169,7 @@
           Explore our services or begin with a personal enquiry.
         </p>
 
-        <a href="services.html" class="btn">
-          EXPLORE OUR SERVICES
-        </a>
+        <a href="services.html" class="btn">EXPLORE OUR SERVICES</a>
 
       </div>
 
@@ -1649,9 +1177,7 @@
 
   </main>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -1755,41 +1281,42 @@
   <button class="back-top" id="backTop" aria-label="Back to top"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6"></path></svg></button>
 
   <script>
-    /* ==========================================
-       THE JEWELICA — CONTACT PAGE JAVASCRIPT
-    ========================================== */
-
     document.addEventListener("DOMContentLoaded", function () {
 
       const navLinks = document.getElementById("navLinks");
       const menuButton = document.getElementById("menuButton");
 
-      /* -----------------------------
-         MOBILE NAVIGATION
-      ----------------------------- */
+      const ICON_MENU = `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>`;
+      const ICON_CLOSE = `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg>`;
+
+      /* MOBILE NAVIGATION */
+
+      function closeMobileMenu() {
+        navLinks.classList.remove("show");
+        document.body.style.overflow = "";
+
+        if (menuButton) {
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.innerHTML = ICON_MENU;
+        }
+      }
 
       if (menuButton) {
         menuButton.addEventListener("click", function () {
 
           const isOpen = navLinks.classList.toggle("show");
 
-          menuButton.setAttribute(
-            "aria-expanded",
-            isOpen ? "true" : "false"
-          );
+          /* page behind menu will not scroll while the menu is open */
+          document.body.style.overflow = isOpen ? "hidden" : "";
 
-          menuButton.innerHTML = isOpen ? `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg>` : `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>`;
+          menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuButton.innerHTML = isOpen ? ICON_CLOSE : ICON_MENU;
         });
       }
 
-      /* -----------------------------
-         MOBILE DROPDOWNS
-      ----------------------------- */
+      /* MOBILE DROPDOWNS */
 
-      const dropdownToggles =
-        document.querySelectorAll(".dropdown-toggle");
-
-      dropdownToggles.forEach(function (toggle) {
+      document.querySelectorAll(".dropdown-toggle").forEach(function (toggle) {
 
         toggle.addEventListener("click", function (event) {
 
@@ -1803,11 +1330,9 @@
               document
                 .querySelectorAll(".nav-links .has-dropdown")
                 .forEach(function (item) {
-
                   if (item !== parent) {
                     item.classList.remove("open");
                   }
-
                 });
 
               parent.classList.toggle("open");
@@ -1818,153 +1343,52 @@
 
       });
 
-      /* -----------------------------
-         CLOSE MOBILE MENU AFTER LINK
-      ----------------------------- */
+      /* CLOSE MOBILE MENU AFTER LINK */
 
       document
         .querySelectorAll(".nav-links a:not(.dropdown-toggle)")
         .forEach(function (link) {
 
           link.addEventListener("click", function () {
-
             if (window.innerWidth <= 980) {
-
-              navLinks.classList.remove("show");
-
-              menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-              );
-
-              menuButton.innerHTML = `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>`;
+              closeMobileMenu();
             }
-
           });
 
         });
 
-      /* -----------------------------
-         SEARCH
-      ----------------------------- */
+      /* SEARCH */
 
-      const searchButton =
-        document.getElementById("searchButton");
-
-      const searchOverlay =
-        document.getElementById("searchOverlay");
-
-      const closeSearch =
-        document.getElementById("closeSearch");
-
-      const searchInput =
-        document.getElementById("searchInput");
-
-      const searchResults =
-        document.getElementById("searchResults");
+      const searchButton = document.getElementById("searchButton");
+      const searchOverlay = document.getElementById("searchOverlay");
+      const closeSearch = document.getElementById("closeSearch");
+      const searchInput = document.getElementById("searchInput");
+      const searchResults = document.getElementById("searchResults");
 
       const searchItems = [
-        {
-          title: "All Jewellery",
-          category: "Shop",
-          url: "shop.html"
-        },
-        {
-          title: "Gold Jewellery",
-          category: "Gold",
-          url: "gold.html"
-        },
-        {
-          title: "Gold Rings",
-          category: "Gold",
-          url: "gold-rings.html"
-        },
-        {
-          title: "Gold Bracelets",
-          category: "Gold",
-          url: "gold-bracelets.html"
-        },
-        {
-          title: "Gold Bangles",
-          category: "Gold",
-          url: "gold-bangles.html"
-        },
-        {
-          title: "Gold Earrings",
-          category: "Gold",
-          url: "gold-earrings.html"
-        },
-        {
-          title: "Gold Pendants",
-          category: "Gold",
-          url: "gold-pendants.html"
-        },
-        {
-          title: "Gold Chains",
-          category: "Gold",
-          url: "gold-chains.html"
-        },
-        {
-          title: "Diamond Jewellery",
-          category: "Diamonds",
-          url: "diamond.html"
-        },
-        {
-          title: "Diamond Rings",
-          category: "Diamonds",
-          url: "diamond-rings.html"
-        },
-        {
-          title: "Diamond Men's Rings",
-          category: "Diamonds",
-          url: "diamond-ring-men.html"
-        },
-        {
-          title: "Choose Your Stone",
-          category: "Stones",
-          url: "stones.html"
-        },
-        {
-          title: "Jewellery Services",
-          category: "Services",
-          url: "services.html"
-        },
-        {
-          title: "Jewellery Care Studio",
-          category: "Care",
-          url: "care.html"
-        },
-        {
-          title: "Jewellery Guides & Stories",
-          category: "Blogs",
-          url: "blogs.html"
-        },
-        {
-          title: "Questions & FAQs",
-          category: "Customer Care",
-          url: "faq.html"
-        },
-        {
-          title: "About The Jewelica",
-          category: "The Jewelica",
-          url: "about.html"
-        },
-        {
-          title: "Contact The Jewelica",
-          category: "The Jewelica",
-          url: "contact.html"
-        }
+        { title: "All Jewellery", category: "Shop", url: "shop.html" },
+        { title: "Gold Jewellery", category: "Gold", url: "gold.html" },
+        { title: "Gold Rings", category: "Gold", url: "gold-rings.html" },
+        { title: "Gold Bracelets", category: "Gold", url: "gold-bracelets.html" },
+        { title: "Gold Bangles", category: "Gold", url: "gold-bangles.html" },
+        { title: "Gold Earrings", category: "Gold", url: "gold-earrings.html" },
+        { title: "Gold Pendants", category: "Gold", url: "gold-pendants.html" },
+        { title: "Gold Chains", category: "Gold", url: "gold-chains.html" },
+        { title: "Diamond Jewellery", category: "Diamonds", url: "diamond.html" },
+        { title: "Diamond Rings", category: "Diamonds", url: "diamond-rings.html" },
+        { title: "Diamond Men's Rings", category: "Diamonds", url: "diamond-ring-men.html" },
+        { title: "Choose Your Stone", category: "Stones", url: "stones.html" },
+        { title: "Jewellery Services", category: "Services", url: "services.html" },
+        { title: "Jewellery Care Studio", category: "Care", url: "care.html" },
+        { title: "Jewellery Guides & Stories", category: "Blogs", url: "blogs.html" },
+        { title: "Questions & FAQs", category: "Customer Care", url: "faq.html" },
+        { title: "About The Jewelica", category: "The Jewelica", url: "about.html" },
+        { title: "Contact The Jewelica", category: "The Jewelica", url: "contact.html" }
       ];
 
       function openSearch() {
-
         searchOverlay.classList.add("show");
-
-        searchOverlay.setAttribute(
-          "aria-hidden",
-          "false"
-        );
-
+        searchOverlay.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
 
         setTimeout(function () {
@@ -1973,209 +1397,127 @@
       }
 
       function closeSearchOverlay() {
-
         searchOverlay.classList.remove("show");
+        searchOverlay.setAttribute("aria-hidden", "true");
 
-        searchOverlay.setAttribute(
-          "aria-hidden",
-          "true"
-        );
-
-        document.body.style.overflow = "";
+        /* keep page locked if the mobile menu is still open */
+        document.body.style.overflow =
+          navLinks.classList.contains("show") ? "hidden" : "";
 
         searchInput.value = "";
-
         renderSearchResults("");
       }
 
       function renderSearchResults(query) {
 
-        const cleanQuery =
-          query.trim().toLowerCase();
+        const cleanQuery = query.trim().toLowerCase();
 
         if (!cleanQuery) {
-
           searchResults.innerHTML = `
             <div class="search-result">
               <strong>Try searching for jewellery, gold, diamonds or services.</strong>
             </div>
           `;
-
           return;
         }
 
         const matches = searchItems.filter(function (item) {
-
           return (
             item.title.toLowerCase().includes(cleanQuery) ||
             item.category.toLowerCase().includes(cleanQuery)
           );
-
         });
 
         if (!matches.length) {
-
           searchResults.innerHTML = `
             <div class="search-result">
               <strong>No matching result found.</strong>
               <span>Try another search.</span>
             </div>
           `;
-
           return;
         }
 
         searchResults.innerHTML = matches
           .map(function (item) {
-
             return `
               <a class="search-result" href="${item.url}">
                 <strong>${item.title}</strong>
                 <span>${item.category}</span>
               </a>
             `;
-
           })
           .join("");
       }
 
       if (searchButton) {
-        searchButton.addEventListener(
-          "click",
-          openSearch
-        );
+        searchButton.addEventListener("click", openSearch);
       }
 
       if (closeSearch) {
-        closeSearch.addEventListener(
-          "click",
-          closeSearchOverlay
-        );
+        closeSearch.addEventListener("click", closeSearchOverlay);
       }
 
       if (searchInput) {
-        searchInput.addEventListener(
-          "input",
-          function () {
-            renderSearchResults(
-              searchInput.value
-            );
-          }
-        );
+        searchInput.addEventListener("input", function () {
+          renderSearchResults(searchInput.value);
+        });
       }
 
-      searchOverlay.addEventListener(
-        "click",
-        function (event) {
+      searchOverlay.addEventListener("click", function (event) {
+        if (event.target === searchOverlay) {
+          closeSearchOverlay();
+        }
+      });
 
-          if (event.target === searchOverlay) {
+      document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+          if (searchOverlay.classList.contains("show")) {
             closeSearchOverlay();
           }
 
+          closeMobileMenu();
         }
-      );
 
-      document.addEventListener(
-        "keydown",
-        function (event) {
-
-          if (event.key === "Escape") {
-
-            if (
-              searchOverlay.classList.contains("show")
-            ) {
-              closeSearchOverlay();
-            }
-
-            navLinks.classList.remove("show");
-
-            if (menuButton) {
-              menuButton.innerHTML = `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>`;
-              menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-              );
-            }
-          }
-
-          if (
-            (event.ctrlKey || event.metaKey) &&
-            event.key.toLowerCase() === "k"
-          ) {
-            event.preventDefault();
-            openSearch();
-          }
-
+        if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+          event.preventDefault();
+          openSearch();
         }
-      );
 
-      /* -----------------------------
-         CONTACT FORM VALIDATION
-      ----------------------------- */
+      });
 
-      const form =
-        document.getElementById("contactForm");
+      /* CONTACT FORM VALIDATION */
 
-      const formStatus =
-        document.getElementById("formStatus");
+      const form = document.getElementById("contactForm");
+      const formStatus = document.getElementById("formStatus");
 
-      const firstName =
-        document.getElementById("firstName");
-
-      const lastName =
-        document.getElementById("lastName");
-
-      const phone =
-        document.getElementById("phone");
-
-      const email =
-        document.getElementById("email");
-
-      const subject =
-        document.getElementById("subject");
-
-      const message =
-        document.getElementById("message");
+      const firstName = document.getElementById("firstName");
+      const lastName = document.getElementById("lastName");
+      const phone = document.getElementById("phone");
+      const email = document.getElementById("email");
+      const subject = document.getElementById("subject");
+      const message = document.getElementById("message");
 
       function markField(field, valid) {
-
         const wrapper = field.closest(".field");
-
         if (!wrapper) return;
-
-        wrapper.classList.toggle(
-          "error",
-          !valid
-        );
+        wrapper.classList.toggle("error", !valid);
       }
 
       function validateEmail(value) {
-
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-          .test(value.trim());
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
       }
 
       function validateForm() {
 
-        let valid = true;
-
-        const firstValid =
-          firstName.value.trim().length >= 2;
-
-        const lastValid =
-          lastName.value.trim().length >= 2;
-
-        const phoneValid =
-          phone.value.trim().replace(/\D/g, "").length >= 7;
-
-        const emailValid =
-          validateEmail(email.value);
-
-        const subjectValid =
-          subject.value.trim().length >= 3;
-
-        const messageValid =
-          message.value.trim().length >= 10;
+        const firstValid = firstName.value.trim().length >= 2;
+        const lastValid = lastName.value.trim().length >= 2;
+        const phoneValid = phone.value.trim().replace(/\D/g, "").length >= 7;
+        const emailValid = validateEmail(email.value);
+        const subjectValid = subject.value.trim().length >= 3;
+        const messageValid = message.value.trim().length >= 10;
 
         markField(firstName, firstValid);
         markField(lastName, lastValid);
@@ -2184,121 +1526,85 @@
         markField(subject, subjectValid);
         markField(message, messageValid);
 
-        valid =
+        return (
           firstValid &&
           lastValid &&
           phoneValid &&
           emailValid &&
           subjectValid &&
-          messageValid;
-
-        return valid;
+          messageValid
+        );
       }
 
-      [
-        firstName,
-        lastName,
-        phone,
-        email,
-        subject,
-        message
-      ].forEach(function (field) {
+      [firstName, lastName, phone, email, subject, message].forEach(function (field) {
 
-        field.addEventListener(
-          "input",
-          function () {
+        field.addEventListener("input", function () {
+          const wrapper = field.closest(".field");
 
-            const wrapper =
-              field.closest(".field");
-
-            if (wrapper) {
-              wrapper.classList.remove("error");
-            }
-
-            formStatus.classList.remove("show");
+          if (wrapper) {
+            wrapper.classList.remove("error");
           }
-        );
+
+          formStatus.classList.remove("show");
+        });
 
       });
 
-      form.addEventListener(
-        "submit",
-        function (event) {
+      form.addEventListener("submit", function (event) {
 
-          event.preventDefault();
+        event.preventDefault();
 
-          formStatus.classList.remove("show");
+        formStatus.classList.remove("show");
 
-          if (!validateForm()) {
+        if (!validateForm()) {
 
-            const firstError =
-              document.querySelector(
-                ".field.error input, .field.error textarea"
-              );
+          const firstError = document.querySelector(
+            ".field.error input, .field.error textarea"
+          );
 
-            if (firstError) {
-              firstError.focus();
-            }
-
-            return;
+          if (firstError) {
+            firstError.focus();
           }
 
-          /*
-             Frontend-only success state.
-             No backend request is made.
-          */
-
-          formStatus.textContent =
-            "Thank you. Your enquiry has been prepared successfully.";
-
-          formStatus.classList.add("show");
-
-          form.reset();
-
-          window.setTimeout(function () {
-
-            formStatus.classList.remove(
-              "show"
-            );
-
-          }, 7000);
-
+          return;
         }
-      );
 
-      /* -----------------------------
-         SCROLL REVEAL
-      ----------------------------- */
+        /* Frontend-only success state. No backend request is made. */
 
-      const revealElements =
-        document.querySelectorAll(".reveal");
+        formStatus.textContent =
+          "Thank you. Your enquiry has been prepared successfully.";
+
+        formStatus.classList.add("show");
+
+        form.reset();
+
+        window.setTimeout(function () {
+          formStatus.classList.remove("show");
+        }, 7000);
+
+      });
+
+      /* SCROLL REVEAL */
+
+      const revealElements = document.querySelectorAll(".reveal");
 
       if ("IntersectionObserver" in window) {
 
-        const observer =
-          new IntersectionObserver(
-            function (entries) {
+        const observer = new IntersectionObserver(
+          function (entries) {
 
-              entries.forEach(function (entry) {
+            entries.forEach(function (entry) {
 
-                if (entry.isIntersecting) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
 
-                  entry.target.classList.add(
-                    "visible"
-                  );
+            });
 
-                  observer.unobserve(
-                    entry.target
-                  );
-                }
-
-              });
-
-            },
-            {
-              threshold: .12
-            }
-          );
+          },
+          { threshold: .12 }
+        );
 
         revealElements.forEach(function (element) {
           observer.observe(element);
@@ -2312,96 +1618,55 @@
 
       }
 
-      /* -----------------------------
-         BACK TO TOP
-      ----------------------------- */
+      /* BACK TO TOP */
 
-      const backTop =
-        document.getElementById("backTop");
+      const backTop = document.getElementById("backTop");
 
       function updateBackTop() {
-
         if (window.scrollY > 500) {
           backTop.classList.add("show");
         } else {
           backTop.classList.remove("show");
         }
-
       }
 
-      window.addEventListener(
-        "scroll",
-        updateBackTop,
-        { passive: true }
-      );
+      window.addEventListener("scroll", updateBackTop, { passive: true });
 
-      backTop.addEventListener(
-        "click",
-        function () {
-
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-          });
-
-        }
-      );
+      backTop.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
 
       updateBackTop();
 
-      /* -----------------------------
-         CLOSE DROPDOWNS ON OUTSIDE CLICK
-      ----------------------------- */
+      /* CLOSE DROPDOWNS ON OUTSIDE CLICK */
 
-      document.addEventListener(
-        "click",
-        function (event) {
+      document.addEventListener("click", function (event) {
 
-          if (!event.target.closest(".has-dropdown")) {
+        if (!event.target.closest(".has-dropdown")) {
 
-            document
-              .querySelectorAll(".has-dropdown")
-              .forEach(function (item) {
-
-                item.classList.remove("open");
-
-              });
-
-          }
+          document.querySelectorAll(".has-dropdown").forEach(function (item) {
+            item.classList.remove("open");
+          });
 
         }
-      );
 
-      /* -----------------------------
-         RESIZE CLEANUP
-      ----------------------------- */
+      });
 
-      window.addEventListener(
-        "resize",
-        function () {
+      /* RESIZE CLEANUP */
 
-          if (window.innerWidth > 980) {
+      window.addEventListener("resize", function () {
 
-            navLinks.classList.remove("show");
+        if (window.innerWidth > 980) {
 
-            if (menuButton) {
-              menuButton.innerHTML = `<svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>`;
-              menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-              );
-            }
+          closeMobileMenu();
 
-            document
-              .querySelectorAll(".has-dropdown")
-              .forEach(function (item) {
-                item.classList.remove("open");
-              });
-
-          }
+          document.querySelectorAll(".has-dropdown").forEach(function (item) {
+            item.classList.remove("open");
+          });
 
         }
-      );
+
+      });
 
     });
   </script>

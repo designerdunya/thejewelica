@@ -780,15 +780,18 @@
 
     @media(max-width:900px) {
 
-      /* ---- NAV: full-screen takeover panel instead of a dropdown ---- */
+      /* ---- HEADER: backdrop-filter removed so the fixed menu isn't trapped inside the header ---- */
+      header {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: var(--ivory);
+      }
+
+      /* ---- NAV: slide-in side panel from the right ---- */
       .nav {
         min-height: 68px;
         padding: 0 18px;
         gap: 12px;
-      }
-
-      .navlinks {
-        display: none;
       }
 
       .menu-toggle {
@@ -815,29 +818,39 @@
       }
 
       .navlinks {
-        position: absolute;
-        left: 0;
+        display: flex;
+        position: fixed;
+        top: 69px;
         right: 0;
-        top: 68px;
-        bottom: 0;
-        width: 100%;
-        max-width: 100%;
+        left: auto;
+        bottom: auto;
+        width: 80%;
+        max-width: 320px;
+        height: calc(100vh - 69px);
+        height: calc(100dvh - 69px);
         background: var(--charcoal);
         border-bottom: 0;
         box-shadow: none;
-        display: none;
         flex-direction: column;
         align-items: stretch;
+        justify-content: flex-start;
         padding: 8px 26px 30px;
         gap: 0;
         overflow-y: auto;
+        z-index: 999;
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform .35s ease, visibility .35s ease;
       }
 
       .navlinks.open {
-        display: flex;
+        transform: translateX(0);
+        visibility: visible;
+        box-shadow: -20px 0 50px rgba(0, 0, 0, .35);
       }
 
       .navlinks a {
+        flex: 0 0 auto;
         padding: 17px 2px;
         color: #eee5d9;
         border-bottom: 1px solid rgba(255, 255, 255, .09);
